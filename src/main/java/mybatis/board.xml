@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="board.model.BoardBean">
+
+	<select id="getAllData" resultType="MyBoard"
+		parameterType="hashmap">
+		select * from board
+		<if test="whatColumn=='writer'">
+			where writer like #{keyword}
+		</if>
+		<if test="whatColumn=='subject'">
+			where subject like #{keyword}
+		</if>
+		order by ref desc,re_step asc
+	</select>
+	
+	<select id="getTotalCount" resultType="int"
+		parameterType="hashmap">
+		select count(*) from board
+		<if test="whatColumn=='writer'">
+			where writer like #{keyword}
+		</if>
+		<if test="whatColumn=='subject'">
+			where subject like #{keyword}
+		</if>
+		order by ref desc,re_step asc
+	</select>
+	
+	<select id="getOneData" resultType="MyBoard">
+	select * from board where num = #{num}
+	</select>
+	
+	<update id="readCountUp">
+	update board set readcount = readcount + 1 where num = #{num}
+	</update>
+	<insert id="insertData">
+	
+	insert into board values(board_seq.nextval,#{writer},#{subject},sysdate,0,board_seq.currval,0,0,#{content})
+	</insert>
+	
+	<delete id="deleteData">
+	delete from board where num = #{num}
+	</delete>
+	
+	<update id="updateData">
+	update board set subject = #{subject},content = #{content} where num = #{num}
+	</update>
+</mapper>

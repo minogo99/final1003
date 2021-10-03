@@ -1,0 +1,197 @@
+drop table members;
+create table members(
+num number primary key,
+id varchar2(50) not null unique,
+password varchar2(50) not null,
+name varchar2(50) not null,
+regdate date default sysdate,
+phone number not null
+);
+
+drop sequence members_seq;
+create sequence members_seq
+  increment by 1
+  start with 1
+  minvalue 1
+  maxvalue 10000
+  nocache;
+  
+drop table faq;
+create table faq(
+   num number not null primary key,
+   subject varchar2(100) not null,
+   division varchar2(30) not null,
+   content varchar2(1000) not null
+);
+drop sequence faq_seq;
+create sequence faq_seq
+  increment by 1
+  start with 1
+  minvalue 1
+  maxvalue 10000
+  nocache;
+
+ drop table notice;
+create table notice( 
+   num number not null primary key,
+   subject varchar2(100) not null,
+   division varchar2(30) not null,
+   reg_date date not null,
+   content varchar2(1000) not null
+);
+drop sequence notice_seq;
+create sequence notice_seq
+  increment by 1
+  start with 1
+  minvalue 1
+  maxvalue 10000
+  nocache;
+
+drop table board;
+create table board( 
+   num number not null primary key,
+   writer varchar2(10) not null,
+   subject varchar2(20) not null,
+   reg_date date not null,
+   readcount int default 0,
+   ref number not null,
+   re_step number not null,
+   re_level number not null,
+   content varchar2(1000) not null
+);
+drop sequence board_seq;
+create sequence board_seq
+  increment by 1
+  start with 1
+  minvalue 1
+  maxvalue 10000
+  nocache;
+  
+drop table admin cascade constraints;
+create table admin(
+num number primary key,
+admin_id varchar2(20) not null,
+admin_pass varchar2(20) not null,
+admin_name varchar2(20) not null,
+reg_date date default sysdate
+);
+
+drop sequence admin_seq;
+create sequence admin_seq
+  increment by 1
+  start with 1
+  minvalue 1
+  maxvalue 10000
+  nocache;
+  
+drop table video;
+create table video(
+   num number not null primary key,
+   title varchar2(20) not null,
+   nation varchar2(25) not null,
+   category varchar2(25) not null,
+   genre varchar2(60),
+   grade varchar2(5),
+   actor varchar2(50),
+   image varchar2(50)
+   );
+   
+   drop sequence video_seq;
+create sequence video_seq
+  increment by 1
+  start with 1
+  minvalue 1
+  maxvalue 10000
+  nocache;
+
+drop table reply;
+create table reply(
+rno int primary key,
+bno int not null,
+writer varchar2(10),
+content varchar2(1000),
+reg_date date default sysdate
+);
+
+drop sequence reply_seq;
+create sequence reply_seq
+  increment by 1
+  start with 1
+  minvalue 1
+  maxvalue 10000
+  nocache;
+
+insert into board
+values(board_seq.nextval,'a1','a1','2015-1-1',0,1,0,0,'내용1');
+
+insert into board
+values(board_seq.nextval,'a2','a2','2015-1-1',0,2,0,0,'내용2');
+
+insert into board
+values(board_seq.nextval,'a21','a21','2015-1-1',0,2,4,1,'내용21');
+
+insert into board
+values(board_seq.nextval,'a22','a22','2015-1-1',0,2,1,1,'내용22');
+
+insert into board
+values(board_seq.nextval,'a221','a221','2015-1-1',0,2,3,2,'내용221');
+
+insert into board
+values(board_seq.nextval,'a222','a222','2015-1-1',0,2,2,2,'내용222');
+
+insert into board
+values(board_seq.nextval,'a3','a3','2015-1-1',0,7,0,0,'내용3');
+
+insert into board
+values(board_seq.nextval,'a31','a31','2015-1-1',0,7,6,1,'내용31');
+
+insert into board
+values(board_seq.nextval,'a311','a311','2015-1-1',0,7,7,2,'내용311');
+
+insert into board
+values(board_seq.nextval,'a32','a32','2015-1-1',0,7,2,1,'내용32');
+
+insert into board
+values(board_seq.nextval,'a321','a321','2015-1-1',0,7,5,2,'내용321');
+
+insert into board
+values(board_seq.nextval,'a322','a322','2015-1-1',0,7,3,2,'내용322');
+
+insert into board
+values(board_seq.nextval,'a3221','a3221','2015-1-1',0,7,4,3,'내용3221');
+
+insert into board
+values(board_seq.nextval,'a33','a33','2015-1-1',0,7,1,1,'내용33');
+
+ insert into faq values(fqa_seq.nextval,'구매한 쿠폰의 현금영수증을 받고싶어요','이용권/결제','웨이브 이용권 쿠폰을 구매 후 등록하신 경우 현금영수증을 발급받을 수 있습니다.<br>
+아래 정보와 함께 [1:1문의]를 통해 요청해주시면 발급을 도와드리겠습니다.<br>
+대상 이용권 : 이용권쿠폰, 장기 이용권쿠폰, 기프티콘 등<br>
+
+- 이름 :<br>
+- 웨이브 ID :<br>
+- 이메일 주소 :<br>
+- 연락 가능 번호 :<br>
+- 현금영수증 발행 식별번호 :<br>
+(또는 사업자 등록번호)<br>
+
+※ 사업자 지출 증빙의 경우 사업자 등록번호가 필요합니다.');
+
+
+  insert into notice values(notice_seq.nextval,'[점검안내] 9월 30일 MBC 정주행 채널 점검','서비스공지',sysdate,'안녕하세요. wavve(웨이브) 입니다.<br>
+라이브 채널 점검으로 인하여 아래와 같이 서비스가 일시적으로 중지됩니다.<br>
+
+1. 일시: 9월 30일 목요일 17:00 ~ 18:00 (1시간)<br>
+2. 작업내역: 시스템 점검<br>
+3. 대상채널: MBC 무한도전, MBC 나 혼자 산다, MBC 라디오스타, MBC 서프라이즈, MBC 하이킥, MBC 드라마정주행, MBC 예능정주행<br>
+4. 영향도: 작업 간 시청 불가<br>
+
+이용에 참고해 주시기 바랍니다.<br>
+감사합니다.');
+
+commit;
+기생충
+ insert into video(num,title,nation,category,genre,grade,actor,image)
+  2  values(vd_seq.nextval,'기생충','한국','영화','액션,스릴러','18','송강호,이선균,이정은');
+  
+  이미지를 안넣었네
+  
