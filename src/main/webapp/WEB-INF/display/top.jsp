@@ -61,7 +61,7 @@ overflow:auto;
 
 .dropdown:hover .dropdown-content {display: block;}
 
-.dropdown:hover .dropbtn {background-color: #3e8e41;}
+.dropdown:hover .dropbtn {background-color: black;}
 
 </style>
 <div id="top">
@@ -74,6 +74,7 @@ overflow:auto;
 <div class="dropdown">
   <button class="dropbtn">${loginInfo.name}님</button>
   <div class="dropdown-content">
+    
     <p>${loginInfo.name}</p> 
     <a href="#">회원 정보 수정</a>
     <a href="#">시청기록</a>
