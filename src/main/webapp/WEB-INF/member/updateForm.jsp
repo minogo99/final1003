@@ -48,7 +48,7 @@ $(document).ready(function(){
 	<div id="signPage">
 <div id="sign">
 	<h3 align="center">회원 가입</h3>
-	<form:form  commandName ="memberBean" name="updateform" action="update.member" method="post">
+	<form:form  commandName ="memberBean" name="updateform" action="userupdate.member" method="post">
 		<input type="hidden" name ="num" value="${bean.num }">
 		<fieldset>
 			<div class="form-group">
