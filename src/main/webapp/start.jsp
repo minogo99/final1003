@@ -5,5 +5,5 @@
 
 String viewWavve = request.getContextPath() + "/main.wa";
 response.sendRedirect(viewWavve);
-ㄴㅁㅇㅁㄴㅇ
+	 서종희 연결 확인
 %>
