@@ -20,7 +20,7 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public void check_id(String id, HttpServletResponse response) throws Exception {
 		PrintWriter out = response.getWriter();
-		out.println(memberDao.check_id(id));
+		out.println(memberDao.idCheck(id));
 		out.close();
 	}
 
@@ -30,7 +30,7 @@ public class MemberServiceImpl implements MemberService {
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
 
-		if (memberDao.check_id(member.getId()) == 1) {
+		if (memberDao.idCheck(member.getId()) == 1) {
 			out.println("<script>");
 			out.println("alert('동일한 아이디가 있습니다.');");
 			out.println("history.go(-1);");

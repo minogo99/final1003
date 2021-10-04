@@ -27,4 +27,6 @@ public interface MemberDao {
 	
 	public int deleteMember(int num);
 	
+	public  int insertData(MemberBean member);
+	
 }

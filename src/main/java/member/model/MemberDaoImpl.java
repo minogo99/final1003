@@ -85,5 +85,6 @@ public class MemberDaoImpl implements MemberDao{
 		int cnt = sqlSessionTemplate.delete(namespace+".deleteMember",num);
 		return cnt;
 	}
+	
 
 }
