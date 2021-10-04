@@ -42,7 +42,7 @@ public class updateController {
 			mav.setViewName(getPage);
 			return mav;
 		}
-		int cnt = mdao.updateData(bean);
+		int cnt = mdao.updateMember(bean);
 		mav.setViewName(gotoPage);
 		return mav;
 	}
