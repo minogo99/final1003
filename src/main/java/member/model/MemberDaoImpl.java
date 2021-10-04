@@ -46,4 +46,10 @@ public class MemberDaoImpl implements MemberDao{
 		return cnt;
 	}
 
+	public int updateData(MemberBean bean) {
+		int cnt = sqlSessionTemplate.update(namespace + ".updateData", bean);
+		System.out.println(cnt);
+		return cnt;
+	}
+
 }

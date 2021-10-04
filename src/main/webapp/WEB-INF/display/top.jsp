@@ -76,7 +76,7 @@ overflow:auto;
   <div class="dropdown-content">
     
     <p align="center">${loginInfo.name}</p>
-    <a href="#">회원 정보 수정</a>
+    <a href="update.member?id=${loginInfo.id}">회원 정보 수정</a>
     <a href="#">시청기록</a>
     <a href="#">알림함</a>
     <a href="logout.member">로그아웃</a>
