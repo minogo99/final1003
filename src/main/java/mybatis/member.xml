@@ -20,7 +20,38 @@ select * from members where name = #{name}
 <select id="getPW" resultType="MyMember">
 select * from members where name = #{name} and id = #{id}
 </select>
-
+<select id="getTotalCount" resultType="int">
+  		select count(*) from members
+  		<if test="whatColumn=='id'">
+  			where id like #{keyword}
+  		</if>
+  		<if test="whatColumn=='name'">
+  			where name like #{keyword}
+  		</if>
+  	</select>
+	
+	<select id="getMemberList" resultType="MyMember">
+		select * from members
+		<if test="whatColumn=='id'">
+			where id like #{keyword}
+		</if>
+		<if test="whatColumn=='name'">
+			where name like #{keyword}
+		</if>
+	</select>
+	
+	<select id="getMember" resultType="MyMember">
+		select * from members where num = #{num}
+	</select>
+	
+	<update id="updateData">
+		update members set 
+		id = #{id}, password = #{password}, name = #{name} where num=#{num}
+	</update>
+	
+	<delete id="deleteMember">
+		delete from members where num = #{num}
+	</delete>
 <select id="idCheck" resultType="int">select count(id) from members where id = #{id} </select>
 
 </mapper>
