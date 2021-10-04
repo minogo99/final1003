@@ -37,21 +37,21 @@ overflow:auto;
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: darkgray;
+  background-color: black;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 }
 
 .dropdown-content a {
-  color: black;
+  color: white;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
 }
 
 .dropdown-content p {
-	color:black;
+	color:white;
 	padding: 12px 16px;
   text-decoration: none;
   display: block;
@@ -75,7 +75,7 @@ overflow:auto;
   <button class="dropbtn">${loginInfo.name}님</button>
   <div class="dropdown-content">
     
-    <p>${loginInfo.name}</p> 
+    <p align="center">${loginInfo.name}</p>
     <a href="#">회원 정보 수정</a>
     <a href="#">시청기록</a>
     <a href="#">알림함</a>
