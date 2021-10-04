@@ -22,10 +22,10 @@ public class DetailMovieController {
 	CategoryDao cdao;
 	
 	@RequestMapping(value=command,method=RequestMethod.GET)
-	public ModelAndView doAction(@RequestParam("num") int vnum) {
+	public ModelAndView doAction(@RequestParam("num") int num) {
 		System.out.println("1");
 		
-		CategoryBean cb=cdao.detailMovieView(vnum);
+		CategoryBean cb=cdao.detailMovieView(num);
 		List<CategoryBean> lists=cdao.detailMovieGenre(cb.getGenre());
 		
 		ModelAndView mav=new ModelAndView();

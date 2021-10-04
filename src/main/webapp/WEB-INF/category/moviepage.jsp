@@ -101,20 +101,14 @@
       
     </style>
   </head>
-
+<%@include file="./../common/common.jsp" %>
   <body>
     <!-- Swiper -->
     <div class="swiper mySwiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="resources/images/movie1.jpg"></div>
-        <div class="swiper-slide"><img src="resources/images/movie2.jpg"></div>
-        <div class="swiper-slide"><img src="resources/images/movie3.jpg"></div>
-        <div class="swiper-slide"><img src="resources/images/movie4.jpg"></div>
-        <div class="swiper-slide"><img src="resources/images/movie5.jpg"></div>
-        <div class="swiper-slide"><img src="resources/images/movie6.jpg"></div>
-        <div class="swiper-slide"><img src="resources/images/movie7.jpg"></div>
-        <div class="swiper-slide"><img src="resources/images/movie8.jpg"></div>
-        <div class="swiper-slide"><img src="resources/images/movie9.jpg"></div>
+        <c:forEach var="vlist" items="${lists }" >
+       	 	<div class="swiper-slide"><a href="detailMovie.category?num=${vlist.num }"><img src="resources/images/poster/${vlist.image }.jpg"></a></div>
+        </c:forEach>
       </div>
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
@@ -143,38 +137,7 @@
       });
     </script>
   </body>
-  <%@include file="./../common/common.jsp" %>
-		<div class="movie_chart">
-			<div class="chart_cont1">
-				<c:forEach var="vlist" items="${lists }" >
-				
-				<div style="display: inline-block;">
-					<div class="poster" >
-						<figure>
-							<img src="resources/images/poster/${vlist.image}.jpg" class="poster_img"/>
-						</figure>
-					</div>
-					<div class="infor" >
-						<h3><span class="icon all ir_pm">
-						<c:if test="${vlist.grade eq 18 }">
-						<img src="resources/images/icon/18.svg">
-						</c:if>
-						<c:if test="${vlist.grade eq 15 }">
-						<img src="resources/images/icon/15.svg">
-						</c:if>
-						<c:if test="${vlist.grade eq 12 }">
-						<img src="resources/images/icon/12.svg">
-						</c:if>
-						<c:if test="${vlist.grade eq all }">
-						<img src="resources/images/icon/all.svg">
-						</c:if>
-						</span> <strong>${vlist.title }</strong></h3>
-						<div><a href="detailMovie.category?num=${vlist.num }">상세보기</a></div>
-					</div>
-				</div>
-				이미지 이름 : ${vlist.image }
-				</c:forEach>
-			</div>
-		</div>
+  
+		
   
 <%@include file="../display/bottom.jsp" %>

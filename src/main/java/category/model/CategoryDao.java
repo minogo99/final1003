@@ -22,15 +22,15 @@ public class CategoryDao {
 		return lists;
 	}
 	
-	public CategoryBean detailMovieView(int vnum) {
+	public CategoryBean detailMovieView(int num) {
 		
-		CategoryBean cb =sqlSessionTemplate.selectOne(namespace+".selectMovieOne",vnum);
+		CategoryBean cb =sqlSessionTemplate.selectOne(namespace+".detailMovieView",num);
 		return cb;
 	}
 	
 	public List<CategoryBean> detailMovieGenre(String genre) {
 		List<CategoryBean> lists=new ArrayList<CategoryBean>();
-		lists=sqlSessionTemplate.selectList(namespace+".selectMovieGenre", genre);
+		lists=sqlSessionTemplate.selectList(namespace+".detailMovieGenre", genre);
 		return lists;
 	}
 }
