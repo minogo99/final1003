@@ -1,10 +1,5 @@
 Manifest-Version: 1.0
-<<<<<<< HEAD
 Built-By: Minogo
 Build-Jdk: 11.0.11
-=======
-Built-By: WonSeok
-Build-Jdk: 15.0.2
->>>>>>> e157f5dd01f8b5a877f5225742a41fcefff7a595
 Created-By: Maven Integration for Eclipse
 
