@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import member.model.MemberBean;
 import member.model.MemberDao;
-import member.service.MemberServiceImpl;
+
 
 
 @Controller
@@ -27,8 +27,6 @@ public class MemberInsertController {
 	@Autowired
 	MemberDao memberDao;
 
-	@Autowired
-	private MemberServiceImpl service;
 	
 	@RequestMapping(value=command, method=RequestMethod.GET)
 	public String insertForm(ModelAndView mav) {
@@ -36,11 +34,11 @@ public class MemberInsertController {
 		return getPage;
 	}
 	
-	@RequestMapping(value = "/check_id.do", method = RequestMethod.POST)
-	public void check_id(@RequestParam("id") String id, HttpServletResponse response) throws Exception{
-		service.check_id(id, response);
-	}
-	
+	/*
+	 * @RequestMapping(value = "/check_id.do", method = RequestMethod.POST) public
+	 * void check_id(@RequestParam("id") String id, HttpServletResponse response)
+	 * throws Exception{ service.check_id(id, response); }
+	 */
 	@RequestMapping(value=command, method=RequestMethod.POST)
 	public ModelAndView insertForm(@Valid MemberBean member,BindingResult result) {
 
