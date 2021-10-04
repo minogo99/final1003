@@ -20,6 +20,42 @@ z-index: 2;
 padding-top: 150px;
 overflow:auto;
 }
+
+.dropbtn {
+  background-color: black;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: darkgray;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+
 </style>
 <div id="top">
 <div id="member">
@@ -27,7 +63,17 @@ overflow:auto;
 <a href="login.member">로그인</a>
  / <a href="sign.member">회원가입</a>
 <%}else{ %>
-<a href="logout.member">로그아웃</a>
+
+<div class="dropdown">
+  <button class="dropbtn">${loginInfo.name}님</button>
+  <div class="dropdown-content">
+    <a href="#">회원 정보 수정</a>
+    <a href="#">시청기록</a>
+    <a href="#">알림함</a>
+    <a href="logout.member">로그아웃</a>
+  </div>
+</div>
+
 <%} %>
  / <a href="pay.voucher">이용권</a></div>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
