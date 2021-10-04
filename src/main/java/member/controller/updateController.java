@@ -17,7 +17,7 @@ import member.model.MemberDaoImpl;
 @Controller
 public class updateController {
 
-	private final String command = "update.member";
+	private final String command = "userupdate.member";
 	private final String getPage = "updateForm";
 	private final String gotoPage = "redirect:/main.wa";
 	
