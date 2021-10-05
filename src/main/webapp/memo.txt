@@ -106,8 +106,8 @@ create sequence video_seq
 
 drop table reply;
 create table reply(
-rno int primary key,
-bno int not null,
+rnum int primary key,
+bnum int not null,
 writer varchar2(10),
 content varchar2(1000),
 reg_date date default sysdate
