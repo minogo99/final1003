@@ -13,14 +13,14 @@ public class MemberBean {
 	private String name;
 	
 	private String regdate;
-	private String phone;
+	private int phone;
 	
 	
 	
-	public String getPhone() {
+	public int getPhone() {
 		return phone;
 	}
-	public void setPhone(String phone) {
+	public void setPhone(int phone) {
 		this.phone = phone;
 	}
 	public String getRegdate() {

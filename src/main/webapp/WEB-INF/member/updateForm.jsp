@@ -49,27 +49,27 @@ $(document).ready(function(){
 <div id="sign">
 	<h3 align="center">회원정보 수정</h3>
 	<form:form  commandName ="memberBean" name="updateform" action="userupdate.member" method="post">
-		<input type="hidden" name ="num" value="${bean.num }">
+		<input type="hidden" name ="num" value="${bean.num}">
 		<fieldset>
 			<div class="form-group">
 				<label for="id" class="form-label mt-4">아이디</label>
-				<input type="text" class="form-control" name="id" value="${bean.id }">
+				<input type="text" class="form-control" name="id" value="${bean.id}">
 				<form:errors cssClass="err" path="id" />
 				<input type="button" value="중복체크" class="btn btn-primary" id="idcheck">
 			</div>
 			<div class="form-group">
 				<label for="password" class="form-label mt-4">비밀번호</label>
-				<input type="password" class="form-control" name="password" value="${bean.password }">
+				<input type="password" class="form-control" name="password" value="${bean.password}">
 				<form:errors cssClass="err" path="password" />
 			</div>
 			<div class="form-group">
 				<label for="password" class="form-label mt-4">이름</label>
-				<input type="text" class="form-control" name="name" value="${bean.name }">
+				<input type="text" class="form-control" name="name" value="${bean.name}">
 				<form:errors cssClass="err" path="name" />
 			</div>
 			<div class="form-group">
 			<label for="name" class="form-label mt-4">전화번호</label>
-				<input type="text" class="form-control" name="phone" value="${bean.phone }">
+				<input type="text" class="form-control" name="phone" value="${bean.phone}">
 			</div>
 			
 		</fieldset>
