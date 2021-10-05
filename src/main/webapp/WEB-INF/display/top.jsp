@@ -64,6 +64,14 @@ overflow:auto;
 .dropdown:hover .dropbtn {background-color: black;}
 
 </style>
+
+<script type="text/javascript">
+function openPop(){
+    var popup = window.open("alert.wa", "알림창", "width=700px,height=800px,scrollbars=yes");
+}
+</script>
+
+
 <div id="top">
 <div id="member">
 <%if(session.getAttribute("loginInfo") == null){ %>
@@ -77,7 +85,7 @@ overflow:auto;
     <p align="center">${loginInfo.name}</p>
     <a href="userupdate.member?num=${loginInfo.num}">회원 정보 수정</a>
     <a href="#">시청기록</a>
-    <a href="#">알림함</a>
+    <a href="#none" target="_blank" onclick="openPop()">알림함</a>
     <a href="logout.member">로그아웃</a>
   </div>
 </div>
