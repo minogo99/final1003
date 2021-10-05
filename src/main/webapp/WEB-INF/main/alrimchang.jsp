@@ -9,7 +9,7 @@
 		color: white;
 	}
 </style>
-<div>알림창</div>
+<div>시청기록</div>
 
 <table align="center">
 
@@ -17,7 +17,7 @@
 	<c:if test="${empty lists}">
 		<tr align="center">
 			<td colspan="8"><img src="resources/images/다운로드.png"> <br>
-			알림이 없습니다.</td>
+			시청기록이 없습니다.</td>
 		</tr>
 	</c:if>
 		<c:forEach var="m" items="${lists}">
