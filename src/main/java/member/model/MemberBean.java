@@ -1,5 +1,7 @@
 package member.model;
 
+import javax.validation.constraints.NotBlank;
+
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -11,10 +13,12 @@ public class MemberBean {
 	private String password;
 	@NotEmpty(message="필수 입력사항입니다.")
 	private String name;
-	
 	private String regdate;
+	@NotBlank(message="필수 입력사항입니다.")
 	private String tel1;
+	@NotBlank(message="필수 입력사항입니다.")
 	private String tel2;
+	@NotBlank(message="필수 입력사항입니다.")
 	private String tel3;
 	
 	public String getTel1() {

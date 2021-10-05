@@ -27,8 +27,8 @@ public class updateController {
 	
 	@RequestMapping(value=command, method=RequestMethod.GET)
 	public String doActionGet(@RequestParam(value="num", required=true)int num ,Model model) {
-		MemberBean loginInfo = mdao.getByNumData(num);
-		model.addAttribute("loginInfo", loginInfo);
+		MemberBean mb = mdao.getByNumData(num);
+		model.addAttribute("mb", mb);
 		return getPage;
 	}
 	
@@ -41,6 +41,7 @@ public class updateController {
 		
 		if(result.hasErrors()) {
 			System.out.println("유효성 검사 오류입니다.");
+			mav.addObject("mb", mb);
 			mav.setViewName(getPage);
 			return mav;
 		}

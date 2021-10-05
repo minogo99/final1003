@@ -53,17 +53,17 @@ $(document).ready(function(){
 <div id="sign">
 	<h3 align="center">회원정보 수정</h3>
 	<form:form  commandName ="memberBean" name="updateform" action="userupdate.member" method="post">
-		<input type="hidden" name ="num" value="${loginInfo.num}">
+		<input type="hidden" name ="num" value="${mb.num}">
 		<fieldset>
 
 			<div class="form-group">
 				<label for="password" class="form-label mt-4">비밀번호</label>
-				<input type="password" class="form-control" name="password" value="${loginInfo.password}">
+				<input type="password" class="form-control" name="password" value="${mb.password}">
 				<form:errors cssClass="err" path="password" />
 			</div>
 			<div class="form-group">
 				<label for="password" class="form-label mt-4">이름</label>
-				<input type="text" class="form-control" name="name" value="${loginInfo.name}">
+				<input type="text" class="form-control" name="name" value="${mb.name}">
 				<form:errors cssClass="err" path="name" />
 			</div>
 			
@@ -75,27 +75,28 @@ $(document).ready(function(){
 								<option value="">선택</option>
 								<c:forEach var="i" begin="0" end="<%=tel1.length - 1%>" step="1">
 								<option value="${tel1[i] }" 
-								<c:if test="${tel1[i] == loginInfo.tel1 }">
+								<c:if test="${tel1[i] == mb.tel1 }">
 								selected
 								</c:if>
 								>${tel1[i] }</option>
 								</c:forEach>
 							</select>
+							<form:errors cssClass="err" path="tel1" />
 						</div>
 						-
 						<div style="width: 160px">
 							<input type="text" class="form-control" name="tel2"
-								placeholder="전화번호 입력" value="${loginInfo.tel2 }">
+								placeholder="전화번호 입력" value="${mb.tel2 }">
+								<form:errors cssClass="err" path="tel2" />
 						</div>
 						-
 						<div style="width: 160px">
 							<input type="text" class="form-control" name="tel3"
-								placeholder="전화번호 입력" value="${loginInfo.tel3 }">
+								placeholder="전화번호 입력" value="${mb.tel3 }">
+								<form:errors cssClass="err" path="tel3" />
 						</div>
 					</div>
-				</div>
-
-			
+				</div>		
 		</fieldset>
 		<br><br>
 			<div align="center">

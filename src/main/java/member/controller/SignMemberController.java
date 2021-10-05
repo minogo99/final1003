@@ -36,6 +36,7 @@ public class SignMemberController {
 		ModelAndView mav = new ModelAndView();
 		if(result.hasErrors()) {
 			System.out.println("유효성검사에 오류가 있습니다.");
+			mav.addObject("mb", mb);
 			mav.setViewName(getPage);
 			return mav;
 		}

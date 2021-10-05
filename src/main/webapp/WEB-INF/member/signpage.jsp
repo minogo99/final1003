@@ -51,6 +51,10 @@
 			});
 </script>
 <br>
+	<%
+	String[] tel1 = {"02","064","010"};
+	request.setAttribute("tel1", tel1);
+	%>
 <div id="signPage">
 	<div id="sign">
 		<h3 align="center">회원 가입</h3>
@@ -59,7 +63,7 @@
 			<fieldset>
 				<div class="form-group">
 					<label for="id" class="form-label mt-4">아이디</label> <input
-						type="text" class="form-control" name="id" placeholder="아이디 입력">
+						type="text" class="form-control" name="id" placeholder="아이디 입력" value="${mb.id }">
 					<form:errors cssClass="err" path="id" />
 					<br> <input type="button" value="중복체크" class="btn btn-primary"
 						id="idcheck">
@@ -67,12 +71,12 @@
 				<div class="form-group">
 					<label for="password" class="form-label mt-4">비밀번호</label> <input
 						type="password" class="form-control" name="password"
-						placeholder="비밀번호 입력">
+						placeholder="비밀번호 입력" value="${mb.password }">
 					<form:errors cssClass="err" path="password" />
 				</div>
 				<div class="form-group">
 					<label for="name" class="form-label mt-4">이름</label> <input
-						type="text" class="form-control" name="name" placeholder="이름 입력">
+						type="text" class="form-control" name="name" placeholder="이름 입력" value="${mb.name }">
 					<form:errors cssClass="err" path="name" />
 				</div>
 
@@ -82,20 +86,26 @@
 						<div style="width: 120px">
 							<select class="form-select" name="tel1">
 								<option value="">선택</option>
-								<option value="02">02</option>
-								<option value="064">064</option>
-								<option value="010">010</option>
+									<c:forEach var="i" begin="0" end="<%=tel1.length - 1%>" step="1">
+								<option value="${tel1[i] }" 
+								<c:if test="${tel1[i] == mb.tel1 }">
+								selected
+								</c:if>
+								>${tel1[i] }</option>
+								</c:forEach>
 							</select>
 						</div>
 						-
 						<div style="width: 160px">
 							<input type="text" class="form-control" name="tel2"
-								placeholder="전화번호 입력">
+								placeholder="전화번호 입력" value="${mb.tel2 }">
+								<form:errors cssClass="err" path="tel2" />
 						</div>
 						-
 						<div style="width: 160px">
 							<input type="text" class="form-control" name="tel3"
-								placeholder="전화번호 입력">
+								placeholder="전화번호 입력" value="${mb.tel3 }">
+								<form:errors cssClass="err" path="tel3" />
 						</div>
 					</div>
 				</div>
