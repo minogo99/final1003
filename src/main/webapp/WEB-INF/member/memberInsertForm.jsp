@@ -23,6 +23,15 @@ function checkSubmit(form){
 		return;
 		
 	}
+	form.repassword.value = form.repassword.value.trim();
+	
+	if(form.repassword.value.length == 0){
+		alert('비밀번호 확인을 입력하세요.');
+		form.repassword.focus();
+		
+		return;
+		
+	}
 	
 	
 	if(form.repassword.value != form.password.value){
