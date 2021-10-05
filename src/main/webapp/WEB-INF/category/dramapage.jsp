@@ -53,22 +53,63 @@
         height: 100%;
         object-fit: cover;
       }
+      
+       //------- 서종희-------------------------------------------------------
+    .movie_chart{
+   		
+   }
+   
+   .chart_cont1{
+	  
+   }
+   
+   .chart_cont1 > div {
+	   
+   }
+   
+   .poster{
+   		
+	   	width:292px;
+	   	height: 592px;
+	  	border:1px solid #c4c4c4;
+   	
+
+   }
+   
+   .poster_img{
+   		position:relative;
+   		width:292px;
+		height: 592px;
+   }
+   
+   .infor {
+   		
+   		background: #fff;
+   		padding:17px; 
+   		border: 1px solid #c4c4c4; 
+   		width:292px; 
+   }
+   
+   .infor > h3{
+   		color: #333; font-size:30px; font-weight: 700;margin-bottom: 20px;
+   }
+ 
+   .infor > h3 > span{
+   		width: 29px;height: 29px;display: inline-block; margin-top: 9px; 
+   		
+   }
+      
     </style>
   </head>
-
+<%@include file="./../common/common.jsp" %>
   <body>
     <!-- Swiper -->
     <div class="swiper mySwiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="resources/images/Ms.lee.jpg"></div>
-        <div class="swiper-slide"><img src="resources/images/nobody.jpg"></div>
-        <div class="swiper-slide"><img src="resources/images/amhang.jpg"></div>
-        <div class="swiper-slide"><img src="resources/images/police.jpg"></div>
-        <div class="swiper-slide"><img src="resources/images/potato.jpg"></div>
-        <div class="swiper-slide"><img src="resources/images/good.jpg"></div>
-        <div class="swiper-slide"><img src="resources/images/hong.jpg"></div>
-        <div class="swiper-slide"><img src="resources/images/sinsa.jpg"></div>
-        <div class="swiper-slide"><img src="resources/images/amorpati.jpg"></div>
+        <c:forEach var="vlist" items="${lists }" >
+       	 	<div class="swiper-slide"><a href="detailDrama.category?num=${vlist.num }">
+       	 	<img src="resources/images/poster/drama/${vlist.image }.jpg"></a></div>
+        </c:forEach>
       </div>
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
@@ -97,4 +138,7 @@
       });
     </script>
   </body>
+  
+		
+  
 <%@include file="../display/bottom.jsp" %>

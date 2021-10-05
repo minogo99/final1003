@@ -40,4 +40,11 @@ public class CategoryDao {
 		lists=sqlSessionTemplate.selectList(namespace+".selectEnter");
 		return lists;
 	}
+	
+	public List<CategoryBean> selectDrama() {
+		List<CategoryBean> lists=new ArrayList<CategoryBean>();
+		
+		lists=sqlSessionTemplate.selectList(namespace+".selectDrama");
+		return lists;
+	}
 }

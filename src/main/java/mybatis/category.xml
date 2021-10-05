@@ -20,4 +20,8 @@
 		select * from video where category='enter'
 	</select>
 	
+	<select id="selectDrama" resultType="MyCategory">
+		select * from video where category='drama'
+	</select>
+	
 </mapper>
