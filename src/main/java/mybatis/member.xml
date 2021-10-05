@@ -54,7 +54,11 @@ select * from members where name = #{name} and id = #{id}
 	</delete>
 <select id="idCheck" resultType="int">select count(id) from members where id = #{id} </select>
 
-<update id="updateMember">
+<update id="updateMember" >
 	update members set id=#{id},password=#{password},name=#{name},phone=#{phone} where num=#{num}
 </update>
+
+<select id="getByNumData" resultType="MyMember">
+select * from members where num = #{num}
+</select>
 </mapper>

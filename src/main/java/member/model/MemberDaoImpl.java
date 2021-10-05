@@ -93,4 +93,9 @@ public class MemberDaoImpl implements MemberDao{
 		return cnt;
 	}
 
+	public MemberBean getByNumData(int num) {
+		MemberBean member = sqlSessionTemplate.selectOne(namespace+".getByNumData",num);
+		return member;
+	}
+
 }
