@@ -1,0 +1,71 @@
+---예능 -----------------------
+
+insert into video(num,title,nation,category,genre,grade,actor,image)
+ values(vd_seq.nextval,'1박2일','한국','enter','리얼버라이어티','15','강호동,이수근','1night2days');
+ 
+ insert into video(num,title,nation,category,genre,grade,actor,image)
+ values(vd_seq.nextval,'무엇이든 물어보살','한국','enter','리얼버라이어티','15','강호동,이수근','anyask');
+ 
+ insert into video(num,title,nation,category,genre,grade,actor,image)
+ values(vd_seq.nextval,'개는 훌륭하다','한국','enter','리얼버라이어티','12','강호동,이수근','gooddog');
+ 
+ insert into video(num,title,nation,category,genre,grade,actor,image)
+ values(vd_seq.nextval,'미운 우리새끼','한국','enter','리얼버라이어티','all','강호동,이수근','hatebaby');
+ 
+ insert into video(num,title,nation,category,genre,grade,actor,image)
+ values(vd_seq.nextval,'안싸우면 다행이야','한국','enter','리얼버라이어티','15','강호동,이수근','nottofight');
+ 
+ insert into video(num,title,nation,category,genre,grade,actor,image)
+ values(vd_seq.nextval,'런닝맨','한국','enter','리얼버라이어티','12','강호동,이수근','runningman');
+ 
+ insert into video(num,title,nation,category,genre,grade,actor,image)
+ values(vd_seq.nextval,'나 혼자 산다','한국','enter','리얼버라이어티','15','강호동,이수근','solohome');
+ 
+ insert into video(num,title,nation,category,genre,grade,actor,image)
+ values(vd_seq.nextval,'너는 내운명','한국','enter','리얼버라이어티','all','강호동,이수근','sunshine');
+ 
+ insert into video(num,title,nation,category,genre,grade,actor,image)
+ values(vd_seq.nextval,'놀면 뭐하니','한국','enter','리얼버라이어티','15','강호동,이수근','whatplay');
+ 
+ ----- 영화 --------------------
+ 
+ insert into video(num,title,nation,category,genre,grade,actor,image)
+ values(vd_seq.nextval,'감기','한국','enter','종말','15','강호동,이수근','flu');
+ 
+ insert into video(num,title,nation,category,genre,grade,actor,image)
+ values(vd_seq.nextval,'기생충','한국','enter','종말','15','강호동,이수근','parasite');
+ 
+ ------ 드라마
+ 
+ insert into video(num,title,nation,category,genre,grade,actor,image)
+ values(vd_seq.nextval,'감자탕','한국','enter','종말','15','강호동,이수근','potato');
+ 
+ insert into video(num,title,nation,category,genre,grade,actor,image)
+ values(vd_seq.nextval,'검은태양','한국','enter','종말','15','강호동,이수근','blacksun');
+ 
+insert into video(num,title,nation,category,genre,grade,actor,image)
+ values(vd_seq.nextval,'빨강구두','한국','enter','종말','15','강호동,이수근','redshoes');
+ 
+insert into video(num,title,nation,category,genre,grade,actor,image)
+ values(vd_seq.nextval,'원더우먼','한국','enter','종말','15','강호동,이수근','wonderwoman');
+
+insert into video(num,title,nation,category,genre,grade,actor,image)
+ values(vd_seq.nextval,'홍천기','한국','enter','종말','15','강호동,이수근','hongchungi'); 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
