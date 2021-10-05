@@ -33,7 +33,8 @@ public class updateController {
 	
 	@RequestMapping(value=command, method=RequestMethod.POST)
 	public ModelAndView doActionPost(@Valid MemberBean bean, BindingResult result,
-									 @RequestParam(value="num", required=true)int num) {
+									 @RequestParam(value="num", required=true)int num,
+									 Model model) {
 		
 		ModelAndView mav = new ModelAndView();
 		
