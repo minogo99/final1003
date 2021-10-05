@@ -1,5 +1,6 @@
 package member.controller;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,15 +26,16 @@ public class updateController {
 	MemberDaoImpl mdao;
 	
 	@RequestMapping(value=command, method=RequestMethod.GET)
-	public String doActionGet(@RequestParam(value="id", required=true)String id ,Model model) {
-		MemberBean bean = mdao.getData(id);
-		model.addAttribute("bean", bean);
+	public String doActionGet(@RequestParam(value="num", required=true)int num ,Model model) {
+		MemberBean loginInfo = mdao.getByNumData(num);
+		model.addAttribute("loginInfo", loginInfo);
 		return getPage;
 	}
 	
 	@RequestMapping(value=command, method=RequestMethod.POST)
 	public ModelAndView doActionPost(@Valid MemberBean bean, BindingResult result,
-									 @RequestParam(value="num", required=true)int num) {
+									 @RequestParam(value="num", required=true)int num,
+									 HttpSession session) {
 		
 		ModelAndView mav = new ModelAndView();
 		
@@ -42,7 +44,10 @@ public class updateController {
 			mav.setViewName(getPage);
 			return mav;
 		}
+		
 		int cnt = mdao.updateMember(bean);
+		MemberBean loginInfo = mdao.getByNumData(num);
+		session.setAttribute("loginInfo", loginInfo);
 		mav.setViewName(gotoPage);
 		return mav;
 	}

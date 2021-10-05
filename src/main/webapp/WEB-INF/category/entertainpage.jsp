@@ -1,4 +1,4 @@
-amorpati.jpg<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="../display/top.jsp" %>
 <link
@@ -53,22 +53,63 @@ amorpati.jpg<%@ page language="java" contentType="text/html; charset=UTF-8"
         height: 100%;
         object-fit: cover;
       }
+      
+       //------- 서종희-------------------------------------------------------
+    .movie_chart{
+   		
+   }
+   
+   .chart_cont1{
+	  
+   }
+   
+   .chart_cont1 > div {
+	   
+   }
+   
+   .poster{
+   		
+	   	width:292px;
+	   	height: 592px;
+	  	border:1px solid #c4c4c4;
+   	
+
+   }
+   
+   .poster_img{
+   		position:relative;
+   		width:292px;
+		height: 592px;
+   }
+   
+   .infor {
+   		
+   		background: #fff;
+   		padding:17px; 
+   		border: 1px solid #c4c4c4; 
+   		width:292px; 
+   }
+   
+   .infor > h3{
+   		color: #333; font-size:30px; font-weight: 700;margin-bottom: 20px;
+   }
+ 
+   .infor > h3 > span{
+   		width: 29px;height: 29px;display: inline-block; margin-top: 9px; 
+   		
+   }
+      
     </style>
   </head>
-
+<%@include file="./../common/common.jsp" %>
   <body>
     <!-- Swiper -->
     <div class="swiper mySwiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="resources/images/ent1.jpg"></div>
-        <div class="swiper-slide"><img src="resources/images/ent2.jpg"></div>
-        <div class="swiper-slide"><img src="resources/images/ent3.jpg"></div>
-        <div class="swiper-slide"><img src="resources/images/ent4.jpg"></div>
-        <div class="swiper-slide"><img src="resources/images/ent5.jpg"></div>
-        <div class="swiper-slide"><img src="resources/images/ent6.jpg"></div>
-        <div class="swiper-slide"><img src="resources/images/ent7.jpg"></div>
-        <div class="swiper-slide"><img src="resources/images/ent8.jpg"></div>
-        <div class="swiper-slide"><img src="resources/images/ent9.jpg"></div>
+        <c:forEach var="vlist" items="${lists }" >
+       	 	<div class="swiper-slide"><a href="detailEnter.category?num=${vlist.num }">
+       	 	<img src="resources/images/poster/enter/${vlist.image }.jpg"></a></div>
+        </c:forEach>
       </div>
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
@@ -97,4 +138,7 @@ amorpati.jpg<%@ page language="java" contentType="text/html; charset=UTF-8"
       });
     </script>
   </body>
+  
+		
+  
 <%@include file="../display/bottom.jsp" %>

@@ -25,8 +25,8 @@ public class DetailMovieController {
 	public ModelAndView doAction(@RequestParam("num") int num) {
 		System.out.println("1");
 		
-		CategoryBean cb=cdao.detailMovieView(num);
-		List<CategoryBean> lists=cdao.detailMovieGenre(cb.getGenre());
+		CategoryBean cb=cdao.detailVideoView(num);
+		List<CategoryBean> lists=cdao.detailVideoGenre(cb.getGenre());
 		
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("cb",cb);

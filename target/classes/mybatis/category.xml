@@ -8,11 +8,20 @@
 		select * from video where category='movie'
 	</select>
 
-<select id="detailMovieView" resultType="MyCategory">
-	select * from video where num = #{num}
-</select>
-
-<select id="detailMovieGenre" resultType="MyCategory">
-	select * from video where genre = #{genre}
-</select>
+	<select id="detailVideoView" resultType="MyCategory">
+		select * from video where num = #{num}
+	</select>
+	
+	<select id="detailVideoGenre" resultType="MyCategory">
+		select * from video where genre = #{genre}
+	</select>
+	
+	<select id="selectEnter" resultType="MyCategory">
+		select * from video where category='enter'
+	</select>
+	
+	<select id="selectDrama" resultType="MyCategory">
+		select * from video where category='drama'
+	</select>
+	
 </mapper>

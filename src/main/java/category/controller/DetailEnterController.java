@@ -6,29 +6,33 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import category.model.CategoryBean;
 import category.model.CategoryDao;
 
 @Controller
-public class DramaListController {
-
-	private final String command = "/drama.category";
-	private final String getPage = "dramapage"; 
-
+public class DetailEnterController {
+	
+	private final String command="/detailEnter.category";
+	private final String getPage="detailEnter";
+	
 	@Autowired
 	CategoryDao cdao;
 	
 	@RequestMapping(value=command,method=RequestMethod.GET)
-	public ModelAndView doActionGet() {
+	public ModelAndView doAction(@RequestParam("num") int num) {
+		System.out.println("1");
 		
-		List<CategoryBean> lists=cdao.selectDrama();
+		CategoryBean cb=cdao.detailVideoView(num);
+		List<CategoryBean> lists=cdao.detailVideoGenre(cb.getGenre());
 		
 		ModelAndView mav=new ModelAndView();
+		mav.addObject("cb",cb);
 		mav.addObject("lists",lists);
-		System.out.println("asdasd"+lists.size());
 		mav.setViewName(getPage);
 		return mav;
+		
 	}
 }
