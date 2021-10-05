@@ -17,7 +17,7 @@ public interface MemberDao {
 
 	public MemberBean getData(String id);
 	
-	public int insertMember(MemberBean bean);
+	public int insertMember(MemberBean mb);
 	
 	public List<MemberBean> getMemberList(Paging pageInfo, Map<String, String> map);
 	
@@ -31,5 +31,5 @@ public interface MemberDao {
 
 	public int getTotalCount(Map<String, String> map);
 	
-	public int updateMember(MemberBean bean);
+	public int updateMember(MemberBean mb);
 }

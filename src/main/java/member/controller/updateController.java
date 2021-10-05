@@ -33,7 +33,7 @@ public class updateController {
 	}
 	
 	@RequestMapping(value=command, method=RequestMethod.POST)
-	public ModelAndView doActionPost(@Valid MemberBean bean, BindingResult result,
+	public ModelAndView doActionPost(@Valid MemberBean mb, BindingResult result,
 									 @RequestParam(value="num", required=true)int num,
 									 HttpSession session) {
 		
@@ -45,7 +45,7 @@ public class updateController {
 			return mav;
 		}
 		
-		int cnt = mdao.updateMember(bean);
+		int cnt = mdao.updateMember(mb);
 		MemberBean loginInfo = mdao.getByNumData(num);
 		session.setAttribute("loginInfo", loginInfo);
 		mav.setViewName(gotoPage);

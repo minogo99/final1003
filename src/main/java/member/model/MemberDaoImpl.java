@@ -50,8 +50,8 @@ public class MemberDaoImpl implements MemberDao{
 		return bean;
 	}
 
-	public int insertMember(MemberBean bean) {
-		int cnt = sqlSessionTemplate.insert(namespace+".insertMember",bean);
+	public int insertMember(MemberBean mb) {
+		int cnt = sqlSessionTemplate.insert(namespace+".insertMember",mb);
 		return cnt;
 	}
 	public int getTotalCount(Map<String, String> map) {
@@ -87,8 +87,8 @@ public class MemberDaoImpl implements MemberDao{
 	}
 	
 
-	public int updateMember(MemberBean bean) {
-		int cnt = sqlSessionTemplate.update(namespace + ".updateMember", bean);
+	public int updateMember(MemberBean mb) {
+		int cnt = sqlSessionTemplate.update(namespace + ".updateMember",mb);
 		System.out.println(cnt);
 		return cnt;
 	}

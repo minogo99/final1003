@@ -31,7 +31,7 @@ public class SignMemberController {
 		return getPage;
 	}
 	@RequestMapping(value=command, method=RequestMethod.POST)
-	public ModelAndView doActionPOST(@Valid MemberBean bean, BindingResult result
+	public ModelAndView doActionPOST(@Valid MemberBean mb, BindingResult result
 			) {
 		ModelAndView mav = new ModelAndView();
 		if(result.hasErrors()) {
@@ -40,7 +40,7 @@ public class SignMemberController {
 			return mav;
 		}
 		
-		int cnt = mdao.insertMember(bean);
+		int cnt = mdao.insertMember(mb);
 		mav.setViewName(gotoPage);
 		return mav;
 }
