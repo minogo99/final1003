@@ -34,7 +34,7 @@
 			<c:forEach var="bb" items="${lists}" varStatus="status">
 				<tr class="table-active">
 					<th scope="row">${pageInfo.totalCount - (pageInfo.pageNumber-1) * pageInfo.pageSize - status.index}</th>
-					<td width="600"><a href="detailView.board?num=${bb.num }">${bb.subject }</a></td>
+					<td width="600"><a href="detailView.board?num=${bb.num }&replyType=write">${bb.subject }</a> (${bb.replycount })</td>
 					<td>${bb.writer }</td>
 					<td>${bb.readcount}</td>
 					<td><fmt:parseDate value="${bb.reg_date }" var="noticePostDate" pattern="yyyy-MM-dd" /> <fmt:formatDate value="${noticePostDate}" pattern="yyyy-MM-dd" var="reg_date" /> ${reg_date }</td>

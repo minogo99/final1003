@@ -2,24 +2,24 @@ package board.model;
 
 public class ReplyBean {
 
-	private int rno;
-	private int bno;
+	private int rnum;
+	private int bnum;
 	private String writer;
 	private String content;
 	private String reg_date;
 	private int startRow;
 	private int endRow;
-	public int getRno() {
-		return rno;
+	public int getRnum() {
+		return rnum;
 	}
-	public void setRno(int rno) {
-		this.rno = rno;
+	public void setRnum(int rnum) {
+		this.rnum = rnum;
 	}
-	public int getBno() {
-		return bno;
+	public int getBnum() {
+		return bnum;
 	}
-	public void setBno(int bno) {
-		this.bno = bno;
+	public void setBnum(int bnum) {
+		this.bnum = bnum;
 	}
 	public String getWriter() {
 		return writer;
@@ -39,7 +39,6 @@ public class ReplyBean {
 	public void setReg_date(String reg_date) {
 		this.reg_date = reg_date;
 	}
-	
 	public int getStartRow() {
 		return startRow;
 	}
@@ -52,18 +51,21 @@ public class ReplyBean {
 	public void setEndRow(int endRow) {
 		this.endRow = endRow;
 	}
-	public ReplyBean(int rno, int bno, String writer, String content, String reg_date) {
+	public ReplyBean(int rnum, int bnum, String writer, String content, String reg_date, int startRow, int endRow) {
 		super();
-		this.rno = rno;
-		this.bno = bno;
+		this.rnum = rnum;
+		this.bnum = bnum;
 		this.writer = writer;
 		this.content = content;
 		this.reg_date = reg_date;
+		this.startRow = startRow;
+		this.endRow = endRow;
 	}
 	public ReplyBean() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
+
+
 	
 }

@@ -42,8 +42,10 @@ width:600px;
     <br><br>
     </div>
     <div id="reply">
+    ${replyType }
+    <c:if test="${replyType == 'write' }">
     	<form method="post" action="replyWrite.board">
-	<input type="hidden" name="bno" value="${bb.num}">
+	<input type="hidden" name="bnum" value="${bb.num}">
 			<p>
 			<textarea rows="3" cols="70" name="content"></textarea>
 			</p>
@@ -51,6 +53,19 @@ width:600px;
 			<input type="submit" value="댓글입력">
 			</p>
 	</form>
+	</c:if>
+    <c:if test="${replyType == 'update' }">
+    	<form method="post" action="replyUpdate.board">
+	<input type="hidden" name="bnum" value="${bb.num}">
+	<input type="hidden" name="rnum" value="${rb.rnum}">
+			<p>
+			<textarea rows="3" cols="70" name="content">${rb.content }</textarea>
+			</p>
+			<p align="right">
+			<input type="submit" value="댓글수정">
+			</p>
+	</form>
+	</c:if>
 	<c:forEach items="${reply}" var="reply">
 	<table>
 	<tr>
@@ -60,8 +75,10 @@ width:600px;
 						value="${noticePostDate}" pattern="yyyy-MM-dd HH:mm"
 						var="reg_date" /> ${reg_date }</font>
 	</td>
-	<td>
-		<a href="replyUpdate.board?rno=${reply.rno }">[수정]</a> <a href="replyDelete.board?rno=${reply.rno }">[삭제]</a>${reg_date }
+	<td style="text-align: right">
+		<c:if test="${loginInfo.id == reply.writer }">
+		<a href="replyUpdate.board?bnum=${reply.bnum }&rnum=${reply.rnum }&replyType=update">[수정]</a> <a href="replyDelete.board?bnum=${reply.bnum }&rnum=${reply.rnum }">[삭제]</a>
+		</c:if>
 	</td>
 	</tr>
 	<tr>

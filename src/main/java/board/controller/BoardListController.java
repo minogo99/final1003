@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import board.model.BoardBean;
 import board.model.BoardDao;
+import board.model.ReplyDao;
 import utility.Paging;
 
 @Controller
@@ -21,6 +22,10 @@ class BoardListController {
 
 	@Autowired
 	BoardDao boardDao;
+	
+	@Autowired
+	ReplyDao replyDao;
+	
 	private final String command = "/list.board";
 	private final String getPage = "BoardList";
 	
@@ -42,9 +47,13 @@ class BoardListController {
 		
 		mav.setViewName(getPage);
 		List<BoardBean> lists = boardDao.getAllData(pageInfo,map);
-		mav.addObject("lists", lists);
 		mav.addObject("pageInfo", pageInfo);
 		mav.addObject("totalCount", totalCount);
+		
+		for(int i=0;i<lists.size();i++) {
+			lists.get(i).setReplycount(replyDao.listCount(lists.get(i).getNum()));
+		}
+		mav.addObject("lists", lists);
 		return mav;
 	}
 }

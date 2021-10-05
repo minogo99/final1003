@@ -11,6 +11,14 @@ public class BoardBean {
 	private int re_step;
 	private int re_level;
 	private String content;
+	private int replycount;
+	
+	public int getReplycount() {
+		return replycount;
+	}
+	public void setReplycount(int replycount) {
+		this.replycount = replycount;
+	}
 	public int getNum() {
 		return num;
 	}

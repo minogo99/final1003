@@ -15,13 +15,15 @@ public class ReplyDeleteController {
 	ReplyDao replyDao;
 	
 	private final String command = "/replyDelete.board";
-	private final String getPage = "redirect:detailView.board?num=";
+	private final String getPage = "redirect:detailView.board";
 	
 	@RequestMapping(value=command)
-	public ModelAndView doActionGet(@RequestParam("rno") int rno) {
+	public ModelAndView doActionGet(@RequestParam("rnum") int rnum,@RequestParam("bnum") int bnum) {
 		ModelAndView mav = new ModelAndView();
 		
-		replyDao.
+		replyDao.replyDelete(rnum);
+		mav.addObject("num", bnum);
+		mav.setViewName(getPage);
 		return mav;
 	}
 }
