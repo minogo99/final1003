@@ -13,10 +13,10 @@ import category.model.CategoryBean;
 import category.model.CategoryDao;
 
 @Controller
-public class DetailMovieController {
+public class DetailEnterController {
 	
-	private final String command="/detailMovie.category";
-	private final String getPage="detailMovie";
+	private final String command="/detailEnter.category";
+	private final String getPage="detailEnter";
 	
 	@Autowired
 	CategoryDao cdao;
