@@ -7,6 +7,9 @@
 	function goInsert(){
 		location.href="insert.member" ;
 	}
+	function videoInsert(){
+		location.href="videoInsert.category" ;
+	}
 	
 	function goUpdate(num,pn){
 		location.href="update.member?num="+num+"&pageNumber="+pn;
@@ -28,6 +31,7 @@
 	
 
 </script>
+
 <h2 style="color: green; font-weight: bold;" align="center">회원 리스트</h2>
 
 <form action="list.member" method="get" align="center">
@@ -40,8 +44,12 @@
 </form>
 <table border="1" align="center" width="600">
 	<tr>
-		<td colspan="7" align="right"><input type="button" value="추가하기"
-			onClick="goInsert()"></td>
+		<td colspan="7" align="right">
+			<input type="button" value="추가하기"
+			onClick="goInsert()">
+			<input type="button" value="동영상 추가하기"
+			onClick="videoInsert()"></td>
+		
 	</tr>
 	<tr align="center">
 		<th>번호</th>
@@ -59,20 +67,25 @@
 		</tr>
 	</c:if>
 	<c:forEach var="member" items="${lists }">
-		<tr>
-			<td>${member.num }</td>
-			<td><a
-				href="detail.member?num=${member.num }&pageNumber=${pageInfo.pageNumber}"
-				)>${member.id }</a></td>
-			<td>${member.password }</td>
-			<td>${member.name }</td>
-			<td>${member.regdate }</td>
-			<td><input type="button" value="수정"
-				onClick="goUpdate(${member.num },${pageInfo.pageNumber})"></td>
-			<td><input type="button" value="삭제"
-				onClick="goDelete(${member.num },${pageInfo.pageNumber})"></td>
-
-		</tr>
+		<c:if test="${member.id ne 'admin'}">
+			<tr>
+				<td>${member.num }</td>
+					<td>
+					<a
+					href="detail.member?num=${member.num }&pageNumber=${pageInfo.pageNumber}"
+					)>${member.id }</a>
+					</td>
+				<td>${member.password }</td>
+				<td>${member.name }</td>
+				<td>${member.regdate }</td>
+				<td><input type="button" value="수정"
+					onClick="goUpdate(${member.num },${pageInfo.pageNumber})"></td>
+				<td><input type="button" value="삭제"
+					onClick="goDelete(${member.num },${pageInfo.pageNumber})"></td>
+			</tr>
+		</c:if>
 	</c:forEach>
+	
 </table>
 <center>${pageInfo.pagingHtml }</center>
+
