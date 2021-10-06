@@ -15,13 +15,21 @@ public class CategoryDao {
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
 	
+	public List<CategoryBean> selectAll() {
+		List<CategoryBean> lists=new ArrayList<CategoryBean>();
+		
+		lists=sqlSessionTemplate.selectList(namespace+".selectAll");
+		System.out.println("lists : " + lists.size());
+		return lists;
+	}
+	
 	public List<CategoryBean> selectMovie() {
 		List<CategoryBean> lists=new ArrayList<CategoryBean>();
 		
 		lists=sqlSessionTemplate.selectList(namespace+".selectMovie");
+		System.out.println("lists : " + lists.size());
 		return lists;
 	}
-	
 	public CategoryBean detailVideoView(int num) {
 		
 		CategoryBean cb =sqlSessionTemplate.selectOne(namespace+".detailVideoView",num);
