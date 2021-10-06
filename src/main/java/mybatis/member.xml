@@ -61,4 +61,5 @@ select * from members where name = #{name} and id = #{id}
 <select id="getByNumData" resultType="MyMember">
 select * from members where num = #{num}
 </select>
+
 </mapper>
