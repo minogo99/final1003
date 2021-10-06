@@ -7,7 +7,7 @@ name varchar2(50) not null,
 regdate date default sysdate,
 tel1 String not null,
 tel2 String not null,
-tel3 String not null,
+tel3 String not null
 );
 
 drop sequence members_seq;

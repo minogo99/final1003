@@ -30,27 +30,27 @@ insert into video(num,title,nation,category,genre,grade,actor,image)
  ----- 영화 --------------------
  
  insert into video(num,title,nation,category,genre,grade,actor,image)
- values(vd_seq.nextval,'감기','한국','enter','종말','15','강호동,이수근','flu');
+ values(vd_seq.nextval,'감기','한국','movie','종말','15','강호동,이수근','flu');
  
  insert into video(num,title,nation,category,genre,grade,actor,image)
- values(vd_seq.nextval,'기생충','한국','enter','종말','15','강호동,이수근','parasite');
+ values(vd_seq.nextval,'기생충','한국','movie','종말','15','강호동,이수근','parasite');
  
  ------ 드라마
  
  insert into video(num,title,nation,category,genre,grade,actor,image)
- values(vd_seq.nextval,'감자탕','한국','enter','종말','15','강호동,이수근','potato');
+ values(vd_seq.nextval,'감자탕','한국','drama','종말','15','강호동,이수근','potato');
  
  insert into video(num,title,nation,category,genre,grade,actor,image)
- values(vd_seq.nextval,'검은태양','한국','enter','종말','15','강호동,이수근','blacksun');
+ values(vd_seq.nextval,'검은태양','한국','drama','종말','15','강호동,이수근','blacksun');
  
 insert into video(num,title,nation,category,genre,grade,actor,image)
- values(vd_seq.nextval,'빨강구두','한국','enter','종말','15','강호동,이수근','redshoes');
+ values(vd_seq.nextval,'빨강구두','한국','drama','종말','15','강호동,이수근','redshoes');
  
 insert into video(num,title,nation,category,genre,grade,actor,image)
- values(vd_seq.nextval,'원더우먼','한국','enter','종말','15','강호동,이수근','wonderwoman');
+ values(vd_seq.nextval,'원더우먼','한국','drama','종말','15','강호동,이수근','wonderwoman');
 
 insert into video(num,title,nation,category,genre,grade,actor,image)
- values(vd_seq.nextval,'홍천기','한국','enter','종말','15','강호동,이수근','hongchungi'); 
+ values(vd_seq.nextval,'홍천기','한국','drama','종말','15','강호동,이수근','hongchungi'); 
  
  
  

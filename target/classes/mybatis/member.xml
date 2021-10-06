@@ -6,7 +6,7 @@
 <mapper namespace="member.model.MemberBean">
 
 <insert id="insertMember">
-insert into members values(seqmembers.nextval,#{id},#{password},#{name},sysdate,#{tel1},#{tel2},#{tel3})
+insert into members values(members_seq.nextval,#{id},#{password},#{name},sysdate,#{tel1},#{tel2},#{tel3})
 </insert>
 
 <select id="getData" resultType="MyMember">
