@@ -8,6 +8,12 @@
 	color: red;
 	font-weight: bold;
 }
+	#isnertPage{
+		}
+		#insert {
+	width: 450px;
+	height: 400px;
+	margin: 30px auto;
 </style>
 	<input type="hidden" name="checked_id" value="">
 <script src="resources/js/jquery.js"></script>
