@@ -8,6 +8,10 @@
 		location.href="insert.member" ;
 	}
 	
+	function videoInsert(){
+		location.href="insert.video" ;
+	}
+	
 	function goUpdate(num,pn){
 		location.href="update.member?num="+num+"&pageNumber="+pn;
 	}
@@ -40,8 +44,10 @@
 </form>
 <table border="1" align="center" width="600">
 	<tr>
-		<td colspan="7" align="right"><input type="button" value="추가하기"
-			onClick="goInsert()"></td>
+		<td colspan="7" align="right">
+			<input type="button" value="추가하기"	onClick="goInsert()">
+			<input type="button" value="영상 추가"	onClick="videoInsert()">
+		</td>
 	</tr>
 	<tr align="center">
 		<th>번호</th>
