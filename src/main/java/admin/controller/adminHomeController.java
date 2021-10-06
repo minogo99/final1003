@@ -25,7 +25,7 @@ public class adminHomeController {
 	AdminDAO adminDao;
 	
 	@RequestMapping(value=command, method=RequestMethod.GET)
-	public String doAction( ) {
+	public String doAction() {
 		
 		return getPage;
 	}
@@ -45,20 +45,20 @@ public class adminHomeController {
 		
 		if(adminDto == null) {
 			
-			pw.println("<script>alert('�븘�씠�뵒媛� �씪移섑븯吏� �븡�뒿�땲�떎.');</script>");
+			pw.println("<script>alert('占쎈툡占쎌뵠占쎈탵揶쏉옙 占쎌뵬燁살꼹釉�筌욑옙 占쎈륫占쎈뮸占쎈빍占쎈뼄.');</script>");
 			pw.flush();
 			return getPage;
 		}
 		else {
 			
 			if( admin.getAdmin_pass().equals(adminDto.getAdmin_pass()) ) { 
-				System.out.println("濡쒓렇�씤�꽦怨�");
+				System.out.println("嚥≪뮄�젃占쎌뵥占쎄쉐�⑨옙");
 				session.setAttribute("loginInfo", adminDto);
 								
 				return gotopage; 
 				
 			}else { 
-				pw.println("<script>alert('鍮꾨�踰덊샇媛� �씪移섑븯吏� �븡�뒿�땲�떎.');</script>");
+				pw.println("<script>alert('�뜮袁⑨옙甕곕뜇�깈揶쏉옙 占쎌뵬燁살꼹釉�筌욑옙 占쎈륫占쎈뮸占쎈빍占쎈뼄.');</script>");
 				pw.flush();
 				return getPage;
 			}

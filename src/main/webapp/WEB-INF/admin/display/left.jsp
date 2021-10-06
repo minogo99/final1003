@@ -32,11 +32,10 @@ a {
 </style>
 <nav id="nav">
 	<ul>
-		<li class="logoli"><a href="/" class="logo"><img
+		<li class="logoli"><a href="adminHome.admin" class="logo"><img
 				src="http://gahyun.wooga.kr/main/img/testImg/logoimg.png" alt=""></a></li>
-		<li><a href="#">HOME</a></li>
 		<li><a href="memberList.member">회원관리</a></li>
-		<li><a href="#">SERVICE</a></li>
-		<li><a href="#">CONTACT</a></li>
+		<li><a href="#">구매관리</a></li>
+		<li><a href="#">게시물관리</a></li>
 	</ul>
 </nav>
