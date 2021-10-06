@@ -1,13 +1,13 @@
 package member.model;
 
-<<<<<<< HEAD
+
 import javax.validation.constraints.NotEmpty;
 
 import org.hibernate.validator.constraints.Length;
 
-=======
+
 import javax.validation.constraints.NotBlank;
->>>>>>> db435d055729392cea626470a23273f5c6fc5cd6
+
 
 public class MemberBean {
 	private int num;

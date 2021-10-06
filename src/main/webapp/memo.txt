@@ -78,6 +78,8 @@ admin_name varchar2(20) not null,
 reg_date date default sysdate
 );
 
+insert into admin values('admin','1234','관리자',sysdate);
+
 drop sequence admin_seq;
 create sequence admin_seq
   increment by 1
