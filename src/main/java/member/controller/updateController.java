@@ -52,8 +52,6 @@ public class updateController {
 			mav.setViewName(getPage);
 			return mav;
 		}
-		
-<<<<<<< Updated upstream
 		MemberBean DBmb = mdao.getByNumData(num);
 		if(DBmb.getPassword().equals(mb.getPassword())) {
 			int cnt = mdao.updateMember(mb);
@@ -66,13 +64,6 @@ public class updateController {
 			mav.addObject("mb", mb);
 			mav.setViewName(getPage);
 		}
-=======
-		int cnt = mdao.updateMember(mb);
-		System.out.println(num);
-		MemberBean loginInfo = mdao.getByNumData(num);
-		session.setAttribute("loginInfo", loginInfo);
-		mav.setViewName(gotoPage);
->>>>>>> Stashed changes
 		return mav;
 	}
 
