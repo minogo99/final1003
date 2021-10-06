@@ -37,8 +37,6 @@ public class MemberBean {
 	public void setTel3(String tel3) {
 		this.tel3 = tel3;
 	}
-
-	
 	public String getRegdate() {
 		return regdate;
 	}
@@ -69,6 +67,5 @@ public class MemberBean {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
 	
 }
