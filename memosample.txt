@@ -53,6 +53,7 @@ insert into video(num,title,nation,category,genre,grade,actor,image)
  values(vd_seq.nextval,'홍천기','한국','drama','종말','15','강호동,이수근','hongchungi'); 
  
  
+ ---------------------------------------------
    
 drop sequence video_c_seq;
 create sequence video_c_seq
