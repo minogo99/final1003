@@ -88,11 +88,11 @@ form.id.value = form.id.value.trim();
 	form.submit();
 	checkSubmitDone = ture; 
 }
- function gosub(){
+ /* function gosub(){
 	 if(form.chk.value == "0"){
 			alert("아이디 중복체크를 해주세요.");
 			return false;
-		}
+		} */
  }
 </script>
 	<%
@@ -163,7 +163,7 @@ request.setAttribute("tel1", tel1);
 		</fieldset>
 		<br><br>
 			<div align="center">
-			<input type="submit" class="btn btn-primary" onclick="gosub();return false;" value="회원가입">
+			<input type="submit" class="btn btn-primary" value="회원가입">
 			<input type="button" class="btn btn-primary" onclick="history.go(-1);" value="취소">
 			</div>
 	</form:form>
