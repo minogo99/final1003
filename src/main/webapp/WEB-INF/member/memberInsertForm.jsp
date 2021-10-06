@@ -43,7 +43,7 @@ function checkSubmit(form){
 	}
 	if(form.chk.value == "0"){
 		alert("아이디 중복체크를 해주세요.");
-		return false;
+		return;
 	}
 	form.password.value = form.password.value.trim();
 	
@@ -146,6 +146,7 @@ request.setAttribute("tel1", tel1);
 		<br><br>
 			<div align="center">
 			<input type="submit" class="btn btn-primary" value="회원가입">
+			<input type="button" class="btn btn-primary" onclick="history.go(-1);" value="취소">
 			</div>
 	</form:form>
 </div>	
