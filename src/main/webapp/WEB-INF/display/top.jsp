@@ -71,7 +71,7 @@ function openPop(){
 }
 </script>
 
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div id="top">
 <div id="member">
 <%if(session.getAttribute("loginInfo") == null){ %>
@@ -83,6 +83,9 @@ function openPop(){
   <button class="dropbtn">${loginInfo.name}님</button>
   <div class="dropdown-content">
     <p align="center">${loginInfo.name}</p>
+    <c:if test="${loginInfo.name eq '관리자'}">
+    	<a href="list.member">관리자 페이지</a>
+    </c:if>
     <a href="userupdate.member?num=${loginInfo.num}">회원 정보 수정</a>
     <a href="#">시청기록</a>
     <a href="#none" target="_blank" onclick="openPop()">알림함</a>
