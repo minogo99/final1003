@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import member.model.MemberBean;
-import member.model.MemberDao;
 import member.model.MemberDaoImpl;
 
 @Controller

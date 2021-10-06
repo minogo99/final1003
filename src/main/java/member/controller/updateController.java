@@ -45,7 +45,7 @@ public class updateController {
 			return mav;
 		}
 		
-		int cnt = mdao.updateMember(bean);
+		mdao.updateMember(bean);
 		MemberBean loginInfo = mdao.getByNumData(num);
 		session.setAttribute("loginInfo", loginInfo);
 		mav.setViewName(gotoPage);
