@@ -144,7 +144,7 @@ onsubmit="checkSubmit(this); return false;" >
 									<option value="${tel1[i] }"
 										<c:if test="${tel1[i] == loginInfo.tel1 }">
 								selected
-								</c:if>>${tel1[i] }</option>
+								</c:if>>${tel1[i]}</option>
 								</c:forEach>
 							</select>
 							<form:errors cssClass="err" path="tel1" />
