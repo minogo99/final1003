@@ -118,21 +118,22 @@ onsubmit="checkSubmit(this); return false;" >
 		</div>
 		<div class="form-group">
 			<label for="password" class="form-label mt-4">비밀번호확인</label>
-				<input type="password" class="form-control" name="repassword" placeholder="비밀번호 입력" value="${member.repassword }">
+				<input type="password" class="form-control" name="repassword" placeholder="비밀번호 입력" value="${member.password }">
 				<form:errors cssClass="err" path="password" />
 		</div>
 		<div class="form-group">
 				<label for="name" class="form-label mt-4">이름</label>
-				<input type="text" class="form-control" name="name" placeholder="이름 입력" value="${mb.name }">
+				<input type="text" class="form-control" name="name" placeholder="이름 입력" value="${member.name }">
 				<form:errors cssClass="err" path="name" />
 			</div>
+
 		<div class="form-group">
 					<label for="name" class="form-label mt-4">전화번호</label>
 					<div class="row">
 						<div style="width: 120px">
 							<select class="form-select" name="tel1">
 								<option value="">선택</option>
-								<c:forEach var="i" begin="0" end="<%=tel1.length - 1%>" step="1">
+								<c:forEach var="i" begin="0" end="<%=tel1.length -1%>" step="1">
 									<option value="${tel1[i] }"
 										<c:if test="${tel1[i] == loginInfo.tel1 }">
 								selected
