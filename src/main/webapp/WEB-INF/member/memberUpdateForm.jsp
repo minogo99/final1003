@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
  
 <%@include file="./../common/common.jsp" %>     
-<%@include file="../display/top.jsp" %>
+<%@include file="../display/admin_top.jsp" %>
 <style type="text/css">
 		.err{
 		font-size: 9pt;
@@ -96,6 +96,13 @@ function checkSubmit(form){
 }
 });
 </script>
+
+	<%
+String[] tel1 = { "02", "064", "010" };
+request.setAttribute("tel1", tel1);
+%>
+<div id="signPage">
+<div id="sign">
 <h3 style="color:green; font-weight : bold;" align="center">회원 수정 화면</h3>
 
 <form:form commandName="member" method="post" action="update.member" align="center"
@@ -162,5 +169,6 @@ onsubmit="checkSubmit(this); return false;" >
 			<input type="button" class="btn btn-primary" onclick="history.go(-1);" value="취소">
 			</div>
 </fieldset>
-		
 </form:form>
+	</div>	
+</div>			
