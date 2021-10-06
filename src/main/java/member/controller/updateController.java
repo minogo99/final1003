@@ -27,13 +27,13 @@ public class updateController {
 	
 	@RequestMapping(value=command, method=RequestMethod.GET)
 	public String doActionGet(@RequestParam(value="num", required=true)int num ,Model model) {
-		MemberBean loginInfo = mdao.getByNumData(num);
-		model.addAttribute("loginInfo", loginInfo);
+		MemberBean mb = mdao.getByNumData(num);
+		model.addAttribute("mb", mb);
 		return getPage;
 	}
 	
 	@RequestMapping(value=command, method=RequestMethod.POST)
-	public ModelAndView doActionPost(@Valid MemberBean bean, BindingResult result,
+	public ModelAndView doActionPost(@Valid MemberBean mb, BindingResult result,
 									 @RequestParam(value="num", required=true)int num,
 									 HttpSession session) {
 		
@@ -41,11 +41,13 @@ public class updateController {
 		
 		if(result.hasErrors()) {
 			System.out.println("유효성 검사 오류입니다.");
+			mav.addObject("mb", mb);
 			mav.setViewName(getPage);
 			return mav;
 		}
 		
-		mdao.updateMember(bean);
+		int cnt = mdao.updateMember(mb);
+		System.out.println(num);
 		MemberBean loginInfo = mdao.getByNumData(num);
 		session.setAttribute("loginInfo", loginInfo);
 		mav.setViewName(gotoPage);

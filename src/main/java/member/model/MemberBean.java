@@ -2,11 +2,9 @@ package member.model;
 
 import javax.validation.constraints.NotBlank;
 
-import org.hibernate.validator.constraints.Length;
-
 public class MemberBean {
 	private int num;
-	@Length(min=3,max=7, message="3~7자 정도만 입력할 수 있습니다.")
+	@NotBlank(message="필수 입력사항입니다.")
 	private String id;
 	@NotBlank(message="필수 입력사항입니다.")
 	private String password;

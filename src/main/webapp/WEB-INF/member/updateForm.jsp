@@ -60,14 +60,16 @@ request.setAttribute("tel1", tel1);
 		<h3 align="center">회원정보 수정</h3>
 		<form:form commandName="memberBean" name="updateform"
 			action="userupdate.member" method="post">
-			<input type="hidden" name="num" value="${loginInfo.num}">
+			<input type="hidden" name="num" value="${mb.num}">
+			<input type="hidden" name="id" value="${mb.id}">
 			<fieldset>
 				<div class="form-group">
 					<label for="password" class="form-label mt-4">이름</label> <input
 						type="text" class="form-control" name="name"
-						value="${loginInfo.name}">
+						value="${mb.name}">
 					<form:errors cssClass="err" path="name" />
 				</div>
+				
 				<div class="form-group">
 					<label for="name" class="form-label mt-4">전화번호</label>
 					<div class="row">
@@ -86,22 +88,21 @@ request.setAttribute("tel1", tel1);
 						-
 						<div style="width: 160px">
 							<input type="text" class="form-control" name="tel2"
-								placeholder="전화번호 입력" value="${loginInfo.tel2 }">
+								placeholder="전화번호 입력" value="${mb.tel2 }">
 								<form:errors cssClass="err" path="tel2" />
 						</div>
 						-
 						<div style="width: 160px">
 							<input type="text" class="form-control" name="tel3"
-								placeholder="전화번호 입력" value="${loginInfo.tel3 }">
+								placeholder="전화번호 입력" value="${mb.tel3 }">
 								<form:errors cssClass="err" path="tel3" />
 						</div>
 					</div>
 				</div>
-
+				
 				<div class="form-group">
 					<label for="password" class="form-label mt-4">비밀번호</label> <input
-						type="password" class="form-control" name="password"
-						value="${loginInfo.password}">
+						type="password" class="form-control" name="password">
 					<form:errors cssClass="err" path="password" />
 				</div>
 			</fieldset>
