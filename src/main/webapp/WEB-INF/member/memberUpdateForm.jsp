@@ -141,10 +141,10 @@ onsubmit="checkSubmit(this); return false;" >
 							<select class="form-select" name="tel1">
 								<option value="">선택</option>
 								<c:forEach var="i" begin="0" end="<%=tel1.length -1%>" step="1">
-									<option value="${tel1[i] }"
-										<c:if test="${tel1[i] == loginInfo.tel1 }">
+									<option value="${tel1[i]}"
+										<c:if test="${tel1[i] == loginInfo.tel1}">
 								selected
-								</c:if>>${tel1[i] }</option>
+								</c:if>>${tel1[i]}</option>
 								</c:forEach>
 							</select>
 							<form:errors cssClass="err" path="tel1" />
