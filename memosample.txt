@@ -53,34 +53,61 @@ insert into video(num,title,nation,category,genre,grade,actor,image)
  values(vd_seq.nextval,'홍천기','한국','drama','종말','15','강호동,이수근','hongchungi'); 
  
  
- 
-create table video1(
-	num number primary key,
-	category varchar2(50) not null,
-	title varchar2(50) not null,
-	grade varchar2(10) not null,
-	image varchar2(50) not null,
-	series varchar2(10)
-);
+   
+drop sequence video_c_seq;
+create sequence video_c_seq
+  increment by 1
+  start with 1
+  minvalue 1
+  maxvalue 10000
+  nocache;
 
+drop table video_c;
 create table video_c(
 	num number primary key,
 	vnum number not null,
+  title varchar2(50) not null,
 	content varchar2(100) not null,
 	runningT number not null,
 	genre varchar2(20) not null,
 	nation varchar2(20) not null,
 	actor varchar2(50) not null,
-	day varchar2(50) not null
+  grade varchar2(10) not null,
+	day varchar2(50) not null,
+  series varchar2(10)
 );
+
+drop sequence video_seq;
+create sequence video_seq
+  increment by 1
+  start with 1
+  minvalue 1
+  maxvalue 10000
+  nocache;
+  
+drop table video;
+create table video(
+	num number primary key,
+	category varchar2(50) not null,
+	grade varchar2(10) not null,
+	image varchar2(50) not null
+	);
+
  
  alter table video_c add(
  	constraint FK_video_c
  	foreign key (vnum)
- 		references video1(num)
+ 		references video(num)
  );
  
+insert into video values(video_seq.nextval,'movie',18,'flu');
+
+insert into video values(video_seq.nextval,'movie',15,'parasite');
  
+insert into video_c values(video_c_seq.nextval,1,'감기','아에이오우',120,'액션','해외','박만석',18,'2021-11-10',0);
+
+insert into video_c values(video_c_seq.nextval,3,'기생충','아에이오우',120,'액션','해외','박만석',15,'2021-11-10',0);
+
  
  
  
