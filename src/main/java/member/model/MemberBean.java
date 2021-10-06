@@ -1,5 +1,6 @@
 package member.model;
 
+<<<<<<< HEAD
 
 import javax.validation.constraints.NotEmpty;
 
@@ -8,6 +9,9 @@ import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.NotBlank;
 
+=======
+import javax.validation.constraints.NotBlank;
+>>>>>>> c0661a802491bfed9401eaa5e64392c0e7b56a8b
 
 public class MemberBean {
 	private int num;
@@ -17,7 +21,6 @@ public class MemberBean {
 	private String password;
 	@NotBlank(message="필수 입력사항입니다.")
 	private String name;
-	
 	private String regdate;
 	@NotBlank(message="필수 입력사항입니다.")
 	private String tel1;
@@ -45,8 +48,6 @@ public class MemberBean {
 	public void setTel3(String tel3) {
 		this.tel3 = tel3;
 	}
-
-	
 	public String getRegdate() {
 		return regdate;
 	}
@@ -77,6 +78,5 @@ public class MemberBean {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
 	
 }
