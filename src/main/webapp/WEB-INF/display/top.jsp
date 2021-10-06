@@ -83,13 +83,8 @@ function openPop(){
   <button class="dropbtn">${loginInfo.name}님</button>
   <div class="dropdown-content">
     <p align="center">${loginInfo.name}</p>
-<<<<<<< Updated upstream
-    <c:if test="${loginInfo.name eq '관리자'}">
-    	<a href="list.member">관리자 페이지1</a>
-=======
     <c:if test="${loginInfo.name eq '관리자'}" >
     	<a href="list.member">관리자 페이지</a>
->>>>>>> Stashed changes
     </c:if>
     <a href="userupdate.member?num=${loginInfo.num}">회원 정보 수정</a>
     <a href="#">시청기록</a>
