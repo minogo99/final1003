@@ -43,7 +43,7 @@ function checkSubmit(form){
 	}
 	if(form.chk.value == "0"){
 		alert("아이디 중복체크를 해주세요.");
-		return false;
+		return;
 	}
 	form.password.value = form.password.value.trim();
 	
