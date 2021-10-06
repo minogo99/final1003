@@ -1,7 +1,5 @@
 package member.model;
 
-import javax.validation.constraints.NotBlank;
-
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -15,7 +13,7 @@ public class MemberBean {
 	private String name;
 	
 	private String regdate;
-
+<<<<<<< Updated upstream
 	private String phone;
 	
 	
@@ -25,7 +23,7 @@ public class MemberBean {
 	}
 	public void setPhone(String phone) {
 		this.phone = phone;
-	}
+=======
 	@NotBlank(message="필수 입력사항입니다.")
 	private int tel1;
 	@NotBlank(message="필수 입력사항입니다.")
@@ -51,7 +49,7 @@ public class MemberBean {
 	}
 	public void setTel3(int tel3) {
 		this.tel3 = tel3;
-
+>>>>>>> Stashed changes
 	}
 	public String getRegdate() {
 		return regdate;
