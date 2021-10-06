@@ -152,13 +152,13 @@ onsubmit="checkSubmit(this); return false;" >
 						-
 						<div style="width: 160px">
 							<input type="text" class="form-control" name="tel2"
-								placeholder="전화번호 입력" value="${mb.tel2 }" >
+								placeholder="전화번호 입력" value="${member.tel2 }" >
 								<form:errors cssClass="err" path="tel2" />
 						</div>
 						-
 						<div style="width: 160px">
 							<input type="text" class="form-control" name="tel3"
-								placeholder="전화번호 입력" value="${mb.tel3 }">
+								placeholder="전화번호 입력" value="${member.tel3 }">
 								<form:errors cssClass="err" path="tel3" />
 						</div>
 					</div>
