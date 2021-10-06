@@ -9,11 +9,12 @@
 	font-weight: bold;
 }
 </style>
+	<input type="hidden" name="checked_id" value="">
 <script src="resources/js/jquery.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 	 $('#idcheck').click(function(){
-		 
+		 $("input[name=checked_id]").val('y');
 	        $.ajax({
 	            url: "idCheck.member",
 	            type: "POST",
@@ -34,10 +35,15 @@ $(document).ready(function(){
 	            
 	        });
 	    });
+});
 const checkSubmitDone = false;
 function checkSubmit(form){
 	if(checkSubmitDone){
 		return;
+	}
+	if(form.chk.value == "0"){
+		alert("아이디 중복체크를 해주세요.");
+		return false;
 	}
 	form.password.value = form.password.value.trim();
 	
@@ -66,10 +72,10 @@ function checkSubmit(form){
 		return;
 		
 	}
+	
 	form.submit();
 	checkSubmitDone = ture; 
 }
-});
 </script>
 	<%
 String[] tel1 = { "02", "064", "010" };
@@ -80,6 +86,9 @@ request.setAttribute("tel1", tel1);
 
 <h3 style="color: green; font-weight: bold;" align="center">회원 추가 </h3>
 <form:form name="form" commandName="member" method="post" action="insert.member" onsubmit="checkSubmit(this); return false;">
+		
+		<input type="hidden" name="chk" value="0">
+		
 		<fieldset>
 			<div class="form-group">
 			<label for="id" class="form-label mt-4">아이디</label>

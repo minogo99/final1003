@@ -72,7 +72,7 @@
 			<td><a
 				href="detail.member?num=${member.num }&pageNumber=${pageInfo.pageNumber}"
 				)>${member.id }</a></td>
-			<td>${member.password }</td>
+			<td>${member.password }</td>			
 			<td>${member.name }</td>
 			<td>${member.tel1 }${member.tel2 }${member.tel3 }</td>
 			<td>${member.regdate }</td>
@@ -87,8 +87,7 @@
 			<tr>
 				<td>${member.num }</td>
 				<td><a
-					href="detail.member?num=${member.num }&pageNumber=${pageInfo.pageNumber}"
-					)>${member.id }</a></td>
+					href="detail.member?num=${member.num }&pageNumber=${pageInfo.pageNumber}")>${member.id }</a></td>
 				<td>${member.password }</td>
 				<td>${member.name }</td>
 				<td>${member.regdate }</td>

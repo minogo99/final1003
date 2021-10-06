@@ -41,6 +41,7 @@ $(document).ready(function(){
 	            }
 	        });
 	    });
+});
 const checkSubmitDone = false;
 function checkSubmit(form){
 	if(checkSubmitDone){
@@ -94,7 +95,6 @@ function checkSubmit(form){
 	form.submit();
 	checkSubmitDone = ture; 
 }
-});
 </script>
 
 	<%
