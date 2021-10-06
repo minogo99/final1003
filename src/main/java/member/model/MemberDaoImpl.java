@@ -64,9 +64,7 @@ public class MemberDaoImpl implements MemberDao{
 		RowBounds rowBounds = new RowBounds(pageInfo.getOffset(), pageInfo.getLimit());
 		lists = sqlSessionTemplate.selectList(namespace + ".getMemberList", map, rowBounds);
 		return lists;
-
 	}
-
 	public  int insertData(MemberBean member) {
 		return sqlSessionTemplate.insert(namespace+".insertMember", member);
 	}
@@ -89,7 +87,6 @@ public class MemberDaoImpl implements MemberDao{
 
 	public int updateMember(MemberBean bean) {
 		int cnt = sqlSessionTemplate.update(namespace + ".updateMember", bean);
-		System.out.println(cnt);
 		return cnt;
 	}
 
