@@ -8,6 +8,12 @@
 	color: red;
 	font-weight: bold;
 }
+	#isnertPage{
+		}
+		#insert {
+	width: 450px;
+	height: 400px;
+	margin: 30px auto;
 </style>
 	<input type="hidden" name="checked_id" value="">
 <script src="resources/js/jquery.js"></script>
@@ -146,6 +152,7 @@ request.setAttribute("tel1", tel1);
 		<br><br>
 			<div align="center">
 			<input type="submit" class="btn btn-primary" value="회원가입">
+			<input type="button" class="btn btn-primary" onclick="history.go(-1);" value="취소">
 			</div>
 	</form:form>
 </div>	
