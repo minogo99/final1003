@@ -8,7 +8,31 @@
 	font-weight: bold;
 }
 </style>
-<script>
+<script src="resources/js/jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	 $('#idcheck').click(function(){
+		 
+	        $.ajax({
+	            url: "idCheck.member",
+	            type: "POST",
+	            data: {
+					"userId":$('input[name="id"]').val()
+				},
+	            success: function(data){
+	            	if(data == 0 && $.trim($('input[name="id"]').val()) != '' ){
+					alert("사용가능한 아이디 입니다.");
+					}else{
+						alert("사용불가능한 아이디 입니다.");
+						
+					}
+	            },
+	            error: function(){
+	                alert("에러");
+	            }
+	            
+	        });
+	    });
 const checkSubmitDone = false;
 function checkSubmit(form){
 	if(checkSubmitDone){
@@ -44,8 +68,8 @@ function checkSubmit(form){
 	form.submit();
 	checkSubmitDone = ture; 
 }
+});
 </script>
-
 
 
 
@@ -54,27 +78,32 @@ function checkSubmit(form){
 	<table border="1" align="center">
 		<tr>
 			<td>아이디</td>
-			<td><input type="text" name="id" id="id" value="${member.id}">
+			<td><input type="text" name="id" id="id" placeholder="아이디 입력">
 			 <form:errors cssClass="err" path="id" />
-			 <button type="button">중복체크</button>
+			 <input type="button" value="중복체크" class="btn btn-primary" id="idcheck">
 			 </td>
-		</tr>
-		<tr>
-			<td>이름</td>
-			<td><input type="text" name="name" value="${member.name}">
-				<form:errors cssClass="err" path="name" /></td>
 		</tr>
 		<tr>
 			<td>비밀번호</td>
 			<td><input type="text" name="password" id="password"
-				value="${member.password}">
+				placeholder="비밀번호 입력">
 				 <form:errors cssClass="err" path="password" /></td>
 		</tr>
 		<tr>
 			<td>비밀번호 확인</td>
 			<td><input type="text" name="repassword" id="repassword"
-				value="${member.password}">
+				placeholder="비밀번호 확인 입력">
 				 <form:errors cssClass="err" path="password" /></td>
+		</tr>
+		<tr>
+			<td>이름</td>
+			<td><input type="text" name="name" placeholder="이름 입력">
+				<form:errors cssClass="err" path="name" /></td>
+		</tr>
+		<tr>
+			<td>전화번호</td>
+			<td><input type="text" name="phone" placeholder="전화번호를 입력하세요(-없이 입력해주세요)">
+			</td>
 		</tr>
 		<tr>
 			<td colspan="2" align="center">
