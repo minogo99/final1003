@@ -8,12 +8,12 @@
     <div class="collapse navbar-collapse" id="navbarColor02">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link active" href="main.wa">관리자홈
+          <a class="nav-link active" href="">관리자홈
             <span class="visually-hidden">(current)</span>
           </a>
         </li>
          <li class="nav-item">
-          <a class="nav-link" href="#">홈페이지</a>
+          <a class="nav-link" href="main.wa">홈페이지</a>
         </li>
          <li class="nav-item">
           <a class="nav-link" href="#">회원관리</a>

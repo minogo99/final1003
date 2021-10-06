@@ -32,4 +32,6 @@ public interface MemberDao {
 	public int getTotalCount(Map<String, String> map);
 	
 	public int updateMember(MemberBean bean);
+	
+	public int passwordCheck(MemberBean mb);
 }

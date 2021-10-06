@@ -95,4 +95,10 @@ public class MemberDaoImpl implements MemberDao{
 		return member;
 	}
 
+	@Override
+	public int passwordCheck(MemberBean mb) {
+		int cnt = sqlSessionTemplate.selectOne(namespace+".passwordCheck",mb);
+		return 0;
+	}
+
 }

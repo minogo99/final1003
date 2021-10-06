@@ -54,6 +54,32 @@ insert into video(num,title,nation,category,genre,grade,actor,image)
  
  
  
+create table video1(
+	num number primary key,
+	category varchar2(50) not null,
+	title varchar2(50) not null,
+	grade varchar2(10) not null,
+	image varchar2(50) not null,
+	series varchar2(10)
+);
+
+create table video_c(
+	num number primary key,
+	vnum number not null,
+	content varchar2(100) not null,
+	runningT number not null,
+	genre varchar2(20) not null,
+	nation varchar2(20) not null,
+	actor varchar2(50) not null,
+	day varchar2(50) not null
+);
+ 
+ alter table video_c add(
+ 	constraint FK_video_c
+ 	foreign key (vnum)
+ 		references video1(num)
+ );
+ 
  
  
  
