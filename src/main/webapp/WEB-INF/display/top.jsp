@@ -24,7 +24,6 @@ overflow:auto;
 .dropbtn {
   background-color: black;
   color: white;
-  padding: 16px;
   font-size: 16px;
   border: none;
 }
@@ -91,7 +90,7 @@ function openPop(){
 </div>
 
 <%} %>
- / <a href="pay.voucher">이용권</a></div>
+ / <a href="pay.voucher">이용권</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</div>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="main.wa"><img src="resources/images/logo3.jpg" width="80" height="80" /></a>

@@ -13,6 +13,7 @@ public class MemberBean {
 	private String name;
 	
 	private String regdate;
+<<<<<<< Updated upstream
 	private String phone;
 	
 	
@@ -22,6 +23,33 @@ public class MemberBean {
 	}
 	public void setPhone(String phone) {
 		this.phone = phone;
+=======
+	@NotBlank(message="필수 입력사항입니다.")
+	private int tel1;
+	@NotBlank(message="필수 입력사항입니다.")
+	private int tel2;
+	@NotBlank(message="필수 입력사항입니다.")
+	private int tel3;
+	
+	
+	public int getTel1() {
+		return tel1;
+	}
+	public void setTel1(int tel1) {
+		this.tel1 = tel1;
+	}
+	public int getTel2() {
+		return tel2;
+	}
+	public void setTel2(int tel2) {
+		this.tel2 = tel2;
+	}
+	public int getTel3() {
+		return tel3;
+	}
+	public void setTel3(int tel3) {
+		this.tel3 = tel3;
+>>>>>>> Stashed changes
 	}
 	public String getRegdate() {
 		return regdate;

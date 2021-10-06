@@ -5,7 +5,7 @@
 
 <style>
 #boardDetailView{
-margin: auto;
+	margin: auto;
 width:600px;
 }
 #reply{

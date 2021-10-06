@@ -44,11 +44,26 @@ public class updateController {
 			mav.setViewName(getPage);
 			return mav;
 		}
+<<<<<<< Updated upstream
 		
 		int cnt = mdao.updateMember(bean);
 		MemberBean loginInfo = mdao.getByNumData(num);
 		session.setAttribute("loginInfo", loginInfo);
 		mav.setViewName(gotoPage);
+=======
+		MemberBean DBmb = mdao.getByNumData(num);
+		if(DBmb.getPassword().equals(mb.getPassword())) {
+			int cnt = mdao.updateMember(mb);
+			MemberBean loginInfo = mdao.getByNumData(num);
+			session.setAttribute("loginInfo", loginInfo);
+			mav.setViewName(gotoPage);
+		}else {
+			pw.println("<script>alert('패스워드가 일치하지 않습니다.');</script>");
+			pw.flush();
+			mav.addObject("mb", mb);
+			mav.setViewName(getPage);
+		}
+>>>>>>> Stashed changes
 		return mav;
 	}
 
