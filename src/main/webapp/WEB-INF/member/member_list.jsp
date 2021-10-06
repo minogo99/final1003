@@ -48,6 +48,7 @@
 		<th>아이디</th>
 		<th>비번</th>
 		<th>이름</th>
+		<th>전화번호</th>
 		<th>가입일자</th>
 		<th>수정</th>
 		<th>삭제</th>
@@ -66,6 +67,7 @@
 				)>${member.id }</a></td>
 			<td>${member.password }</td>
 			<td>${member.name }</td>
+			<td>${member.tel1 }${member.tel2 }${member.tel3 }</td>
 			<td>${member.regdate }</td>
 			<td><input type="button" value="수정"
 				onClick="goUpdate(${member.num },${pageInfo.pageNumber})"></td>
