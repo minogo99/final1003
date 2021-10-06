@@ -8,15 +8,15 @@
     <div class="collapse navbar-collapse" id="navbarColor02">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link active" href="">관리자홈
+          <a class="nav-link active" href="list.member">관리자홈
             <span class="visually-hidden">(current)</span>
           </a>
         </li>
          <li class="nav-item">
-          <a class="nav-link" href="main.wa">홈페이지</a>
+          <a class="nav-link" href="insert.video">게시물추가</a>
         </li>
          <li class="nav-item">
-          <a class="nav-link" href="#">회원관리</a>
+          <a class="nav-link" href="list.member">회원관리</a>
         </li>
           <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">카테고리</a>
@@ -25,6 +25,9 @@
             <a class="dropdown-item" href="#">QnA</a>
             <a class="dropdown-item" href="#">고객센터</a>
           </div>
+           <li class="nav-item">
+          <a class="nav-link" href="main.wa">홈페이지</a>
+        </li>
         </li>
       </ul>
     </div>
