@@ -13,7 +13,13 @@ public class MemberBean {
 	private String name;
 	
 	private String regdate;
+<<<<<<< HEAD
 	private String phone;
+=======
+	private String tel1;
+	private String tel2;
+	private String tel3;
+>>>>>>> parent of 5963d65 (회원정보 수정)
 	
 	
 	
