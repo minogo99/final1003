@@ -8,12 +8,19 @@
 	color: red;
 	font-weight: bold;
 }
+	#isnertPage{
+		}
+		#insert {
+	width: 450px;
+	height: 400px;
+	margin: 30px auto;
 </style>
+	
 <script src="resources/js/jquery.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 	 $('#idcheck').click(function(){
-		 
+		 $("input[name=checked_id]").val('y');
 	        $.ajax({
 	            url: "idCheck.member",
 	            type: "POST",
@@ -34,11 +41,22 @@ $(document).ready(function(){
 	            
 	        });
 	    });
+});
 const checkSubmitDone = false;
 function checkSubmit(form){
 	if(checkSubmitDone){
 		return;
 	}
+form.id.value = form.id.value.trim();
+	
+	if(form.id.value.length == 0){
+		alert('아이디를 입력하세요.');
+		form.id.focus();
+		
+		return;
+		
+	}
+	
 	form.password.value = form.password.value.trim();
 	
 	if(form.password.value.length == 0){
@@ -66,10 +84,16 @@ function checkSubmit(form){
 		return;
 		
 	}
+	
 	form.submit();
 	checkSubmitDone = ture; 
 }
-});
+ function gosub(){
+	 if(form.chk.value == "0"){
+			alert("아이디 중복체크를 해주세요.");
+			return false;
+		}
+ }
 </script>
 	<%
 String[] tel1 = { "02", "064", "010" };
@@ -80,6 +104,9 @@ request.setAttribute("tel1", tel1);
 
 <h3 style="color: green; font-weight: bold;" align="center">회원 추가 </h3>
 <form:form name="form" commandName="member" method="post" action="insert.member" onsubmit="checkSubmit(this); return false;">
+		
+		<input type="hidden" name="chk" value="0">
+		
 		<fieldset>
 			<div class="form-group">
 			<label for="id" class="form-label mt-4">아이디</label>
@@ -136,7 +163,8 @@ request.setAttribute("tel1", tel1);
 		</fieldset>
 		<br><br>
 			<div align="center">
-			<input type="submit" class="btn btn-primary" value="회원가입">
+			<input type="submit" class="btn btn-primary" onclick="gosub();return false;" value="회원가입">
+			<input type="button" class="btn btn-primary" onclick="history.go(-1);" value="취소">
 			</div>
 	</form:form>
 </div>	

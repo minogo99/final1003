@@ -66,13 +66,13 @@
 		</tr>
 	</c:if>
 	<c:forEach var="member" items="${lists }">
-<<<<<<< Updated upstream
+
 		<tr>
 			<td>${member.num }</td>
 			<td><a
 				href="detail.member?num=${member.num }&pageNumber=${pageInfo.pageNumber}"
 				)>${member.id }</a></td>
-			<td>${member.password }</td>
+			<td>${member.password }</td>			
 			<td>${member.name }</td>
 			<td>${member.tel1 }${member.tel2 }${member.tel3 }</td>
 			<td>${member.regdate }</td>
@@ -82,23 +82,6 @@
 				onClick="goDelete(${member.num },${pageInfo.pageNumber})"></td>
 
 		</tr>
-=======
-		<c:if test="${member.id ne 'admin' }">
-			<tr>
-				<td>${member.num }</td>
-				<td><a
-					href="detail.member?num=${member.num }&pageNumber=${pageInfo.pageNumber}"
-					)>${member.id }</a></td>
-				<td>${member.password }</td>
-				<td>${member.name }</td>
-				<td>${member.regdate }</td>
-				<td><input type="button" value="수정"
-					onClick="goUpdate(${member.num },${pageInfo.pageNumber})"></td>
-				<td><input type="button" value="삭제"
-					onClick="goDelete(${member.num },${pageInfo.pageNumber})"></td>
-			</tr>
-		</c:if>
->>>>>>> Stashed changes
 	</c:forEach>
 </table>
 <center>${pageInfo.pagingHtml }</center>

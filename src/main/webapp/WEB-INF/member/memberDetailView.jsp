@@ -10,23 +10,27 @@
 
 	<table border="1" align="center">
 		<tr>
-			<td>번호</td>
+			<th>번호</th>
 			<td>${member.num}</td>
 		</tr>
 		<tr>
-			<td>아이디</td>
+			<th>아이디</th>
 			<td>${member.id}</td>
 		</tr>
 		<tr>
-			<td>비밀번호</td>
+			<th>비밀번호</th>
 			<td>${member.password}</td>
 		</tr>
 		<tr>
-			<td>이름</td>
+			<th>이름</th>
 			<td>${member.name}</td>
 		</tr>
 		<tr>
-			<td>가입일시</td>
+			<th>전화번호</th>
+			<td>${member.tel1}-${member.tel2}-${member.tel3}</td>
+		</tr>
+		<tr>
+			<th>가입일시</th>
 			<td>${member.regdate}</td>
 		</tr>
 		<tr>
