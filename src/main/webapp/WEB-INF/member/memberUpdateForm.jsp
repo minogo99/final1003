@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
  
 <%@include file="./../common/common.jsp" %>     
-<%@include file="../display/top.jsp" %>
+<%@include file="../display/admin_top.jsp" %>
 <style type="text/css">
 		.err{
 		font-size: 9pt;
@@ -96,6 +96,13 @@ function checkSubmit(form){
 }
 });
 </script>
+
+	<%
+String[] tel1 = { "02", "064", "010" };
+request.setAttribute("tel1", tel1);
+%>
+<div id="signPage">
+<div id="sign">
 <h3 style="color:green; font-weight : bold;" align="center">회원 수정 화면</h3>
 
 <form:form commandName="member" method="post" action="update.member" align="center"
@@ -118,12 +125,12 @@ onsubmit="checkSubmit(this); return false;" >
 		</div>
 		<div class="form-group">
 			<label for="password" class="form-label mt-4">비밀번호확인</label>
-				<input type="password" class="form-control" name="repassword" placeholder="비밀번호 입력" value="${member.repassword }">
+				<input type="password" class="form-control" name="repassword" placeholder="비밀번호 입력" value="${member.password }">
 				<form:errors cssClass="err" path="password" />
 		</div>
 		<div class="form-group">
 				<label for="name" class="form-label mt-4">이름</label>
-				<input type="text" class="form-control" name="name" placeholder="이름 입력" value="${mb.name }">
+				<input type="text" class="form-control" name="name" placeholder="이름 입력" value="${member.name }">
 				<form:errors cssClass="err" path="name" />
 			</div>
 		<div class="form-group">
@@ -161,5 +168,6 @@ onsubmit="checkSubmit(this); return false;" >
 			<input type="button" class="btn btn-primary" onclick="history.go(-1);" value="취소">
 			</div>
 </fieldset>
-		
 </form:form>
+	</div>	
+</div>			
