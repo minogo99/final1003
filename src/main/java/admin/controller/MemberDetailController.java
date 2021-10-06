@@ -1,4 +1,4 @@
-package member.controller;
+package admin.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,10 +12,9 @@ import member.model.MemberDao;
 
 @Controller
 public class MemberDetailController {
-	private final String command = "/detail.member";
+	private final String command = "/detail.admin";
 	private final String getPage = "memberDetailView";
 
-	@Autowired
 	MemberDao memberDao;
 	
 	@RequestMapping(value=command)
@@ -27,7 +26,7 @@ public class MemberDetailController {
 		model.addAttribute("member", member);
 		model.addAttribute("pageNumber", pageNumber);
 		
-		System.out.println("디테일컨트롤러");
+		System.out.println("�뵒�뀒�씪而⑦듃濡ㅻ윭");
 		
 		return getPage;
 	}

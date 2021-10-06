@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import member.model.MemberBean;
-import member.model.MemberDaoImpl;
+import member.model.MemberDao;
 
 @Controller
 public class updateController {
@@ -27,7 +27,7 @@ public class updateController {
 	private final String gotoPage = "redirect:/main.wa";
 	
 	@Autowired
-	MemberDaoImpl mdao;
+	MemberDao mdao;
 	
 	@RequestMapping(value=command, method=RequestMethod.GET)
 	public String doActionGet(@RequestParam(value="num", required=true)int num ,Model model) {

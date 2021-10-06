@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import member.model.MemberBean;
-import member.model.MemberDaoImpl;
+import member.model.MemberDao;
 
 @Controller
 public class SignMemberController {
@@ -21,7 +21,7 @@ public class SignMemberController {
 	private final String gotoPage = "loginpage";
 	
 	@Autowired
-	MemberDaoImpl mdao;
+	MemberDao mdao;
 	
 	@RequestMapping(value=command, method=RequestMethod.GET)
 	public String doActionGET() {

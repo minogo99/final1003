@@ -1,6 +1,4 @@
-package member.controller;
-
-
+package admin.controller;
 
 import javax.validation.Valid;
 
@@ -18,11 +16,10 @@ import member.model.MemberDao;
 
 @Controller
 public class MemberInsertController {
-	private final String command="insert.member";
+	private final String command="insert.admin";
 	private final String getPage="memberInsertForm";
 	private final String gotoPage="redirect:/list.member";
 
-	@Autowired
 	MemberDao memberDao;
 
 	

@@ -1,4 +1,4 @@
-package member.controller;
+package admin.controller;
 
 import java.util.HashMap;
 import java.util.List;
@@ -19,10 +19,9 @@ import utility.Paging;
 @Controller
 public class MemberListController {
 
-	@Autowired
-	private MemberDao mdao;
+	MemberDao mdao;
 
-	private final String command = "/list.member";
+	private final String command = "/memberList.admin";
 	private final String getPage = "member_list";
 
 	@RequestMapping(value = command)

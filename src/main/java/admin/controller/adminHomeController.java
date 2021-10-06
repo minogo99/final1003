@@ -15,11 +15,11 @@ import admin.model.AdminDAO;
 import admin.model.AdminDTO;
 
 @Controller
-public class AdminController {
+public class adminHomeController {
 
-	private final String command = "/admin_login.admin";
-	private final String getPage = "admin_login";
-	private final String gotopage = "redirect:/list.member";
+	private final String command = "/adminHome.admin";
+	private final String getPage = "adminHome";
+	private final String gotopage = "redirect:/memberList.admin";
 	
 	@Autowired
 	AdminDAO adminDao;
@@ -45,20 +45,20 @@ public class AdminController {
 		
 		if(adminDto == null) {
 			
-			pw.println("<script>alert('아이디가 일치하지 않습니다.');</script>");
+			pw.println("<script>alert('�븘�씠�뵒媛� �씪移섑븯吏� �븡�뒿�땲�떎.');</script>");
 			pw.flush();
 			return getPage;
 		}
 		else {
 			
 			if( admin.getAdmin_pass().equals(adminDto.getAdmin_pass()) ) { 
-				System.out.println("로그인성공");
+				System.out.println("濡쒓렇�씤�꽦怨�");
 				session.setAttribute("loginInfo", adminDto);
 								
 				return gotopage; 
 				
 			}else { 
-				pw.println("<script>alert('비밀번호가 일치하지 않습니다.');</script>");
+				pw.println("<script>alert('鍮꾨�踰덊샇媛� �씪移섑븯吏� �븡�뒿�땲�떎.');</script>");
 				pw.flush();
 				return getPage;
 			}
