@@ -9,11 +9,13 @@ import javax.validation.Valid;
 import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import utility.Paging;
 
-@Component
+@Repository
 public class MemberDao{
 
 	String namespace="member.model.MemberBean";

@@ -1,4 +1,4 @@
-package admin.controller;
+package member.controller;
 
 import java.io.IOException;
 
@@ -54,7 +54,7 @@ public class MemberUpdateController {
 
 		else { 
 			int cnt = memberDao.updateData(member);  
-			System.out.println("insert�꽦怨�");
+			System.out.println("insert占쎄쉐�⑨옙");
 		}
 
 		mav.setViewName(gotoPage);

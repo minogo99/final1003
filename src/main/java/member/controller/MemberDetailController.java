@@ -1,4 +1,4 @@
-package admin.controller;
+package member.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,7 +26,7 @@ public class MemberDetailController {
 		model.addAttribute("member", member);
 		model.addAttribute("pageNumber", pageNumber);
 		
-		System.out.println("�뵒�뀒�씪而⑦듃濡ㅻ윭");
+		System.out.println("占쎈탵占쎈�믭옙�뵬�뚢뫂�뱜嚥▲끇�쑎");
 		
 		return getPage;
 	}
