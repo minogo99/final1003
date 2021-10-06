@@ -158,7 +158,7 @@ onsubmit="checkSubmit(this); return false;" >
 		
 			<div align="center">
 			<input type="submit" class="btn btn-primary" value="수정하기">
-			<input type="button" onclick="history.go(-1);" value="취소">
+			<input type="button" class="btn btn-primary" onclick="history.go(-1);" value="취소">
 			</div>
 </fieldset>
 		
