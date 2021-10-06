@@ -24,7 +24,7 @@ public class MemberDaoImpl implements MemberDao{
 	SqlSessionTemplate sqlSessionTemplate;
 	
 	@Override
-	public int idCheck(String userId) throws Exception {
+	public	int idCheck(String userId) throws Exception {
 		int result = sqlSessionTemplate.selectOne(namespace + ".idCheck",userId);
 		return result;
 	}
