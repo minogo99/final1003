@@ -10,8 +10,8 @@
 
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
     <li><a class="dropdown-item" href="list.board">자유게시판</a></li>
-    <li><a class="dropdown-item" href="#">Another action</a></li>
-    <li><a class="dropdown-item" href="#">Something else here</a></li>
+    <li><a class="dropdown-item" href="noticeList.cs">공지사항</a></li>
+    <li><a class="dropdown-item" href="faqList.cs">FAQ</a></li>
   </ul>
 </div>
 </nav>
