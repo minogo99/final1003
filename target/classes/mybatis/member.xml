@@ -6,7 +6,7 @@
 <mapper namespace="member.model.MemberBean">
 
 <insert id="insertMember">
-insert into members values(seqmembers.nextval,#{id},#{password},#{name},sysdate,#{phone})
+insert into members values(members_seq.nextval,#{id},#{password},#{name},sysdate,#{tel1},#{tel2},#{tel3})
 </insert>
 
 <select id="getData" resultType="MyMember">
@@ -55,10 +55,11 @@ select * from members where name = #{name} and id = #{id}
 <select id="idCheck" resultType="int">select count(id) from members where id = #{id} </select>
 
 <update id="updateMember" >
-	update members set id=#{id},password=#{password},name=#{name},phone=#{phone} where num=#{num}
+	update members set name=#{name},tel1=#{tel1},tel2=#{tel2},tel3=#{tel3} where num=#{num}
 </update>
 
 <select id="getByNumData" resultType="MyMember">
 select * from members where num = #{num}
 </select>
+
 </mapper>

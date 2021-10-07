@@ -23,7 +23,7 @@ public class ReplyWriteController {
 	ReplyDao replyDao;
 	
 	private final String command = "/replyWrite.board";
-	private final String getPage = "redirect:detailView.board?num=";
+	private final String getPage = "redirect:detailView.board";
 	@RequestMapping(value=command)
 	public ModelAndView doActionPost(ReplyBean rb,HttpSession session,HttpServletResponse response) throws IOException {
 		
@@ -34,13 +34,14 @@ public class ReplyWriteController {
 		MemberBean loginInfo = (MemberBean)session.getAttribute("loginInfo");
 		if(loginInfo == null) {
 			mav.addObject("msg", "로그인을 먼저 해야합니다.");
-			session.setAttribute("destination", getPage+rb.getBno());
+			session.setAttribute("destination", getPage+"?num="+rb.getBnum());
 			mav.setViewName("alert");
 		}else {
 		rb.setWriter(loginInfo.getId());
 		replyDao.replyWrite(rb);
 		
-		mav.setViewName(getPage+rb.getBno());
+		mav.addObject("num", rb.getBnum());
+		mav.setViewName(getPage);
 		}
 		return mav;
 	}

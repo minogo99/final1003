@@ -24,7 +24,6 @@ overflow:auto;
 .dropbtn {
   background-color: black;
   color: white;
-  padding: 16px;
   font-size: 16px;
   border: none;
 }
@@ -64,30 +63,37 @@ overflow:auto;
 .dropdown:hover .dropbtn {background-color: black;}
 
 </style>
-<%@include file="../common/common.jsp" %>
+
+<script type="text/javascript">
+function openPop(){
+    var popup = window.open("alert.wa", "알림창", "width=700px,height=800px,scrollbars=yes");
+}
+</script>
+
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div id="top">
 <div id="member">
 <%if(session.getAttribute("loginInfo") == null){ %>
 <a href="login.member">로그인</a>
  / <a href="sign.member">회원가입</a>
 <%}else{ %>
-
+<%@ include file="../common/common.jsp" %>
 <div class="dropdown">
   <button class="dropbtn">${loginInfo.name}님</button>
   <div class="dropdown-content">
     <p align="center">${loginInfo.name}</p>
-    <c:if test="${loginInfo.name eq '관리자' }">
-  	<a href="admin_login.admin">관리자 페이지</a>
-  	</c:if>
+    <c:if test="${loginInfo.name eq '관리자'}" >
+    	<a href="adminHome.admin">관리자 페이지</a>
+    </c:if>
     <a href="userupdate.member?num=${loginInfo.num}">회원 정보 수정</a>
     <a href="#">시청기록</a>
-    <a href="#">알림함</a>
+    <a href="#none" target="_blank" onclick="openPop()">알림함</a>
     <a href="logout.member">로그아웃</a>
   </div>
 </div>
 
 <%} %>
- / <a href="pay.voucher">이용권</a></div>
+ / <a href="pay.voucher">이용권</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</div>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="main.wa"><img src="resources/images/logo3.jpg" width="80" height="80" /></a>

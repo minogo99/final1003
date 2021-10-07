@@ -3,6 +3,7 @@ package board.controller;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,12 +25,13 @@ public class BoardDetailViewController {
 	
 	@Autowired
 	BoardDao boardDao;
+	
 	private final String command = "/detailView.board";
 	private final String getPage = "BoardDetailView";
 	
 	@RequestMapping(value=command)
-	public ModelAndView doActionGet(@RequestParam("num") int num,
-			@RequestParam(value="replyPageNumber",defaultValue="1") int replyPageNumber) {
+	public ModelAndView doActionGet(@RequestParam("num") int num,@RequestParam(value="rnum",defaultValue="0") int rnum,
+			@RequestParam(value="replyPageNumber",defaultValue="1") int replyPageNumber,@RequestParam(value="replyType",required = false) String replyType) {
 		
 		ModelAndView mav = new ModelAndView();
 		int count = replyDao.listCount(num);
@@ -38,16 +40,24 @@ public class BoardDetailViewController {
 		int startRow = (replyPageNumber - 1) * 3 + 1;
 		int endRow = replyPageNumber * 3;
 
-		int cnt = boardDao.readCountUp(num);
+		boardDao.readCountUp(num);
 		BoardBean bb = boardDao.getOneData(num);
 		
 		mav.addObject("bb", bb);
 		
 		List<ReplyBean> reply = null;
 		reply = replyDao.list(num,startRow,endRow);
-		System.out.println("replyªÁ¿Ã¡Ó"+reply.size());
 		mav.addObject("reply", reply);
 		
+		if(rnum != 0) {
+		ReplyBean rb = replyDao.getOneData(rnum);
+		mav.addObject("rb", rb);
+		}
+		if(replyType == null) {
+		replyType = "write";
+		}
+		mav.addObject("replyType", replyType);
+		System.out.println("replyTypesadasdadasdasdaDetail2"+replyType);
 		mav.setViewName(getPage);
 		
 		return mav;

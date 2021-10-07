@@ -63,24 +63,33 @@ detailMovie.jsp<br><br>
 	</div>
 	<div class="poster">
 		<figure>
-			<img src="resources/images/poster/movie/${cb.image}.jpg" class="poster_img"/>
+			<img src="resources/images/poster/movie/${db.video}.jpg" class="poster_img"/>
 		</figure>
 	</div>
 	<div class="infor">
 		<div class="infor_title">
-				${cb.title }
+				${db.title }
 				<button name="view" onclick="">시청하기</button>
 		</div>
 		<div align="right">
 			<a href="login.member"><button class="btn btn-primary">로그인</button></a>
 		</div>
+		<div>${db.genre } ${db.runningT }분 ${db.grade }세 </div>
+		<hr>
 		<div>
 			<span id="toggle" onclick="openCloseToc()">더보기</span>
 			<div id="tContent">
 				<div class="infor_sub" >
-					${cb.genre }×
-					<%-- ${cb.rtime }분× --%>
-					${cb.grade }세
+					개봉: ${db.day } 
+					<br><br>
+					장르 : ${db.genre }
+					<br><br>
+					관람연령 : ${db.grade }세
+					<br><br>
+					출연배우 : ${db.actor }
+					<br><br>
+					줄거리 : ${db.content } 
+					
 				</div>
 			</div>
 		</div>
@@ -92,11 +101,15 @@ detailMovie.jsp<br><br>
 	<div class="usaGenre">
 		비슷한 영화
 	</div>
-	<c:forEach var="glist" items="${lists }" >
+	<c:forEach var="glist" items="${dlists }" >
 				<div style="display: inline-block;">
 					<div class="else" >
 						<figure>
-							<img src="resources/images/poster/movie/${glist.image}.jpg" class="poster_img"/>
+							<c:forEach var="clist" items="${clists }">
+								<c:if test="${glist.vnum eq clist.num}">
+									<img src="resources/images/poster/movie/${clist.image}.jpg" class="poster_img"/>
+								</c:if>
+							</c:forEach>
 						</figure>
 						<h3><span class="icon all ir_pm">
 						<c:if test="${glist.grade eq 18 }">
