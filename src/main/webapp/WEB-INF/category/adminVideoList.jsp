@@ -5,12 +5,8 @@
 videolist.jsp<br><br>
 
 <script type="text/javascript">
-	function goInsert(){
-		location.href="insert.member" ;
-	}
-	
 	function videoInsert(){
-		location.href="insert.video" ;
+		location.href="adminInsertVideo.category" ;
 	}
 	
 	function goUpdate(num,pn){
@@ -62,8 +58,7 @@ text-align: center;
 </form>
 <table border="1" align="center" width="600">
 	<tr>
-		<td colspan="7">
-			<input type="button" value="추가하기"	onClick="goInsert()">
+		<td colspan="7" align="right">
 			<input type="button" value="영상 추가"	onClick="videoInsert()">
 		</td>
 	</tr>
