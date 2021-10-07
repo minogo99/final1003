@@ -1,15 +1,38 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@include file="../admin/display/top.jsp"%>
 <%@include file="../common/common.jsp"%>
 
+<style>
+#container {
+	height: 100%;
+}
 
-	<table id="notice_table">
+#noticeList {
+	border: 1px solid black;
+	padding: 100px;
+}
+
+table {
+	margin: auto;
+	text-align: center;
+}
+</style>
+<div class="row" id="container">
+	<div class="col-lg-2">
+		<%@include file="../admin/display/left.jsp"%>
+	</div>
+	<div id="noticeList" class="col-lg-10">
+	<table class="table">
+	<thead class="table-light">
 		<tr>
-			<td>구분</td>
-			<td width="300">제목</td>
-			<td>등록일</td>
+			<th scope="col">구분</th>
+			<th scope="col" width="300">제목</th>
+			<th scope="col">등록일</th>
+			<th scope="col">수정</th>
+			<th scope="col">삭제</th>
 		</tr>
-		
+		<tbody>
 		<c:forEach var="cnb" items="${lists }" varStatus="status">
 			<tr>
 				<td>${cnb.division }</td>
@@ -20,8 +43,16 @@
 						pattern="yyyy-MM-dd" /> <fmt:formatDate
 						value="${noticePostDate}" pattern="yyyy-MM-dd"
 						var="reg_date" /> ${reg_date }</td>
+						<td>
+						<a>수정</a>
+						</td>
+						<td>
+						<a  href="noticeDelete.cs?num=${cnb.num }">삭제</a>
+						</td>
+
 			</tr>
 		</c:forEach>
+		</tbody>
 	</table>
 	<br>
 				
@@ -57,3 +88,5 @@
 	</form>
 	
 		${pageInfo.pagingHtml}
+		</div>
+		</div>
