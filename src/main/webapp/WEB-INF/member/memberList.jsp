@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@include file="../admin/display/left.jsp" %>
+<%@include file="../admin/display/top.jsp" %>
 <%@include file="./../common/common.jsp"%>
 
 <script type="text/javascript">
@@ -31,10 +31,12 @@
 	}
 </script>
 <style>
+#container{
+height: 600px;
+}
 #memberList{
 text-align: center;
 height: 100%;
-margin-left: 200px;
 border: 1px solid black;
 padding: 100px;
 }
@@ -43,9 +45,13 @@ margin: auto;
 text-align: center;
 }
 </style>
-<div id="memberList">
+<div class="row" id="container">
+<div class="col-lg-2">
+<%@include file="../admin/display/left.jsp" %>
+</div>
+<div id="memberList" class="col-lg-10">
 <h2 style="color: green; font-weight: bold;">회원 리스트</h2>
-<form action="list.member" method="get">
+<form action="memberList.member" method="get">
 	<select name="whatColumn">
 		<option value="">전체 검색</option>
 		<option value="id">아이디</option>
@@ -94,4 +100,5 @@ text-align: center;
 	</c:forEach>
 </table>
 ${pageInfo.pagingHtml }
+</div>
 </div>
