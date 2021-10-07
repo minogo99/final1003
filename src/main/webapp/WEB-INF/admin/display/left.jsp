@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <ul class="nav flex-column">
-  <li>
+  <li class="nav-item">
   	<%@include file="clock.html" %>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="memberList.member">회원관리</a>
+    <a class="nav-link" href="memberList.admin">회원관리</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="#">구매관리</a>
@@ -18,9 +18,9 @@
            게시판 관리
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">자유게시판</a></li>
-            <li><a class="dropdown-item" href="#">공시사항</a></li>
-            <li><a class="dropdown-item" href="#">자주묻는 질문</a></li>
+            <li><a class="dropdown-item" href="boardList.admin">자유게시판</a></li>
+            <li><a class="dropdown-item" href="noticeList.admin">공시사항</a></li>
+            <li><a class="dropdown-item" href="faqList.admin">자주묻는 질문</a></li>
           </ul>
         </li>
 </ul>

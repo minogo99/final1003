@@ -12,7 +12,7 @@ table {
 			<thead class="table-light">
 				<tr>
 					<th scope="col">No</th>
-					<th scope="col" width="600">제목</th>
+					<th scope="col" width="500">제목</th>
 					<th scope="col">작성자</th>
 					<th scope="col">조회수</th>
 					<th scope="col">등록일</th>
@@ -24,7 +24,7 @@ table {
 				<c:forEach var="bb" items="${lists}" varStatus="status">
 					<tr>
 						<th scope="row">${pageInfo.totalCount - (pageInfo.pageNumber-1) * pageInfo.pageSize - status.index}</th>
-						<td width="600"><a
+						<td width="500"><a
 							href="detailView.board?num=${bb.num }&replyType=write">${bb.subject }</a>
 							(${bb.replycount })</td>
 						<td>${bb.writer }</td>
@@ -39,13 +39,13 @@ table {
 				</c:forEach>
 			</tbody>
 		</table>
+		
 		<div align="right">
 			<input type="button" class="btn btn-primary" value="글쓰기"
 				onclick="location.href='write.board'">
 		</div>
-		<br>
 
-		<form action="list.board" method="get">
+		<form action="boardList.admin" method="get">
 			<div class="row justify-content-center">
 				<div class="col-sm-2">
 					<select name="whatColumn" class="form-select">

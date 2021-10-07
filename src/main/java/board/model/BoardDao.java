@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 import utility.Paging;
 
-@Component("BoardDao")
+@Component
 public class BoardDao {
 
 private String namespace = "board.model.BoardBean";

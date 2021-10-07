@@ -40,9 +40,13 @@ table {
 		</c:forEach>
 		</tbody>
 	</table>
-	<br>
+	
+		<div align="right">
+			<input type="button" class="btn btn-primary" value="글쓰기"
+				onclick="location.href='write.board'">
+		</div>
 				
-	<form action="noticeList.cs" method="get">
+	<form action="noticeList.admin" method="get">
 			<div class="row justify-content-center">
 		<div class="col-sm-2">
 		<select name="whatColumn" class="form-select">

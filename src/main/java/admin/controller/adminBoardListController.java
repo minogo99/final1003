@@ -22,10 +22,10 @@ import utility.Paging;
 public class adminBoardListController {
 
 	@Autowired
-	BoardDao boardDao;
+	private BoardDao boardDao;
 	
 	@Autowired
-	ReplyDao replyDao;
+	private ReplyDao replyDao;
 	
 	private final String command = "/boardList.admin";
 	private final String getPage = "adminMain";

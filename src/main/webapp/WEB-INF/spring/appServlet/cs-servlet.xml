@@ -15,7 +15,6 @@
 	</bean>
 	
 	<context:component-scan base-package="cs" />
-	<context:component-scan base-package="admin" />
 
 
 </beans>

@@ -3,21 +3,18 @@
 <%@include file="../common/common.jsp"%>
 <%@include file="display/top.jsp" %>
 <style>
-#container{
-height: 800px;
-}
 #adminMain{
 text-align: center;
 height: 100%;
-border: 1px solid black;
 padding: 100px;
 }
 </style>
-<div class="row" id="container">
-<div class="col-lg-2">
+<div class="container-fluid">
+<div class="row">
+<div class="col-sm-2">
 <%@include file="display/left.jsp" %>
 </div>
-<div id="adminMain" class="col-lg-10">
+<div class="col-sm-10" id="adminMain">
 <c:if test="${pageType == 'memberList' }">
 <%@include file="adminMemberList.jsp" %>
 </c:if>
@@ -33,5 +30,7 @@ padding: 100px;
 <c:if test="${pageType == 'main' }">
 메인 페이지
 </c:if>
+</div>
+</div>
 </div>
 </div>
