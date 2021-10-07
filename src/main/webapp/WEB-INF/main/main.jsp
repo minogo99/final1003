@@ -2,9 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@include file="../display/top.jsp" %>
 
-<<<<<<< HEAD
-=======
-    <!-- Demo styles -->
     <style>
       html,
       body {
@@ -80,6 +77,5 @@
       });
     </script>
   </body>
->>>>>>> 6c19cc80d80e396d1552f020ea280e323096f675
 
 <%@include file="../display/bottom.jsp" %>
