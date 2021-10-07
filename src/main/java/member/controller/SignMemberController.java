@@ -11,7 +11,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import member.model.MemberBean;
 import member.model.MemberDao;
-import member.model.MemberDaoImpl;
 
 @Controller
 public class SignMemberController {
@@ -22,7 +21,7 @@ public class SignMemberController {
 	private final String gotoPage = "loginpage";
 	
 	@Autowired
-	MemberDaoImpl mdao;
+	MemberDao mdao;
 	
 	@RequestMapping(value=command, method=RequestMethod.GET)
 	public String doActionGET() {
@@ -30,16 +29,17 @@ public class SignMemberController {
 		return getPage;
 	}
 	@RequestMapping(value=command, method=RequestMethod.POST)
-	public ModelAndView doActionPOST(@Valid MemberBean bean, BindingResult result
+	public ModelAndView doActionPOST(@Valid MemberBean mb, BindingResult result
 			) {
 		ModelAndView mav = new ModelAndView();
 		if(result.hasErrors()) {
 			System.out.println("유효성검사에 오류가 있습니다.");
+			mav.addObject("mb", mb);
 			mav.setViewName(getPage);
 			return mav;
 		}
 		
-		int cnt = mdao.insertMember(bean);
+		int cnt = mdao.insertMember(mb);
 		mav.setViewName(gotoPage);
 		return mav;
 }

@@ -248,7 +248,7 @@ public class Paging {
 	private String getPagingHtml( String url ){ //페이징 문자열을 만든다.
 		System.out.println("getPagingHtml url:"+url); 
 		
-		String result = "" ;
+		String result = "<div><ul class='pagination pagination-sm justify-content-center'>" ;
 		//added_param 변수 : 검색 관련하여 추가되는 파라미터 리스트
 		String added_param = "&whatColumn=" + whatColumn + "&keyword=" + keyword ; // &whatColumn=singer&keyword=아
 		
@@ -265,13 +265,13 @@ public class Paging {
 		//가운데
 		for (int i = this.beginPage; i <= this.endPage ; i++) {
 			if ( i == this.pageNumber ) {
-				result += "&nbsp;<font color='red'>" + i + "</font>&nbsp;"	;
-						
-			} else {
-				result += "&nbsp;<a href='" + url   
+				result += "<li class='page-item active'><a class='page-link' href='" + url   
 						+ "?pageNumber=" + i + "&pageSize=" + this.pageSize 
-						+ added_param + "'>" + i + "</a>&nbsp;" ;
-				
+						+ added_param + "'>" + i + "</a> </li>" ;
+			}else {
+				result += "<li class='page-item'><a class='page-link' href='" + url   
+						+ "?pageNumber=" + i + "&pageSize=" + this.pageSize 
+						+ added_param + "'>" + i + "</a> </li>" ;
 			}
 		}
 		System.out.println("result:"+result); 
@@ -286,7 +286,8 @@ public class Paging {
 			result += "&nbsp;<a href='" + url  
 					+ "?pageNumber=" + (this.totalPage ) + "&pageSize=" + this.pageSize 
 					+ added_param + "'>맨 끝</a>&nbsp;" ;
-		}		
+		}
+		result += "</ul></div>";
 		System.out.println("result2:"+result);
 		// result2 : <a href='/ex/list.ab?pageNumber=1&pageSize=2'>맨 처음</a>&nbsp;&nbsp;<a href='/ex/list.ab?pageNumber=3&pageSize=2&whatColumn=null&keyword=null'>이전</a>&nbsp;&nbsp;<font color='red'>4</font>&nbsp;&nbsp;<a href='/ex/list.ab?pageNumber=5&pageSize=2&whatColumn=null&keyword=null'>5</a>&nbsp;
 		

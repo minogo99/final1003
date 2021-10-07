@@ -5,13 +5,18 @@ id varchar2(50) not null unique,
 password varchar2(50) not null,
 name varchar2(50) not null,
 regdate date default sysdate,
-<<<<<<< Updated upstream
+
 phone number not null
-=======
+
 tel1 number not null,
 tel2 number not null,
 tel3 number not null
->>>>>>> Stashed changes
+
+
+tel1 String not null,
+tel2 String not null,
+tel3 String not null
+
 );
 
 drop sequence members_seq;
@@ -82,6 +87,8 @@ admin_name varchar2(20) not null,
 reg_date date default sysdate
 );
 
+insert into admin values('admin','1234','관리자',sysdate);
+
 drop sequence admin_seq;
 create sequence admin_seq
   increment by 1
@@ -112,8 +119,8 @@ create sequence video_seq
 
 drop table reply;
 create table reply(
-rno int primary key,
-bno int not null,
+rnum int primary key,
+bnum int not null,
 writer varchar2(10),
 content varchar2(1000),
 reg_date date default sysdate

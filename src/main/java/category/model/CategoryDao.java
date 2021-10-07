@@ -15,22 +15,44 @@ public class CategoryDao {
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
 	
+	public List<CategoryBean> selectAll() {
+		List<CategoryBean> lists=new ArrayList<CategoryBean>();
+		
+		lists=sqlSessionTemplate.selectList(namespace+".selectAll");
+		System.out.println("lists : " + lists.size());
+		return lists;
+	}
+	
 	public List<CategoryBean> selectMovie() {
 		List<CategoryBean> lists=new ArrayList<CategoryBean>();
 		
 		lists=sqlSessionTemplate.selectList(namespace+".selectMovie");
+		System.out.println("lists : " + lists.size());
 		return lists;
 	}
-	
-	public CategoryBean detailMovieView(int num) {
+	public CategoryBean detailVideoView(int num) {
 		
-		CategoryBean cb =sqlSessionTemplate.selectOne(namespace+".detailMovieView",num);
+		CategoryBean cb =sqlSessionTemplate.selectOne(namespace+".detailVideoView",num);
 		return cb;
 	}
 	
-	public List<CategoryBean> detailMovieGenre(String genre) {
+	public List<CategoryBean> detailVideoGenre(String genre) {
 		List<CategoryBean> lists=new ArrayList<CategoryBean>();
-		lists=sqlSessionTemplate.selectList(namespace+".detailMovieGenre", genre);
+		lists=sqlSessionTemplate.selectList(namespace+".detailVideoGenre", genre);
+		return lists;
+	}
+	
+	public List<CategoryBean> selectEntertain() {
+		List<CategoryBean> lists=new ArrayList<CategoryBean>();
+		
+		lists=sqlSessionTemplate.selectList(namespace+".selectEnter");
+		return lists;
+	}
+	
+	public List<CategoryBean> selectDrama() {
+		List<CategoryBean> lists=new ArrayList<CategoryBean>();
+		
+		lists=sqlSessionTemplate.selectList(namespace+".selectDrama");
 		return lists;
 	}
 }

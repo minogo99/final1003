@@ -18,11 +18,10 @@ import member.model.MemberDao;
 
 @Controller
 public class MemberUpdateController {
-	private final String command="update.member";
+	private final String command="update.admin";
 	private final String getPage="memberUpdateForm";
 	private final String gotoPage="redirect:/list.member";
 
-	@Autowired
 	MemberDao memberDao;
 
 
@@ -55,7 +54,7 @@ public class MemberUpdateController {
 
 		else { 
 			int cnt = memberDao.updateData(member);  
-			System.out.println("insert성공");
+			System.out.println("insert占쎄쉐�⑨옙");
 		}
 
 		mav.setViewName(gotoPage);

@@ -1,5 +1,9 @@
 package member.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -13,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import member.model.MemberBean;
-import member.model.MemberDaoImpl;
+import member.model.MemberDao;
 
 @Controller
 public class updateController {
@@ -23,34 +27,38 @@ public class updateController {
 	private final String gotoPage = "redirect:/main.wa";
 	
 	@Autowired
-	MemberDaoImpl mdao;
+	MemberDao mdao;
 	
 	@RequestMapping(value=command, method=RequestMethod.GET)
 	public String doActionGet(@RequestParam(value="num", required=true)int num ,Model model) {
-		MemberBean loginInfo = mdao.getByNumData(num);
-		model.addAttribute("loginInfo", loginInfo);
+		MemberBean mb = mdao.getByNumData(num);
+		model.addAttribute("mb", mb);
 		return getPage;
 	}
 	
 	@RequestMapping(value=command, method=RequestMethod.POST)
-	public ModelAndView doActionPost(@Valid MemberBean bean, BindingResult result,
+	public ModelAndView doActionPost(@Valid MemberBean mb, BindingResult result,
 									 @RequestParam(value="num", required=true)int num,
-									 HttpSession session) {
+									 HttpSession session,HttpServletResponse response) throws IOException {
+		
+		PrintWriter pw = response.getWriter();
+		response.setContentType("text/html;charset=UTF-8");
 		
 		ModelAndView mav = new ModelAndView();
 		
 		if(result.hasErrors()) {
-			System.out.println("À¯È¿¼º °Ë»ç ¿À·ùÀÔ´Ï´Ù.");
+			System.out.println("ìœ íš¨ì„± ê²€ì‚¬ ì˜¤ë¥˜ì…ë‹ˆë‹¤.");
+			mav.addObject("mb", mb);
 			mav.setViewName(getPage);
 			return mav;
 		}
-<<<<<<< Updated upstream
+
 		
 		int cnt = mdao.updateMember(bean);
 		MemberBean loginInfo = mdao.getByNumData(num);
 		session.setAttribute("loginInfo", loginInfo);
 		mav.setViewName(gotoPage);
-=======
+
 		MemberBean DBmb = mdao.getByNumData(num);
 		if(DBmb.getPassword().equals(mb.getPassword())) {
 			int cnt = mdao.updateMember(mb);
@@ -58,12 +66,12 @@ public class updateController {
 			session.setAttribute("loginInfo", loginInfo);
 			mav.setViewName(gotoPage);
 		}else {
-			pw.println("<script>alert('ÆĞ½º¿öµå°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù.');</script>");
+			pw.println("<script>alert('íŒ¨ìŠ¤ì›Œë“œê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.');</script>");
 			pw.flush();
 			mav.addObject("mb", mb);
 			mav.setViewName(getPage);
 		}
->>>>>>> Stashed changes
+ main
 		return mav;
 	}
 

@@ -40,8 +40,21 @@ detailMovie.jsp<br><br>
    	width: 50px;
    	height: 50px;
    }
+   #tContent{
+   	display:none;
+   }
 </style>
-
+<script type="text/javascript">
+	function openCloseToc() {
+	    if(document.getElementById('tContent').style.display === 'block') {
+	      document.getElementById('tContent').style.display = 'none';
+	      document.getElementById('toggle').textContent = '보이기';
+	    } else {
+	      document.getElementById('tContent').style.display = 'block';
+	      document.getElementById('toggle').textContent = '숨기기';
+	    }
+	  }
+</script>
 <%@ include file="../common/common.jsp" %>
 <%@include file="../display/top.jsp" %>
 <div align="center">
@@ -50,22 +63,27 @@ detailMovie.jsp<br><br>
 	</div>
 	<div class="poster">
 		<figure>
-			<img src="resources/images/poster/${cb.image}.jpg" class="poster_img"/>
+			<img src="resources/images/poster/movie/${db.video}.jpg" class="poster_img"/>
 		</figure>
 	</div>
 	<div class="infor">
 		<div class="infor_title">
-			${cb.title }
-			<button name="view" onclick="">시청하기</button>
-		</div>
-		<div class="infor_sub" >
-			${cb.genre }×
-			<%-- ${cb.rtime }분× --%>
-			${cb.grade }세
+				${db.title }
+				<button name="view" onclick="">시청하기</button>
 		</div>
 		<div align="right">
 			<a href="login.member"><button class="btn btn-primary">로그인</button></a>
+		</div>
+		<div>
+			<span id="toggle" onclick="openCloseToc()">더보기</span>
+			<div id="tContent">
+				<div class="infor_sub" >
+					${db.genre }×
+					<%-- ${cb.rtime }분× --%>
+					${db.grade }세
+				</div>
 			</div>
+		</div>
 	</div>
 </div>
 <hr>
@@ -74,11 +92,15 @@ detailMovie.jsp<br><br>
 	<div class="usaGenre">
 		비슷한 영화
 	</div>
-	<c:forEach var="glist" items="${lists }" >
+	<c:forEach var="glist" items="${dlists }" >
 				<div style="display: inline-block;">
 					<div class="else" >
 						<figure>
-							<img src="resources/images/poster/${glist.image}.jpg" class="poster_img"/>
+							<c:forEach var="clist" items="${clists }">
+								<c:if test="${glist.vnum eq clist.num}">
+									<img src="resources/images/poster/movie/${clist.image}.jpg" class="poster_img"/>
+								</c:if>
+							</c:forEach>
 						</figure>
 						<h3><span class="icon all ir_pm">
 						<c:if test="${glist.grade eq 18 }">

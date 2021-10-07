@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import member.model.MemberBean;
 import member.model.MemberDao;
-import member.model.MemberDaoImpl;
 
 @Controller
 public class FindidController {
@@ -24,7 +23,7 @@ public class FindidController {
 	private final String getPage = "findid";
 	private final String gotoPage = "finduser";
 	@Autowired
-	MemberDaoImpl mdao;
+	MemberDao mdao;
 	
 	@RequestMapping(value=command, method=RequestMethod.GET)
 	public String doActionGET() {

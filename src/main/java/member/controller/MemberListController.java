@@ -3,27 +3,28 @@ package member.controller;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import member.model.MemberBean;
-import member.model.MemberDao;
+import member.service.MemberService;
 import utility.Paging;
 
 @Controller
 public class MemberListController {
 
 	@Autowired
-	private MemberDao mdao;
+	@Qualifier("MemberService")
+	private MemberService memberService;
 
-	private final String command = "/list.member";
-	private final String getPage = "member_list";
+	private final String command = "/memberList.member";
+	private final String getPage = "memberList";
 
 	@RequestMapping(value = command)
 	public ModelAndView memberList(
@@ -35,14 +36,13 @@ public class MemberListController {
 		Map<String,String> map = new HashMap<String, String>();
 		map.put("whatColumn", whatColumn); 
 		map.put("keyword", "%"+keyword+"%");
-
-		int totalCount = mdao.getTotalCount(map);
+		int totalCount = memberService.getTotalCount(map);
 		String url = request.getContextPath() + command ;
 
 		ModelAndView mav = new ModelAndView();
 		Paging pageInfo = new Paging(pageNumber,null,totalCount,url,whatColumn,keyword, null );
 
-		List<MemberBean> lists = mdao.getMemberList(pageInfo, map);
+		List<MemberBean> lists = memberService.getMemberList(pageInfo, map);
 
 		mav.addObject("lists", lists);
 		mav.addObject("totalCount", totalCount);

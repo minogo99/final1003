@@ -2,16 +2,21 @@
     pageEncoding="UTF-8"%>
  
 <%@include file="./../common/common.jsp" %>     
-
+<%@include file="../display/admin_top.jsp" %>
 <style type="text/css">
 		.err{
 		font-size: 9pt;
 		color: red;
 		font-weight: bold;
 		}
+			#signPage{
+		}
+		#sign {
+	width: 450px;
+	height: 400px;
+	margin: 30px auto;
 </style>
-<<<<<<< Updated upstream
-=======
+
 <script src="resources/js/jquery.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
@@ -99,14 +104,16 @@ request.setAttribute("tel1", tel1);
 %>
 <div id="signPage">
 <div id="sign">
->>>>>>> Stashed changes
+
+
 <h3 style="color:green; font-weight : bold;" align="center">회원 수정 화면</h3>
 
-<form:form commandName="member" method="post" action="update.member" align="center" >
+<form:form commandName="member" method="post" action="update.member" align="center"
+onsubmit="checkSubmit(this); return false;" >
 	<input type="hidden" name="pageNumber" value="${pageNumber}">
 	<input type="hidden" name="num" value="${member.num}">
 
-<<<<<<< Updated upstream
+
 <table border="1" align="center">
 		<tr>
 			<td>아이디</td>
@@ -129,7 +136,7 @@ request.setAttribute("tel1", tel1);
 		</tr>
 </table>
 </form:form>
-=======
+
 		<fieldset>
 		<div class="form-group">
 			<label for="id" class="form-label mt-4">아이디</label>
@@ -161,10 +168,17 @@ request.setAttribute("tel1", tel1);
 							<select class="form-select" name="tel1">
 								<option value="">선택</option>
 								<c:forEach var="i" begin="0" end="<%=tel1.length -1%>" step="1">
+
 									<option value="${tel1[i] }"
 										<c:if test="${tel1[i] == loginInfo.tel1}">
 								selected
 								</c:if>>${tel1[i] }</option>
+
+									<option value="${tel1[i]}"
+										<c:if test="${tel1[i] == loginInfo.tel1}">
+								selected
+								</c:if>>${tel1[i]}</option>
+
 								</c:forEach>
 							</select>
 							<form:errors cssClass="err" path="tel1" />
@@ -192,4 +206,4 @@ request.setAttribute("tel1", tel1);
 </form:form>
 	</div>	
 </div>			
->>>>>>> Stashed changes
+

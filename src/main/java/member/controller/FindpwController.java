@@ -10,11 +10,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
 import member.model.MemberBean;
 import member.model.MemberDao;
-import member.model.MemberDaoImpl;
 
 @Controller
 public class FindpwController {
@@ -23,7 +21,7 @@ public class FindpwController {
 	private final String getPage = "findpw";
 	private final String gotoPage = "finduser";
 	@Autowired
-	MemberDaoImpl mdao;
+	MemberDao mdao;
 	
 	@RequestMapping(value=command, method=RequestMethod.GET)
 	public String doActionGET() {

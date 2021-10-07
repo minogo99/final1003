@@ -1,34 +1,50 @@
 package member.model;
 
-import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.NotEmpty;
+import javax.validation.constraints.NotBlank;
 
 public class MemberBean {
 	private int num;
-	@Length(min=3,max=7, message="3~7ÀÚ Á¤µµ¸¸ ÀÔ·ÂÇÒ ¼ö ÀÖ½À´Ï´Ù.")
+	@NotBlank(message="í•„ìˆ˜ ìž…ë ¥ì‚¬í•­ìž…ë‹ˆë‹¤.")
 	private String id;
-	@NotEmpty(message="ÇÊ¼ö ÀÔ·Â»çÇ×ÀÔ´Ï´Ù.")
+	@NotBlank(message="í•„ìˆ˜ ìž…ë ¥ì‚¬í•­ìž…ë‹ˆë‹¤.")
 	private String password;
-	@NotEmpty(message="ÇÊ¼ö ÀÔ·Â»çÇ×ÀÔ´Ï´Ù.")
+	@NotBlank(message="í•„ìˆ˜ ìž…ë ¥ì‚¬í•­ìž…ë‹ˆë‹¤.")
 	private String name;
 	
 	private String regdate;
-<<<<<<< Updated upstream
+
 	private String phone;
+
+	@NotBlank(message="í•„ìˆ˜ ìž…ë ¥ì‚¬í•­ìž…ë‹ˆë‹¤.")
+	private String tel1;
+	@NotBlank(message="í•„ìˆ˜ ìž…ë ¥ì‚¬í•­ìž…ë‹ˆë‹¤.")
+	private String tel2;
+	@NotBlank(message="í•„ìˆ˜ ìž…ë ¥ì‚¬í•­ìž…ë‹ˆë‹¤.")
+	private String tel3;
+
 	
 	
-	
-	public String getPhone() {
-		return phone;
+	public String getTel1() {
+		return tel1;
 	}
+	public void setTel1(String tel1) {
+		this.tel1 = tel1;
+	}
+	public String getTel2() {
+		return tel2;
+	}
+	public void setTel2(String tel2) {
+		this.tel2 = tel2;
+	}
+
 	public void setPhone(String phone) {
 		this.phone = phone;
-=======
-	@NotBlank(message="ÇÊ¼ö ÀÔ·Â»çÇ×ÀÔ´Ï´Ù.")
+
+	@NotBlank(message="í•„ìˆ˜ ìž…ë ¥ì‚¬í•­ìž…ë‹ˆë‹¤.")
 	private int tel1;
-	@NotBlank(message="ÇÊ¼ö ÀÔ·Â»çÇ×ÀÔ´Ï´Ù.")
+	@NotBlank(message="í•„ìˆ˜ ìž…ë ¥ì‚¬í•­ìž…ë‹ˆë‹¤.")
 	private int tel2;
-	@NotBlank(message="ÇÊ¼ö ÀÔ·Â»çÇ×ÀÔ´Ï´Ù.")
+	@NotBlank(message="í•„ìˆ˜ ìž…ë ¥ì‚¬í•­ìž…ë‹ˆë‹¤.")
 	private int tel3;
 	
 	
@@ -49,8 +65,16 @@ public class MemberBean {
 	}
 	public void setTel3(int tel3) {
 		this.tel3 = tel3;
->>>>>>> Stashed changes
+
+	public String getTel3() {
+		return tel3;
+
 	}
+	public void setTel3(String tel3) {
+		this.tel3 = tel3;
+	}
+
+	
 	public String getRegdate() {
 		return regdate;
 	}
