@@ -22,7 +22,7 @@ public class MainDao {
 		return lists;
 	}
 
-	public List<MainBean> selectAll() {
+	public List<MainBean> selectMainAll() {
 		List<MainBean> lists = new ArrayList<MainBean>();
 		lists=sqlSessionTemplate.selectList(namespace+".selectAll");
 		return lists;
