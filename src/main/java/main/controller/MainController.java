@@ -7,8 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+
 import main.model.MainBean;
 import main.model.MainDao;
+
 
 @Controller
 public class MainController {
@@ -16,6 +18,7 @@ public class MainController {
 	private final String command = "/main.wa";
 	private final String getPage = "main";
 	
+
 	@Autowired
 	MainDao mdao;
 	
@@ -26,7 +29,6 @@ public class MainController {
 		List<MainBean> lists = mdao.selectMain();
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("lists",lists);
-		
 		mav.setViewName(getPage);
 		return mav;
 	}

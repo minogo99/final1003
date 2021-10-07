@@ -172,6 +172,7 @@ insert into video values(video_seq.nextval,'main','15','minari');
  insert into video_c values(video_c_seq.nextval,17,'우리집','"우리집은 진짜 왜 이럴까?"',15,'드라마','국내','김나연','12','2019-08-22',0);
  insert into video_c values(video_c_seq.nextval,17,'틴 스피릿','더 이상 망설일 수 없어 진짜 나 보여줄게!',93,'드라마','해외','옐르 패닝','12','2019-09-04',0);
 insert into video_c values(video_c_seq.nextval,17,'1917','제1차 세계대전이 한창인 1917년. 독일군에 의해 모든 통신망이 파괴된 상황 속에서 영국군 병사 '스코필드'와 '블레이크'에게 하나의 미션이 주어졌다...',119,'드라마/전쟁','해외','조지 맥케이','15','2020-02-19',0);
+insert into video_c values(video_c_seq.nextval,17,'1917','제1차 세계대전이 한창인 1917년. 독일군에 의해 모든 통신망이 파괴된 상황 속에서 영국군 병사 "스코필드"와 "블레이크"에게 하나의 미션이 주어졌다...',119,'드라마/전쟁','해외','조지 맥케이','15','2020-02-19',0);
 insert into video_c values(video_c_seq.nextval,17,'미나리','어느 한국 가족의 원더풀한 이야기. "미나리는 어디서든 잘 자라".',115,'드라마','해외','스티븐 연, 윤여정','12','2021-03-03',0);
 insert into video_c values(video_c_seq.nextval,17,'존윅','그를 건드리지 말았어야 했다. 상대를 잘못 고른 적들을 향한 통쾌한 복수!',101,'액션','해외','키아누리브스','19','2015-01-21',0);
 commit;
