@@ -1,6 +1,6 @@
 package main.detail;
 
-public class MainDetailBean {
+public class DetailMainBean {
 
 	private int num;
 	private int vnum;

@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import main.detail.MainDetailBean;
-import main.detail.MainDetailDao;
+import main.detail.DetailMainBean;
+import main.detail.DetailMainDao;
 import main.model.MainBean;
 import main.model.MainDao;
 
@@ -21,13 +21,13 @@ public class DetailMain {
 	MainDao mdao;
 	
 	@Autowired
-	MainDetailDao dmdao;
+	DetailMainDao dmdao;
 	
 	@RequestMapping(value=command,method=RequestMethod.GET)
 	public ModelAndView doAction(@RequestParam("num") int num) {
 		
-		MainDetailBean dmb = dmdao.detailMainVideoView(num);
-		List<MainDetailBean> dlists = dmdao.detailMainVideoGenre(dmb.getGenre());
+		DetailMainBean dmb = dmdao.detailMainVideoView(num);
+		List<DetailMainBean> dlists = dmdao.detailMainVideoGenre(dmb.getGenre());
 		List<MainBean> clists = mdao.selectMainAll();
 		
 		ModelAndView mav=new ModelAndView();
