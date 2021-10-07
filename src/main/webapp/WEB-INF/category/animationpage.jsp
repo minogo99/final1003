@@ -60,15 +60,10 @@ amorpati.jpg<%@ page language="java" contentType="text/html; charset=UTF-8"
     <!-- Swiper -->
     <div class="swiper mySwiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="resources/images/ani1.jpg"></div>
-        <div class="swiper-slide"><img src="resources/images/ani2.jpg"></div>
-        <div class="swiper-slide"><img src="resources/images/ani3.jpg"></div>
-        <div class="swiper-slide"><img src="resources/images/ani4.jpg"></div>
-        <div class="swiper-slide"><img src="resources/images/ani5.jpg"></div>
-        <div class="swiper-slide"><img src="resources/images/ani6.jpg"></div>
-        <div class="swiper-slide"><img src="resources/images/ani7.jpg"></div>
-        <div class="swiper-slide"><img src="resources/images/ani8.jpg"></div>
-        <div class="swiper-slide"><img src="resources/images/ani9.jpg"></div>
+        <c:forEach var="vlist" items="${lists }" >
+       	 	<div class="swiper-slide"><a href="detailAni.category?num=${vlist.num }">
+       	 	<img src="resources/images/poster/drama/${vlist.image }.jpg"></a></div>
+        </c:forEach>
       </div>
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>

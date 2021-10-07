@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-detailMovie.jsp<br><br>
 <style type="text/css">
 	.poster{
    		
@@ -40,7 +39,7 @@ detailMovie.jsp<br><br>
    	width: 50px;
    	height: 50px;
    }
-	#tContent{
+   #tContent{
    	display:none;
    }
 </style>
@@ -63,26 +62,24 @@ detailMovie.jsp<br><br>
 	</div>
 	<div class="poster">
 		<figure>
-			<img src="resources/images/poster/enter/${cb.image}.jpg" class="poster_img"/>
+			<img src="resources/images/poster/main/${db.video}.jpg" class="poster_img"/>
 		</figure>
 	</div>
 	<div class="infor">
 		<div class="infor_title">
-				${cb.title }
+				${db.title }
 				<button name="view" onclick="">시청하기</button>
 		</div>
 		<div align="right">
 			<a href="login.member"><button class="btn btn-primary">로그인</button></a>
 		</div>
-		<div>${cb.genre } ${cb.runningT }분 ${cb.grade }세 </div>
 		<div>
-		
 			<span id="toggle" onclick="openCloseToc()">더보기</span>
 			<div id="tContent">
 				<div class="infor_sub" >
-				장르 : ${cb.genre }
-					<br><br>
-					${cb.grade }세
+					${db.genre }×
+					<%-- ${cb.rtime }분× --%>
+					${db.grade }세
 				</div>
 			</div>
 		</div>
@@ -94,11 +91,15 @@ detailMovie.jsp<br><br>
 	<div class="usaGenre">
 		비슷한 영화
 	</div>
-	<c:forEach var="glist" items="${lists }" >
+	<c:forEach var="glist" items="${dlists }" >
 				<div style="display: inline-block;">
 					<div class="else" >
 						<figure>
-							<img src="resources/images/poster/enter/${glist.image}.jpg" class="poster_img"/>
+							<c:forEach var="clist" items="${clists }">
+								<c:if test="${glist.vnum eq clist.num}">
+									<img src="resources/images/poster/movie/${clist.image}.jpg" class="poster_img"/>
+								</c:if>
+							</c:forEach>
 						</figure>
 						<h3><span class="icon all ir_pm">
 						<c:if test="${glist.grade eq 18 }">
@@ -119,4 +120,4 @@ detailMovie.jsp<br><br>
 				</c:forEach>
 </div>
 
-<%@include file="../display/bottom.jsp" %>
+<%@ include file="./../display/bottom.jsp" %>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-detailMovie.jsp<br><br>
+detailAni.jsp<br>
+
 <style type="text/css">
 	.poster{
    		
@@ -40,7 +41,7 @@ detailMovie.jsp<br><br>
    	width: 50px;
    	height: 50px;
    }
-	#tContent{
+#tContent{
    	display:none;
    }
 </style>
@@ -63,7 +64,7 @@ detailMovie.jsp<br><br>
 	</div>
 	<div class="poster">
 		<figure>
-			<img src="resources/images/poster/enter/${cb.image}.jpg" class="poster_img"/>
+			<img src="resources/images/poster/drama/${cb.image}.jpg" class="poster_img"/>
 		</figure>
 	</div>
 	<div class="infor">
@@ -76,13 +77,13 @@ detailMovie.jsp<br><br>
 		</div>
 		<div>${cb.genre } ${cb.runningT }분 ${cb.grade }세 </div>
 		<div>
-		
 			<span id="toggle" onclick="openCloseToc()">더보기</span>
 			<div id="tContent">
 				<div class="infor_sub" >
-				장르 : ${cb.genre }
+					장르 : ${cb.genre }
 					<br><br>
-					${cb.grade }세
+					줄거리 : ${cb.content } 
+					
 				</div>
 			</div>
 		</div>
@@ -92,13 +93,13 @@ detailMovie.jsp<br><br>
 
 <div>
 	<div class="usaGenre">
-		비슷한 영화
+		비슷한 드라마 
 	</div>
 	<c:forEach var="glist" items="${lists }" >
 				<div style="display: inline-block;">
 					<div class="else" >
 						<figure>
-							<img src="resources/images/poster/enter/${glist.image}.jpg" class="poster_img"/>
+							<img src="resources/images/poster/drama/${glist.image}.jpg" class="poster_img"/>
 						</figure>
 						<h3><span class="icon all ir_pm">
 						<c:if test="${glist.grade eq 18 }">
