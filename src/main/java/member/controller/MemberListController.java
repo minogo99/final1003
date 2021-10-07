@@ -20,7 +20,6 @@ import utility.Paging;
 public class MemberListController {
 
 	@Autowired
-	@Qualifier("MemberService")
 	private MemberService memberService;
 
 	private final String command = "/memberList.member";

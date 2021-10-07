@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
 
 import utility.Paging;
 
-@Repository
+@Component
 public class MemberDao{
 
 	String namespace="member.model.MemberBean";

@@ -11,7 +11,7 @@ import member.model.MemberBean;
 import member.model.MemberDao;
 import utility.Paging;
 
-@Service("MemberService")
+@Service
 public class MemberService {
 
 	@Autowired
