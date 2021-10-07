@@ -1,6 +1,7 @@
 package main.detail;
 
 public class DetailMainBean {
+
 	private int num;
 	private int vnum;
 	private String title;
@@ -85,5 +86,4 @@ public class DetailMainBean {
 	public void setGrade(String grade) {
 		this.grade = grade;
 	}
-	
 }
