@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 
-import member.model.MemberBean;
 import member.model.MemberDao;
 
 @Controller
@@ -25,6 +24,4 @@ public class idCheckController {
 		System.out.println(result);
 	       return Integer.toString(result);
 	    }
-	
-	
 }

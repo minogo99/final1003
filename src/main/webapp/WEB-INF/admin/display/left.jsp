@@ -29,7 +29,12 @@ a {
 .logoli {
 	padding: 20px 0;
 }
+#aa{
+clear:both;
+}
 </style>
+<div id="aa">asdasd</div>
+<div id="dd">
 <nav id="nav">
 	<ul>
 		<li class="logoli"><a href="adminHome.admin" class="logo"><img
@@ -39,3 +44,4 @@ a {
 		<li><a href="#">게시물관리</a></li>
 	</ul>
 </nav>
+</div>

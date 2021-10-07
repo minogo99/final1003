@@ -21,7 +21,7 @@
 	<table class="table table-hover" id="board_table">
 		<thead>
 			<tr>
-				<th scope="col">번호</th>
+				<th scope="col">No</th>
 				<th scope="col" width="600">제목</th>
 				<th scope="col">작성자</th>
 				<th scope="col">조회수</th>
@@ -51,11 +51,14 @@
 		</tbody>
 	</table>
 	<div align="right">
-	<input type="button" value="글쓰기" onclick="location.href='write.board'">
+	<input type="button" class="btn btn-primary" value="글쓰기" onclick="location.href='write.board'">
 	</div>
 	<br>
-	<form action="list.board" method="get" align="center">
-		<select name="whatColumn">
+
+	<form action="list.board" method="get">
+		<div class="row justify-content-center">
+		<div class="col-sm-2">
+		<select name="whatColumn" class="form-select">
 			<option value="all">전체 검색</option>
 			<option value="writer"
 				<c:if test="${pageInfo.whatColumn == 'writer'}">
@@ -66,15 +69,24 @@
 		selected
 		</c:if>>제목</option>
 		</select>
+		</div>
 		<c:if test="${pageInfo.keyword == 'null'}">
-			<input type="text" name="keyword" value="">
+			<div class="col-sm-2">
+			<input type="text" class="form-control" name="keyword" value="">
+			</div>
 		</c:if>
 		<c:if test="${pageInfo.keyword != 'null'}">
-			<input type="text" name="keyword" value="${pageInfo.keyword}">
+		<div class="col-sm-2">
+			<input type="text" class="form-control" name="keyword" value="${pageInfo.keyword}">
+		</div>
 		</c:if>
-		<input type="submit" value="검색">
+		<div class="col-sm-1">
+		<input type="submit" class="btn btn-primary" value="검색">
+		</div>
+		</div>
 	</form>
-	<p align="center">${pageInfo.pagingHtml}</p>
-</div>
 
+	${pageInfo.pagingHtml}
+	
+</div>
 <%@ include file="../display/bottom.jsp"%>
