@@ -13,6 +13,7 @@
 		<typeAlias type="category.model.CategoryBean" alias="MyCategory"/>
 		<typeAlias type="board.model.ReplyBean" alias="MyReply"/>
 		<typeAlias  type="admin.model.AdminDTO" alias="MyAdmin"/>
+		<typeAlias type="category.detail.DetailBean" alias="MyC_Detail"/>
 	</typeAliases>
 	<mappers>
 	<mapper resource="mybatis/member.xml"/>
@@ -22,5 +23,6 @@
 		<mapper resource="mybatis/category.xml" />
 		<mapper resource="mybatis/reply.xml" />
 		<mapper resource="mybatis/admin.xml" />
+		<mapper resource="mybatis/detail.xml" />
 	</mappers>
 </configuration>

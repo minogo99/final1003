@@ -5,7 +5,9 @@ id varchar2(50) not null unique,
 password varchar2(50) not null,
 name varchar2(50) not null,
 regdate date default sysdate,
-phone number not null
+tel1 String not null,
+tel2 String not null,
+tel3 String not null
 );
 
 drop sequence members_seq;
@@ -75,6 +77,8 @@ admin_pass varchar2(20) not null,
 admin_name varchar2(20) not null,
 reg_date date default sysdate
 );
+
+insert into admin values('admin','1234','관리자',sysdate);
 
 drop sequence admin_seq;
 create sequence admin_seq

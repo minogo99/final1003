@@ -15,17 +15,17 @@ import admin.model.AdminDAO;
 import admin.model.AdminDTO;
 
 @Controller
-public class AdminController {
+public class adminHomeController {
 
-	private final String command = "/admin_login.admin";
-	private final String getPage = "admin_login";
-	private final String gotopage = "redirect:/list.member";
+	private final String command = "/adminHome.admin";
+	private final String getPage = "adminHome";
+	private final String gotopage = "redirect:/memberList.admin";
 	
 	@Autowired
 	AdminDAO adminDao;
 	
 	@RequestMapping(value=command, method=RequestMethod.GET)
-	public String doAction( ) {
+	public String doAction() {
 		
 		return getPage;
 	}
@@ -45,20 +45,20 @@ public class AdminController {
 		
 		if(adminDto == null) {
 			
-			pw.println("<script>alert('아이디가 일치하지 않습니다.');</script>");
+			pw.println("<script>alert('占쎈툡占쎌뵠占쎈탵揶쏉옙 占쎌뵬燁살꼹釉�筌욑옙 占쎈륫占쎈뮸占쎈빍占쎈뼄.');</script>");
 			pw.flush();
 			return getPage;
 		}
 		else {
 			
 			if( admin.getAdmin_pass().equals(adminDto.getAdmin_pass()) ) { 
-				System.out.println("로그인성공");
+				System.out.println("嚥≪뮄�젃占쎌뵥占쎄쉐�⑨옙");
 				session.setAttribute("loginInfo", adminDto);
 								
 				return gotopage; 
 				
 			}else { 
-				pw.println("<script>alert('비밀번호가 일치하지 않습니다.');</script>");
+				pw.println("<script>alert('�뜮袁⑨옙甕곕뜇�깈揶쏉옙 占쎌뵬燁살꼹釉�筌욑옙 占쎈륫占쎈뮸占쎈빍占쎈뼄.');</script>");
 				pw.flush();
 				return getPage;
 			}

@@ -7,13 +7,17 @@
 	<select id="selectMovie" resultType="MyCategory">
 		select * from video where category='movie'
 	</select>
+	
+	<select id="selectAll" resultType="MyCategory">
+		select * from video 
+	</select>
 
 	<select id="detailVideoView" resultType="MyCategory">
 		select * from video where num = #{num}
 	</select>
 	
 	<select id="detailVideoGenre" resultType="MyCategory">
-		select * from video where genre = #{genre}
+		select * from video_c where genre = #{genre}
 	</select>
 	
 	<select id="selectEnter" resultType="MyCategory">

@@ -12,10 +12,9 @@ import member.model.MemberDao;
 
 @Controller
 public class MemberDetailController {
-	private final String command = "/detail.member";
+	private final String command = "/detail.admin";
 	private final String getPage = "memberDetailView";
 
-	@Autowired
 	MemberDao memberDao;
 	
 	@RequestMapping(value=command)
@@ -27,7 +26,7 @@ public class MemberDetailController {
 		model.addAttribute("member", member);
 		model.addAttribute("pageNumber", pageNumber);
 		
-		System.out.println("디테일컨트롤러");
+		System.out.println("占쎈탵占쎈�믭옙�뵬�뚢뫂�뱜嚥▲끇�쑎");
 		
 		return getPage;
 	}

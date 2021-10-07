@@ -30,38 +30,126 @@ insert into video(num,title,nation,category,genre,grade,actor,image)
  ----- 영화 --------------------
  
  insert into video(num,title,nation,category,genre,grade,actor,image)
- values(vd_seq.nextval,'감기','한국','enter','종말','15','강호동,이수근','flu');
+ values(vd_seq.nextval,'감기','한국','movie','종말','15','강호동,이수근','flu');
  
  insert into video(num,title,nation,category,genre,grade,actor,image)
- values(vd_seq.nextval,'기생충','한국','enter','종말','15','강호동,이수근','parasite');
+ values(vd_seq.nextval,'기생충','한국','movie','종말','15','강호동,이수근','parasite');
  
  ------ 드라마
  
  insert into video(num,title,nation,category,genre,grade,actor,image)
- values(vd_seq.nextval,'감자탕','한국','enter','종말','15','강호동,이수근','potato');
+ values(vd_seq.nextval,'감자탕','한국','drama','종말','15','강호동,이수근','potato');
  
  insert into video(num,title,nation,category,genre,grade,actor,image)
- values(vd_seq.nextval,'검은태양','한국','enter','종말','15','강호동,이수근','blacksun');
+ values(vd_seq.nextval,'검은태양','한국','drama','종말','15','강호동,이수근','blacksun');
  
 insert into video(num,title,nation,category,genre,grade,actor,image)
- values(vd_seq.nextval,'빨강구두','한국','enter','종말','15','강호동,이수근','redshoes');
+ values(vd_seq.nextval,'빨강구두','한국','drama','종말','15','강호동,이수근','redshoes');
  
 insert into video(num,title,nation,category,genre,grade,actor,image)
- values(vd_seq.nextval,'원더우먼','한국','enter','종말','15','강호동,이수근','wonderwoman');
+ values(vd_seq.nextval,'원더우먼','한국','drama','종말','15','강호동,이수근','wonderwoman');
 
 insert into video(num,title,nation,category,genre,grade,actor,image)
- values(vd_seq.nextval,'홍천기','한국','enter','종말','15','강호동,이수근','hongchungi'); 
+ values(vd_seq.nextval,'홍천기','한국','drama','종말','15','강호동,이수근','hongchungi'); 
  
  
+ ---------------------------------------------
+   
+drop sequence video_c_seq;
+create sequence video_c_seq
+  increment by 1
+  start with 1
+  minvalue 1
+  maxvalue 10000
+  nocache;
+
+drop table video_c;
+create table video_c(
+	num number primary key,
+	vnum number not null,
+  title varchar2(50) not null,
+	content varchar2(100) not null,
+	runningT number not null,
+	genre varchar2(20) not null,
+	nation varchar2(20) not null,
+	actor varchar2(50) not null,
+  grade varchar2(10) not null,
+	day varchar2(50) not null,
+  series varchar2(10)
+);
+
+drop sequence video_seq;
+create sequence video_seq
+  increment by 1
+  start with 1
+  minvalue 1
+  maxvalue 10000
+  nocache;
+  
+drop table video;
+create table video(
+	num number primary key,
+	category varchar2(50) not null,
+	grade varchar2(10) not null,
+	image varchar2(50) not null
+	);
+
  
+ alter table video_c add(
+ 	constraint FK_video_c
+ 	foreign key (vnum)
+ 		references video(num)
+ );
  
+insert into video values(video_seq.nextval,'movie','18','flu');
+
+insert into video values(video_seq.nextval,'movie','15','parasite');
  
+insert into video_c values(video_c_seq.nextval,1,'감기','아에이오우',120,'액션','해외','박만석','18','2021-11-10',0);
+
+insert into video_c values(video_c_seq.nextval,2,'기생충','아에이오우',120,'액션','해외','박만석','15','2021-11-10',0);
  
+insert into video values(video_seq.nextval,'drama','18','blacksun');
+
+insert into video values(video_seq.nextval,'drama','15','hongchungi');
  
+insert into video values(video_seq.nextval,'drama','12','potato'); 
  
+insert into video values(video_seq.nextval,'drama','all','redshoes');
  
- 
- 
+insert into video values(video_seq.nextval,'drama','18','wonderwoman');
+
+insert into video_c values(video_c_seq.nextval,3,'검은태양','아에이오우',120,'액션','해외','박만석','18','2021-11-10',0);
+
+insert into video_c values(video_c_seq.nextval,4,'홍천기','아에이오우',120,'액션','해외','박만석','15','2021-11-10',0);
+
+insert into video_c values(video_c_seq.nextval,5,'감자탕','아에이오우',120,'액션','해외','박만석','12','2021-11-10',0);
+
+insert into video_c values(video_c_seq.nextval,6,'빨강구두','아에이오우',120,'액션','해외','박만석','all','2021-11-10',0);
+
+insert into video_c values(video_c_seq.nextval,7,'원더우먼','아에이오우',120,'액션','해외','박만석','18','2021-11-10',0);
+
+
+insert into video values(video_seq.nextval,'enter','18','1night2days');
+insert into video values(video_seq.nextval,'enter','18','anyask');
+insert into video values(video_seq.nextval,'enter','18','gooddog');
+insert into video values(video_seq.nextval,'enter','18','hatebaby');
+insert into video values(video_seq.nextval,'enter','18','nottofight'); 
+insert into video values(video_seq.nextval,'enter','18','runningman');
+insert into video values(video_seq.nextval,'enter','18','solohome');
+insert into video values(video_seq.nextval,'enter','18','sunshine');
+insert into video values(video_seq.nextval,'enter','18','whatplay');
+
+insert into video_c values(video_c_seq.nextval,8,'1박2일','아에이오우',120,'액션','해외','박만석','18','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,9,'무엇이든 물어보살','아에이오우',120,'액션','해외','박만석','18','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,10,'세상에 나쁜개는 없다','아에이오우',120,'액션','해외','박만석','18','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,11,'미운 우리새끼','아에이오우',120,'액션','해외','박만석','18','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,12,'안싸우면 다행이야','아에이오우',120,'액션','해외','박만석','18','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,13,'런닝맨','아에이오우',120,'액션','해외','박만석','18','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,14,'나 혼자 산다','아에이오우',120,'액션','해외','박만석','18','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,15,'동상이몽','아에이오우',120,'액션','해외','박만석','18','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,16,'놀면 뭐하니','아에이오우',120,'액션','해외','박만석','18','2021-11-10',0);
+
  
  
  

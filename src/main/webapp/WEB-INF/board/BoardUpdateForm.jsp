@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
   <style>
 	#update{
-	margin: auto;
+		margin:auto;
 	}
 	</style>
         <%@include file="../display/top.jsp" %>

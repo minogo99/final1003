@@ -1,28 +1,45 @@
 package member.model;
 
-import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.NotEmpty;
+import javax.validation.constraints.NotBlank;
 
 public class MemberBean {
 	private int num;
-	@Length(min=3,max=7, message="3~7자 정도만 입력할 수 있습니다.")
+	@NotBlank(message="필수 입력사항입니다.")
 	private String id;
-	@NotEmpty(message="필수 입력사항입니다.")
+	@NotBlank(message="필수 입력사항입니다.")
 	private String password;
-	@NotEmpty(message="필수 입력사항입니다.")
+	@NotBlank(message="필수 입력사항입니다.")
 	private String name;
 	
 	private String regdate;
-	private String phone;
+	@NotBlank(message="필수 입력사항입니다.")
+	private String tel1;
+	@NotBlank(message="필수 입력사항입니다.")
+	private String tel2;
+	@NotBlank(message="필수 입력사항입니다.")
+	private String tel3;
 	
 	
-	
-	public String getPhone() {
-		return phone;
+	public String getTel1() {
+		return tel1;
 	}
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setTel1(String tel1) {
+		this.tel1 = tel1;
 	}
+	public String getTel2() {
+		return tel2;
+	}
+	public void setTel2(String tel2) {
+		this.tel2 = tel2;
+	}
+	public String getTel3() {
+		return tel3;
+	}
+	public void setTel3(String tel3) {
+		this.tel3 = tel3;
+	}
+
+	
 	public String getRegdate() {
 		return regdate;
 	}

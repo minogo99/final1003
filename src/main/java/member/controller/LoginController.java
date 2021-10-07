@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import member.model.MemberBean;
 import member.model.MemberDao;
-import member.model.MemberDaoImpl;
 
 @Controller
 public class LoginController {
@@ -22,7 +21,7 @@ public class LoginController {
 	private final String getPage = "loginpage";
 	
 	@Autowired
-	MemberDaoImpl mdao;
+	MemberDao mdao;
 	
 	@RequestMapping(value = command, method=RequestMethod.GET)
 	public String doActionget( ) {
