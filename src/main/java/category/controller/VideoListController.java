@@ -23,7 +23,7 @@ import utility.Paging;
 public class VideoListController {
 	
 	private final String command="/videoList.category";
-	private final String getPage="videoList";
+	private final String getPage="adminVideoList";
 	
 	@Autowired
 	CategoryDao cdao;

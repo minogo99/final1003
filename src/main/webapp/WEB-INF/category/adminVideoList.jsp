@@ -50,7 +50,7 @@ text-align: center;
 <div class="col-lg-2">
 <%@include file="../admin/display/left.jsp" %>
 </div>
-<div id="videoList" class="col-lg-10">
+<div id="videoList" class="col-lg-10" align="center">
 <h2 style="color: green; font-weight: bold;">게시물 리스트</h2>
 <form action="videoList.member" method="get">
 	<select name="whatColumn">
@@ -62,7 +62,7 @@ text-align: center;
 </form>
 <table border="1" align="center" width="600">
 	<tr>
-		<td colspan="8">
+		<td colspan="7">
 			<input type="button" value="추가하기"	onClick="goInsert()">
 			<input type="button" value="영상 추가"	onClick="videoInsert()">
 		</td>
@@ -79,17 +79,17 @@ text-align: center;
 	</tr>
 	<c:if test="${empty lists }">
 		<tr>
-			<td colspan="8">데이터가 존재하지 않습니다</td>
+			<td colspan="7">데이터가 존재하지 않습니다</td>
 		</tr>
 	</c:if>
 	<c:forEach var="video" items="${lists }">
 
 		<tr>
 			<td>${video.num }</td>
-			<td><a href="detail.member?num=${video.num }&pageNumber=${pageInfo.pageNumber}">${video.title }</a></td>
+			<td><a href="detailvideo.category?num=${video.num }&pageNumber=${pageInfo.pageNumber}">${video.title }</a></td>
 			<td>${video.category }</td>			
 			<td>${video.grade }</td>
-			<td>${video.image }</td>
+			<td><img src="resources/images/poster/${video.category }/${video.image }.jpg" width="25px;" height="25px;"></td>
 			<td><input type="button" value="수정"
 				onClick="goUpdate(${video.num },${pageInfo.pageNumber})"></td>
 			<td><input type="button" value="삭제"
