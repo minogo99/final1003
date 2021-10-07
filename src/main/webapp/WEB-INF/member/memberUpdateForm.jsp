@@ -16,6 +16,7 @@
 	height: 400px;
 	margin: 30px auto;
 </style>
+
 <script src="resources/js/jquery.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
@@ -103,12 +104,38 @@ request.setAttribute("tel1", tel1);
 %>
 <div id="signPage">
 <div id="sign">
+
+
 <h3 style="color:green; font-weight : bold;" align="center">회원 수정 화면</h3>
 
 <form:form commandName="member" method="post" action="update.member" align="center"
 onsubmit="checkSubmit(this); return false;" >
 	<input type="hidden" name="pageNumber" value="${pageNumber}">
 	<input type="hidden" name="num" value="${member.num}">
+
+
+<table border="1" align="center">
+		<tr>
+			<td>아이디</td>
+			<td><input type="text" name="id" value="${member.id}"> 
+			<form:errors cssClass="err" path="id" /></td>
+		</tr>
+		<tr>
+			<td>이름</td>
+			<td><input type="text" name="name" value="${member.name}">
+				<form:errors cssClass="err" path="name" /></td>
+		</tr>
+		<tr>
+			<td>비밀번호</td>
+			<td><input type="text" name="password" value="${member.password}">
+			 <form:errors cssClass="err" path="password" /></td>
+		<tr>
+			<td colspan="2" align="center">
+			<input type="submit" value="수정하기">
+			<input type="button" onclick="history.go(-1);" value="취소"></td>
+		</tr>
+</table>
+</form:form>
 
 		<fieldset>
 		<div class="form-group">
@@ -141,10 +168,17 @@ onsubmit="checkSubmit(this); return false;" >
 							<select class="form-select" name="tel1">
 								<option value="">선택</option>
 								<c:forEach var="i" begin="0" end="<%=tel1.length -1%>" step="1">
+
+									<option value="${tel1[i] }"
+										<c:if test="${tel1[i] == loginInfo.tel1}">
+								selected
+								</c:if>>${tel1[i] }</option>
+
 									<option value="${tel1[i]}"
 										<c:if test="${tel1[i] == loginInfo.tel1}">
 								selected
 								</c:if>>${tel1[i]}</option>
+
 								</c:forEach>
 							</select>
 							<form:errors cssClass="err" path="tel1" />
@@ -172,3 +206,4 @@ onsubmit="checkSubmit(this); return false;" >
 </form:form>
 	</div>	
 </div>			
+
