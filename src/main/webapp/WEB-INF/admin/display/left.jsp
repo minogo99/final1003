@@ -8,5 +8,18 @@
   <a class="nav-link" href="memberList.member">회원관리</a>
   <a class="nav-link" href="#">구매관리</a>
   <a class="nav-link" href="videoList.category">게시물관리</a>
+<<<<<<< HEAD
+  <div class="dropdown">
+  <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">게시판관리</a>
+
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <li><a class="dropdown-item" href="list.board">자유게시판</a></li>
+    <li><a class="dropdown-item" href="noticeList.cs">공지사항</a></li>
+    <li><a class="dropdown-item" href="faqList.cs">FAQ</a></li>
+  </ul>
+</div>
+</nav>
+=======
   <a class="nav-link" href="#">게시판관리</a>
 </nav>
+>>>>>>> 16f66b68de217512622733ac610ff2720010542a

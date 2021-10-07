@@ -31,4 +31,7 @@ private String namespace = "cs.model.CsNoticeBean";
 		CsNoticeBean cnb = sqlSessionTemplate.selectOne(namespace+".getOneData",num);
 		return cnb;
 	}
+	public void deleteData(int num) {
+		sqlSessionTemplate.delete(namespace+".deleteData",num);
+	}
 }
