@@ -80,6 +80,7 @@ detailMovie.jsp<br><br>
 			<span id="toggle" onclick="openCloseToc()">더보기</span>
 			<div id="tContent">
 				<div class="infor_sub" >
+				<br>
 					개봉: ${db.day } 
 					<br><br>
 					장르 : ${db.genre }

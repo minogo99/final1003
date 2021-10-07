@@ -74,13 +74,17 @@ detailMovie.jsp<br><br>
 		<div align="right">
 			<a href="login.member"><button class="btn btn-primary">로그인</button></a>
 		</div>
+		<div>${cb.genre } ${cb.runningT }분 ${cb.grade }세 </div>
 		<div>
 			<span id="toggle" onclick="openCloseToc()">더보기</span>
 			<div id="tContent">
 				<div class="infor_sub" >
-					${cb.genre }×
-					<%-- ${cb.rtime }분× --%>
-					${cb.grade }세
+					장르 : ${cb.genre }
+					<br><br>
+					출연배우 : ${cb.actor }
+					<br><br>
+					줄거리 : ${cb.content } 
+					
 				</div>
 			</div>
 		</div>
@@ -90,7 +94,7 @@ detailMovie.jsp<br><br>
 
 <div>
 	<div class="usaGenre">
-		비슷한 영화
+		비슷한 드라마 
 	</div>
 	<c:forEach var="glist" items="${lists }" >
 				<div style="display: inline-block;">
