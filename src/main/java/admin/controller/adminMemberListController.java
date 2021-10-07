@@ -1,8 +1,9 @@
-package member.controller;
+package admin.controller;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,13 +17,13 @@ import member.model.MemberDao;
 import utility.Paging;
 
 @Controller
-public class MemberListController {
+public class adminMemberListController {
 
 	@Autowired
 	private MemberDao memberDao;
 
-	private final String command = "/memberList.member";
-	private final String getPage = "memberList";
+	private final String command = "/memberList.admin";
+	private final String getPage = "adminMain";
 
 	@RequestMapping(value = command)
 	public ModelAndView memberList(
@@ -46,8 +47,10 @@ public class MemberListController {
 		mav.addObject("totalCount", totalCount);
 		mav.addObject("pageInfo", pageInfo);
 
+		String pageType = "memberList";
+		mav.addObject("pageType", pageType);
+		
 		mav.setViewName(getPage);
 		return mav;
 	}
- 
 }

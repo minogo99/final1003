@@ -1,5 +1,8 @@
 package cs.model;
 
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class CsFaqBean {
 
 	private int num;

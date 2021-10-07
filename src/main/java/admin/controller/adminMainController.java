@@ -10,24 +10,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import admin.model.AdminDAO;
 import admin.model.AdminDTO;
 
 @Controller
-public class adminHomeController {
+public class adminMainController {
 
-	private final String command = "/adminHome.admin";
-	private final String getPage = "adminHome";
+	private final String command = "/adminMain.admin";
+	private final String getPage = "adminMain";
 	private final String gotopage = "redirect:/memberList.admin";
 	
 	@Autowired
 	AdminDAO adminDao;
 	
 	@RequestMapping(value=command, method=RequestMethod.GET)
-	public String doAction() {
+	public ModelAndView doAction() {
+		ModelAndView mav = new ModelAndView();
 		
-		return getPage;
+		String pageType = "main";
+		mav.addObject("pageType", pageType);
+		mav.setViewName(getPage);
+		return mav;
 	}
 	
 	@RequestMapping(value=command, method=RequestMethod.POST)

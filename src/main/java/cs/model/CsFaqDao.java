@@ -6,17 +6,20 @@ import java.util.Map;
 import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import utility.Paging;
 
-@Component("CsFaqDao")
+@Component
 public class CsFaqDao {
 
 private String namespace = "cs.model.CsFaqBean";
 	
 	@Autowired
-	SqlSessionTemplate sqlSessionTemplate;
+	private SqlSessionTemplate sqlSessionTemplate;
 	
 	public int getTotalCount(Map<String,String> map) {
 		int cnt = sqlSessionTemplate.selectOne(namespace+".getTotalCount",map);
