@@ -3,7 +3,7 @@
 
 <%@include file="display/top.jsp" %>
 <style>
-#a{
+#container{
 height: 600px;
 }
 #adminHome{
@@ -12,7 +12,7 @@ height: 100%;
 border: 1px solid black;
 }
 </style>
-<div class="row" id="a">
+<div class="row" id="container">
 <div class="col-lg-2">
 <%@include file="display/left.jsp" %>
 </div>
