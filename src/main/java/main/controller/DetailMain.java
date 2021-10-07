@@ -26,9 +26,9 @@ public class DetailMain {
 	@RequestMapping(value=command,method=RequestMethod.GET)
 	public ModelAndView doAction(@RequestParam("num") int num) {
 		
-		DetailMainBean dmb = dmdao.detailMainVideoView(num);
-		List<DetailMainBean> dlists = dmdao.detailMainVideoGenre(dmb.getGenre());
-		List<MainBean> clists = mdao.selectMainAll();
+		DetailMainBean dmb = dmdao.detailVideoView(num);
+		List<DetailMainBean> dlists = dmdao.detailVideoGenre(dmb.getGenre());
+		List<MainBean> clists = mdao.selectAll();
 		
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("dmb",dmb);
