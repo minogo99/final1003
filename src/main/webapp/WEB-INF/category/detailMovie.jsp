@@ -74,13 +74,22 @@ detailMovie.jsp<br><br>
 		<div align="right">
 			<a href="login.member"><button class="btn btn-primary">로그인</button></a>
 		</div>
+		<div>${db.genre } ${db.runningT }분 ${db.grade }세 </div>
+		<hr>
 		<div>
 			<span id="toggle" onclick="openCloseToc()">더보기</span>
 			<div id="tContent">
 				<div class="infor_sub" >
-					${db.genre }×
-					<%-- ${cb.rtime }분× --%>
-					${db.grade }세
+					개봉: ${db.day } 
+					<br><br>
+					장르 : ${db.genre }
+					<br><br>
+					관람연령 : ${db.grade }세
+					<br><br>
+					출연배우 : ${db.actor }
+					<br><br>
+					줄거리 : ${db.content } 
+					
 				</div>
 			</div>
 		</div>
