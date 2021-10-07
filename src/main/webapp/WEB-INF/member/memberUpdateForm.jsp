@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
  
 <%@include file="./../common/common.jsp" %>     
-<%@include file="../display/admin_top.jsp" %>
+
 <style type="text/css">
 		.err{
 		font-size: 9pt;
@@ -135,7 +135,7 @@ onsubmit="checkSubmit(this); return false;" >
 			<input type="button" onclick="history.go(-1);" value="취소"></td>
 		</tr>
 </table>
-</form:form>
+
 
 		<fieldset>
 		<div class="form-group">
