@@ -62,12 +62,12 @@
 	</div>
 	<div class="poster">
 		<figure>
-			<img src="resources/images/poster/main/${db.video}.jpg" class="poster_img"/>
+			<img src="resources/images/poster/main/${dmb.video}.jpg" class="poster_img"/>
 		</figure>
 	</div>
 	<div class="infor">
 		<div class="infor_title">
-				${db.title }
+				${dmb.title }
 				<button name="view" onclick="">시청하기</button>
 		</div>
 		<div align="right">
@@ -77,9 +77,9 @@
 			<span id="toggle" onclick="openCloseToc()">더보기</span>
 			<div id="tContent">
 				<div class="infor_sub" >
-					${db.genre }×
+					${dmb.genre }×
 					<%-- ${cb.rtime }분× --%>
-					${db.grade }세
+					${dmb.grade }세
 				</div>
 			</div>
 		</div>
@@ -97,7 +97,7 @@
 						<figure>
 							<c:forEach var="clist" items="${clists }">
 								<c:if test="${glist.vnum eq clist.num}">
-									<img src="resources/images/poster/movie/${clist.image}.jpg" class="poster_img"/>
+									<img src="resources/images/poster/main/${clist.image}.jpg" class="poster_img"/>
 								</c:if>
 							</c:forEach>
 						</figure>

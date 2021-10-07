@@ -14,12 +14,12 @@ public class DetailMainDao {
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
 	
-	public DetailMainBean detailVideoView(int num) {
-		DetailMainBean dmb = sqlSessionTemplate.selectOne(namespace+".detailVideoView",num);
+	public DetailMainBean detailMainVideoView(int vnum) {
+		DetailMainBean dmb = sqlSessionTemplate.selectOne(namespace+".detailMainVideoView",vnum);
 		return dmb;
 	}
 
-	public List<DetailMainBean> detailVideoGenre(String genre) {
+	public List<DetailMainBean> detailMainVideoGenre(String genre) {
 		List<DetailMainBean> lists=new ArrayList<DetailMainBean>();
 		lists=sqlSessionTemplate.selectList(namespace+".detailVideoGenre", genre);
 		return lists;
