@@ -2,10 +2,15 @@ package category.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
+import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import member.model.MemberBean;
+import utility.Paging;
 
 @Component("myCategoryDao")
 public class CategoryDao {
@@ -55,4 +60,16 @@ public class CategoryDao {
 		lists=sqlSessionTemplate.selectList(namespace+".selectDrama");
 		return lists;
 	}
+	public int getTotalCount(Map<String, String> map) {
+		int cnt = sqlSessionTemplate.selectOne(namespace + ".getTotalCount",map);
+		return cnt;
+	}
+	
+	public List<CategoryBean> getVideoList(Paging pageInfo, Map<String, String> map) {
+		List<CategoryBean> lists = new ArrayList<CategoryBean>();
+		RowBounds rowBounds = new RowBounds(pageInfo.getOffset(), pageInfo.getLimit());
+		lists = sqlSessionTemplate.selectList(namespace + ".getVideoList", map, rowBounds);
+		return lists;
+	}
+	
 }
