@@ -44,43 +44,62 @@ padding: 100px;
 table{
 margin: auto;
 text-align: center;
+width: 100%;
+height: 100%;
+
+}
+tr{
+	text-align: right;
+	width: 30%;
+}
+td{
+	text-align: center;
+	width: 70%;
 }
 </style>
 <div class="row" id="container">
 	<div class="col-lg-2">
 		<%@include file="../admin/display/left.jsp" %>
 	</div>
+	<div id="videoList" class="col-lg-10" align="center">
 		<div>
+			<h2 style="color: green; font-weight: bold;">영상 게시물 추가창</h2>	
 			<div>
-				<h2>영상 게시물 추가창</h2>
-			</div>
-			<div>
-				<div>제목</div>
-				<div><input type="text" name="title"></div>
-			</div>
-			<div>
-				<div>카테고리</div>
-				<div>
-					<select name="category"  >
-						<option value="movie">영화
-						<option value="drama">드라마
-						<option value="enter">예능
-						<option value="ani">만화
-					</select>
-				</div>
-			</div>
-			<div>
-				<div>시청연령</div>
-				<div>
-					<input type="radio" name="grade" value="18">18
-					<input type="radio" name="grade" value="15">15
-					<input type="radio" name="grade" value="12">12
-					<input type="radio" name="grade" value="all">all
-				</div>
-			</div>
-			<div>
-				<div>영상 이미지</div>
-				<div><input type="file" name="title"></div>
+				<table border="1" style="align:right;">
+					<tr>
+						<td> 제목 </td>
+						<td><input type="text" name="title"></td>
+					</tr>
+					<tr>
+						<td>카테고리 </td>
+						<td>
+							<select name="category"  >
+								<option value="movie">영화
+								<option value="drama">드라마
+								<option value="enter">예능
+								<option value="ani">만화
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>시청연령 </td>
+						<td>
+							<input type="radio" name="grade" value="18">18
+							<input type="radio" name="grade" value="15">15
+							<input type="radio" name="grade" value="12">12
+							<input type="radio" name="grade" value="all">all
+						</td>
+					</tr>
+					<tr>
+						<td>영상 이미지 </td>
+						<td>
+							<input type="text">
+							<input type="file" name="title">
+						</td>
+					</tr>
+					
+				</table>
 			</div>
 		</div>
 	</div>
+</div>
