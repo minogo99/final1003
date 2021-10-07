@@ -47,11 +47,18 @@ public class updateController {
 		ModelAndView mav = new ModelAndView();
 		
 		if(result.hasErrors()) {
-			System.out.println("À¯È¿¼º °Ë»ç ¿À·ùÀÔ´Ï´Ù.");
+			System.out.println("ìœ íš¨ì„± ê²€ì‚¬ ì˜¤ë¥˜ì…ë‹ˆë‹¤.");
 			mav.addObject("mb", mb);
 			mav.setViewName(getPage);
 			return mav;
 		}
+
+		
+		int cnt = mdao.updateMember(bean);
+		MemberBean loginInfo = mdao.getByNumData(num);
+		session.setAttribute("loginInfo", loginInfo);
+		mav.setViewName(gotoPage);
+
 		MemberBean DBmb = mdao.getByNumData(num);
 		if(DBmb.getPassword().equals(mb.getPassword())) {
 			int cnt = mdao.updateMember(mb);
@@ -59,11 +66,12 @@ public class updateController {
 			session.setAttribute("loginInfo", loginInfo);
 			mav.setViewName(gotoPage);
 		}else {
-			pw.println("<script>alert('ÆĞ½º¿öµå°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù.');</script>");
+			pw.println("<script>alert('íŒ¨ìŠ¤ì›Œë“œê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.');</script>");
 			pw.flush();
 			mav.addObject("mb", mb);
 			mav.setViewName(getPage);
 		}
+ main
 		return mav;
 	}
 
