@@ -8,7 +8,7 @@
 select * from video_c where vnum = #{vnum}
 </select>
 <select id="detailMainVideoGenre" resultType="MyDetailMain">
-select * from video_c where genre = #{genre}
+select * from video_c where genre like #{genre}
 </select>
 
 </mapper>
