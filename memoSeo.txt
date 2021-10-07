@@ -70,7 +70,7 @@ create table video_c(
   title varchar2(50) not null,
 	content varchar2(100) not null,
 	runningT number not null,
-	genre varchar2(20) not null,
+	genre varchar2(80) not null,
 	nation varchar2(20) not null,
 	actor varchar2(50) not null,
   grade varchar2(10) not null,
@@ -150,8 +150,31 @@ insert into video_c values(video_c_seq.nextval,14,'나 혼자 산다','아에이오우',12
 insert into video_c values(video_c_seq.nextval,15,'동상이몽','아에이오우',120,'액션','해외','박만석','18','2021-11-10',0);
 insert into video_c values(video_c_seq.nextval,16,'놀면 뭐하니','아에이오우',120,'액션','해외','박만석','18','2021-11-10',0);
 
+--------------------------------------------------------------------------------------------------------------
+홈에 들어갈 insert
+ ---------------------------------------------------------------------------------------------------------------
+insert into video values(video_seq.nextval,'main','15','main1');
+ insert into video values(video_seq.nextval,'main','15','main2');
+ insert into video values(video_seq.nextval,'main','15','main3');
+insert into video values(video_seq.nextval,'main','15','main4');
+ insert into video values(video_seq.nextval,'main','15','main5');
+insert into video values(video_seq.nextval,'main','15','main6');
+ insert into video values(video_seq.nextval,'main','15','main7');
+insert into video values(video_seq.nextval,'main','15','minari');
+ insert into video values(video_seq.nextval,'main','15','john');
  
  
+ 
+ insert into video_c values(video_c_seq.nextval,17,'블라인드 사이드','영화보다 더 영화 같은 실화, 전미국을 울린 행복한 만남',128,'드라마','해외','산드라 블록','12','2010-04-15',0);
+ insert into video_c values(video_c_seq.nextval,17,'크루즈 패밀리','이런 날벼락이 있나!우리 집이 무너졌어요?',98,'모험/코미디/가족','해외','니콜라스케이지','all','2013-05-16',0);
+ insert into video_c values(video_c_seq.nextval,17,'노팅힐','세계적인 스타이자 지구상에서 가장 아름다운 여자 애나 스콧. 런던의 노 팅 힐에서 여행 전문 서점을 운영하는 남자 윌리엄 태커. 아주 평범한 사랑을 기다리는 그녀와 너무 특별한 사랑이 두려운 그의 꿈 같은 로맨스가 다시 시작된다!',124,'코미디/멜로/로맨스','해외','줄리아 로버츠','12','1999-07-03',0);
+ insert into video_c values(video_c_seq.nextval,17,'터미네이터 제네시스','"난 기계도, 인간도 아니야. 그 이상이지"인류의 마지막 희 망, 인류 최악의 위협이 되다!',125,'액션/모험/SF/스릴러','해외','아놀드 슈왈제네거','15','2015-07-02',0);
+ insert into video_c values(video_c_seq.nextval,17,'우리집','"우리집은 진짜 왜 이럴까?"',15,'드라마','국내','김나연','12','2019-08-22',0);
+ insert into video_c values(video_c_seq.nextval,17,'틴 스피릿','더 이상 망설일 수 없어 진짜 나 보여줄게!',93,'드라마','해외','옐르 패닝','12','2019-09-04',0);
+insert into video_c values(video_c_seq.nextval,17,'1917','제1차 세계대전이 한창인 1917년. 독일군에 의해 모든 통신망이 파괴된 상황 속에서 영국군 병사 "스코필드"와 "블레이크"에게 하나의 미션이 주어졌다...',119,'드라마/전쟁','해외','조지 맥케이','15','2020-02-19',0);
+insert into video_c values(video_c_seq.nextval,17,'미나리','어느 한국 가족의 원더풀한 이야기. "미나리는 어디서든 잘 자라".',115,'드라마','해외','스티븐 연, 윤여정','12','2021-03-03',0);
+insert into video_c values(video_c_seq.nextval,17,'존윅','그를 건드리지 말았어야 했다. 상대를 잘못 고른 적들을 향한 통쾌한 복수!',101,'액션','해외','키아누리브스','19','2015-01-21',0);
+commit;
  
  
  

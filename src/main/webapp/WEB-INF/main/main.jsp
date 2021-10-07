@@ -1,12 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="../display/top.jsp" %>
-<link
-      rel="stylesheet"
-      href="https://unpkg.com/swiper/swiper-bundle.min.css"
-    />
 
-    <!-- Demo styles -->
     <style>
       html,
       body {
@@ -50,15 +45,10 @@
     <!-- Swiper -->
     <div class="swiper mySwiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="resources/images/main1.jpg"></div>
-        <div class="swiper-slide"><img src="resources/images/main2.jpg"></div>
-        <div class="swiper-slide"><img src="resources/images/main3.jpg"></div>
-        <div class="swiper-slide"><img src="resources/images/main4.jpg"></div>
-        <div class="swiper-slide"><img src="resources/images/main5.jpg"></div>
-        <div class="swiper-slide"><img src="resources/images/main6.jpg"></div>
-        <div class="swiper-slide"><img src="resources/images/main7.jpg"></div>
-        <div class="swiper-slide"><img src="resources/images/minari.jpg"></div>
-        <div class="swiper-slide"><img src="resources/images/voice.jpg"></div>
+        <c:forEach var="mlist" items="${lists}">
+       	 	<div class="swiper-slide"><a href="detailMain.wa?num=${mlist.num}">
+       	 	<img src="resources/images/poster/main/${mlist.image}.jpg"></a></div>
+        </c:forEach>
       </div>
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
