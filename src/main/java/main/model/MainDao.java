@@ -7,6 +7,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+
 @Component("myMainDao")
 public class MainDao {
 	
@@ -20,6 +21,14 @@ public class MainDao {
 		lists=sqlSessionTemplate.selectList(namespace+".selectMain");
 		return lists;
 	}
+
+
+	public List<MainBean> selectAll() {
+		List<MainBean> lists = new ArrayList<MainBean>();
+		lists=sqlSessionTemplate.selectList(namespace+".selectAll");
+		return lists;
+	}
+
 	
 	
 	
