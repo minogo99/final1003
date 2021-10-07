@@ -9,21 +9,21 @@
 <select id="getAllData" resultType="MyCsFaq"
 		parameterType="hashmap">
 		select * from faq
+		<if test="whatColumn=='division'">
+			where division like #{keyword}
+		</if>
 		<if test="whatColumn=='subject'">
 			where subject like #{keyword}
-		</if>
-		<if test="whatColumn=='content'">
-			where content like #{keyword}
 		</if>
 	</select>
 	<select id="getTotalCount" resultType="int"
 		parameterType="hashmap">
 		select count(*) from faq
+		<if test="whatColumn=='division'">
+			where division like #{keyword}
+		</if>
 		<if test="whatColumn=='subject'">
 			where subject like #{keyword}
-		</if>
-		<if test="whatColumn=='content'">
-			where content like #{keyword}
 		</if>
 	</select>
 	<select id="getOneData" resultType="MyCsFaq">
