@@ -18,7 +18,7 @@ import utility.Paging;
 @Component
 public class MemberDao{
 
-	String namespace="member.model.MemberBean";
+	private String namespace="member.model.MemberBean";
 	
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;

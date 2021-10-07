@@ -15,10 +15,7 @@
 		<typeAlias  type="admin.model.AdminDTO" alias="MyAdmin"/>
 		<typeAlias type="category.detail.DetailBean" alias="MyC_Detail"/>
 		<typeAlias type="main.model.MainBean" alias="MyMain"/>
-<<<<<<< HEAD
-=======
 		<typeAlias type="main.detail.DetailMainBean" alias="MyDetailMain"/>
->>>>>>> 51eeb6d7bc0ecfcff838676b4ddc684bc6df0b9d
 	</typeAliases>
 	<mappers>
 	<mapper resource="mybatis/member.xml"/>

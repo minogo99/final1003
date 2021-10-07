@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <nav class="nav flex-column">
   <a class="nav-link active" aria-current="page" href="#">Active</a>
-  <a class="nav-link" href="memberList.member">회원관리</a>
+  <a class="nav-link" href="memberList.admin">회원관리</a>
   <a class="nav-link" href="#">구매관리</a>
   <a class="nav-link" href="videoList.category">게시물관리</a>
   <div class="dropdown">

@@ -18,6 +18,9 @@ padding: 100px;
 <%@include file="display/left.jsp" %>
 </div>
 <div id="adminMain" class="col-lg-10">
+<c:if test="${pageType == 'memberList' }">
+<%@include file="adminMemberList.jsp" %>
+</c:if>
 <c:if test="${pageType == 'boardList' }">
 <%@include file="adminBoardList.jsp" %>
 </c:if>
