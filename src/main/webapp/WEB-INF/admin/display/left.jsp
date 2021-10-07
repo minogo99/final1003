@@ -1,12 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
-	
-<nav class="nav flex-column">
-  <a class="nav-link active" aria-current="page" href="#">Active</a>
-  <a class="nav-link" href="memberList.member">회원관리</a>
-  <a class="nav-link" href="#">구매관리</a>
-  <a class="nav-link" href="#">게시물관리</a>
-  <a class="nav-link" href="#">게시판관리</a>
-</nav>
+<ul class="nav flex-column">
+  <li class="nav-item">
+    <a class="nav-link" href="memberList.member">회원관리</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">구매관리</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">게시물관리</a>
+  </li>
+     <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+           게시판 관리
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">자유게시판</a></li>
+            <li><a class="dropdown-item" href="#">공시사항</a></li>
+            <li><a class="dropdown-item" href="#">자주묻는 질문</a></li>
+          </ul>
+        </li>
+</ul>
