@@ -5,7 +5,9 @@ import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component("MyDetailMainDao")
 public class DetailMainDao {
 
 	String namespace ="main.detail.DetailMainBean";
@@ -13,8 +15,8 @@ public class DetailMainDao {
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
 
-	public DetailMainBean detailMainVideoView(int num) {
-		DetailMainBean dmb = sqlSessionTemplate.selectOne(namespace+".detailMainVideoView",num);
+	public DetailMainBean detailMainVideoView(int vnum) {
+		DetailMainBean dmb = sqlSessionTemplate.selectOne(namespace+".detailMainVideoView",vnum);
 		return dmb;
 	}
 

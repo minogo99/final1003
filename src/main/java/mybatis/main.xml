@@ -7,5 +7,7 @@
 <select id="selectMain" resultType="MyMain">
 select * from video where category='main'
 </select>
-
+<select id="selectMainAll" resultType="MyMain">
+select * from video 
+</select>
 </mapper>
