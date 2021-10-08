@@ -11,4 +11,8 @@
 	<select id="detailVideoGenre" resultType="MyC_Detail">
 		select * from video_c where genre = #{genre}
 	</select>
+	<insert id="insertVideo">
+		insert into video 
+		values(video_c_seq.nextval,#{vnum},#{title},#{content},#{runningT},#{genre},#{nation},#{actor},#{grade},#{day},#{series})
+	</insert>
 </mapper>

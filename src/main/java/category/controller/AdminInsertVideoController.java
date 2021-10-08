@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import category.detail.DetailBean;
+import category.detail.DetailDao;
 import category.model.CategoryBean;
 import category.model.CategoryDao;
 
@@ -20,7 +22,7 @@ public class AdminInsertVideoController {
 
 	private final String command="/adminInsertVideo.category";
 	private final String getPage="adminInsertVideoForm";
-	private final String goPage="sample";
+	private final String goPage="adminInsertDetailForm";
 	
 	@Autowired
 	CategoryDao cdao;
@@ -38,11 +40,14 @@ public class AdminInsertVideoController {
 		
 		ModelAndView mav=new ModelAndView();
 		String category=cb.getCategory();
-		System.out.println(category);
+		System.out.println(cb.getGrade());
+		System.out.println(cb.getCategory());
+		System.out.println(cb.getTitle());
 		
 		String root_path = request.getSession().getServletContext().getRealPath("/");  
 	    String attach_path = "resources/images/poster/"+category+"/";
 	    String filename = file.getOriginalFilename();
+	    System.out.println(filename);
 	    System.out.println(root_path + attach_path + filename);
 	    File f = new File(root_path + attach_path + filename);
 	    try {
@@ -50,8 +55,28 @@ public class AdminInsertVideoController {
 	    } catch (Exception e) {
 	     System.out.println(e.getMessage());
 	    }  
+	    cb.setImage(filename);
+	    System.out.println(filename);
+	    int cnt = cdao.InsertVideo(cb);
+	    if(cnt>0) {
+	    	mav.addObject("cb",cb);
+	    	mav.setViewName(goPage);
+	    }else {
+	    	mav.setViewName(getPage);
+	    }
 	    
-	    mav.setViewName(goPage);
+		return mav;
+	}
+	@Autowired
+	DetailDao ddao;
+	
+	@RequestMapping(value="/adminLastInsertVideo.category",method=RequestMethod.POST)
+	public ModelAndView goPage(DetailBean db) {
+		
+		ddao.InsertVideo(db);
+		
+		ModelAndView mav=new ModelAndView();
+		mav.setViewName("videoList.category");
 		return mav;
 	}
 	
