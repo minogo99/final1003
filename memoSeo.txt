@@ -154,15 +154,15 @@ insert into video_c values(video_c_seq.nextval,16,'놀면 뭐하니','아에이오우',120
 --------------------------------------------------------------------------------------------------------------
 홈에 들어갈 insert
  ---------------------------------------------------------------------------------------------------------------
-insert into video values(video_seq.nextval,'main','15','main1');
- insert into video values(video_seq.nextval,'main','15','main2');
- insert into video values(video_seq.nextval,'main','15','main3');
-insert into video values(video_seq.nextval,'main','15','main4');
- insert into video values(video_seq.nextval,'main','15','main5');
-insert into video values(video_seq.nextval,'main','15','main6');
- insert into video values(video_seq.nextval,'main','15','main7');
-insert into video values(video_seq.nextval,'main','15','minari');
- insert into video values(video_seq.nextval,'main','15','john');
+insert into video values(video_seq.nextval,'블라인드 사이드,'main','15','main1');
+ insert into video values(video_seq.nextval,'크루즈 패밀리','main','15','main2');
+ insert into video values(video_seq.nextval,'노팅힐','main','15','main3');
+insert into video values(video_seq.nextval,'터미네이터','main','15','main4');
+ insert into video values(video_seq.nextval,'우리집','main','15','main5');
+insert into video values(video_seq.nextval,'틴 스피릿','main','15','main6');
+ insert into video values(video_seq.nextval,'1917','main','15','main7');
+insert into video values(video_seq.nextval,'미나리','main','15','minari');
+ insert into video values(video_seq.nextval,'존윅','main','15','john');
  
  
  
