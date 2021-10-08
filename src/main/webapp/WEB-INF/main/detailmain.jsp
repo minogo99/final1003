@@ -73,13 +73,16 @@
 		<div align="right">
 			<a href="login.member"><button class="btn btn-primary">로그인</button></a>
 		</div>
+		<div>${dmb.genre } ${dmb.runningT }분 ${dmb.grade}세</div>
 		<div>
 			<span id="toggle" onclick="openCloseToc()">더보기</span>
 			<div id="tContent">
 				<div class="infor_sub" >
-					${dmb.genre }×
-					<%-- ${cb.rtime }분× --%>
-					${dmb.grade }세
+					장르 : ${dmb.genre }
+					<br><br>
+					출연배우 : ${dmb.actor }
+					<br><br>
+					줄거리 : ${dmb.content }
 				</div>
 			</div>
 		</div>
@@ -97,7 +100,7 @@
 						<figure>
 							<c:forEach var="clist" items="${clists }">
 								<c:if test="${glist.vnum eq clist.num}">
-									<img src="resources/images/poster/movie/${clist.image}.jpg" class="poster_img"/>
+									<img src="resources/images/poster/main/${clist.image}.jpg" class="poster_img"/>
 								</c:if>
 							</c:forEach>
 						</figure>
@@ -109,10 +112,10 @@
 						<img src="resources/images/icon/15.svg" class="icon_img">
 						</c:if>
 						<c:if test="${glist.grade eq 12 }">
-						<img src="resources/images/foster/12.svg" class="icon_img">
+						<img src="resources/images/icon/12.svg" class="icon_img">
 						</c:if>
 						<c:if test="${glist.grade eq all }">
-						<img src="resources/images/foster/all.svg" class="icon_img">
+						<img src="resources/images/icon/all.svg" class="icon_img">
 						</c:if>
 						</span> <strong>${glist.title }</strong></h3>
 					</div>

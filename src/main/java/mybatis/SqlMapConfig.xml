@@ -18,7 +18,7 @@
 		<typeAlias type="main.detail.DetailMainBean" alias="MyDetailMain"/>
 	</typeAliases>
 	<mappers>
-	<mapper resource="mybatis/member.xml"/>
+		<mapper resource="mybatis/member.xml"/>
 		<mapper resource="mybatis/notice.xml" />
 		<mapper resource="mybatis/faq.xml" />
 		<mapper resource="mybatis/board.xml" />
@@ -27,5 +27,6 @@
 		<mapper resource="mybatis/admin.xml" />
 		<mapper resource="mybatis/detail.xml" />
 		<mapper resource="mybatis/main.xml" />
+		<mapper resource="mybatis/maindetail.xml" />
 	</mappers>
 </configuration>
