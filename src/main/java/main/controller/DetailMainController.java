@@ -15,8 +15,8 @@ import main.model.MainBean;
 import main.model.MainDao;
 
 @Controller
-public class DetailMain {
-	private final String command = "/detailMain.wa";
+public class DetailMainController {
+	private final String command = "/detailmain.wa";
 	private final String getPage = "detailmain";
 	
 	@Autowired
