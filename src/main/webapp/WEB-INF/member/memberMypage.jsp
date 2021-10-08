@@ -4,10 +4,8 @@
       rel="stylesheet"
       href="https://unpkg.com/swiper/swiper-bundle.min.css"
     />
-
 <style>
 	.my{
-		
 		width:70%;	
 		margin: auto
 	}

@@ -1,6 +1,9 @@
 package admin.controller;
+<<<<<<< HEAD:src/main/java/admin/controller/adminMemberUpdateController.java
+=======
 
 import java.io.IOException;
+>>>>>>> 4a3d30d329452bba6d450fcf5f3240cf13495293:src/main/java/member/controller/MemberUpdateController.java
 
 import javax.validation.Valid;
 
@@ -18,12 +21,21 @@ import member.model.MemberDao;
 
 @Controller
 public class adminMemberUpdateController {
+<<<<<<< HEAD:src/main/java/admin/controller/adminMemberUpdateController.java
+	private final String command="memberUpdate.admin";
+	private final String getPage = "adminMain";
+	private final String gotoPage="redirect:memberList.admin";
+
+	@Autowired
+	MemberDao memberDao;
+=======
 	private final String command="update.admin";
 	private final String getPage="adminMemberUpdate";
 	private final String gotoPage="redirect:/memberList.admin";
 
 	@Autowired
 	private MemberDao memberDao;
+>>>>>>> 4a3d30d329452bba6d450fcf5f3240cf13495293:src/main/java/member/controller/MemberUpdateController.java
 
 
 	@RequestMapping(value=command, method=RequestMethod.GET)
@@ -35,8 +47,11 @@ public class adminMemberUpdateController {
 		MemberBean member = memberDao.getMember(num);
 		mav.addObject("member",member);
 		mav.addObject("pageNumber",pageNumber);
-		mav.setViewName(getPage);
 		
+		
+		String pageType = "memberUpdateForm";
+		mav.addObject("pageType", pageType);
+		mav.setViewName(getPage);
 		return mav;
 	}
 	@RequestMapping(value=command, method=RequestMethod.POST)
@@ -55,8 +70,7 @@ public class adminMemberUpdateController {
 		}
 
 		else { 
-			int cnt = memberDao.updateData(member);  
-			System.out.println("insert占쎄쉐�⑨옙");
+			int cnt = memberDao.updateData(member);
 		}
 
 		mav.setViewName(gotoPage);

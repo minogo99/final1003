@@ -1,14 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
-
-<div>
+<%@include file="./../common/common.jsp"%>
+<style>
+table{
+font-size: 20px;
+}
+th, td{
+padding: 25px;
+}
+</style>
 	<h2 style="color: green; font-weight: bold;" align="center">회원 상세 정보</h2>
+	<input type="hidden" name="pageNumber" value="${pageNumber}">
 
-	<input type="hidden" name="num" id="num" value="${member.num}">
-	<input type="hidden" name="pageNumber" id="pageNumber" value="${pageNumber}">
-
-	<table border="1" align="center">
+	<table align="center">
 		<tr>
 			<th>번호</th>
 			<td>${member.num}</td>
@@ -31,16 +35,17 @@
 		</tr>
 		<tr>
 			<th>가입일시</th>
-			<td>${member.regdate}</td>
+			<td>
+			<fmt:parseDate value="${member.regdate }" var="noticePostDate" pattern="yyyy-MM-dd HH:mm" /> 
+			<fmt:formatDate value="${noticePostDate}" pattern="yyyy-MM-dd HH:mm" var="regdate" /> 
+			${regdate }
+			</td>
 		</tr>
 		<tr>
 			<td colspan="2" align="center">
-			<input type="button" value="상품 리스트" onclick="location.href='<%=request.getContextPath()%>/list.member?pageNumber=${pageNumber}'">
-
+			<input type="button" class="btn btn-primary" value="회원목록" onclick="location.href='memberList.admin?pageNumber=${pageNumber}'">
 			</td>
 		</tr>
 	</table>
-
-</div>
 
 

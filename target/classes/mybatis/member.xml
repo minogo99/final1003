@@ -46,7 +46,7 @@ select * from members where name = #{name} and id = #{id}
 	
 	<update id="updateData">
 		update members set 
-		id = #{id}, password = #{password}, name = #{name} where num=#{num}
+		id = #{id}, password = #{password}, name = #{name},tel1=#{tel1},tel2=#{tel2},tel3=#{tel3} where num=#{num}
 	</update>
 	
 	<delete id="deleteMember">

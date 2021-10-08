@@ -7,37 +7,37 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import cs.model.CsNoticeBean;
-import cs.model.CsNoticeDao;
+import cs.model.CsFaqBean;
+import cs.model.CsFaqDao;
 
 @Controller
-public class adminNoticeUpdateController {
+public class adminFaqUpdateController {
 
 	@Autowired
-	CsNoticeDao cnDao;
+	CsFaqDao cfDao;
 	
-	private final String command = "/noticeUpdate.admin";
+	private final String command = "/faqUpdate.admin";
 	private final String getPage = "adminMain";
-	private final String gotoPage = "redirect:noticeList.admin";
+	private final String gotoPage = "redirect:faqList.admin";
 	
 	@RequestMapping(value=command,method=RequestMethod.GET)
 	public ModelAndView doActionGet(@RequestParam("num") int num) {
 		ModelAndView mav = new ModelAndView();
 		
-		CsNoticeBean cnb = cnDao.getOneData(num);
-		mav.addObject("cnb", cnb);
+		CsFaqBean cfb = cfDao.getOneData(num);
+		mav.addObject("cfb", cfb);
 		
-		String pageType = "noticeUpdateForm";
+		String pageType = "faqUpdateForm";
 		mav.addObject("pageType", pageType);
 		
 		mav.setViewName(getPage);
 		return mav;
 	}
 	@RequestMapping(value=command,method=RequestMethod.POST)
-	public ModelAndView doActionPost(CsNoticeBean cnb) {
+	public ModelAndView doActionPost(CsFaqBean cnb) {
 		ModelAndView mav = new ModelAndView();
 		
-		cnDao.updateData(cnb);
+		cfDao.updateData(cnb);
 		mav.setViewName(gotoPage);
 		return mav;
 	}
