@@ -58,8 +58,10 @@ public class AdminInsertVideoController {
 	    cb.setImage(filename);
 	    System.out.println(filename);
 	    int cnt = cdao.InsertVideo(cb);
+	    CategoryBean ncb=cdao.selectTitle(cb.getTitle());
 	    if(cnt>0) {
-	    	mav.addObject("cb",cb);
+	    	System.out.println(ncb.getNum());
+	    	mav.addObject("cb",ncb);
 	    	mav.setViewName(goPage);
 	    }else {
 	    	mav.setViewName(getPage);
@@ -76,7 +78,7 @@ public class AdminInsertVideoController {
 		ddao.InsertVideo(db);
 		
 		ModelAndView mav=new ModelAndView();
-		mav.setViewName("videoList.category");
+		mav.setViewName("redirect:/videoList.category");
 		return mav;
 	}
 	

@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@include file="../admin/display/top.jsp" %>
+<%@include file="./../common/common.jsp"%>
 <script type="text/javascript">
 	function goInsert(){
 		location.href="insert.member" ;
@@ -13,16 +15,16 @@
 		location.href="update.member?num="+num+"&pageNumber="+pn;
 	}
 	function goDelete(num,pn){
-		 var result = confirm("»èÁ¦ÇÏ½Ã°Ú½À´Ï±î ?");
+		 var result = confirm("ì‚­ì œí•˜ì‹œê² ìŠµë‹ˆê¹Œ ?");
 	        
 	        if(result)
 	        {
 	        	location.href="delete.member?num="+num+"&pageNumber="+pn;
-	        alert("»èÁ¦µÇ¾ú½À´Ï´Ù")
+	        alert("ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤")
 	        }
 	        else
 	        {
-	        	alert("»èÁ¦ Ãë¼Ò")
+	        	alert("ì‚­ì œ ì·¨ì†Œ")
 	        }
 		
 	}
@@ -60,52 +62,52 @@ td{
 	<div id="videoList" class="col-lg-10" align="center">
 		
 		<div>
-			<h2 style="color: green; font-weight: bold;">¿µ»ó °Ô½Ã¹° Ãß°¡Ã¢</h2>	
+			<h2 style="color: green; font-weight: bold;">ì˜ìƒ ê²Œì‹œë¬¼ ì¶”ê°€ì°½</h2>	
 			<div>
 				<form action="adminLastInsertVideo.category" method="post" enctype="multipart/form-data">
 					<fieldset>
 			<div class="form-group">
-			<label for="id" class="form-label mt-4">Á¦¸ñ</label>
-				<input type="hidden" name="vnum" value="${cb.num }">
-				<input type="" class="form-control" name="id" placeholder="Á¦¸ñ ÀÔ·Â" value="${cb.title }" readonly>
+				<input type="text" name="vnum" value="${cb.num }">
+			<label for="title" class="form-label mt-4">ì œëª©</label>
+				<input type="text" class="form-control" name="title" placeholder="ì œëª© ì…ë ¥" value="${cb.title }" readonly>
 			</div>
 		<div class="form-group">
-				<label for="category" class="form-label mt-4">ÁÙ°Å¸®</label>
+				<label for="category" class="form-label mt-4">ì¤„ê±°ë¦¬</label>
 				<textarea rows="10" cols="50" name="content"></textarea>
 			</div>
 			<div class="form-group">
-				<label for="runningT" class="form-label mt-4">·¯´×Å¸ÀÓ</label>
+				<label for="runningT" class="form-label mt-4">ëŸ¬ë‹íƒ€ì„</label>
 				<input type="text" name="runningT">
 			</div>
 			<div class="form-group">
-				<label for="genre" class="form-label mt-4">Àå¸£</label>
+				<label for="genre" class="form-label mt-4">ì¥ë¥´</label>
 				<input type="text" name="genre">
 			</div>
 			<div class="form-group">
-				<label for="nation" class="form-label mt-4">±¹°¡</label>
+				<label for="nation" class="form-label mt-4">êµ­ê°€</label>
 				<input type="text" name="nation">
 			</div>
 			<div class="form-group">
-				<label for="actor" class="form-label mt-4">Ãâ¿¬Áø</label>
+				<label for="actor" class="form-label mt-4">ì¶œì—°ì§„</label>
 				<input type="text" name="actor">
 			</div>
 			<div class="form-group">
-				<label for="grade" class="form-label mt-4">½ÃÃ» ¿¬·É Á¦ÇÑ</label>
-				<input type="text" name="grade" readonly>
+				<label for="grade" class="form-label mt-4">ì‹œì²­ ì—°ë ¹ ì œí•œ</label>
+				<input type="text" name="grade" value="${cb.grade }" readonly>
 			</div>
 			<div class="form-group">
-				<label for="day" class="form-label mt-4">¹æ¿µÀÏ</label>
+				<label for="day" class="form-label mt-4">ë°©ì˜ì¼</label>
 				<input type="text" name="day">
 			</div>
 			<div class="form-group">
-				<label for="series" class="form-label mt-4">Á¦ÀÛ È­¼ö</label>
+				<label for="series" class="form-label mt-4">ì œì‘ í™”ìˆ˜</label>
 				<input type="text" name="series">
 			</div>
 		</fieldset>
 		<br><br>
 			<div align="center">
-			<input type="submit" class="btn btn-primary" value="ÀúÀå">
-			<input type="button" class="btn btn-primary" onclick="history.go(-1);" value="Ãë¼Ò">
+			<input type="submit" class="btn btn-primary" value="ì €ì¥">
+			<input type="button" class="btn btn-primary" onclick="history.go(-1);" value="ì·¨ì†Œ">
 			</div>
 				</form>
 			</div>
