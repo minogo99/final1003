@@ -100,7 +100,7 @@
 						<figure>
 							<c:forEach var="clist" items="${clists }">
 								<c:if test="${glist.vnum eq clist.num}">
-									<img src="resources/images/poster/movie/${clist.image}.jpg" class="poster_img"/>
+									<img src="resources/images/poster/main/${clist.image}.jpg" class="poster_img"/>
 								</c:if>
 							</c:forEach>
 						</figure>
