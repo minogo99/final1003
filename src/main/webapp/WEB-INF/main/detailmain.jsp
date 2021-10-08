@@ -112,10 +112,10 @@
 						<img src="resources/images/icon/15.svg" class="icon_img">
 						</c:if>
 						<c:if test="${glist.grade eq 12 }">
-						<img src="resources/images/foster/12.svg" class="icon_img">
+						<img src="resources/images/icon/12.svg" class="icon_img">
 						</c:if>
 						<c:if test="${glist.grade eq all }">
-						<img src="resources/images/foster/all.svg" class="icon_img">
+						<img src="resources/images/icon/all.svg" class="icon_img">
 						</c:if>
 						</span> <strong>${glist.title }</strong></h3>
 					</div>
