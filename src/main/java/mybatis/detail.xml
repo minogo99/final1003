@@ -15,4 +15,7 @@
 		insert into video_c 
 		values(video_c_seq.nextval,#{vnum},#{title},#{content},#{runningT},#{genre},#{nation},#{actor},#{grade},#{day},#{series})
 	</insert>
+	<delete id="detailVideoDelete">
+		delete from video_c where vnum=#{num}
+	</delete>
 </mapper>

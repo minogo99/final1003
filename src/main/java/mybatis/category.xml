@@ -54,6 +54,10 @@
 		insert into video 
 		values(video_seq.nextval,#{title},#{category},#{grade},#{image})
 	</insert>
+	
+	<delete id="detailVideoDelete">
+		delete from video where num=#{num}
+	</delete>
 </mapper>
 
 

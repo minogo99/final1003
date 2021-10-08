@@ -80,6 +80,9 @@ public class CategoryDao {
 		CategoryBean cb =sqlSessionTemplate.selectOne(namespace+".selectTitle",title);
 		return cb;
 	}
-	
+	public int detailVideoDelete(int num) {
+		int cnt=sqlSessionTemplate.delete(namespace+".detailVideoDelete",num);
+		return cnt;
+	}
 	
 }
