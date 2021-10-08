@@ -13,7 +13,6 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-link" href="main.wa">MoviePark</a>
-        <a class="nav-link" href="#">Pricing</a>
       </div>
     </div>
   </div>

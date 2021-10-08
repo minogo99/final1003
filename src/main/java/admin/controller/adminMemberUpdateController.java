@@ -1,9 +1,4 @@
 package admin.controller;
-<<<<<<< HEAD:src/main/java/admin/controller/adminMemberUpdateController.java
-=======
-
-import java.io.IOException;
->>>>>>> 4a3d30d329452bba6d450fcf5f3240cf13495293:src/main/java/member/controller/MemberUpdateController.java
 
 import javax.validation.Valid;
 
@@ -21,22 +16,13 @@ import member.model.MemberDao;
 
 @Controller
 public class adminMemberUpdateController {
-<<<<<<< HEAD:src/main/java/admin/controller/adminMemberUpdateController.java
+	
 	private final String command="memberUpdate.admin";
 	private final String getPage = "adminMain";
 	private final String gotoPage="redirect:memberList.admin";
 
 	@Autowired
-	MemberDao memberDao;
-=======
-	private final String command="update.admin";
-	private final String getPage="adminMemberUpdate";
-	private final String gotoPage="redirect:/memberList.admin";
-
-	@Autowired
 	private MemberDao memberDao;
->>>>>>> 4a3d30d329452bba6d450fcf5f3240cf13495293:src/main/java/member/controller/MemberUpdateController.java
-
 
 	@RequestMapping(value=command, method=RequestMethod.GET)
 	public ModelAndView doUpdate(@RequestParam("num")int num,
@@ -48,7 +34,6 @@ public class adminMemberUpdateController {
 		mav.addObject("member",member);
 		mav.addObject("pageNumber",pageNumber);
 		
-		
 		String pageType = "memberUpdateForm";
 		mav.addObject("pageType", pageType);
 		mav.setViewName(getPage);
@@ -59,22 +44,17 @@ public class adminMemberUpdateController {
 			@Valid MemberBean member,BindingResult result,
 			@RequestParam(value="pageNumber", required=true) String pageNumber)  {
 
-
 		ModelAndView mav = new ModelAndView();
-
 
 		if(result.hasErrors()) {
 			System.out.println("에러");
 			mav.setViewName(getPage); 
 			return mav;
 		}
-
 		else { 
 			int cnt = memberDao.updateData(member);
 		}
-
 		mav.setViewName(gotoPage);
 		return mav;
-
 	}
 }

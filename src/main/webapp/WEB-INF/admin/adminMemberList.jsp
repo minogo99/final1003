@@ -8,29 +8,20 @@
 		location.href="memberInsert.admin";
 	}
 	function goUpdate(num,pn){
-<<<<<<< HEAD
 		location.href="memberUpdate.admin?num="+num+"&pageNumber="+pn;
-=======
-		location.href="update.admin?num="+num+"&pageNumber="+pn;
->>>>>>> 4a3d30d329452bba6d450fcf5f3240cf13495293
 	}
 	function goDelete(num,pn){
 		 var result = confirm("삭제하시겠습니까 ?");
 	        
 	        if(result)
 	        {
-<<<<<<< HEAD
 	        	location.href="memberDelete.admin?num="+num+"&pageNumber="+pn;
-=======
-	        	location.href="delete.admin?num="+num+"&pageNumber="+pn;
->>>>>>> 4a3d30d329452bba6d450fcf5f3240cf13495293
 	        alert("삭제되었습니다")
 	        }
 	        else
 	        {
 	        	alert("삭제 취소")
 	        }
-		
 	}
 </script>
 <style>
@@ -70,9 +61,10 @@ table {
 				<td>${member.password }</td>
 				<td>${member.name }</td>
 				<td>${member.tel1 }-${member.tel2 }-${member.tel3 }</td>
-				<td>
-				<fmt:parseDate value="${member.regdate }" var="noticePostDate" pattern="yyyy-MM-dd HH:mm" /> <fmt:formatDate value="${noticePostDate}" pattern="yyyy-MM-dd HH:mm" var="regdate" /> ${regdate }
-				</td>
+				<td><fmt:parseDate value="${member.regdate }"
+						var="noticePostDate" pattern="yyyy-MM-dd HH:mm" /> <fmt:formatDate
+						value="${noticePostDate}" pattern="yyyy-MM-dd HH:mm" var="regdate" />
+					${regdate }</td>
 				<td><input type="button" value="수정"
 					onClick="goUpdate(${member.num },${pageInfo.pageNumber})"></td>
 				<td><input type="button" value="삭제"

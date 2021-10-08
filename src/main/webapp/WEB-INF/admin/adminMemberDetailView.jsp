@@ -6,7 +6,7 @@ table{
 font-size: 20px;
 }
 th, td{
-padding: 25px;
+padding: 15px;
 }
 </style>
 	<h2 style="color: green; font-weight: bold;" align="center">회원 상세 정보</h2>
