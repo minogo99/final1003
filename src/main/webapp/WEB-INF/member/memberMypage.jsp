@@ -5,6 +5,7 @@
 		padding-left: 110px;
 		padding-right: 110px;
 	}
+	
 
 
 
@@ -14,14 +15,11 @@
 <table class="table table-hover">
 	<thead>
 	<tbody>
-		<tr align="center" >
-			<td></td>
-			<td></td>
-			<td>${loginInfo.name }님</td>
-			<td>구매한 콘텐츠</td>
-			<td></td>
-			<td></td>
-		</tr>
+	<tr >
+		<td align="right">${loginInfo.name }님</td>
+		
+		<td align="left">구매한 컨텐츠</td>
+	</tr>
 	</tbody>
 	</thead>
 </table>
