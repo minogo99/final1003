@@ -8,6 +8,7 @@ table {
 	text-align: center;
 }
 </style>
+<h2 style="color: green; font-weight: bold;">공지 리스트</h2>
 	<table class="table">
 	<thead class="table-light">
 		<tr>

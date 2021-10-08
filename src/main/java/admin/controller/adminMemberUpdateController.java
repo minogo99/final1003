@@ -1,6 +1,4 @@
-package member.controller;
-
-import java.io.IOException;
+package admin.controller;
 
 import javax.validation.Valid;
 
@@ -17,11 +15,12 @@ import member.model.MemberBean;
 import member.model.MemberDao;
 
 @Controller
-public class MemberUpdateController {
-	private final String command="update.admin";
-	private final String getPage="memberUpdateForm";
-	private final String gotoPage="redirect:/list.member";
+public class adminMemberUpdateController {
+	private final String command="memberUpdate.admin";
+	private final String getPage = "adminMain";
+	private final String gotoPage="redirect:memberList.admin";
 
+	@Autowired
 	MemberDao memberDao;
 
 
@@ -34,8 +33,11 @@ public class MemberUpdateController {
 		MemberBean member = memberDao.getMember(num);
 		mav.addObject("member",member);
 		mav.addObject("pageNumber",pageNumber);
-		mav.setViewName(getPage);
 		
+		
+		String pageType = "memberUpdateForm";
+		mav.addObject("pageType", pageType);
+		mav.setViewName(getPage);
 		return mav;
 	}
 	@RequestMapping(value=command, method=RequestMethod.POST)
@@ -53,8 +55,7 @@ public class MemberUpdateController {
 		}
 
 		else { 
-			int cnt = memberDao.updateData(member);  
-			System.out.println("insert占쎄쉐�⑨옙");
+			int cnt = memberDao.updateData(member);
 		}
 
 		mav.setViewName(gotoPage);

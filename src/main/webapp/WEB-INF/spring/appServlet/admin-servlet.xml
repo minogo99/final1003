@@ -16,7 +16,6 @@
 	
 	<context:component-scan base-package="admin" /> 
 	<context:component-scan base-package="cs" /> 
-	<context:component-scan base-package="board" /> 
 	<context:component-scan base-package="member" /> 
 
 </beans>

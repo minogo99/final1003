@@ -131,7 +131,7 @@ function openPop(){
           <a class="nav-link" href="login.member">My</a>
        </c:if>
        <c:if test="${loginInfo.name eq '관리자'}" >
-    	<a class="nav-link" href="adminHome.admin">My</a>
+    	<a class="nav-link" href="adminMain.admin">My</a>
     	</c:if> 
         </li>
                 <li class="nav-item">

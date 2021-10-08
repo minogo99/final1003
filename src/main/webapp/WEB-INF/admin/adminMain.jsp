@@ -18,8 +18,14 @@ padding: 100px;
 <c:if test="${pageType == 'memberList' }">
 <%@include file="adminMemberList.jsp" %>
 </c:if>
-<c:if test="${pageType == 'boardList' }">
-<%@include file="adminBoardList.jsp" %>
+<c:if test="${pageType == 'memberDetailView' }">
+<%@include file="adminMemberDetailView.jsp" %>
+</c:if>
+<c:if test="${pageType == 'memberInsertForm' }">
+<%@include file="adminMemberInsertForm.jsp" %>
+</c:if>
+<c:if test="${pageType == 'memberUpdateForm' }">
+<%@include file="adminMemberUpdateForm.jsp" %>
 </c:if>
 <c:if test="${pageType == 'noticeList' }">
 <%@include file="adminCsNoticeList.jsp" %>
@@ -35,6 +41,9 @@ padding: 100px;
 </c:if>
 <c:if test="${pageType == 'noticeUpdateForm' }">
 <%@include file="adminNoticeUpdateForm.jsp" %>
+</c:if>
+<c:if test="${pageType == 'faqUpdateForm' }">
+<%@include file="adminFaqUpdateForm.jsp" %>
 </c:if>
 <c:if test="${pageType == 'main' }">
 메인 페이지

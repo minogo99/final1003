@@ -76,7 +76,7 @@ width:600px;
 						var="reg_date" /> ${reg_date }</font>
 	</td>
 	<td style="text-align: right">
-		<c:if test="${loginInfo.id == reply.writer }">
+		<c:if test="${reply.writer == loginInfo.id || 'admin' == loginInfo.id}">
 		<a href="replyUpdate.board?bnum=${reply.bnum }&rnum=${reply.rnum }&replyType=update">[수정]</a> <a href="replyDelete.board?bnum=${reply.bnum }&rnum=${reply.rnum }">[삭제]</a>
 		</c:if>
 	</td>

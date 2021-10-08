@@ -4,22 +4,18 @@
 
 <script type="text/javascript">
 	function goInsert(){
-		location.href="insert.admin" ;
+		alert(1);
+		location.href="memberInsert.admin";
 	}
-	
-	function videoInsert(){
-		location.href="insert.video" ;
-	}
-	
 	function goUpdate(num,pn){
-		location.href="update.member?num="+num+"&pageNumber="+pn;
+		location.href="memberUpdate.admin?num="+num+"&pageNumber="+pn;
 	}
 	function goDelete(num,pn){
 		 var result = confirm("삭제하시겠습니까 ?");
 	        
 	        if(result)
 	        {
-	        	location.href="delete.member?num="+num+"&pageNumber="+pn;
+	        	location.href="memberDelete.admin?num="+num+"&pageNumber="+pn;
 	        alert("삭제되었습니다")
 	        }
 	        else
@@ -62,11 +58,13 @@ table {
 			<tr>
 				<td>${member.num }</td>
 				<td><a
-					href="detail.member?num=${member.num }&pageNumber=${pageInfo.pageNumber}">${member.id }</a></td>
+					href="memberDetailView.admin?num=${member.num }&pageNumber=${pageInfo.pageNumber}">${member.id }</a></td>
 				<td>${member.password }</td>
 				<td>${member.name }</td>
-				<td>${member.tel1 }${member.tel2 }${member.tel3 }</td>
-				<td>${member.regdate }</td>
+				<td>${member.tel1 }-${member.tel2 }-${member.tel3 }</td>
+				<td>
+				<fmt:parseDate value="${member.regdate }" var="noticePostDate" pattern="yyyy-MM-dd HH:mm" /> <fmt:formatDate value="${noticePostDate}" pattern="yyyy-MM-dd HH:mm" var="regdate" /> ${regdate }
+				</td>
 				<td><input type="button" value="수정"
 					onClick="goUpdate(${member.num },${pageInfo.pageNumber})"></td>
 				<td><input type="button" value="삭제"
@@ -77,7 +75,7 @@ table {
 	</tbody>
 </table>
 <div align="right">
-	<input type="button" class="btn btn-primary" value="글쓰기"
+	<input type="button" class="btn btn-primary" value="생성"
 		onClick="goInsert()">
 </div>
 <form action="memberList.admin" method="get">

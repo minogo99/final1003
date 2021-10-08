@@ -1,4 +1,4 @@
-package member.controller;
+package admin.controller;
 
 import javax.validation.Valid;
 
@@ -15,18 +15,26 @@ import member.model.MemberDao;
 
 
 @Controller
-public class MemberInsertController {
-	private final String command="insert.admin";
-	private final String getPage="memberInsertForm";
-	private final String gotoPage="redirect:/list.member";
+public class adminMemberInsertController {
+	
+	private final String command="memberInsert.admin";
+	private final String getPage = "adminMain";
+	private final String gotoPage="redirect:memberList.admin";
 
+	@Autowired
 	MemberDao memberDao;
 
 	
 	@RequestMapping(value=command, method=RequestMethod.GET)
-	public String insertForm(ModelAndView mav) {
+	public ModelAndView insertForm() {
 
-		return getPage;
+		ModelAndView mav = new ModelAndView();
+		
+		String pageType = "memberInsertForm";
+		mav.addObject("pageType", pageType);
+		
+		mav.setViewName(getPage);
+		return mav;
 	}
 	
 
@@ -42,12 +50,9 @@ public class MemberInsertController {
 			mav.setViewName(getPage); 
 			return mav;
 		}
-
 		else {
 			int cnt = memberDao.insertData(member);  
-			System.out.println("insert cnt:" + cnt);
 		}
-
 		mav.setViewName(gotoPage);
 		return mav;
 

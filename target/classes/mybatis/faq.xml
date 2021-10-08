@@ -37,4 +37,12 @@
 	<insert id="insertData">
 	insert into faq values(faq_seq.nextval,#{writer},#{subject},#{division},sysdate,#{content})
 	</insert>
+	
+	<delete id="deleteData">
+	delete from faq where num=#{num}
+	</delete>
+	
+	<update id="updateData">
+	update faq set subject=#{subject},division=#{division},content=#{content} where num=#{num}
+	</update>
 </mapper>

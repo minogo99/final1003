@@ -8,6 +8,7 @@ table {
 	text-align: center;
 }
 </style>
+<h2 style="color: green; font-weight: bold;">FAQ 리스트</h2>
 <table class="table">
 	<thead class="table-light">
 		<tr>
@@ -23,8 +24,8 @@ table {
 				<td>${cfb.division }</td>
 				<td><a href="faqDetailView.cs?num=${cfb.num }">${cfb.subject }</a>
 				</td>
-				<td>수정</td>
-				<td>삭제</td>
+				<td><a href="faqUpdate.admin?num=${cfb.num }">수정</a></td>
+				<td><a href="faqDelete.admin?num=${cfb.num }">삭제</a></td>
 			</tr>
 		</c:forEach>
 	</tbody>
