@@ -38,6 +38,7 @@ public class adminMemberInsertController {
 
 
 		if(result.hasErrors()) {
+			System.out.println("에러");
 			mav.setViewName(getPage); 
 			return mav;
 		}

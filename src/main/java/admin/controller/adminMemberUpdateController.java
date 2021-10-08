@@ -22,7 +22,8 @@ public class adminMemberUpdateController {
 	private final String getPage="adminMemberUpdate";
 	private final String gotoPage="redirect:/memberList.admin";
 
-	MemberDao memberDao;
+	@Autowired
+	private MemberDao memberDao;
 
 
 	@RequestMapping(value=command, method=RequestMethod.GET)
@@ -48,6 +49,7 @@ public class adminMemberUpdateController {
 
 
 		if(result.hasErrors()) {
+			System.out.println("에러");
 			mav.setViewName(getPage); 
 			return mav;
 		}

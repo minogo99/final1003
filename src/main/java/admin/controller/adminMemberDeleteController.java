@@ -1,4 +1,4 @@
-package member.controller;
+package admin.controller;
 
 import javax.inject.Inject;
 
@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import member.model.MemberDao;
 
 @Controller
-public class memberDeleteController {
+public class adminMemberDeleteController {
 	private final String command = "/delete.admin";
-	private final String gotoPage = "";
+	private final String gotoPage = "redirect:/memberList.admin";
 	
 	MemberDao memberDao;
 	
