@@ -62,43 +62,41 @@ td{
 		<%@include file="../admin/display/left.jsp" %>
 	</div>
 	<div id="videoList" class="col-lg-10" align="center">
+		
 		<div>
 			<h2 style="color: green; font-weight: bold;">영상 게시물 추가창</h2>	
 			<div>
-				<table border="1" style="align:right;">
-					<tr>
-						<td> 제목 </td>
-						<td><input type="text" name="title"></td>
-					</tr>
-					<tr>
-						<td>카테고리 </td>
-						<td>
-							<select name="category"  >
-								<option value="movie">영화
-								<option value="drama">드라마
-								<option value="enter">예능
-								<option value="ani">만화
-							</select>
-						</td>
-					</tr>
-					<tr>
-						<td>시청연령 </td>
-						<td>
-							<input type="radio" name="grade" value="18">18
-							<input type="radio" name="grade" value="15">15
-							<input type="radio" name="grade" value="12">12
-							<input type="radio" name="grade" value="all">all
-						</td>
-					</tr>
-					<tr>
-						<td>영상 이미지 </td>
-						<td>
-							<input type="text">
-							<input type="file" name="title">
-						</td>
-					</tr>
-					
-				</table>
+				<form action="adminInsertVideo.category" method="post" enctype="multipart/form-data">
+					<fieldset>
+			<div class="form-group">
+			<label for="id" class="form-label mt-4">제목</label>
+				<input type="text" class="form-control" name="id" placeholder="제목 입력" >
+			</div>
+		<div class="form-group">
+				<label for="category" class="form-label mt-4">카테고리</label>
+				<input type="radio" name="category" value="movie">영화
+				<input type="radio" name="category" value="drama">드라마
+				<input type="radio" name="category" value="enter">예능
+				<input type="radio" name="category" value="ani">만화
+			</div>
+			<div class="form-group">
+				<label for="name" class="form-label mt-4">시청 연령 제한</label>
+				<select name="grade">
+					<option value="18">18
+					<option value="15">15
+					<option value="12">12
+					<option value="all">all
+				</select>
+			</div>
+			<div>
+				<input type="file" name="file">
+			</div>
+		</fieldset>
+		<br><br>
+			<div align="center">
+			<input type="button" class="btn btn-primary" onclick="history.go(-1);" value="취소">
+			</div>
+				</form>
 			</div>
 		</div>
 	</div>
