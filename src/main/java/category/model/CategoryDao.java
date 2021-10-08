@@ -71,5 +71,15 @@ public class CategoryDao {
 		lists = sqlSessionTemplate.selectList(namespace + ".getVideoList", map, rowBounds);
 		return lists;
 	}
+	public int InsertVideo(CategoryBean cb) {
+		int cnt=sqlSessionTemplate.insert(namespace+".insertVideo",cb);
+		return cnt;
+	}
+	public CategoryBean selectTitle(String title) {
+		
+		CategoryBean cb =sqlSessionTemplate.selectOne(namespace+".selectTitle",title);
+		return cb;
+	}
+	
 	
 }

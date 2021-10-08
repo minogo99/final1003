@@ -12,10 +12,9 @@ import org.springframework.web.servlet.ModelAndView;
 import member.model.MemberBean;
 import member.model.MemberDao;
 
-
-
 @Controller
 public class adminMemberInsertController {
+<<<<<<< HEAD:src/main/java/admin/controller/adminMemberInsertController.java
 	
 	private final String command="memberInsert.admin";
 	private final String getPage = "adminMain";
@@ -23,7 +22,15 @@ public class adminMemberInsertController {
 
 	@Autowired
 	MemberDao memberDao;
+=======
 
+	@Autowired
+	private MemberDao memberDao;
+>>>>>>> 4a3d30d329452bba6d450fcf5f3240cf13495293:src/main/java/member/controller/MemberInsertController.java
+
+	private final String command="insert.admin";
+	private final String getPage="adminMemberInsert";
+	private final String gotoPage="redirect:/memberList.admin";
 	
 	@RequestMapping(value=command, method=RequestMethod.GET)
 	public ModelAndView insertForm() {
@@ -47,6 +54,7 @@ public class adminMemberInsertController {
 
 
 		if(result.hasErrors()) {
+			System.out.println("에러");
 			mav.setViewName(getPage); 
 			return mav;
 		}
@@ -57,7 +65,4 @@ public class adminMemberInsertController {
 		return mav;
 
 	}
-	
-	
 }
-

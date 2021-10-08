@@ -4,22 +4,22 @@ import javax.validation.constraints.NotBlank;
 
 public class MemberBean {
 	private int num;
-	@NotBlank(message="ÇÊ¼öÀÔ·Â»çÇ×ÀÔ´Ï´Ù.")
+	@NotBlank(message="í•„ìˆ˜.")
 	private String id;
-	@NotBlank(message="ÇÊ¼öÀÔ·Â»çÇ×ÀÔ´Ï´Ù.")
+	@NotBlank(message="í•„ìˆ˜.")
 	private String password;
-	@NotBlank(message="ÇÊ¼öÀÔ·Â»çÇ×ÀÔ´Ï´Ù.")
+	@NotBlank(message="í•„ìˆ˜.")
 	private String name;
 	
 	private String regdate;
 
 	private String phone;
 
-	@NotBlank(message="ÇÊ¼öÀÔ·Â»çÇ×ÀÔ´Ï´Ù.")
+	@NotBlank(message="í•„ìˆ˜.")
 	private String tel1;
-	@NotBlank(message="ÇÊ¼öÀÔ·Â»çÇ×ÀÔ´Ï´Ù.")
+	@NotBlank(message="í•„ìˆ˜.")
 	private String tel2;
-	@NotBlank(message="ÇÊ¼öÀÔ·Â»çÇ×ÀÔ´Ï´Ù.")
+	@NotBlank(message="í•„ìˆ˜.")
 	private String tel3;
 	
 	public String getTel1() {

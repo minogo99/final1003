@@ -1,4 +1,9 @@
 package admin.controller;
+<<<<<<< HEAD:src/main/java/admin/controller/adminMemberUpdateController.java
+=======
+
+import java.io.IOException;
+>>>>>>> 4a3d30d329452bba6d450fcf5f3240cf13495293:src/main/java/member/controller/MemberUpdateController.java
 
 import javax.validation.Valid;
 
@@ -16,12 +21,21 @@ import member.model.MemberDao;
 
 @Controller
 public class adminMemberUpdateController {
+<<<<<<< HEAD:src/main/java/admin/controller/adminMemberUpdateController.java
 	private final String command="memberUpdate.admin";
 	private final String getPage = "adminMain";
 	private final String gotoPage="redirect:memberList.admin";
 
 	@Autowired
 	MemberDao memberDao;
+=======
+	private final String command="update.admin";
+	private final String getPage="adminMemberUpdate";
+	private final String gotoPage="redirect:/memberList.admin";
+
+	@Autowired
+	private MemberDao memberDao;
+>>>>>>> 4a3d30d329452bba6d450fcf5f3240cf13495293:src/main/java/member/controller/MemberUpdateController.java
 
 
 	@RequestMapping(value=command, method=RequestMethod.GET)
@@ -50,6 +64,7 @@ public class adminMemberUpdateController {
 
 
 		if(result.hasErrors()) {
+			System.out.println("에러");
 			mav.setViewName(getPage); 
 			return mav;
 		}

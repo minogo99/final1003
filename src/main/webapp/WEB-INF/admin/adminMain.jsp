@@ -42,8 +42,16 @@ padding: 100px;
 <c:if test="${pageType == 'noticeUpdateForm' }">
 <%@include file="adminNoticeUpdateForm.jsp" %>
 </c:if>
+<<<<<<< HEAD
 <c:if test="${pageType == 'faqUpdateForm' }">
 <%@include file="adminFaqUpdateForm.jsp" %>
+=======
+<c:if test="${pageType == 'inertMember' }">
+<%@include file="adminMemberInsert.jsp" %>
+</c:if>
+<c:if test="${pageType == 'updateMember' }">
+<%@include file="adminMemberUpdate.jsp" %>
+>>>>>>> 4a3d30d329452bba6d450fcf5f3240cf13495293
 </c:if>
 <c:if test="${pageType == 'main' }">
 메인 페이지

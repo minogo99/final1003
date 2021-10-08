@@ -28,6 +28,10 @@ public class DetailDao {
 		lists=sqlSessionTemplate.selectList(namespace+".detailVideoGenre", genre);
 		return lists;
 	}
+	public int InsertVideo(DetailBean db) {
+		int cnt=sqlSessionTemplate.insert(namespace+".insertVideo",db);
+		return cnt;
+	}
 }
 
 
