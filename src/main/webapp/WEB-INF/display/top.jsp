@@ -83,7 +83,7 @@ function openPop(){
   <div class="dropdown-content">
     <p align="center">${loginInfo.name}</p>
     <c:if test="${loginInfo.name eq '관리자'}" >
-    	<a href="adminHome.admin">관리자 페이지</a>
+    	<a href="adminMain.admin">관리자 페이지</a>
     </c:if> 
       <c:if test="${loginInfo.name ne '관리자'}" >
     <a href="mypage.member?num=${loginInfo.num}">마이페이지</a>
