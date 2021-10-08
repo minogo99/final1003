@@ -1,7 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="../display/top.jsp" %>
+<link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
 
+    <!-- Demo styles -->
     <style>
       html,
       body {
@@ -46,7 +51,7 @@
     <div class="swiper mySwiper">
       <div class="swiper-wrapper">
         <c:forEach var="mlist" items="${lists}">
-       	 	<div class="swiper-slide"><a href="detailMain.wa?num=${mlist.num}">
+       	 	<div class="swiper-slide"><a href="detailmain.wa?num=${mlist.num}">
        	 	<img src="resources/images/poster/main/${mlist.image}.jpg"></a></div>
         </c:forEach>
       </div>

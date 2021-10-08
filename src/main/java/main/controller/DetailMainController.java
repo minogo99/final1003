@@ -3,6 +3,7 @@ package main.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,8 +14,9 @@ import main.detail.DetailMainDao;
 import main.model.MainBean;
 import main.model.MainDao;
 
-public class DetailMain {
-	private final String command = "/detailMain.wa";
+@Controller
+public class DetailMainController {
+	private final String command = "/detailmain.wa";
 	private final String getPage = "detailmain";
 	
 	@Autowired
@@ -25,10 +27,11 @@ public class DetailMain {
 	
 	@RequestMapping(value=command,method=RequestMethod.GET)
 	public ModelAndView doAction(@RequestParam("num") int num) {
+		System.out.println("1");
 		
-		DetailMainBean dmb = dmdao.detailVideoView(num);
-		List<DetailMainBean> dlists = dmdao.detailVideoGenre(dmb.getGenre());
-		List<MainBean> clists = mdao.selectAll();
+		DetailMainBean dmb = dmdao.detailMainVideoView(num);
+		List<DetailMainBean> dlists = dmdao.detailMainVideoGenre(dmb.getGenre());
+		List<MainBean> clists = mdao.selectMainAll();
 		
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("dmb",dmb);

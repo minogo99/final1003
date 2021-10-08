@@ -1,6 +1,6 @@
 package member.controller;
 
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +18,7 @@ public class MemberDetailController {
 	MemberDao memberDao;
 	
 	@RequestMapping(value=command)
-	public String doAction(@RequestParam("num")int num,
+	public String doUpdate(@RequestParam("num")int num,
 			 @RequestParam("pageNumber") int pageNumber,
 			 Model model) {
 		
@@ -26,7 +26,7 @@ public class MemberDetailController {
 		model.addAttribute("member", member);
 		model.addAttribute("pageNumber", pageNumber);
 		
-		
+		System.out.println("占쎈탵占쎈�믭옙�뵬�뚢뫂�뱜嚥▲끇�쑎");
 		
 		return getPage;
 	}

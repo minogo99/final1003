@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 import utility.Paging;
 
-@Component("CsNoticeDao")
+@Component
 public class CsNoticeDao {
 
 private String namespace = "cs.model.CsNoticeBean";
@@ -30,5 +30,8 @@ private String namespace = "cs.model.CsNoticeBean";
 	public CsNoticeBean getOneData(int num) {
 		CsNoticeBean cnb = sqlSessionTemplate.selectOne(namespace+".getOneData",num);
 		return cnb;
+	}
+	public void deleteData(int num) {
+		sqlSessionTemplate.delete(namespace+".deleteData",num);
 	}
 }

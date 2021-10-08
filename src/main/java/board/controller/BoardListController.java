@@ -16,7 +16,6 @@ import org.springframework.web.servlet.ModelAndView;
 import board.model.BoardBean;
 import board.model.BoardDao;
 import board.model.ReplyDao;
-import member.model.MemberBean;
 import utility.Paging;
 
 @Controller
@@ -30,7 +29,6 @@ class BoardListController {
 	
 	private final String command = "/list.board";
 	private final String getPage = "BoardList";
-	private final String getAdminPage = "adminBoardList";
 	
 	@RequestMapping(value=command)
 	public ModelAndView doActionGet(@RequestParam(value="whatColumn",required = false) String whatColumn, 
@@ -48,6 +46,7 @@ class BoardListController {
 		String url = request.getContextPath()+command; 
 		Paging pageInfo = new Paging(pageNumber,pageSize,totalCount,url,whatColumn,keyword, null);
 		
+		mav.setViewName(getPage);
 		List<BoardBean> lists = boardDao.getAllData(pageInfo,map);
 		mav.addObject("pageInfo", pageInfo);
 		mav.addObject("totalCount", totalCount);
@@ -57,16 +56,6 @@ class BoardListController {
 		}
 		mav.addObject("lists", lists);
 		
-		MemberBean loginInfo = (MemberBean) session.getAttribute("loginInfo");
-		if(loginInfo != null) {
-			if(loginInfo.getId().equals("admin")) {
-				mav.setViewName(getAdminPage);
-			}else {
-			mav.setViewName(getPage);
-			}
-		}else {
-		mav.setViewName(getPage);
-		}
 		return mav;
 	}
 }

@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <%@include file="../common/common.jsp"%>
 
 
@@ -10,7 +9,7 @@
 			<td width="300">제목</td>
 			<td>등록일</td>
 		</tr>
-
+		
 		<c:forEach var="cnb" items="${lists }" varStatus="status">
 			<tr>
 				<td>${cnb.division }</td>

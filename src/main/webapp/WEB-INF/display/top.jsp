@@ -83,11 +83,8 @@ function openPop(){
   <div class="dropdown-content">
     <p align="center">${loginInfo.name}</p>
     <c:if test="${loginInfo.name eq '관리자'}" >
-    	<a href="adminHome.admin">관리자 페이지</a>
-    </c:if> 
-      <c:if test="${loginInfo.name ne '관리자'}" >
-    <a href="mypage.member?num=${loginInfo.num}">마이페이지</a>
-    </c:if> 
+    	<a href="adminMain.admin">관리자 페이지</a>
+    </c:if>
     <a href="userupdate.member?num=${loginInfo.num}">회원 정보 수정</a>
     <a href="#">시청기록</a>
     <a href="#none" target="_blank" onclick="openPop()">알림함</a>
