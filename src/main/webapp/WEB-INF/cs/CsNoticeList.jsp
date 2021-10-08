@@ -5,9 +5,9 @@
 
 	<table id="notice_table">
 		<tr>
-			<td>구분</td>
-			<td width="300">제목</td>
-			<td>등록일</td>
+			<th>구분</th>
+			<th width="300">제목</th>
+			<th>등록일</th>
 		</tr>
 		
 		<c:forEach var="cnb" items="${lists }" varStatus="status">

@@ -21,8 +21,10 @@ create sequence members_seq
 drop table faq;
 create table faq(
    num number not null primary key,
+   writer varchar2(20) not null,
    subject varchar2(100) not null,
    division varchar2(30) not null,
+   reg_date date default sysdate not null,
    content varchar2(1000) not null
 );
 drop sequence faq_seq;
@@ -33,9 +35,10 @@ create sequence faq_seq
   maxvalue 10000
   nocache;
 
- drop table notice;
+  drop table notice;
 create table notice( 
    num number not null primary key,
+   writer varchar2(20) not null,
    subject varchar2(100) not null,
    division varchar2(30) not null,
    reg_date date not null,
@@ -48,6 +51,7 @@ create sequence notice_seq
   minvalue 1
   maxvalue 10000
   nocache;
+  
 
 drop table board;
 create table board( 
@@ -167,7 +171,7 @@ values(board_seq.nextval,'a3221','a3221','2015-1-1',0,7,4,3,'내용3221');
 insert into board
 values(board_seq.nextval,'a33','a33','2015-1-1',0,7,1,1,'내용33');
 
- insert into faq values(fqa_seq.nextval,'구매한 쿠폰의 현금영수증을 받고싶어요','이용권/결제','웨이브 이용권 쿠폰을 구매 후 등록하신 경우 현금영수증을 발급받을 수 있습니다.<br>
+  insert into faq values(fqa_seq.nextval,'admin','구매한 쿠폰의 현금영수증을 받고싶어요','이용권/결제',sysdate,'웨이브 이용권 쿠폰을 구매 후 등록하신 경우 현금영수증을 발급받을 수 있습니다.<br>
 아래 정보와 함께 [1:1문의]를 통해 요청해주시면 발급을 도와드리겠습니다.<br>
 대상 이용권 : 이용권쿠폰, 장기 이용권쿠폰, 기프티콘 등<br>
 
@@ -181,7 +185,7 @@ values(board_seq.nextval,'a33','a33','2015-1-1',0,7,1,1,'내용33');
 ※ 사업자 지출 증빙의 경우 사업자 등록번호가 필요합니다.');
 
 
-  insert into notice values(notice_seq.nextval,'[점검안내] 9월 30일 MBC 정주행 채널 점검','서비스공지',sysdate,'안녕하세요. wavve(웨이브) 입니다.<br>
+   insert into notice values(notice_seq.nextval,'admin','[점검안내] 9월 30일 MBC 정주행 채널 점검','서비스공지',sysdate,'안녕하세요. wavve(웨이브) 입니다.<br>
 라이브 채널 점검으로 인하여 아래와 같이 서비스가 일시적으로 중지됩니다.<br>
 
 1. 일시: 9월 30일 목요일 17:00 ~ 18:00 (1시간)<br>
@@ -191,6 +195,7 @@ values(board_seq.nextval,'a33','a33','2015-1-1',0,7,1,1,'내용33');
 
 이용에 참고해 주시기 바랍니다.<br>
 감사합니다.');
+
 
 commit;
 기생충

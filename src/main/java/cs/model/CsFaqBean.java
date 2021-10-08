@@ -6,14 +6,22 @@ import org.springframework.stereotype.Repository;
 public class CsFaqBean {
 
 	private int num;
+	private String writer;
 	private String subject;
 	private String division;
+	private String reg_date;
 	private String content;
 	public int getNum() {
 		return num;
 	}
 	public void setNum(int num) {
 		this.num = num;
+	}
+	public String getWriter() {
+		return writer;
+	}
+	public void setWriter(String writer) {
+		this.writer = writer;
 	}
 	public String getSubject() {
 		return subject;
@@ -27,21 +35,31 @@ public class CsFaqBean {
 	public void setDivision(String division) {
 		this.division = division;
 	}
+	public String getReg_date() {
+		return reg_date;
+	}
+	public void setReg_date(String reg_date) {
+		this.reg_date = reg_date;
+	}
 	public String getContent() {
 		return content;
 	}
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public CsFaqBean(int num, String subject, String division, String content) {
+	public CsFaqBean(int num, String writer, String subject, String division, String reg_date, String content) {
 		super();
 		this.num = num;
+		this.writer = writer;
 		this.subject = subject;
 		this.division = division;
+		this.reg_date = reg_date;
 		this.content = content;
 	}
 	public CsFaqBean() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
+	
 }

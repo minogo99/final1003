@@ -31,7 +31,7 @@ table {
 </table>
 	<div align="right">
 			<input type="button" class="btn btn-primary" value="글쓰기"
-				onclick="location.href='write.board'">
+				onclick="location.href='faqWrite.admin'">
 		</div>
 
 <form action="faqList.admin" method="get">

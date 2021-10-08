@@ -4,8 +4,8 @@
 
 	<table id="faq_table">
 		<tr>
-			<td>구분</td>
-			<td>제목</td>
+			<th>구분</th>
+			<th>제목</th>
 		</tr>
 
 		<c:forEach var="cfb" items="${lists_faq }" varStatus="status">

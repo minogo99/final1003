@@ -15,7 +15,9 @@
 		<if test="whatColumn=='subject'">
 			where subject like #{keyword}
 		</if>
+		order by reg_date desc
 	</select>
+	
 	<select id="getTotalCount" resultType="int"
 		parameterType="hashmap">
 		select count(*) from faq
@@ -25,8 +27,14 @@
 		<if test="whatColumn=='subject'">
 			where subject like #{keyword}
 		</if>
+		order by reg_date desc
 	</select>
+	
 	<select id="getOneData" resultType="MyCsFaq">
 	select * from faq where num=#{num}
 	</select>
+	
+	<insert id="insertData">
+	insert into faq values(faq_seq.nextval,#{writer},#{subject},#{division},sysdate,#{content})
+	</insert>
 </mapper>

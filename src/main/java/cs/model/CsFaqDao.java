@@ -34,4 +34,7 @@ private String namespace = "cs.model.CsFaqBean";
 		CsFaqBean cfb = sqlSessionTemplate.selectOne(namespace+".getOneData",num);
 		return cfb;
 	}
+	public void insertData(CsFaqBean cfb) {
+		sqlSessionTemplate.insert(namespace+".insertData",cfb);
+	}
 }

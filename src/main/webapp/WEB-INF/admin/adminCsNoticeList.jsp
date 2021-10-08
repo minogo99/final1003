@@ -30,10 +30,10 @@ table {
 						value="${noticePostDate}" pattern="yyyy-MM-dd"
 						var="reg_date" /> ${reg_date }</td>
 						<td>
-						<a>수정</a>
+						<a href="noticeUpdate.admin?num=${cnb.num }">수정</a>
 						</td>
 						<td>
-						<a  href="noticeDelete.cs?num=${cnb.num }">삭제</a>
+						<a href="noticeDelete.admin?num=${cnb.num }">삭제</a>
 						</td>
 
 			</tr>
@@ -43,7 +43,7 @@ table {
 	
 		<div align="right">
 			<input type="button" class="btn btn-primary" value="글쓰기"
-				onclick="location.href='write.board'">
+				onclick="location.href='noticeWrite.admin'">
 		</div>
 				
 	<form action="noticeList.admin" method="get">
@@ -72,7 +72,7 @@ table {
 		</div>
 		</c:if>
 		<div class="col-sm-1">
-		<input type="submit" class="btn btn-primary" value="검색">
+		<input type="submit" class="btn btn-primary justify-content-end" value="검색">
 		</div>
 		</div>
 	</form>
