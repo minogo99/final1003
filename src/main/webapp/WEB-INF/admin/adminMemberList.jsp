@@ -35,7 +35,7 @@ table {
 	text-align: center;
 }
 </style>
-<h2 style="color: green; font-weight: bold;">회원 리스트</h2>
+<h2 style="color: #0080FF; font-weight: bold;">회원 리스트</h2>
 <br>
 <table class="table">
 	<thead class="table-light">

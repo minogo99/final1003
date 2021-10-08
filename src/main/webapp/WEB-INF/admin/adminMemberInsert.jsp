@@ -71,7 +71,7 @@ request.setAttribute("tel1", tel1);
 </div>
 <div class="container-fluid" id="signPage">
 <div class="row" id="sign">
-	<h3 align="center">회원 가입</h3>
+	<h3 align="center" style="color: #0080FF; font-weight: bold;">회원 추가</h3>
 	<form:form  commandName ="memberBean" name="loginform" action="insert.admin" method="post">
 		<fieldset>
 			<div class="form-group">
