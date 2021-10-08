@@ -1,4 +1,4 @@
-package cs.controller;
+package admin.controller;
 
 import java.util.HashMap;
 import java.util.List;
@@ -13,17 +13,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import cs.model.CsNoticeBean;
+import cs.model.CsFaqBean;
+import cs.model.CsFaqDao;
 import utility.Paging;
 
 @Controller
-public class CsNoticeListController {
+public class adminCsFaqListController {
 
 	@Autowired
-	cs.model.CsNoticeDao cnDao;
+	private CsFaqDao cfDao;
 	
-	private final String command = "/noticeList.cs";
-	private final String getPage = "CsMain";
+	private final String command = "/faqList.admin";
+	private final String getPage = "adminMain";
 	
 	@RequestMapping(value=command)
 	public ModelAndView doActionGet(@RequestParam(value="whatColumn",required = false) String whatColumn, 
@@ -31,25 +32,23 @@ public class CsNoticeListController {
 			@RequestParam(value="pageNumber", required = false) String pageNumber,
 			@RequestParam(value="pageSize", required = false) String pageSize,
 			HttpServletRequest request,HttpSession session) {
-
 		ModelAndView mav = new ModelAndView();
 		Map<String,String> map = new HashMap<String,String>();
 		map.put("whatColumn", whatColumn); // whatColumn=title
 		map.put("keyword", "%"+keyword+"%"); // keyword=%a%
 		
-		int totalCount = cnDao.getTotalCount(map);
+		int totalCount = cfDao.getTotalCount(map);
 		String url = request.getContextPath()+command; 
 		Paging pageInfo = new Paging(pageNumber,pageSize,totalCount,url,whatColumn,keyword, null);
 		
-		List<CsNoticeBean> lists = cnDao.getAllData(pageInfo,map);
-		mav.addObject("lists", lists);
+
+		List<CsFaqBean> lists_faq = cfDao.getAllData(pageInfo,map);
+		mav.addObject("lists_faq", lists_faq);
 		mav.addObject("pageInfo", pageInfo);
 		mav.addObject("totalCount", totalCount);
-		
-		String noticePage = "list";
-		mav.addObject("noticePage", noticePage);
-		int flag = 1;
-		mav.addObject("flag", flag);
+
+		String pageType = "faqList";
+		mav.addObject("pageType", pageType);
 		
 		mav.setViewName(getPage);
 		return mav;

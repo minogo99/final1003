@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 import utility.Paging;
 
-@Component("CsNoticeDao")
+@Component
 public class CsNoticeDao {
 
 private String namespace = "cs.model.CsNoticeBean";

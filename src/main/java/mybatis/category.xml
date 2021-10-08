@@ -28,4 +28,22 @@
 		select * from video where category='drama'
 	</select>
 	
+	<select id="getTotalCount" resultType="int">
+  		select count(*) from video
+  		<if test="whatColumn=='num'">
+  			where id like #{keyword}
+  		</if>
+  		<if test="whatColumn=='title'">
+  			where name like #{keyword}
+  		</if>
+  	</select>
+  	<select id="getVideoList" resultType="MyCategory">
+		select * from video
+		<if test="whatColumn=='num'">
+			where id like #{keyword}
+		</if>
+		<if test="whatColumn=='title'">
+			where name like #{keyword}
+		</if>
+	</select>
 </mapper>

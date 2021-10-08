@@ -5,6 +5,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class CategoryBean {
 	
 	private int num;
+	private String title;
 	private String category;
 	private String grade;
 	private String image;
@@ -15,6 +16,12 @@ public class CategoryBean {
 	}
 	public void setNum(int num) {
 		this.num = num;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
 	}
 	public String getCategory() {
 		return category;

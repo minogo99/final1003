@@ -1,33 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@include file="../admin/display/top.jsp"%>
 <%@include file="../common/common.jsp"%>
 
 <style>
-#container {
-	height: 100%;
-}
-
-#boardList {
-	border: 1px solid black;
-	padding: 100px;
-}
-
 table {
 	margin: auto;
 	text-align: center;
 }
 </style>
-<div class="row" id="container">
-	<div class="col-lg-2">
-		<%@include file="../admin/display/left.jsp"%>
-	</div>
-	<div id="boardList" class="col-lg-10">
 		<table class="table">
 			<thead class="table-light">
 				<tr>
 					<th scope="col">No</th>
-					<th scope="col" width="600">제목</th>
+					<th scope="col" width="500">제목</th>
 					<th scope="col">작성자</th>
 					<th scope="col">조회수</th>
 					<th scope="col">등록일</th>
@@ -39,7 +24,7 @@ table {
 				<c:forEach var="bb" items="${lists}" varStatus="status">
 					<tr>
 						<th scope="row">${pageInfo.totalCount - (pageInfo.pageNumber-1) * pageInfo.pageSize - status.index}</th>
-						<td width="600"><a
+						<td width="500"><a
 							href="detailView.board?num=${bb.num }&replyType=write">${bb.subject }</a>
 							(${bb.replycount })</td>
 						<td>${bb.writer }</td>
@@ -54,13 +39,13 @@ table {
 				</c:forEach>
 			</tbody>
 		</table>
+		
 		<div align="right">
 			<input type="button" class="btn btn-primary" value="글쓰기"
 				onclick="location.href='write.board'">
 		</div>
-		<br>
 
-		<form action="list.board" method="get">
+		<form action="boardList.admin" method="get">
 			<div class="row justify-content-center">
 				<div class="col-sm-2">
 					<select name="whatColumn" class="form-select">
@@ -92,5 +77,4 @@ table {
 			</div>
 		</form>
 		${pageInfo.pagingHtml}
-	</div>
-</div>
+

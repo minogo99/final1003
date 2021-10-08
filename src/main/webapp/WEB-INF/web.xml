@@ -119,7 +119,7 @@
 		<servlet-name>category</servlet-name>
 		<url-pattern>*.category</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>companyInfo</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet
@@ -136,7 +136,7 @@
 		<servlet-name>companyInfo</servlet-name>
 		<url-pattern>*.companyInfo</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>wa</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet
@@ -170,7 +170,8 @@
 		<servlet-name>board</servlet-name>
 		<url-pattern>*.board</url-pattern>
 	</servlet-mapping>
-		<servlet>
+
+	<servlet>
 		<servlet-name>admin</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet
 		</servlet-class>

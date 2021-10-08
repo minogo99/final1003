@@ -1,28 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@include file="../admin/display/top.jsp"%>
 <%@include file="../common/common.jsp"%>
 
 <style>
-#container {
-	height: 100%;
-}
-
-#noticeList {
-	border: 1px solid black;
-	padding: 100px;
-}
-
 table {
 	margin: auto;
 	text-align: center;
 }
 </style>
-<div class="row" id="container">
-	<div class="col-lg-2">
-		<%@include file="../admin/display/left.jsp"%>
-	</div>
-	<div id="noticeList" class="col-lg-10">
 	<table class="table">
 	<thead class="table-light">
 		<tr>
@@ -32,6 +17,7 @@ table {
 			<th scope="col">수정</th>
 			<th scope="col">삭제</th>
 		</tr>
+		</thead>
 		<tbody>
 		<c:forEach var="cnb" items="${lists }" varStatus="status">
 			<tr>
@@ -54,9 +40,13 @@ table {
 		</c:forEach>
 		</tbody>
 	</table>
-	<br>
+	
+		<div align="right">
+			<input type="button" class="btn btn-primary" value="글쓰기"
+				onclick="location.href='write.board'">
+		</div>
 				
-	<form action="noticeList.cs" method="get">
+	<form action="noticeList.admin" method="get">
 			<div class="row justify-content-center">
 		<div class="col-sm-2">
 		<select name="whatColumn" class="form-select">
@@ -88,5 +78,3 @@ table {
 	</form>
 	
 		${pageInfo.pagingHtml}
-		</div>
-		</div>

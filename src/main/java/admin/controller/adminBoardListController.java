@@ -1,4 +1,4 @@
-package cs.controller;
+package admin.controller;
 
 import java.util.HashMap;
 import java.util.List;
@@ -13,45 +13,51 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import cs.model.CsNoticeBean;
+import board.model.BoardBean;
+import board.model.BoardDao;
+import board.model.ReplyDao;
 import utility.Paging;
 
 @Controller
-public class CsNoticeListController {
+public class adminBoardListController {
 
 	@Autowired
-	cs.model.CsNoticeDao cnDao;
+	private BoardDao boardDao;
 	
-	private final String command = "/noticeList.cs";
-	private final String getPage = "CsMain";
+	@Autowired
+	private ReplyDao replyDao;
+	
+	private final String command = "/boardList.admin";
+	private final String getPage = "adminMain";
 	
 	@RequestMapping(value=command)
 	public ModelAndView doActionGet(@RequestParam(value="whatColumn",required = false) String whatColumn, 
 			@RequestParam(value="keyword",required = false) String keyword,
 			@RequestParam(value="pageNumber", required = false) String pageNumber,
 			@RequestParam(value="pageSize", required = false) String pageSize,
-			HttpServletRequest request,HttpSession session) {
-
+			HttpServletRequest request) {
+		
 		ModelAndView mav = new ModelAndView();
 		Map<String,String> map = new HashMap<String,String>();
 		map.put("whatColumn", whatColumn); // whatColumn=title
 		map.put("keyword", "%"+keyword+"%"); // keyword=%a%
 		
-		int totalCount = cnDao.getTotalCount(map);
+		int totalCount = boardDao.getTotalCount(map);
 		String url = request.getContextPath()+command; 
 		Paging pageInfo = new Paging(pageNumber,pageSize,totalCount,url,whatColumn,keyword, null);
 		
-		List<CsNoticeBean> lists = cnDao.getAllData(pageInfo,map);
-		mav.addObject("lists", lists);
+		mav.setViewName(getPage);
+		List<BoardBean> lists = boardDao.getAllData(pageInfo,map);
 		mav.addObject("pageInfo", pageInfo);
 		mav.addObject("totalCount", totalCount);
 		
-		String noticePage = "list";
-		mav.addObject("noticePage", noticePage);
-		int flag = 1;
-		mav.addObject("flag", flag);
+		for(int i=0;i<lists.size();i++) {
+			lists.get(i).setReplycount(replyDao.listCount(lists.get(i).getNum()));
+		}
+		mav.addObject("lists", lists);
 		
-		mav.setViewName(getPage);
+		String pageType = "boardList";
+		mav.addObject("pageType", pageType);
 		return mav;
 	}
 }
