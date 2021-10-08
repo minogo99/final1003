@@ -24,7 +24,7 @@ public class MainDao {
 
 	public List<MainBean> selectMainAll() {
 		List<MainBean> lists = new ArrayList<MainBean>();
-		lists=sqlSessionTemplate.selectList(namespace+".selectAll");
+		lists=sqlSessionTemplate.selectList(namespace+".selectMainAll");
 		return lists;
 	}
 	
