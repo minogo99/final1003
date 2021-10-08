@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@include file="./../common/common.jsp" %>
-<%@include file="../display/top.jsp" %>
+   <%@include file="./../common/common.jsp" %>
+	<%@include file="display/top.jsp" %>
+
 <style type="text/css">
 		.err{
 		font-size: 13pt;
@@ -9,18 +10,19 @@
 		font-weight: bold;
 		}
 		#signPage{
+		
 		}
 		#sign {
 	width: 450px;
 	height: 400px;
 	margin: 30px auto;
+	
 }
 </style>
+
 <script src="resources/js/jquery.js"></script>
 <script type="text/javascript">
-
 $(document).ready(function(){
-	
 	 $('#idcheck').click(function(){
 	        $.ajax({
 	            url: "idCheck.member",
@@ -41,34 +43,36 @@ $(document).ready(function(){
 	                alert("에러");
 	            }
 	        });
+	        
 	    });
-	
-	 
 	 $('#pw1').keyup(function(){
 			$('#pwCheckFF').text('');
 		}); 
 	 $('#repw1').keyup(function(){
 			if($('#pw1').val()!=$('#repw1').val()){
 				$('#pwCheckFF').text('');
-		  		$('#pwCheckFF').html("<font color='red'>비밀번호 확인이 불일치 합니다.</font>");
+		  		$('#pwCheckFF').html("패스워드 확인이 불일치 합니다");
 		 	}else{
 			  	$('#pwCheckFF').text('');
-			  	$('#pwCheckFF').html("<font color='#70AD47'>비밀번호 확인이 일치 합니다.</font>");
+			  	$('#pwCheckFF').html("<font color='#70AD47'>패스워드 확인이 일치 합니다.</font>");
 		 	}
 		});
 });
-
-
     </script>
+ 
 	<br>
 	<%
 String[] tel1 = { "02", "064", "010" };
 request.setAttribute("tel1", tel1);
 %>
-	<div id="signPage">
-<div id="sign">
+
+<div class="col-sm-2">
+<%@include file="display/left.jsp" %>
+</div>
+<div class="container-fluid" id="signPage">
+<div class="row" id="sign">
 	<h3 align="center">회원 가입</h3>
-	<form:form  commandName ="memberBean" name="loginform" action="sign.member" method="post">
+	<form:form  commandName ="memberBean" name="loginform" action="insert.admin" method="post">
 		<fieldset>
 			<div class="form-group">
 				<label for="id" class="form-label mt-4">아이디</label>
@@ -136,4 +140,3 @@ request.setAttribute("tel1", tel1);
 	</form:form>
 </div>	
 </div>		
-<%@include file="../display/bottom.jsp" %>

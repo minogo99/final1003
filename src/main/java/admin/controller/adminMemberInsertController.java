@@ -1,4 +1,4 @@
-package member.controller;
+package admin.controller;
 
 import javax.validation.Valid;
 
@@ -12,16 +12,15 @@ import org.springframework.web.servlet.ModelAndView;
 import member.model.MemberBean;
 import member.model.MemberDao;
 
-
-
 @Controller
-public class MemberInsertController {
+public class adminMemberInsertController {
+
+	@Autowired
+	private MemberDao memberDao;
+
 	private final String command="insert.admin";
-	private final String getPage="memberInsertForm";
-	private final String gotoPage="redirect:/list.member";
-
-	MemberDao memberDao;
-
+	private final String getPage="adminMemberInsert";
+	private final String gotoPage="redirect:/memberList.admin";
 	
 	@RequestMapping(value=command, method=RequestMethod.GET)
 	public String insertForm(ModelAndView mav) {
@@ -52,7 +51,4 @@ public class MemberInsertController {
 		return mav;
 
 	}
-	
-	
 }
-

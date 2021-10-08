@@ -1,4 +1,4 @@
-package member.controller;
+package admin.controller;
 
 import java.io.IOException;
 
@@ -17,10 +17,10 @@ import member.model.MemberBean;
 import member.model.MemberDao;
 
 @Controller
-public class MemberUpdateController {
+public class adminMemberUpdateController {
 	private final String command="update.admin";
-	private final String getPage="memberUpdateForm";
-	private final String gotoPage="redirect:/list.member";
+	private final String getPage="adminMemberUpdate";
+	private final String gotoPage="redirect:/memberList.admin";
 
 	MemberDao memberDao;
 
