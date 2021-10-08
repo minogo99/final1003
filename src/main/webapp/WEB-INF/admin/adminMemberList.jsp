@@ -75,7 +75,7 @@ table {
 	</tbody>
 </table>
 <div align="right">
-	<input type="button" class="btn btn-primary" value="생성"
+	<input type="button" class="btn btn-primary" value="회원생성"
 		onClick="goInsert()">
 </div>
 <form action="memberList.admin" method="get">
