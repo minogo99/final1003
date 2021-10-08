@@ -71,7 +71,7 @@ request.setAttribute("tel1", tel1);
 </div>
 <div class="container-fluid" id="signPage">
 <div class="row" id="sign">
-	<h3 align="center">회원 가입</h3>
+	<h3 align="center" style="color: #0080FF; font-weight: bold;">회원 수정</h3>
 	<form:form  commandName ="memberBean" name="updateform" action="update.admin" method="post">
 	<input type="hidden" name="num" value="${member.num}">
 	<input type="hidden" name="pageNumber" value="${pageNumber}">
