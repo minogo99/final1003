@@ -48,7 +48,7 @@ detailMovie.jsp<br><br>
 	function openCloseToc() {
 	    if(document.getElementById('tContent').style.display === 'block') {
 	      document.getElementById('tContent').style.display = 'none';
-	      document.getElementById('toggle').textContent = '보이기';
+	      document.getElementById('toggle').textContent = '더보기';
 	    } else {
 	      document.getElementById('tContent').style.display = 'block';
 	      document.getElementById('toggle').textContent = '숨기기';
