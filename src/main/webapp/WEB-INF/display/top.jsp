@@ -78,7 +78,7 @@ function openPop(){
  / <a href="sign.member">회원가입</a>
 <%}else{ %>
 <%@ include file="../common/common.jsp" %>
-<div class="dropdown">
+<div class="dropdown" align="center">
   <button class="dropbtn">${loginInfo.name}님</button>
   <div class="dropdown-content">
     <p align="center">${loginInfo.name}</p>
@@ -87,9 +87,10 @@ function openPop(){
     </c:if> 
       <c:if test="${loginInfo.name ne '관리자'}" >
     <a href="mypage.member?num=${loginInfo.num}">마이페이지</a>
-    </c:if> 
+     
     <a href="userupdate.member?num=${loginInfo.num}">회원 정보 수정</a>
     <a href="#">시청기록</a>
+    </c:if>
     <a href="#none" target="_blank" onclick="openPop()">알림함</a>
     <a href="logout.member">로그아웃</a>
   </div>

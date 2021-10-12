@@ -1,5 +1,7 @@
+<%@page import="member.model.MemberJjimBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@include file="../common/common.jsp"%>
 detailMovie.jsp<br><br>
 <style type="text/css">
 	.poster{
@@ -74,6 +76,18 @@ detailMovie.jsp<br><br>
 		<div align="right">
 			<a href="login.member"><button class="btn btn-primary">로그인</button></a>
 		</div>
+		<div align="left">
+			
+			<c:if test="${jjim == null}">
+			<a href="insertjjim.member?num=${loginInfo.num}&movie_num=${db.num}&user_id=${loginInfo.id}"><button class="btn btn-primary">찜하기</button></a>
+			</c:if>
+			<c:if test="${jjim != null && jjim.movie_num == db.num }">
+			<a href="deletejjim.member?movie_num=${db.num}"><button class="btn btn-primary">찜하기 취소</button></a>
+			</c:if>
+			<c:if test="${jjim != null && jjim.movie_num != db.num }">
+			<a href="insertjjim.member?num=${loginInfo.num}&movie_num=${db.num}&user_id=${loginInfo.id}"><button class="btn btn-primary">찜하기</button></a>
+			</c:if>
+		</div>
 		<div>${db.genre } ${db.runningT }분 ${db.grade }세 </div>
 		<hr>
 		<div>
@@ -113,17 +127,17 @@ detailMovie.jsp<br><br>
 							</c:forEach>
 						</figure>
 						<h3><span class="icon all ir_pm">
-						<c:if test="${glist.grade eq 18 }">
+						<c:if test="${glist.grade eq '18' }">
 						<img src="resources/images/icon/18.svg" class="icon_img">
 						</c:if>
-						<c:if test="${glist.grade eq 15 }">
+						<c:if test="${glist.grade eq '15' }">
 						<img src="resources/images/icon/15.svg" class="icon_img">
 						</c:if>
-						<c:if test="${glist.grade eq 12 }">
-						<img src="resources/images/foster/12.svg" class="icon_img">
+						<c:if test="${glist.grade eq '12' }">
+						<img src="resources/images/icon/12.svg" class="icon_img">
 						</c:if>
-						<c:if test="${glist.grade eq all }">
-						<img src="resources/images/foster/all.svg" class="icon_img">
+						<c:if test="${glist.grade eq 'all' }">
+						<img src="resources/images/icon/all.svg" class="icon_img">
 						</c:if>
 						</span> <strong>${glist.title }</strong></h3>
 					</div>

@@ -75,6 +75,13 @@ detailAni.jsp<br>
 		<div align="right">
 			<a href="login.member"><button class="btn btn-primary">로그인</button></a>
 		</div>
+		<div align="left">
+			<%if(request.getAttribute("jjim")== null) {%>
+			<a href=""><button class="btn btn-primary">찜하기</button></a>
+			<%}else{ %>
+			<a href=""><button class="btn btn-primary">찜하기 취소</button></a>
+			<%} %>
+		</div>
 		<div>${cb.genre } ${cb.runningT }분 ${cb.grade }세 </div>
 		<div>
 			<span id="toggle" onclick="openCloseToc()">더보기</span>

@@ -18,4 +18,9 @@
 	<delete id="detailVideoDelete">
 		delete from video_c where vnum=#{num}
 	</delete>
+	<insert id="updateVideo">
+		update video set 
+		title=#{title},content=#{content},runningT=#{runningT},genre=#{genre},nation=#{nation},
+		actor=#{actor},grade=#{grade},day=#{day},day=#{series} where vnum=#{num}
+	</insert>
 </mapper>

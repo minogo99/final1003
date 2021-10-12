@@ -20,10 +20,9 @@ public class MemberMyPageController {
 	@RequestMapping(value=command)
 	public String doAction(@RequestParam("num")int num,			 
 			 Model model) {
-		
 		MemberBean member = memberDao.getMember(num);
 		model.addAttribute("member", member);
-		System.out.println("마이페이지");		
+		System.out.println("留덉씠�럹�씠吏�");		
 		return getPage;
 	}
 }

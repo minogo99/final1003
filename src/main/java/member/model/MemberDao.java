@@ -97,4 +97,17 @@ public class MemberDao{
 		return 0;
 	}
 
+	public int insertJjim(MemberJjimBean jjim) {
+		int cnt = sqlSessionTemplate.insert(namespace+".insertJjim",jjim);
+		return cnt;
+	}
+
+	public int deleteJjim(int movie_num) {
+		int cnt = sqlSessionTemplate.delete(namespace + ".deleteJjim",movie_num);
+		return cnt;
+	}
+
+
+	
+	
 }
