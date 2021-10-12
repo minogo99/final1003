@@ -83,7 +83,7 @@ request.setAttribute("tel1", tel1);
 				</div>
 				<div class="form-group">
 					<label for="password" class="form-label mt-4">비밀번호</label> <input
-						type="password" class="form-control" name="password"
+						type="text" class="form-control" name="password"
 						placeholder="비밀번호 입력" value="${mb.password }">
 					<form:errors cssClass="err" path="password" />
 				</div>
