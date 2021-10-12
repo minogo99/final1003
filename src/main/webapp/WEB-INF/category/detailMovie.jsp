@@ -76,7 +76,7 @@ detailMovie.jsp<br><br>
 		</div>
 		<div align="left">
 			<%if(request.getAttribute("jjim")== null) {%>
-			<a href="jjim.member"><button class="btn btn-primary">찜하기</button></a>
+			<a href="jjim.member?num=${loginInfo.num}&movie_num=${db.num}&user_id=${loginInfo.id}"><button class="btn btn-primary">찜하기</button></a>
 			<%}else{ %>
 			<a href="jjimcancel.member"><button class="btn btn-primary">찜하기 취소</button></a>
 			<%} %>

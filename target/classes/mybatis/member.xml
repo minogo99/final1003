@@ -62,6 +62,6 @@ select * from members where name = #{name} and id = #{id}
 select * from members where num = #{num}
 </select>
 <insert id="insertJjim">
-	insert into jjim
+	insert into jjim values(#{num},#{movie_num},#{user_id})
 </insert>
 </mapper>

@@ -97,6 +97,11 @@ public class MemberDao{
 		return 0;
 	}
 
+	public int insertJjim(MemberJjimBean mjb) {
+		int cnt = sqlSessionTemplate.insert(namespace+".insertJjim",mjb);
+		return cnt;
+	}
+
 	
 	
 }
