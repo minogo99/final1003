@@ -20,6 +20,7 @@
 <script type="text/javascript">
 
 $(document).ready(function(){
+	
 	 $('#idcheck').click(function(){
 	        $.ajax({
 	            url: "idCheck.member",
@@ -41,7 +42,24 @@ $(document).ready(function(){
 	            }
 	        });
 	    });
+	
+	 
+	$('#pw1').keyup(function(){
+			$('#pwCheckFF').text('');
+		}); 
+	 $('#repw1').keyup(function(){
+			if($('#pw1').val()!=$('#repw1').val()){
+				$('#pwCheckFF').text('');
+		  		$('#pwCheckFF').html("<font color='red'>비밀번호 확인이 불일치 합니다.</font>");
+		 	}else{
+			  	$('#pwCheckFF').text('');
+			  	$('#pwCheckFF').html("<font color='#70AD47'>비밀번호 확인이 일치 합니다.</font>");
+		 	}
+		});
+	 
 });
+
+
     </script>
 	<br>
 	<%
@@ -59,12 +77,20 @@ request.setAttribute("tel1", tel1);
 				<form:errors cssClass="err" path="id" />
 				<br>
 				<input type="button" value="중복체크" class="btn btn-primary" id="idcheck">
+				<input type="hidden" name="chk" value="0">
 			</div>
 			
 			<div class="form-group">
 				<label for="password" class="form-label mt-4">비밀번호</label>
-				<input type="password" class="form-control" name="password" placeholder="비밀번호 입력" value="${mb.password }">
+				<input type="password" class="form-control" name="password" id="pw1" placeholder="비밀번호 입력" oninput="pwCheck(pw1.value)" value="${mb.password }">
 				<form:errors cssClass="err" path="password" />
+			</div>
+			
+			<div class="form-group">
+				<label for="password" class="form-label mt-4">비밀번호 확인</label>
+				<input type="password" class="form-control" id="repw1" placeholder="비밀번호 확인">
+				<p id="pwCheckF" style="color: #FF6600; margin: 0;"></p>
+				<p id="pwCheckFF" style="color: #FF6600; margin: 0;"></p>
 			</div>
 			
 			<div class="form-group">

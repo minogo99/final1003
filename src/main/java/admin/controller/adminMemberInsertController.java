@@ -1,4 +1,4 @@
-package member.controller;
+package admin.controller;
 
 import javax.validation.Valid;
 
@@ -12,47 +12,40 @@ import org.springframework.web.servlet.ModelAndView;
 import member.model.MemberBean;
 import member.model.MemberDao;
 
-
-
 @Controller
-public class MemberInsertController {
-	private final String command="insert.admin";
-	private final String getPage="memberInsertForm";
-	private final String gotoPage="redirect:/list.member";
-
-	MemberDao memberDao;
-
+public class adminMemberInsertController {
 	
+	private final String command="memberInsert.admin";
+	private final String getPage = "adminMain";
+	private final String gotoPage="redirect:memberList.admin";
+
+	@Autowired
+	private MemberDao memberDao;
+
 	@RequestMapping(value=command, method=RequestMethod.GET)
-	public String insertForm(ModelAndView mav) {
-
-		return getPage;
-	}
-	
-
-	@RequestMapping(value=command, method=RequestMethod.POST)
-	public ModelAndView insertForm(@Valid MemberBean member,BindingResult result) {
-
-
+	public ModelAndView insertForm() {
 
 		ModelAndView mav = new ModelAndView();
-
+		
+		String pageType = "memberInsertForm";
+		mav.addObject("pageType", pageType);
+		
+		mav.setViewName(getPage);
+		return mav;
+	}
+	@RequestMapping(value=command, method=RequestMethod.POST)
+	public ModelAndView insertForm(@Valid MemberBean member,BindingResult result) {
+		ModelAndView mav = new ModelAndView();
 
 		if(result.hasErrors()) {
 			mav.setViewName(getPage); 
 			return mav;
 		}
-
 		else {
 			int cnt = memberDao.insertData(member);  
-			System.out.println("insert cnt:" + cnt);
 		}
-
 		mav.setViewName(gotoPage);
 		return mav;
 
 	}
-	
-	
 }
-

@@ -38,7 +38,7 @@
 					<td>${bb.writer }</td>
 					<td>${bb.readcount}</td>
 					<td><fmt:parseDate value="${bb.reg_date }" var="noticePostDate" pattern="yyyy-MM-dd" /> <fmt:formatDate value="${noticePostDate}" pattern="yyyy-MM-dd" var="reg_date" /> ${reg_date }</td>
-					<c:if test="${bb.writer == loginInfo.id }">
+					<c:if test="${bb.writer == loginInfo.id || 'admin' == loginInfo.id}">
 					<td><a href="update.board?num=${bb.num }">수정</a></td>
 					<td><a href="delete.board?num=${bb.num }">삭제</a></td>
 					</c:if>

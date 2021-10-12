@@ -1,6 +1,4 @@
-package member.controller;
-
-import javax.inject.Inject;
+package admin.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,10 +9,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import member.model.MemberDao;
 
 @Controller
-public class memberDeleteController {
-	private final String command = "/delete.admin";
-	private final String gotoPage = "";
+public class adminMemberDeleteController {
+
+	private final String command = "/memberDelete.admin";
+	private final String gotoPage = "redirect:memberList.admin";
 	
+	@Autowired
 	MemberDao memberDao;
 	
 	@RequestMapping(value = command, method = RequestMethod.GET)
