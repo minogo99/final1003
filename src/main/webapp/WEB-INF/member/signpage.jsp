@@ -18,47 +18,68 @@
 </style>
 <script src="resources/js/jquery.js"></script>
 <script type="text/javascript">
-
 $(document).ready(function(){
+var isCheck = false;
+var isChange = false;
 	
 	 $('#idcheck').click(function(){
-	        $.ajax({
-	            url: "idCheck.member",
-	            type: "POST",
-	            data: {
-					"userId":$('input[name="id"]').val()
+		 
+		 isChange = false;
+		 $.ajax({
+				url : "idCheck.member",
+				type : "POST",
+				data : {
+					"userId" : $('input[name="id"]').val()
 				},
-	            success: function(data){
-	            	if(data == 0 && $.trim($('input[name="id"]').val()) != '' ){
-					alert("사용가능한 아이디 입니다.");
-					
-					}else{
+				success : function(data) {
+					if (data == 0
+							&& $.trim($('input[name="id"]')
+									.val()) != '') {
+						alert("사용가능한 아이디 입니다.");
+						isCheck = true;
+					} else {
 						alert("사용불가능한 아이디 입니다.");
-						
+						isCheck = false;
 					}
-	            },
-	            error: function(){
-	                alert("에러");
-	            }
-	        });
-	    });
-	
-	 
+				},
+				error : function() {
+					alert("에러");
+				}
+			});
+		});
+		
+		
 	$('#pw1').keyup(function(){
 			$('#pwCheckFF').text('');
-		}); 
+		}); //keyup
 	 $('#repw1').keyup(function(){
 			if($('#pw1').val()!=$('#repw1').val()){
 				$('#pwCheckFF').text('');
 		  		$('#pwCheckFF').html("<font color='red'>비밀번호 확인이 불일치 합니다.</font>");
+		  		use = "impossiblepw";
 		 	}else{
 			  	$('#pwCheckFF').text('');
 			  	$('#pwCheckFF').html("<font color='#70AD47'>비밀번호 확인이 일치 합니다.</font>");
+			  	use = "possible";
 		 	}
-		});
-	 
-});
-
+		}); //keyup
+	
+	 $('#sub').click(function(){
+			if(isCheck == false || isChange == true){
+				alert("중복체크는 필수입니다.");
+				return false;
+			}
+			else if(use=="impossible"){
+				alert("이미 사용중인 아이디입니다.");
+				return false;
+			}
+			else if(use=="impossiblepw"){
+				alert("비밀번호 확인이 필요합니다.");
+				return false;
+			}
+			
+		});//click
+});//ready
 
     </script>
 	<br>
@@ -69,7 +90,7 @@ request.setAttribute("tel1", tel1);
 	<div id="signPage">
 <div id="sign">
 	<h3 align="center">회원 가입</h3>
-	<form:form  commandName ="memberBean" name="loginform" action="sign.member" method="post">
+	<form:form commandName ="memberBean" name="loginform" action="sign.member" method="post">
 		<fieldset>
 			<div class="form-group">
 				<label for="id" class="form-label mt-4">아이디</label>
@@ -132,7 +153,7 @@ request.setAttribute("tel1", tel1);
 		
 		<br><br>
 			<div align="center">
-			<input type="submit" class="btn btn-primary" value="회원가입">
+			<input type="submit" id="sub" class="btn btn-primary" value="회원가입">
 			</div>
 	</form:form>
 </div>	
