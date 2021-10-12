@@ -10,14 +10,14 @@ videolist.jsp<br><br>
 	}
 	
 	function goUpdate(num,pn){
-		location.href="update.member?num="+num+"&pageNumber="+pn;
+		location.href="deletevideo.category?num="+num+"&pageNumber="+pn;
 	}
 	function goDelete(num,pn){
 		 var result = confirm("삭제하시겠습니까 ?");
 	        
 	        if(result)
 	        {
-	        	location.href="delete.member?num="+num+"&pageNumber="+pn;
+	        	location.href="deletevideo.category?num="+num+"&pageNumber="+pn;
 	        alert("삭제되었습니다")
 	        }
 	        else

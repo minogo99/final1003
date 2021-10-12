@@ -32,6 +32,11 @@ public class DetailDao {
 		int cnt=sqlSessionTemplate.insert(namespace+".insertVideo",db);
 		return cnt;
 	}
+	public int detailVideoDelete(int num) {
+		int cnt=sqlSessionTemplate.delete(namespace+".detailVideoDelete",num);
+		return cnt;
+	}
+	
 }
 
 

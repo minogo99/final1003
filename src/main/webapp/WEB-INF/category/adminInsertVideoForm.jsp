@@ -5,31 +5,7 @@
 videolist.jsp<br><br>
 
 <script type="text/javascript">
-	function goInsert(){
-		location.href="insert.member" ;
-	}
 	
-	function videoInsert(){
-		location.href="insert.video" ;
-	}
-	
-	function goUpdate(num,pn){
-		location.href="update.member?num="+num+"&pageNumber="+pn;
-	}
-	function goDelete(num,pn){
-		 var result = confirm("삭제하시겠습니까 ?");
-	        
-	        if(result)
-	        {
-	        	location.href="delete.member?num="+num+"&pageNumber="+pn;
-	        alert("삭제되었습니다")
-	        }
-	        else
-	        {
-	        	alert("삭제 취소")
-	        }
-		
-	}
 </script>
 <style>
 #container{
@@ -69,8 +45,8 @@ td{
 				<form action="adminInsertVideo.category" method="post" enctype="multipart/form-data">
 					<fieldset>
 			<div class="form-group">
-			<label for="id" class="form-label mt-4">제목</label>
-				<input type="text" class="form-control" name="id" placeholder="제목 입력" >
+			<label for="title" class="form-label mt-4">제목</label>
+				<input type="text" class="form-control" name="title" placeholder="제목 입력" >
 			</div>
 		<div class="form-group">
 				<label for="category" class="form-label mt-4">카테고리</label>
@@ -94,6 +70,7 @@ td{
 		</fieldset>
 		<br><br>
 			<div align="center">
+			<input type="submit" class="btn btn-primary" value="다음">
 			<input type="button" class="btn btn-primary" onclick="history.go(-1);" value="취소">
 			</div>
 				</form>
