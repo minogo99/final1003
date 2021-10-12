@@ -198,9 +198,31 @@ values(board_seq.nextval,'a33','a33','2015-1-1',0,7,1,1,'내용33');
 
 
 commit;
-기생충
  insert into video(num,title,nation,category,genre,grade,actor,image)
   2  values(vd_seq.nextval,'기생충','한국','영화','액션,스릴러','18','송강호,이선균,이정은');
   
-  이미지를 안넣었네
+  drop sequence coupon_seq;
+create sequence coupon_seq
+  increment by 1
+  start with 1
+  minvalue 1
+  maxvalue 10000
+  nocache;
+
+drop table coupon;
+create table coupon(
+cp_num int primary key,
+cp_id varchar2(20),
+cp_name varchar2(50), 
+cp_number varchar2(50) unique, 
+cp_discount float,  
+cp_regdate date,  
+cp_duedate date,
+cp_usedate date, 
+cp_check varchar2(10) default 'false' 
+);
+
+insert into coupon values(coupon_seq.nextval,'','a','1234',0.4,sysdate,'2022-10-20','',default);
+
+insert into coupon values(coupon_seq.nextval,'','a','12345',0.4,sysdate,'2020-9-27','',default);
   
