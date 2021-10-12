@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.http.HttpResponse;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -25,10 +26,10 @@ public class PayController {
 	private final String getPage="payMain";
 	
 	@RequestMapping(value=command,method =RequestMethod.GET )
-	public ModelAndView doAction(HttpSession session,HttpServletResponse response) throws IOException {
+	public ModelAndView doAction(HttpSession session,HttpServletResponse response,HttpServletRequest request) throws IOException {
 		
 		PrintWriter pw = response.getWriter();
-		response.setContentType("text/html;charset=UTF-8");
+		request.setCharacterEncoding("UTF-8");
 		ModelAndView mav = new ModelAndView();
 
 		MemberBean loginInfo = null;
