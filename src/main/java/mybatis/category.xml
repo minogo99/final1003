@@ -20,6 +20,8 @@
 		select * from video where title = #{title}
 	</select>
 	
+	
+	
 	<select id="detailVideoGenre" resultType="MyCategory">
 		select * from video_c where genre = #{genre}
 	</select>
@@ -53,6 +55,12 @@
 	<insert id="insertVideo">
 		insert into video 
 		values(video_seq.nextval,#{title},#{category},#{grade},#{image})
+	</insert>
+	
+	
+	<insert id="updateVideo">
+		update video set 
+		title=#{title},category=#{category},grade=#{grade},image=#{image} where num=#{num}
 	</insert>
 	
 	<delete id="detailVideoDelete">

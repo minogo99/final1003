@@ -10,7 +10,7 @@ videolist.jsp<br><br>
 	}
 	
 	function goUpdate(num,pn){
-		location.href="deletevideo.category?num="+num+"&pageNumber="+pn;
+		location.href="updatevideo.category?num="+num+"&pageNumber="+pn;
 	}
 	function goDelete(num,pn){
 		 var result = confirm("삭제하시겠습니까 ?");
