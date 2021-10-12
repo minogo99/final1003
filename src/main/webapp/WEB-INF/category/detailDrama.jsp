@@ -74,6 +74,13 @@ detailMovie.jsp<br><br>
 		<div align="right">
 			<a href="login.member"><button class="btn btn-primary">로그인</button></a>
 		</div>
+		<div align="left">
+			<%if(request.getAttribute("jjim")== null) {%>
+			<a href=""><button class="btn btn-primary">찜하기</button></a>
+			<%}else{ %>
+			<a href=""><button class="btn btn-primary">찜하기 취소</button></a>
+			<%} %>
+		</div>
 		<div>${db.genre } ${db.runningT }분 ${db.grade }세 </div>
 		<div>
 			<hr>

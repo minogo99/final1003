@@ -61,5 +61,7 @@ select * from members where name = #{name} and id = #{id}
 <select id="getByNumData" resultType="MyMember">
 select * from members where num = #{num}
 </select>
-
+<insert id="insertJjim">
+	insert into jjim
+</insert>
 </mapper>
