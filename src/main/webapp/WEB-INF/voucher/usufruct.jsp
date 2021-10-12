@@ -13,14 +13,11 @@ usufruct.jsp<br><br>
 	}
 </style>
 <script type="text/javascript">
+	var num=$('input[name="num"]').val;
 	function readyPay(event) {
-		  document.getElementById('readyPay').innerText = 
-		    event.target.value;
-		}
-	function goPayment(){
-		
-		location.href="payment.voucher"
+		location.href="readyPaymemt.voucher?num="+event.target.value;
 	}
+	
 </script>
 
 <img src="resources/images/flyersheet.jpg" width="500" height="500" >
@@ -36,22 +33,22 @@ wavve 이용권
 <table class="tt">
 	<tr bgcolor="gray" >
 		<td >
-			<input type="radio" name="pay" value="NomalBasic 동시시청 1회선,HD화질,모바일+PC 7900원"
+			<input type="radio" name="num" value=1
 			 onclick="readyPay(event)">
 			Basic 동시시청 1회선,HD화질,모바일+PC 7900원<BR>
 		</td>
 	</tr>
 	<tr bgcolor="gray">
 		<td>
-			<input type="radio" name="pay" value="NomalStandard 동시시청 2회선,FHD화질,전체 디바이스 10900원"
-			 onclick="readyPay(event)">
+			<input type="radio" name="num" value="2"
+			 onclick="readyPay()">
 			Standard 동시시청 2회선,FHD화질,전체 디바이스 10900원<BR>
 		</td>
 	</tr>
 	<tr bgcolor="gray">
 		<td>
-			<input type="radio" name="pay" value="NomalPremium 동시시청 4회선,최고화질,전체 디바이스 13900원"
-			 onclick="readyPay(event)">
+			<input type="radio" name="num" value="3"
+			onclick="readyPay()">
 			Premium 동시시청 4회선,최고화질,전체 디바이스 13900원
 		</td>
 	</tr>
@@ -62,29 +59,42 @@ wavve 이용권
 <table class="tt">
 	<tr bgcolor="gray">
 		<td>
-			<input type="radio" name="pay" value="CoalitionBasic 동시시청 1회선,HD화질,모바일+PC 13750원" 
-			onclick="readyPay(event)">
+			<input type="radio" name="num" value="4"
+			onclick="readyPay()">
 			Basic X FLO 무제한 동시시청 1회선,HD화질,모바일+PC 13750원<BR>
 		</td>
 	</tr>
 	<tr bgcolor="gray">
 		<td>
-			<input type="radio" name="pay" value="CoalitionStandard 동시시청 1회선,HD화질,모바일+PC 13750원" 
-			onclick="readyPay(event)">
+			<input type="radio" name="num" value="5"
+			onclick="readyPay()">
 			Standard X Bugs 듣기 동시시청 1회선,HD화질,모바일+PC 13750원<BR>
 		</td>
 	</tr>
 	<tr bgcolor="gray">
 		<td>
-			<input type="radio" name="pay" value="CoalitionPremium 동시시청 1회선,HD화질,모바일+PC 7900원" 
-			onclick="readyPay(event)">
+			<input type="radio" name="num" value="6"
+			onclick="readyPay()">
 			Premium X KB 나라사랑카드 동시시청 1회선,HD화질,모바일+PC 7900원
 		</td>
 	</tr>
 </table>
 <div> 
-	<div id='readyPay'></div>
-	<input type="button" value="결제하기" onclick="goPayment()">
+	<form action="readyPaymemt.voucher?num=${vb.num }" method="post">
+	<div id='readyPay'>
+		<div id="readyPayName">
+			${vb.name }
+		</div>
+		<div id="readyPayContent">
+			${vb.content }
+		</div>
+		<div id="readyPayPrice">
+			${vb.price } 원
+		</div>
+	</div>
+	
+	<input type="submit" value="결제하기">
+	</form>
 </div>
 </div>
 <br><Br>

@@ -16,6 +16,7 @@
 		<typeAlias type="category.detail.DetailBean" alias="MyC_Detail"/>
 		<typeAlias type="main.model.MainBean" alias="MyMain"/>
 		<typeAlias type="main.detail.DetailMainBean" alias="MyDetailMain"/>
+		<typeAlias type="voucher.model.VoucherBean" alias="MyVoucher"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="mybatis/member.xml"/>
@@ -28,5 +29,6 @@
 		<mapper resource="mybatis/detail.xml" />
 		<mapper resource="mybatis/main.xml" />
 		<mapper resource="mybatis/maindetail.xml" />
+		<mapper resource="mybatis/voucher.xml" />
 	</mappers>
 </configuration>
