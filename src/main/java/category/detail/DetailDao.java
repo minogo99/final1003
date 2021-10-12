@@ -36,6 +36,11 @@ public class DetailDao {
 		int cnt=sqlSessionTemplate.delete(namespace+".detailVideoDelete",num);
 		return cnt;
 	}
+
+	public DetailBean UpdateVideo(DetailBean db) {
+		sqlSessionTemplate.update(namespace+".updateVideo",db);
+		return db;
+	}
 	
 }
 

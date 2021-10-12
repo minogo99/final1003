@@ -74,7 +74,7 @@ text-align: center;
 		<td>${db.genre } </td>
 	</tr>
 	<tr>
-		<th>원산지</th>
+		<th>국가</th>
 		<td>${db.nation } </td>
 	</tr>
 	<tr>
