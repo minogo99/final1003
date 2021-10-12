@@ -205,5 +205,35 @@ insert into commodity values(commodity_seq.nextval,'Premium X KB 나라사랑카드',7
 select * from commodity;
 
 commit;
+
+
+drop sequence order_seq;
+create sequence order_seq
+increment by 1
+  start with 1
+  minvalue 1
+  maxvalue 10000
+  nocache;
+
+drop table order_m;
+create table order_m(
+  onum number primary key,
+  mnum number not null,
+  cnum number not null,
+  date_order DATE DEFAULT SYSDATE
+);
+
+
+ alter table order_m add(
+ 	constraint FK_order_m
+ 	foreign key (mnum)
+ 		references members(num)
+ );
+ 
+ alter table order_m add(
+ 	constraint FK_order_m
+ 	foreign key (cnum)
+ 		references commodity(num)
+ );
  
  
