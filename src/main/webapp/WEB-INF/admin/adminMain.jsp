@@ -45,6 +45,12 @@ padding: 100px;
 <c:if test="${pageType == 'faqUpdateForm' }">
 <%@include file="adminFaqUpdateForm.jsp" %>
 </c:if>
+<c:if test="${pageType == 'noticeDetailView' }">
+<%@include file="adminNoticeDetailView.jsp" %>
+</c:if>
+<c:if test="${pageType == 'faqDetailView' }">
+<%@include file="adminFaqDetailView.jsp" %>
+</c:if>
 <c:if test="${pageType == 'main' }">
 메인 화면
 </c:if>

@@ -8,7 +8,8 @@ table {
 	text-align: center;
 }
 </style>
-<h2 style="color: green; font-weight: bold;">FAQ 리스트</h2>
+<h2 style="color: #0080FF; font-weight: bold;">FAQ 리스트</h2>
+<br>
 <table class="table">
 	<thead class="table-light">
 		<tr>
@@ -22,7 +23,7 @@ table {
 		<c:forEach var="cfb" items="${lists_faq }" varStatus="status">
 			<tr>
 				<td>${cfb.division }</td>
-				<td><a href="faqDetailView.cs?num=${cfb.num }">${cfb.subject }</a>
+				<td><a href="faqDetailView.admin?num=${cfb.num }">${cfb.subject }</a>
 				</td>
 				<td><a href="faqUpdate.admin?num=${cfb.num }">수정</a></td>
 				<td><a href="faqDelete.admin?num=${cfb.num }">삭제</a></td>
@@ -30,10 +31,10 @@ table {
 		</c:forEach>
 	</tbody>
 </table>
-	<div align="right">
-			<input type="button" class="btn btn-primary" value="글쓰기"
-				onclick="location.href='faqWrite.admin'">
-		</div>
+<div align="right">
+	<input type="button" class="btn btn-primary" value="글쓰기"
+		onclick="location.href='faqWrite.admin'">
+</div>
 
 <form action="faqList.admin" method="get">
 	<div class="row justify-content-center">
