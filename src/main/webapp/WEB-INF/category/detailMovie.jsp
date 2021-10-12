@@ -1,5 +1,7 @@
+<%@page import="member.model.MemberJjimBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@include file="../common/common.jsp"%>
 detailMovie.jsp<br><br>
 <style type="text/css">
 	.poster{
@@ -75,11 +77,16 @@ detailMovie.jsp<br><br>
 			<a href="login.member"><button class="btn btn-primary">로그인</button></a>
 		</div>
 		<div align="left">
-			<%if(request.getAttribute("jjim")== null) {%>
-			<a href="jjim.member?num=${loginInfo.num}&movie_num=${db.num}&user_id=${loginInfo.id}"><button class="btn btn-primary">찜하기</button></a>
-			<%}else{ %>
-			<a href="jjimcancel.member"><button class="btn btn-primary">찜하기 취소</button></a>
-			<%} %>
+			
+			<c:if test="${jjim == null}">
+			<a href="insertjjim.member?num=${loginInfo.num}&movie_num=${db.num}&user_id=${loginInfo.id}"><button class="btn btn-primary">찜하기</button></a>
+			</c:if>
+			<c:if test="${jjim != null && jjim.movie_num == db.num }">
+			<a href="deletejjim.member?movie_num=${db.num}"><button class="btn btn-primary">찜하기 취소</button></a>
+			</c:if>
+			<c:if test="${jjim != null && jjim.movie_num != db.num }">
+			<a href="insertjjim.member?num=${loginInfo.num}&movie_num=${db.num}&user_id=${loginInfo.id}"><button class="btn btn-primary">찜하기</button></a>
+			</c:if>
 		</div>
 		<div>${db.genre } ${db.runningT }분 ${db.grade }세 </div>
 		<hr>

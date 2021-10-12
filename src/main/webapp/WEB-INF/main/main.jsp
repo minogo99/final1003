@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <%@include file="../display/top.jsp" %>
 <link
       rel="stylesheet"
@@ -82,5 +83,4 @@
       });
     </script>
   </body>
-
 <%@include file="../display/bottom.jsp" %>

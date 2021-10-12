@@ -64,4 +64,8 @@ select * from members where num = #{num}
 <insert id="insertJjim">
 	insert into jjim values(#{num},#{movie_num},#{user_id})
 </insert>
+<delete id="deleteJjim">
+	delete from jjim where movie_num = #{movie_num}
+</delete>
+
 </mapper>
