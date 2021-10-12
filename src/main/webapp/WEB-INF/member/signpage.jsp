@@ -44,7 +44,7 @@ $(document).ready(function(){
 	    });
 	
 	 
-	 $('#pw1').keyup(function(){
+	$('#pw1').keyup(function(){
 			$('#pwCheckFF').text('');
 		}); 
 	 $('#repw1').keyup(function(){
@@ -56,6 +56,7 @@ $(document).ready(function(){
 			  	$('#pwCheckFF').html("<font color='#70AD47'>비밀번호 확인이 일치 합니다.</font>");
 		 	}
 		});
+	 
 });
 
 
@@ -81,13 +82,13 @@ request.setAttribute("tel1", tel1);
 			
 			<div class="form-group">
 				<label for="password" class="form-label mt-4">비밀번호</label>
-				<input type="password" class="form-control" id="pw1" placeholder="비밀번호 입력" value="${mb.password }">
+				<input type="password" class="form-control" name="password" id="pw1" placeholder="비밀번호 입력" oninput="pwCheck(pw1.value)" value="${mb.password }">
 				<form:errors cssClass="err" path="password" />
 			</div>
 			
 			<div class="form-group">
 				<label for="password" class="form-label mt-4">비밀번호 확인</label>
-				<input type="password" class="form-control" id="repw1" placeholder="비밀번호 확인" value="${mb.password }">
+				<input type="password" class="form-control" id="repw1" placeholder="비밀번호 확인">
 				<p id="pwCheckF" style="color: #FF6600; margin: 0;"></p>
 				<p id="pwCheckFF" style="color: #FF6600; margin: 0;"></p>
 			</div>

@@ -13,7 +13,6 @@ public class MemberBean {
 	
 	private String regdate;
 
-	private String phone;
 
 	@NotBlank(message="필수.")
 	private String tel1;
