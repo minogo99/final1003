@@ -29,7 +29,7 @@ th {
 	</tr>
 	<tr>
 		<th>내용</th>
-		<td>${cfb.content }</td>
+		<td height="400">${cfb.content }</td>
 	</tr>
 </table>
 <br>

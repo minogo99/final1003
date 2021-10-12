@@ -36,7 +36,7 @@ th {
 	</tr>
 	<tr>
 		<th>내용</th>
-		<td>${cnb.content }</td>
+		<td height="400">${cnb.content }</td>
 	</tr>
 </table>
 <br>

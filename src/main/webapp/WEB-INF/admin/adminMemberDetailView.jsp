@@ -11,15 +11,15 @@ table {
 th, td {
 	border: 1px solid #444444;
 	border-width: 2px;
+	text-align: center;
 }
 
 th {
-	text-align: center;
 	width: 70px;
 }
 </style>
-<h2 style="color: #0080FF; font-weight: bold;" align="center">회원 상세
-	정보</h2>
+<h2 style="color: #0080FF; font-weight: bold;" align="center">회원 상세 정보</h2>
+<br>
 <input type="hidden" name="pageNumber" value="${pageNumber}">
 
 <table>
