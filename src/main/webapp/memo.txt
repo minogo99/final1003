@@ -5,9 +5,9 @@ id varchar2(50) not null unique,
 password varchar2(50) not null,
 name varchar2(50) not null,
 regdate date default sysdate,
-tel1 String not null,
-tel2 String not null,
-tel3 String not null
+tel1 varchar2(20) not null,
+tel2 varchar2(20) not null,
+tel3 varchar2(20) not null
 );
 
 drop sequence members_seq;

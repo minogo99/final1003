@@ -18,7 +18,7 @@ th {
 	width: 70px;
 }
 </style>
-<h2 style="color: green; font-weight: bold;" align="center">회원 상세
+<h2 style="color: #0080FF; font-weight: bold;" align="center">회원 상세
 	정보</h2>
 <input type="hidden" name="pageNumber" value="${pageNumber}">
 

@@ -26,16 +26,20 @@
 <div align="center" class="my">
 <div align="left">
 	<h5>시청 내역</h5>
-	<div align="center">
-		시청내역이 없어요
-	</div>
+	<c:if test="${empty lists }">
+		<div align="center">
+		시청내역이 없습니다.
+		</div>
+	</c:if>
 	<br><hr><br>
 </div>
 <div align="left">
 	<h5>찜한 컨텐츠</h5>
-		<div align="center" >
-		찜한 영화가 없어요
+	<c:if test="${empty lists }">
+		<div align="center">
+		찜한 컨텐츠가 없습니다.
 		</div>
+	</c:if>
 </div>
 
 </div>
