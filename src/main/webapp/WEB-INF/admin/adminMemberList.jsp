@@ -4,7 +4,6 @@
 
 <script type="text/javascript">
 	function goInsert(){
-		alert(1);
 		location.href="memberInsert.admin";
 	}
 	function goUpdate(num,pn){

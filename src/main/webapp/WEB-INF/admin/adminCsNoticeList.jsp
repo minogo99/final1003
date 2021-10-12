@@ -8,8 +8,9 @@ table {
 	text-align: center;
 }
 </style>
-<h2 style="color: green; font-weight: bold;">공지 리스트</h2>
-	<table class="table">
+<h2 style="color: #0080FF; font-weight: bold;">공지 리스트</h2>
+<br>
+<table class="table">
 	<thead class="table-light">
 		<tr>
 			<th scope="col">구분</th>
@@ -18,64 +19,61 @@ table {
 			<th scope="col">수정</th>
 			<th scope="col">삭제</th>
 		</tr>
-		</thead>
-		<tbody>
+	</thead>
+	<tbody>
 		<c:forEach var="cnb" items="${lists }" varStatus="status">
 			<tr>
 				<td>${cnb.division }</td>
 				<td width="300"><a
-					href="noticeDetailView.cs?num=${cnb.num }">${cnb.subject }</a>
-				</td>
-				<td><fmt:parseDate value="${cnb.reg_date }" var="noticePostDate"
-						pattern="yyyy-MM-dd" /> <fmt:formatDate
-						value="${noticePostDate}" pattern="yyyy-MM-dd"
-						var="reg_date" /> ${reg_date }</td>
-						<td>
-						<a href="noticeUpdate.admin?num=${cnb.num }">수정</a>
-						</td>
-						<td>
-						<a href="noticeDelete.admin?num=${cnb.num }">삭제</a>
-						</td>
+					href="noticeDetailView.admin?num=${cnb.num }">${cnb.subject }</a></td>
+				<td><fmt:parseDate value="${cnb.reg_date }"
+						var="noticePostDate" pattern="yyyy-MM-dd" /> <fmt:formatDate
+						value="${noticePostDate}" pattern="yyyy-MM-dd" var="reg_date" />
+					${reg_date }</td>
+				<td><a href="noticeUpdate.admin?num=${cnb.num }">수정</a></td>
+				<td><a href="noticeDelete.admin?num=${cnb.num }">삭제</a></td>
 
 			</tr>
 		</c:forEach>
-		</tbody>
-	</table>
-	
-		<div align="right">
-			<input type="button" class="btn btn-primary" value="글쓰기"
-				onclick="location.href='noticeWrite.admin'">
-		</div>
-				
-	<form action="noticeList.admin" method="get">
-			<div class="row justify-content-center">
+	</tbody>
+</table>
+
+<div align="right">
+	<input type="button" class="btn btn-primary" value="글쓰기"
+		onclick="location.href='noticeWrite.admin'">
+</div>
+
+<form action="noticeList.admin" method="get">
+	<div class="row justify-content-center">
 		<div class="col-sm-2">
-		<select name="whatColumn" class="form-select">
-			<option value="all">전체 검색</option>
-			<option value="division"
-				<c:if test="${pageInfo.whatColumn == 'division'}">
+			<select name="whatColumn" class="form-select">
+				<option value="all">전체 검색</option>
+				<option value="division"
+					<c:if test="${pageInfo.whatColumn == 'division'}">
 		selected
 		</c:if>>구분</option>
-			<option value="subject"
-				<c:if test="${pageInfo.whatColumn == 'subject'}">
+				<option value="subject"
+					<c:if test="${pageInfo.whatColumn == 'subject'}">
 		selected
 		</c:if>>제목</option>
-		</select>
+			</select>
 		</div>
 		<c:if test="${pageInfo.keyword == 'null'}">
 			<div class="col-sm-2">
-			<input type="text" class="form-control" name="keyword" value="">
+				<input type="text" class="form-control" name="keyword" value="">
 			</div>
 		</c:if>
 		<c:if test="${pageInfo.keyword != 'null'}">
-		<div class="col-sm-2">
-			<input type="text" class="form-control" name="keyword" value="${pageInfo.keyword}">
-		</div>
+			<div class="col-sm-2">
+				<input type="text" class="form-control" name="keyword"
+					value="${pageInfo.keyword}">
+			</div>
 		</c:if>
 		<div class="col-sm-1">
-		<input type="submit" class="btn btn-primary justify-content-end" value="검색">
+			<input type="submit" class="btn btn-primary justify-content-end"
+				value="검색">
 		</div>
-		</div>
-	</form>
-	
-		${pageInfo.pagingHtml}
+	</div>
+</form>
+
+${pageInfo.pagingHtml}

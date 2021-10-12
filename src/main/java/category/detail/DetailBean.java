@@ -10,10 +10,10 @@ public class DetailBean {
 	private String genre;
 	private String nation;
 	private String actor;
+	private String grade;
 	private String day;
 	private int series;
 	private String video;
-	private String grade;
 	public int getNum() {
 		return num;
 	}
