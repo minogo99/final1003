@@ -20,6 +20,10 @@
 		select * from video where title = #{title}
 	</select>
 	
+	<select id="selectNum" resultType="MyCategory">
+		select * from video where num = #{num}
+	</select>
+	
 	
 	
 	<select id="detailVideoGenre" resultType="MyCategory">

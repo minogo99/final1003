@@ -51,7 +51,7 @@ text-align: center;
 		<%@include file="../admin/display/left.jsp" %>
 	</div>
 <div id="videoList" class="col-lg-10" align="center">
-	<h2 style="color: green; font-weight: bold;">상세보기</h2>
+	<h2 style="color:#0080FF; font-weight: bold;">상세보기</h2>
 <table border="1" align="center" width="600">
 	<tr>
 		<th>영상 이미지</th>
