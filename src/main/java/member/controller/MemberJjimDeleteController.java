@@ -8,22 +8,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import member.model.MemberDao;
+import member.model.MemberJjimBean;
+import member.model.MemberJjimDao;
 
 
 @Controller
 public class MemberJjimDeleteController {
 
 	private final String command ="deletejjim.member";
-	private final String getpage = "redirect:/main.wa";
+	private final String getpage = "redirect:detailMovie.category";
 	
 	@Autowired
-	MemberDao mdao;
+	MemberJjimDao mjdao;
 	
 	@RequestMapping(value = command)
-	public String doAction(@RequestParam(value="movie_num") int movie_num,HttpSession session) {
-		int cnt = mdao.deleteJjim(movie_num);
-		session.removeAttribute("jjim");
-		return getpage;
+	public String doAction(MemberJjimBean jjim) {
+	
+		mjdao.deleteJjim(jjim);
+
+		return getpage+"?num="+jjim.getMovie_num();
 		
 	}
 	

@@ -61,11 +61,5 @@ select * from members where name = #{name} and id = #{id}
 <select id="getByNumData" resultType="MyMember">
 select * from members where num = #{num}
 </select>
-<insert id="insertJjim">
-	insert into jjim values(#{num},#{movie_num},#{user_id})
-</insert>
-<delete id="deleteJjim">
-	delete from jjim where movie_num = #{movie_num}
-</delete>
 
 </mapper>

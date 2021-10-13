@@ -96,18 +96,4 @@ public class MemberDao{
 		int cnt = sqlSessionTemplate.selectOne(namespace+".passwordCheck",mb);
 		return 0;
 	}
-
-	public int insertJjim(MemberJjimBean jjim) {
-		int cnt = sqlSessionTemplate.insert(namespace+".insertJjim",jjim);
-		return cnt;
-	}
-
-	public int deleteJjim(int movie_num) {
-		int cnt = sqlSessionTemplate.delete(namespace + ".deleteJjim",movie_num);
-		return cnt;
-	}
-
-
-	
-	
 }

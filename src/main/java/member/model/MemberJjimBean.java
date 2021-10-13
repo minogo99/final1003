@@ -5,6 +5,7 @@ public class MemberJjimBean {
 	private int num;
 	private int movie_num;
 	private String user_id;
+	
 	public int getNum() {
 		return num;
 	}
@@ -32,7 +33,4 @@ public class MemberJjimBean {
 	public MemberJjimBean() {
 		super();
 	}
-	
-	
-	
 }

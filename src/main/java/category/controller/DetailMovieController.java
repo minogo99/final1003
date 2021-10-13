@@ -1,7 +1,8 @@
 package category.controller;
 
-import java.util.ArrayList;
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,9 @@ import category.detail.DetailBean;
 import category.detail.DetailDao;
 import category.model.CategoryBean;
 import category.model.CategoryDao;
+import member.model.MemberBean;
+import member.model.MemberJjimBean;
+import member.model.MemberJjimDao;
 
 @Controller
 public class DetailMovieController {
@@ -27,18 +31,30 @@ public class DetailMovieController {
 	@Autowired
 	DetailDao ddao;
 	
+	@Autowired
+	MemberJjimDao mjdao;
+	
 	@RequestMapping(value=command,method=RequestMethod.GET)
-	public ModelAndView doAction(@RequestParam("num") int num) {
-		System.out.println("1");
+	public ModelAndView doAction(@RequestParam("num") int num,HttpSession session) {
 		
+		ModelAndView mav=new ModelAndView();
+		
+		MemberBean loginInfo = (MemberBean) session.getAttribute("loginInfo");
+		
+		if(loginInfo == null) {
+			mav.setViewName("redirect:login.member");
+			return mav;
+		}
 		DetailBean db=ddao.detailVideoView(num);
 		List<DetailBean> dlists = ddao.detailVideoGenre(db.getGenre());
 		List<CategoryBean> clists=cdao.selectAll();
+		List<MemberJjimBean> mjlists = mjdao.getByData(loginInfo.getId());
 		
-		ModelAndView mav=new ModelAndView();
+
 		mav.addObject("db",db);
 		mav.addObject("dlists",dlists);
 		mav.addObject("clists",clists);
+		mav.addObject("mjlists", mjlists);
 		mav.setViewName(getPage);
 		return mav;
 		
