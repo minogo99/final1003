@@ -113,7 +113,7 @@ detailMovie.jsp<br><br>
 				<div style="display: inline-block;">
 					<div class="else" >
 						<figure>
-							<img src="resources/images/poster/enter/${glist.image}.jpg" class="poster_img"/>
+							<img src="resources/images/poster/${glist.image}.jpg" class="poster_img"/>
 						</figure>
 						<h3><span class="icon all ir_pm">
 						<c:if test="${glist.grade eq 18 }">

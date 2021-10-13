@@ -117,7 +117,6 @@ function openPop(){
           <div class="dropdown-menu">
             <a class="dropdown-item" href="movie.category">영화</a>
             <a class="dropdown-item" href="drama.category">드라마</a>
-            <a class="dropdown-item" href="animation.category">애니메이션</a>
             <a class="dropdown-item" href="entertain.category">예능</a>
           </div>
         </li>
