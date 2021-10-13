@@ -18,7 +18,6 @@ public class DetailDao {
 	SqlSessionTemplate sqlSessionTemplate;
 	
 	public DetailBean detailVideoView(int vnum) {
-		
 		DetailBean db =sqlSessionTemplate.selectOne(namespace+".detailVideoView",vnum);
 		return db;
 	}
