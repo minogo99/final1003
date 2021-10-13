@@ -41,8 +41,6 @@ public class couponController {
 		
 		couponBean cb = couponDao.getOneData(cp_number);
 		System.out.println(cb.getCp_name());
-		System.out.println(cb.getCp_duedate());
-		System.out.println(nowdate);
 		MemberBean loginInfo = (MemberBean)session.getAttribute("loginInfo");
 		
 		if(nowdate.before(cb.getCp_duedate())) {

@@ -44,7 +44,7 @@ table {
 					<td>찜한 컨텐츠가 없습니다.</td>
 			</c:if>
 				<c:forEach var="jjim" items="${cblists}">
-					<td><img src="resources/images/poster/movie/${jjim.image}.jpg"
+					<td><img src="resources/images/poster/${jjim.image}.jpg"
 						width="200" height="200"></td>
 				</c:forEach>
 			</tr>

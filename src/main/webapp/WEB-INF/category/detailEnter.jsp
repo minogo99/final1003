@@ -63,7 +63,7 @@ detailMovie.jsp<br><br>
 	</div>
 	<div class="poster">
 		<figure>
-			<img src="resources/images/poster/enter/${cb.image}.jpg" class="poster_img"/>
+			<img src="resources/images/poster/${cb.image}.jpg" class="poster_img"/>
 		</figure>
 	</div>
 	<div class="infor">
@@ -75,14 +75,17 @@ detailMovie.jsp<br><br>
 			<a href="login.member"><button class="btn btn-primary">로그인</button></a>
 		</div>
 		<div align="left">
-			<c:if test="${jjim == null}">
-			<a href="insertjjim.member?num=${loginInfo.num}&movie_title=${cb.title}&user_id=${loginInfo.id}"><button class="btn btn-primary">찜하기</button></a>
+			<c:set var="flag" value="false"/>
+			<c:forEach var="jjim" items="${mjlists }">
+			<c:if test="${jjim.movie_num == db.num }">
+			<c:set var="flag" value="true"/>
 			</c:if>
-			<c:if test="${jjim != null && jjim.movie_title == cb.title }">
-			<a href="deletejjim.member?movie_title=${cb.title}"><button class="btn btn-primary">찜하기 취소</button></a>
+			</c:forEach>
+			<c:if test="${flag == 'true' }">
+			<a href="deletejjim.member?movie_num=${db.num}&user_id=${loginInfo.id}"><button class="btn btn-primary">찜하기 취소</button></a>
 			</c:if>
-			<c:if test="${jjim != null && jjim.movie_title != cb.title }">
-			<a href="insertjjim.member?num=${loginInfo.num}&movie_num=${db.num}&user_id=${loginInfo.id}"><button class="btn btn-primary">찜하기</button></a>
+			<c:if test="${flag == 'false' }">
+			<a href="insertjjim.member?movie_num=${db.num}&user_id=${loginInfo.id}"><button class="btn btn-primary">찜하기</button></a>
 			</c:if>
 		</div>
 		<div>${db.genre } ${db.runningT }분 ${db.grade }세 </div>

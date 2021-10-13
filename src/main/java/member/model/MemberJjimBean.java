@@ -5,6 +5,7 @@ public class MemberJjimBean {
 	private int num;
 	private String movie_num;
 	private String user_id;
+	
 	public int getNum() {
 		return num;
 	}

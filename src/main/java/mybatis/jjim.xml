@@ -19,4 +19,5 @@
 <select id="getByMdata" resultType="MyCategory">
 	select v.image from jjim j inner join video v on j.movie_num = v.num where j.user_id = #{user_id} 
 </select>
+
 </mapper>
