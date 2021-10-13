@@ -107,9 +107,9 @@ public class MemberDao{
 		return cnt;
 	}
 
-	public List<MemberJjimBean> getjjimList(String movie_title) {
+	public List<MemberJjimBean> getjjimList() {
 		List<MemberJjimBean> lists = new ArrayList<MemberJjimBean>();
-		lists = sqlSessionTemplate.selectList(namespace + ".getjjimList",movie_title);
+		lists = sqlSessionTemplate.selectList(namespace + ".getjjimList");
 		return lists;
 	}
 
