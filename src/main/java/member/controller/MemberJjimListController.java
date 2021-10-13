@@ -21,9 +21,9 @@ public class MemberJjimListController {
 	MemberDao mdao;
 	
 	@RequestMapping(value=command)
-	public ModelAndView doAction(@RequestParam("movie_title") String movie_title) {
+	public ModelAndView doAction() {
 		
-		List<MemberJjimBean> lists = mdao.getjjimList(movie_title);
+		List<MemberJjimBean> lists = mdao.getjjimList();
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("lists", lists);
 		mav.setViewName(getpage);
