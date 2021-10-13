@@ -10,7 +10,7 @@
 	}
 
 	table {
-	color:white;
+	font-style:white;
 }
 </style>
 <%@ include file="../common/common.jsp"%>
@@ -43,9 +43,9 @@
 		<td >찜한 컨텐츠가 없습니다.</td>
 		</tr>
 	</c:if>
-	<c:forEach var="j" items="${lists}">
+	<c:forEach var="jlists" items="${lists}">
 		<tr>
-		<td>${j.movie_title}</td>
+		<td>${jlists.movie_title}</td>
 		</tr>
 	</c:forEach>
 	</table>

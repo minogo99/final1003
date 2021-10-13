@@ -26,6 +26,7 @@ public class MemberJjimListController {
 		List<MemberJjimBean> lists = mdao.getjjimList();
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("lists", lists);
+		System.out.println("lists:" + lists);
 		mav.setViewName(getpage);
 		return mav;
 	}

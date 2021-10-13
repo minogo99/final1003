@@ -257,6 +257,6 @@ create sequence jjim_seq
 drop table jjim;
 create table jjim(
 num number not null,
-movie_title varchar2(50) not null,
+movie_title varchar2(50) not null ,
 user_id varchar2(30) not null
 );
