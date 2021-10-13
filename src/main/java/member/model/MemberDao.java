@@ -102,9 +102,15 @@ public class MemberDao{
 		return cnt;
 	}
 
-	public int deleteJjim(int movie_num) {
-		int cnt = sqlSessionTemplate.delete(namespace + ".deleteJjim",movie_num);
+	public int deleteJjim(String movie_title) {
+		int cnt = sqlSessionTemplate.delete(namespace + ".deleteJjim",movie_title);
 		return cnt;
+	}
+
+	public List<MemberJjimBean> getjjimList(String movie_title) {
+		List<MemberJjimBean> lists = new ArrayList<MemberJjimBean>();
+		lists = sqlSessionTemplate.selectList(namespace + ".getjjimList",movie_title);
+		return lists;
 	}
 
 

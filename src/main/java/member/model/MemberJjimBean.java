@@ -3,7 +3,7 @@ package member.model;
 public class MemberJjimBean {
 
 	private int num;
-	private int movie_num;
+	private String movie_title;
 	private String user_id;
 	public int getNum() {
 		return num;
@@ -11,11 +11,11 @@ public class MemberJjimBean {
 	public void setNum(int num) {
 		this.num = num;
 	}
-	public int getMovie_num() {
-		return movie_num;
+	public String getMovie_title() {
+		return movie_title;
 	}
-	public void setMovie_num(int movie_num) {
-		this.movie_num = movie_num;
+	public void setMovie_title(String movie_title) {
+		this.movie_title = movie_title;
 	}
 	public String getUser_id() {
 		return user_id;
@@ -23,15 +23,7 @@ public class MemberJjimBean {
 	public void setUser_id(String user_id) {
 		this.user_id = user_id;
 	}
-	public MemberJjimBean(int num, int movie_num, String user_id) {
-		super();
-		this.num = num;
-		this.movie_num = movie_num;
-		this.user_id = user_id;
-	}
-	public MemberJjimBean() {
-		super();
-	}
+	
 	
 	
 	

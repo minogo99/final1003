@@ -76,12 +76,12 @@ detailMovie.jsp<br><br>
 		</div>
 		<div align="left">
 			<c:if test="${jjim == null}">
-			<a href="insertjjim.member?num=${loginInfo.num}&movie_num=${db.num}&user_id=${loginInfo.id}"><button class="btn btn-primary">찜하기</button></a>
+			<a href="insertjjim.member?num=${loginInfo.num}&movie_title=${cb.title}&user_id=${loginInfo.id}"><button class="btn btn-primary">찜하기</button></a>
 			</c:if>
-			<c:if test="${jjim != null && jjim.movie_num == db.num }">
-			<a href="deletejjim.member?movie_num=${db.num}"><button class="btn btn-primary">찜하기 취소</button></a>
+			<c:if test="${jjim != null && jjim.movie_title == cb.title }">
+			<a href="deletejjim.member?movie_title=${cb.title}"><button class="btn btn-primary">찜하기 취소</button></a>
 			</c:if>
-			<c:if test="${jjim != null && jjim.movie_num != db.num }">
+			<c:if test="${jjim != null && jjim.movie_title != cb.title }">
 			<a href="insertjjim.member?num=${loginInfo.num}&movie_num=${db.num}&user_id=${loginInfo.id}"><button class="btn btn-primary">찜하기</button></a>
 			</c:if>
 		</div>

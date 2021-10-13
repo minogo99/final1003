@@ -9,6 +9,9 @@
 	height:20%;
 	}
 
+	table {
+	color:white;
+}
 </style>
 <%@ include file="../common/common.jsp"%>
 <%@include file="../display/top.jsp"%>
@@ -34,11 +37,18 @@
 </div>
 <div align="left">
 	<h5>찜한 컨텐츠</h5>
+	<table  align="center">
 	<c:if test="${empty lists }">
-		<div align="center">
-		찜한 컨텐츠가 없습니다.
-		</div>
+		<tr align="center">
+		<td >찜한 컨텐츠가 없습니다.</td>
+		</tr>
 	</c:if>
+	<c:forEach var="j" items="${lists}">
+		<tr>
+		<td>${j.movie_title}</td>
+		</tr>
+	</c:forEach>
+	</table>
 </div>
 
 </div>

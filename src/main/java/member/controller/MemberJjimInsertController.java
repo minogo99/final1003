@@ -15,7 +15,7 @@ import member.model.MemberJjimBean;
 public class MemberJjimInsertController {
 
 	private final String command ="insertjjim.member";
-	private final String getpage = "redirect:/main.wa";
+	private final String getpage = "redirect:/jjimlist.member";
 	
 	@Autowired
 	MemberDao mdao;
@@ -24,7 +24,7 @@ public class MemberJjimInsertController {
 	public String doAction(MemberJjimBean jjim,HttpSession session) {
 
 		session.setAttribute("jjim", jjim);
-		System.out.println("asdasdcccccc"+jjim.getMovie_num());
+		System.out.println("asdasdcccccc"+jjim.getMovie_title());
 		int cnt = mdao.insertJjim(jjim);
 		return getpage;
 	}

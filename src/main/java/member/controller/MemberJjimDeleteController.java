@@ -20,8 +20,8 @@ public class MemberJjimDeleteController {
 	MemberDao mdao;
 	
 	@RequestMapping(value = command)
-	public String doAction(@RequestParam(value="movie_num") int movie_num,HttpSession session) {
-		int cnt = mdao.deleteJjim(movie_num);
+	public String doAction(@RequestParam(value="movie_title") String movie_title,HttpSession session) {
+		int cnt = mdao.deleteJjim(movie_title);
 		session.removeAttribute("jjim");
 		return getpage;
 		
