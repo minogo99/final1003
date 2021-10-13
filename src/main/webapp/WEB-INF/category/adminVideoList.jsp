@@ -10,7 +10,7 @@ videolist.jsp<br><br>
 	}
 	
 	function goUpdate(num,pn){
-		location.href="updatevideo.category?num="+num+"&pageNumber="+pn;
+		location.href="updateVideo.category?num="+num+"&pageNumber="+pn;
 	}
 	function goDelete(num,pn){
 		 var result = confirm("삭제하시겠습니까 ?");
@@ -47,7 +47,7 @@ text-align: center;
 		<%@include file="../admin/display/left.jsp" %>
 	</div>
 	<div id="videoList" class="col-lg-10" align="center">
-		<h2 style="color: green; font-weight: bold;">게시물 리스트</h2>
+		<h2 style="color:#0080FF; font-weight: bold;">게시물 리스트</h2>
 			<form action="videoList.member" method="get">
 				<select name="whatColumn">
 					<option value="">전체 검색</option>

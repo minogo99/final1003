@@ -37,8 +37,13 @@ public class DetailDao {
 		return cnt;
 	}
 
-	public DetailBean UpdateVideo(DetailBean db) {
-		sqlSessionTemplate.update(namespace+".updateVideo",db);
+	public int UpdateVideo(DetailBean db) {
+		int cnt = sqlSessionTemplate.update(namespace+".updateVideo",db);
+		return cnt;
+	}
+
+	public DetailBean selectNum(int num) {
+		DetailBean db = sqlSessionTemplate.selectOne(namespace+".selectNum",num);
 		return db;
 	}
 	
