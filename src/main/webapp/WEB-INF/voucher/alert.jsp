@@ -3,6 +3,10 @@
     <%@include file="./../common/common.jsp" %>
     <%@ page session="true" %>
     <script>
-    alert('${msg}');
-    location.href='login.member';
+    alert("${msg}");
+    if("${alertType}" == "coupon"){
+    	location.href="coin.voucher";
+    }else{
+        location.href="login.member";
+    }
 	</script>
