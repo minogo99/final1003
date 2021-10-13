@@ -17,6 +17,7 @@
 		<typeAlias type="main.model.MainBean" alias="MyMain"/>
 		<typeAlias type="main.detail.DetailMainBean" alias="MyDetailMain"/>
 		<typeAlias type="voucher.model.couponBean" alias="MyCoupon"/>
+		<typeAlias type="voucher.model.couponBean" alias="MyCoupon"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="mybatis/member.xml"/>
