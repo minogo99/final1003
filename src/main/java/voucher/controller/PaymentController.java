@@ -14,12 +14,12 @@ import commodity.model.CommodityDao;
 public class PaymentController {
 	
 	private final String command="/payment.voucher";
-	private final String getPage="";
+	private final String getPage="redirect:/pay.voucher";
 	
-	@Autowired
+	@Autowired(required = false)
 	CommodityDao cdao;
 	
-	@RequestMapping(value=command,method = RequestMethod.GET)
+	@RequestMapping(value=command,method=RequestMethod.GET)
 	public ModelAndView doAction(@RequestParam("num") int num) {
 		
 		CommodityBean cb=cdao.selectMember(num);
@@ -27,7 +27,6 @@ public class PaymentController {
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("cb",cb);
 		mav.setViewName(getPage);
-		
 		return mav;
 	}
 }

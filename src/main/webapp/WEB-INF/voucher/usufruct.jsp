@@ -15,13 +15,11 @@ usufruct.jsp<br><br>
 <script type="text/javascript">
 	function readyPay(event) {
 		
-		location.href="payment.voucher?num="+event.target.value;
-		
+		 location.href="payment.voucher?num="+event.target.value;
+		 /* document.getElementById('result').innerText = 
+			    event.target.value; */
 	}
-	function goPayment(){
-		
-		location.href="payment.voucher?num="+event.target.value;
-	}
+	
 </script>
 
 <img src="resources/images/flyersheet.jpg" width="500" height="500" >
