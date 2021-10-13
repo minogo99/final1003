@@ -22,11 +22,18 @@ public class MemberJjimDeleteController {
 	MemberJjimDao mjdao;
 	
 	@RequestMapping(value = command)
+<<<<<<< HEAD
 	public String doAction(MemberJjimBean jjim) {
 	
 		mjdao.deleteJjim(jjim);
 
 		return getpage+"?num="+jjim.getMovie_num();
+=======
+	public String doAction(@RequestParam(value="movie_title") String movie_title,HttpSession session) {
+		int cnt = mdao.deleteJjim(movie_title);
+		session.removeAttribute("jjim");
+		return getpage;
+>>>>>>> c28e6f50afc17ce18e2e43b61cdaaa7494f2e975
 		
 	}
 	

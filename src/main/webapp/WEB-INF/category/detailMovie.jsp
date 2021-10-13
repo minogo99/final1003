@@ -90,6 +90,7 @@ detailMovie.jsp
 			<a href="login.member"><button class="btn btn-primary">로그인</button></a>
 		</div>
 		<div align="left">
+<<<<<<< HEAD
 			<c:set var="flag" value="false"/>
 			<c:forEach var="jjim" items="${mjlists }">
 			<c:if test="${jjim.movie_num == db.num }">
@@ -101,6 +102,17 @@ detailMovie.jsp
 			</c:if>
 			<c:if test="${flag == 'false' }">
 			<a href="insertjjim.member?movie_num=${db.num}&user_id=${loginInfo.id}"><button class="btn btn-primary">찜하기</button></a>
+=======
+			
+			<c:if test="${jjim == null}">
+			<a href="insertjjim.member?num=${loginInfo.num}&movie_title=${db.title}&user_id=${loginInfo.id}"><button class="btn btn-primary">찜하기</button></a>
+			</c:if>
+			<c:if test="${jjim != null && jjim.movie_title == db.title}">
+			<a href="deletejjim.member?movie_title=${db.title}"><button class="btn btn-primary">찜하기 취소</button></a>
+			</c:if>
+			<c:if test="${jjim != null && jjim.movie_title != db.title }">
+			<a href="insertjjim.member?num=${loginInfo.num}&movie_title=${db.title}&user_id=${loginInfo.id}"><button class="btn btn-primary">찜하기</button></a>
+>>>>>>> c28e6f50afc17ce18e2e43b61cdaaa7494f2e975
 			</c:if>
 		</div>
 		<div>${db.genre }${db.runningT }분${db.grade }세</div>

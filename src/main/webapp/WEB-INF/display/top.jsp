@@ -86,7 +86,7 @@ function openPop(){
     	<a href="adminMain.admin">관리자 페이지</a>
     </c:if> 
       <c:if test="${loginInfo.name ne '관리자'}" >
-    <a href="mypage.member?num=${loginInfo.num}">마이페이지</a>
+    <a href="mypage.member?num=${loginInfo.num}&movie_title=${db.title}">마이페이지</a>
      
     <a href="userupdate.member?num=${loginInfo.num}">회원 정보 수정</a>
     <a href="#">시청기록</a>

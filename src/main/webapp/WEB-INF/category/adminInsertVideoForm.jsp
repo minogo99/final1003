@@ -40,7 +40,7 @@ td{
 	<div id="videoList" class="col-lg-10" align="center">
 		
 		<div>
-			<h2 style="color: green; font-weight: bold;">영상 게시물 추가창</h2>	
+			<h2 style="color:#0080FF; font-weight: bold;">영상 게시물 추가창</h2>	
 			<div>
 				<form action="adminInsertVideo.category" method="post" enctype="multipart/form-data">
 					<fieldset>

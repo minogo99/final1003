@@ -96,4 +96,27 @@ public class MemberDao{
 		int cnt = sqlSessionTemplate.selectOne(namespace+".passwordCheck",mb);
 		return 0;
 	}
+<<<<<<< HEAD
+=======
+
+	public int insertJjim(MemberJjimBean jjim) {
+		int cnt = sqlSessionTemplate.insert(namespace+".insertJjim",jjim);
+		return cnt;
+	}
+
+	public int deleteJjim(String movie_title) {
+		int cnt = sqlSessionTemplate.delete(namespace + ".deleteJjim",movie_title);
+		return cnt;
+	}
+
+	public List<MemberJjimBean> getjjimList() {
+		List<MemberJjimBean> lists = new ArrayList<MemberJjimBean>();
+		lists = sqlSessionTemplate.selectList(namespace + ".getjjimList");
+		return lists;
+	}
+
+
+	
+	
+>>>>>>> c28e6f50afc17ce18e2e43b61cdaaa7494f2e975
 }

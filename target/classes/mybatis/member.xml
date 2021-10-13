@@ -61,5 +61,19 @@ select * from members where name = #{name} and id = #{id}
 <select id="getByNumData" resultType="MyMember">
 select * from members where num = #{num}
 </select>
+<<<<<<< HEAD
+=======
+<insert id="insertJjim">
+	insert into jjim values(#{num},#{movie_title},#{user_id})
+</insert>
+<delete id="deleteJjim">
+	delete from jjim where movie_title = #{movie_title}
+</delete>
+>>>>>>> c28e6f50afc17ce18e2e43b61cdaaa7494f2e975
+
+<select id="getjjimList" resultType="MyMember">
+	select movie_title from jjim
+</select>
+
 
 </mapper>
