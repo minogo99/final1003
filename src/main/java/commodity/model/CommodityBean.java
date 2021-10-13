@@ -1,4 +1,4 @@
-package voucher.model;
+package commodity.model;
 
 public class CommodityBean {
 	
@@ -30,6 +30,5 @@ public class CommodityBean {
 	public void setPrice(int price) {
 		this.price = price;
 	}
-	
 	
 }
