@@ -226,14 +226,10 @@ cp_usedate date,
 cp_check varchar2(10) default 'false' 
 );
 
-insert into coupon values(coupon_seq.nextval,'','a','1234',0.4,sysdate,'2022-10-20','',default);
-
-<<<<<<< HEAD
-insert into coupon values(coupon_seq.nextval,'','a','123456',0.4,sysdate,'2022-9-27','',default);
-  
-=======
-insert into coupon values(coupon_seq.nextval,'','a','12345',0.4,sysdate,'2020-9-27','',default);
-
+insert into coupon values(coupon_seq.nextval,'','a','1234',0.4,'','2022-10-20','',default);
+//쿠폰등록 케이스
+insert into coupon values(coupon_seq.nextval,'','a','1234567',0.4,'','2020-9-27','',default);
+//기간만료 케이스
 
 
 drop sequence watch_seq;
