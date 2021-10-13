@@ -19,8 +19,13 @@
 		delete from video_c where vnum=#{num}
 	</delete>
 	<insert id="updateVideo">
-		update video set 
+		update video_c set 
 		title=#{title},content=#{content},runningT=#{runningT},genre=#{genre},nation=#{nation},
 		actor=#{actor},grade=#{grade},day=#{day},day=#{series} where vnum=#{num}
 	</insert>
+	
+	<select id="selectNum" resultType="MyC_Detail">
+		select * from video_c where vnum=#{num}
+	</select>
+	
 </mapper>
