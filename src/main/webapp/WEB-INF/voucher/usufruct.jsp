@@ -17,7 +17,7 @@ usufruct.jsp<br><br>
 		
 		location.href="payment.voucher?num="+event.target.value;
 		
-		}
+	}
 	function goPayment(){
 		
 		location.href="payment.voucher?num="+event.target.value;
@@ -85,7 +85,17 @@ wavve 이용권
 	</tr>
 </table>
 <div> 
-	<div id='readyPay'></div>
+	<div>
+		<div id="name">
+			${cb.name }
+		</div>
+		<div id="content">
+			${cb.content }
+		</div>
+		<div id="price">
+			 ${cb.price }원
+		</div>
+	</div>
 	<input type="button" value="결제하기" onclick="goPayment()">
 </div>
 </div>

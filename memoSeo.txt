@@ -186,30 +186,31 @@ increment by 1
   maxvalue 10000
   nocache;
 
+
 drop table commodity;
 create table commodity(
 num number primary key,
-name varchar2(30) not null,
+name varchar2(50) not null,
 content varchar2(100) not null,
 price number not null
 );
 
-insert into order values(commodity_seq.nextval,'Basic',
+insert into commodity values(commodity_seq.nextval,'Basic',
 '동시시청 1회선,HD화질,모바일+PC',7900);
 
-insert into order values(commodity_seq.nextval,'Standard',
+insert into commodity values(commodity_seq.nextval,'Standard',
 '동시시청 2회선,FHD화질,전체 디바이스',10900);
 
-insert into order values(commodity_seq.nextval,'Premium',
+insert into commodity values(commodity_seq.nextval,'Premium',
 '동시시청 4회선,최고화질,전체 디바이스',13900);
 
-insert into order values(commodity_seq.nextval,'Basic X FLO 무제한',
+insert into commodity values(commodity_seq.nextval,'Basic X FLO 무제한',
 '동시시청 1회선,HD화질,모바일+PC',13750);
 
-insert into order values(commodity_seq.nextval,'Standard X Bugs 듣기',
+insert into commodity values(commodity_seq.nextval,'Standard X Bugs 듣기',
 '동시시청 1회선,HD화질,모바일+PC',13750);
 
-insert into order values(commodity_seq.nextval,'Premium X KB 나라사랑카드',
+insert into commodity values(commodity_seq.nextval,'Premium X KB 나라사랑카드',
 '동시시청 1회선,HD화질,모바일+PC',7900);
 
 
