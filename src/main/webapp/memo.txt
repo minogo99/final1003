@@ -198,7 +198,7 @@ values(board_seq.nextval,'a33','a33','2015-1-1',0,7,1,1,'내용33');
 
 
 commit;
-<<<<<<< HEAD
+
  insert into video(num,title,nation,category,genre,grade,actor,image)
   2  values(vd_seq.nextval,'기생충','한국','영화','액션,스릴러','18','송강호,이선균,이정은');
   
@@ -226,7 +226,7 @@ cp_check varchar2(10) default 'false'
 insert into coupon values(coupon_seq.nextval,'','a','1234',0.4,sysdate,'2022-10-20','',default);
 
 insert into coupon values(coupon_seq.nextval,'','a','12345',0.4,sysdate,'2020-9-27','',default);
-=======
+
 
 
 drop sequence watch_seq;
@@ -237,7 +237,7 @@ create sequence watch_seq
   maxvalue 10000
   nocache;
   
->>>>>>> 3c6b9b18cf6f802a7705775b7757c104f7577d98
+
   
 drop table watch;
 create table watch(
@@ -257,6 +257,6 @@ create sequence jjim_seq
 drop table jjim;
 create table jjim(
 num number not null,
-movie_title varchar2(50) not null ,
+movie_title varchar2(50) not null,
 user_id varchar2(30) not null
 );

@@ -127,13 +127,13 @@ detailMovie.jsp<br><br>
 							</c:forEach>
 						</figure>
 						<h3><span class="icon all ir_pm">
-						<c:if test="${glist.grade eq 18 }">
+						<c:if test="${glist.grade eq '18' }">
 						<img src="resources/images/icon/18.svg" class="icon_img">
 						</c:if>
-						<c:if test="${glist.grade eq 15 }">
+						<c:if test="${glist.grade eq '15' }">
 						<img src="resources/images/icon/15.svg" class="icon_img">
 						</c:if>
-						<c:if test="${glist.grade eq 12 }">
+						<c:if test="${glist.grade eq '12' }">
 						<img src="resources/images/icon/12.svg" class="icon_img">
 						</c:if>
 						<c:if test="${glist.grade eq 'all' }">
