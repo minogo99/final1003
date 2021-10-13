@@ -14,12 +14,13 @@ usufruct.jsp<br><br>
 </style>
 <script type="text/javascript">
 	function readyPay(event) {
-		  document.getElementById('readyPay').innerText = 
-		    event.target.value;
+		
+		location.href="payment.voucher?num="+event.target.value;
+		
 		}
 	function goPayment(){
 		
-		location.href="payment.voucher"
+		location.href="payment.voucher?num="+event.target.value;
 	}
 </script>
 

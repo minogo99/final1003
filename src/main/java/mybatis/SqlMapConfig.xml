@@ -17,7 +17,7 @@
 		<typeAlias type="main.model.MainBean" alias="MyMain"/>
 		<typeAlias type="main.detail.DetailMainBean" alias="MyDetailMain"/>
 		<typeAlias type="voucher.model.couponBean" alias="MyCoupon"/>
-		<typeAlias type="voucher.model.couponBean" alias="MyCoupon"/>
+		<typeAlias type="voucher.model.CommodityBean" alias="MyCommodity"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="mybatis/member.xml"/>
@@ -31,5 +31,6 @@
 		<mapper resource="mybatis/main.xml" />
 		<mapper resource="mybatis/maindetail.xml" />
 		<mapper resource="mybatis/coupon.xml" />
+		<mapper resource="mybatis/commodity.xml" />
 	</mappers>
 </configuration>

@@ -13,9 +13,9 @@ public class PaymentController {
 	private final String getPage="";
 	
 	@RequestMapping(value=command,method = RequestMethod.GET)
-	public ModelAndView doAction(@RequestParam("pay") String selectpay) {
+	public ModelAndView doAction(@RequestParam("num") int num) {
 		
-		System.out.println(selectpay);
+		System.out.println(num);
 		
 		ModelAndView mav=new ModelAndView();
 		mav.setViewName(getPage);
