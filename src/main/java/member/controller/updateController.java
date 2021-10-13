@@ -53,12 +53,6 @@ public class updateController {
 			return mav;
 		}
 
-		
-		int cnt = mdao.updateMember(bean);
-		MemberBean loginInfo = mdao.getByNumData(num);
-		session.setAttribute("loginInfo", loginInfo);
-		mav.setViewName(gotoPage);
-
 		MemberBean DBmb = mdao.getByNumData(num);
 		if(DBmb.getPassword().equals(mb.getPassword())) {
 			int cnt = mdao.updateMember(mb);
@@ -71,10 +65,6 @@ public class updateController {
 			mav.addObject("mb", mb);
 			mav.setViewName(getPage);
 		}
- main
 		return mav;
 	}
-
-	
-	
 }

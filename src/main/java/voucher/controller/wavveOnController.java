@@ -14,8 +14,9 @@ public class wavveOnController {
 	@RequestMapping(value=command,method =RequestMethod.GET )
 	public ModelAndView doAction() {
 		ModelAndView mav=new ModelAndView();
-		
+			
 		mav.setViewName(getPage);
 		return mav;
+		
 	}
 }

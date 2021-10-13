@@ -1,6 +1,10 @@
 package member.controller;
 
-import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,26 +13,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import member.model.MemberDao;
 import member.model.MemberJjimBean;
+import member.model.MemberJjimDao;
 
 @Controller
 public class MemberJjimInsertController {
 
 	private final String command ="insertjjim.member";
-	private final String getpage = "redirect:/jjimlist.member";
+	private final String getpage = "redirect:detailMovie.category";
 	
 	@Autowired
-	MemberDao mdao;
+	MemberJjimDao mjdao;
+
 	
 	@RequestMapping(value=command)
-	public String doAction(MemberJjimBean jjim,
-						   HttpSession session) {
+	public String doAction(MemberJjimBean jjim) {
 
-		session.setAttribute("jjim", jjim);
-		System.out.println("asdasdcccccc"+jjim.getMovie_title());
-		int cnt = mdao.insertJjim(jjim);
-		return getpage;
-	}
-	
+		int cnt = mjdao.insertJjim(jjim);
+
+		return getpage+"?num="+jjim.getMovie_num();
+}
 }
