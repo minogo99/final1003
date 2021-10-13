@@ -10,6 +10,7 @@ public class MainBean {
 	private String image;
 	private MultipartFile upload;
 	private String upload_old;
+	
 	public int getNum() {
 		return num;
 	}

@@ -6,6 +6,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import category.model.CategoryBean;
+
 @Component
 public class MemberJjimDao {
 
@@ -19,7 +21,6 @@ public class MemberJjimDao {
 		int cnt = sqlSessionTemplate.insert(namespace+".insertJjim",jjim);
 		return cnt;
 	}
-
 	public int deleteJjim(MemberJjimBean jjim) {
 		int cnt = sqlSessionTemplate.delete(namespace + ".deleteJjim",jjim);
 		return cnt;
@@ -28,5 +29,8 @@ public class MemberJjimDao {
 		List<MemberJjimBean> mjlists = sqlSessionTemplate.selectList(namespace+".getByData",id);
 		return mjlists;
 	}
-	
+	public List<CategoryBean> getByMdata(String id){
+		List<CategoryBean> cblists = sqlSessionTemplate.selectList(namespace+".getByMdata",id);
+		return cblists;
+	}
 }
