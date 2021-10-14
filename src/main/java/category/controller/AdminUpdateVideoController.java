@@ -39,9 +39,7 @@ public class AdminUpdateVideoController {
 		ModelAndView mav = new ModelAndView();
 		
 		CategoryBean cb =cdao.selectNum(num); 
-		DetailBean db =  ddao.selectNum(num);
 		
-		mav.addObject("db",db);
 		mav.addObject("cb",cb);
 		mav.addObject("pageNumber",pageNumber);
 		mav.setViewName(getPage);
@@ -56,7 +54,7 @@ public class AdminUpdateVideoController {
 		String category=cb.getCategory();
 		
 		String root_path = request.getSession().getServletContext().getRealPath("/");  
-	    String attach_path = "resources/images/poster/"+category+"/";
+	    String attach_path = "resources/images/poster/";
 	    String filename = file.getOriginalFilename();
 	    
 		if(file.getOriginalFilename() != null && file.getOriginalFilename() != "") {
