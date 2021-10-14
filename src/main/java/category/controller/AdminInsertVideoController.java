@@ -45,7 +45,7 @@ public class AdminInsertVideoController {
 		System.out.println(cb.getTitle());
 		
 		String root_path = request.getSession().getServletContext().getRealPath("/");  
-	    String attach_path = "resour ces/images/poster/";
+	    String attach_path = "resources/images/poster/";
 	    String filename = file.getOriginalFilename();
 	    System.out.println(filename);
 	    System.out.println(root_path + attach_path + filename);
