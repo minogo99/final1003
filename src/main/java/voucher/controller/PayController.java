@@ -2,7 +2,6 @@ package voucher.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.net.http.HttpResponse;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -36,7 +35,6 @@ public class PayController {
 			mav.addObject("msg", "로그인을 먼저 해야합니다.");
 			session.setAttribute("destination", "redirect:pay.voucher");
 			mav.setViewName("alert");
-			
 		}else {
 			mav.setViewName(getPage);
 		}
