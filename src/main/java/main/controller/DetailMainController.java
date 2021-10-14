@@ -15,9 +15,6 @@ import main.detail.DetailMainBean;
 import main.detail.DetailMainDao;
 import main.model.MainBean;
 import main.model.MainDao;
-import member.model.MemberBean;
-import member.model.MemberJjimBean;
-import member.model.MemberJjimDao;
 
 @Controller
 public class DetailMainController {

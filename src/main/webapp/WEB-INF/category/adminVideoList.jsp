@@ -84,7 +84,7 @@ text-align: center;
 					<td><a href="detailvideo.category?num=${video.num }&pageNumber=${pageInfo.pageNumber}">${video.title }</a></td>
 					<td>${video.category }</td>			
 					<td>${video.grade }</td>
-					<td><img src="resources/images/poster/${video.category }/${video.image }.jpg" width="25px;" height="25px;"></td>
+					<td><img src="resources/images/poster/${video.image }.jpg" width="25px;" height="25px;"></td>
 					<td><input type="button" value="수정"
 						onClick="goUpdate(${video.num },${pageInfo.pageNumber})"></td>
 					<td><input type="button" value="삭제"

@@ -55,7 +55,7 @@ text-align: center;
 <table border="1" align="center" width="600">
 	<tr>
 		<th>영상 이미지</th>
-		<td><img src="resources/images/poster/${cb.category }/${cb.image }.jpg"> </td>
+		<td><img src="resources/images/poster/${cb.image }.jpg" width="300" height="300"> </td>
 	</tr>
 	<tr>
 		<th>제목</th>
