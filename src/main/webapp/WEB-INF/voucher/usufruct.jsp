@@ -100,7 +100,7 @@ wavve 이용권
 		</div>
 	</div>
 	<div>
-		<input type="button" value="결제하기" onclick="location.href='paymentSet.voucher?num='+${cb.num}">
+		<input type="button" value="결제하기" onclick="location.href='paymentSet.voucher?cnum='+${cb.num}+'&mnum='+${loginInfo.num}">
 	</div>
 </div>
 </div>

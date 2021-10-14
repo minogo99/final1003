@@ -298,6 +298,5 @@ drop table orderdetails;
 create table orderdetails(
   odid number primary key, 
   oid number references orders(onum) on delete cascade, -- 상품번호
-  pnum number references commodity(num) on delete set null,
-  qty number
+  pnum number references commodity(num) on delete set null
 ); 

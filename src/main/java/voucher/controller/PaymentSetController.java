@@ -19,7 +19,7 @@ public class PaymentSetController {
 	CommodityDao cdao;
 	
 	@RequestMapping(value=command,method = RequestMethod.GET)
-	public ModelAndView goPage(@RequestParam("num") int num) {
+	public ModelAndView goPage(@RequestParam("cnum") int num) {
 		
 		System.out.println("실행됩니다");
 		
