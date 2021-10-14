@@ -13,11 +13,15 @@ usufruct.jsp<br><br>
 	}
 </style>
 <script type="text/javascript">
-	function readyPay(event) {
+	function readyPay(paymemt) {
 		
-		 location.href="payment.voucher?num="+event.target.value;
+		 location.href="payment.voucher?num="+paymemt;
+		 
 		 /* document.getElementById('result').innerText = 
 			    event.target.value; */
+	}
+	function paymentSet(){
+		
 	}
 	
 </script>
@@ -31,27 +35,28 @@ usufruct.jsp<br><br>
 
 wavve 이용권
 방송 + LIVE + wavvie영화 + 해외시리즈
-<form action="" method="post">
+
 <div class="dt">
 <table class="tt">
 	<tr bgcolor="gray" >
 		<td >
-			<input type="radio" name="paymemt" value=1
-			 onclick="readyPay(event)">
+		
+			<input type="radio" name="paymemt" value=1 <c:if test="${cb.num eq 1 }">checked</c:if>
+			 onclick="readyPay(this.value)" >
 			Basic 동시시청 1회선,HD화질,모바일+PC 7900원<BR>
 		</td>
 	</tr>
 	<tr bgcolor="gray">
 		<td>
-			<input type="radio" name="paymemt" value=2
-			 onclick="readyPay(event)">
+			<input type="radio" name="paymemt" value=2 <c:if test="${cb.num eq 2 }">checked</c:if>
+			 onclick="readyPay(this.value)">
 			Standard 동시시청 2회선,FHD화질,전체 디바이스 10900원<BR>
 		</td>
 	</tr>
 	<tr bgcolor="gray">
 		<td>
-			<input type="radio" name="paymemt" value=3
-			 onclick="readyPay(event)">
+			<input type="radio" name="paymemt" value=3 <c:if test="${cb.num eq 3 }">checked</c:if>
+			 onclick="readyPay(this.value)">
 			Premium 동시시청 4회선,최고화질,전체 디바이스 13900원
 		</td>
 	</tr>
@@ -62,22 +67,22 @@ wavve 이용권
 <table class="tt">
 	<tr bgcolor="gray">
 		<td>
-			<input type="radio" name="paymemt" value=4 
-			onclick="readyPay(event)">
+			<input type="radio" name="paymemt" value=4  <c:if test="${cb.num eq 4 }">checked</c:if>
+			onclick="readyPay(this.value)">
 			Basic X FLO 무제한 동시시청 1회선,HD화질,모바일+PC 13750원<BR>
 		</td>
 	</tr>
 	<tr bgcolor="gray">
 		<td>
-			<input type="radio" name="paymemt" value=5 
-			onclick="readyPay(event)">
+			<input type="radio" name="paymemt" value=5 <c:if test="${cb.num eq 5 }">checked</c:if>
+			onclick="readyPay(this.value)">
 			Standard X Bugs 듣기 동시시청 1회선,HD화질,모바일+PC 13750원<BR>
 		</td>
 	</tr>
 	<tr bgcolor="gray">
 		<td>
-			<input type="radio" name="paymemt" value=6 
-			onclick="readyPay(event)">
+			<input type="radio" name="paymemt" value=6 <c:if test="${cb.num eq 6 }">checked</c:if>
+			onclick="readyPay(this.value)">
 			Premium X KB 나라사랑카드 동시시청 1회선,HD화질,모바일+PC 7900원
 		</td>
 	</tr>
@@ -94,10 +99,12 @@ wavve 이용권
 			 ${cb.price }원
 		</div>
 	</div>
-	<input type="button" value="결제하기" onclick="goPayment()">
+	<div>
+		<input type="button" value="결제하기" onclick="location.href='paymentSet.voucher?cnum='+${cb.num}+'&mnum='+${loginInfo.num}">
+	</div>
 </div>
 </div>
-</form>
+
 <br><Br>
 
 서비스 이용 주의사항 <br>

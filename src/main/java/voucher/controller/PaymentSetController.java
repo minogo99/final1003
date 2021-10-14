@@ -11,23 +11,23 @@ import commodity.model.CommodityBean;
 import commodity.model.CommodityDao;
 
 @Controller
-public class PaymentController {
-	
-	private final String command="/payment.voucher";
-	private final String getPage="payMain";
+public class PaymentSetController {
+	private final String command="/paymentSet.voucher";
+	private final String goPage="payment";
 	
 	@Autowired(required = false)
 	CommodityDao cdao;
 	
-	@RequestMapping(value=command,method=RequestMethod.GET)
-	public ModelAndView doAction(@RequestParam("num") int num) {
+	@RequestMapping(value=command,method = RequestMethod.GET)
+	public ModelAndView goPage(@RequestParam("cnum") int num) {
 		
-		System.out.println(num);
+		System.out.println("실행됩니다");
+		
 		CommodityBean cb=cdao.selectMember(num);
 		
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("cb",cb);
-		mav.setViewName(getPage);
+		mav.setViewName(goPage);
 		return mav;
 	}
 }

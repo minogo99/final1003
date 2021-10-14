@@ -268,4 +268,35 @@ insert into video_c values(video_c_seq.nextval,24,'미나리','어느 한국 가족의 원�
 insert into video_c values(video_c_seq.nextval,25,'존윅','그를 건드리지 말았어야 했다. 상대를 잘못 고른 적들을 향한 통쾌한 복수!',101,'액션','해외','키아누리브스','19','2015-01-21',0);
 commit;
  
- 
+
+drop sequence orders_seq;
+create sequence orders_seq
+increment by 1
+  start with 1
+  minvalue 1
+  maxvalue 10000
+  nocache;
+
+drop table orders;
+create table orders(
+	onum number primary key, -- 상품번호
+	mnum number references members(num) on delete set null, -- 멤버 외래키
+	orderdate date default sysdate -- 오늘 날자
+);
+select * from orders;
+
+drop sequence orderdetails_seq;
+create sequence orderdetails_seq
+increment by 1
+  start with 1
+  minvalue 1
+  maxvalue 10000
+  nocache;
+select * from orderdetails;
+
+drop table orderdetails;
+create table orderdetails(
+  odid number primary key, 
+  oid number references orders(onum) on delete cascade, -- 상품번호
+  pnum number references commodity(num) on delete set null
+); 
