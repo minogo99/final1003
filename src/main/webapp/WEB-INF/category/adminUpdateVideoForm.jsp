@@ -33,7 +33,7 @@ td{
 }
 </style>
  <script>
-  $("#gdsImg").change(function(){
+  $("#Img").change(function(){
    if(this.files && this.files[0]) {
     var reader = new FileReader;
     reader.onload = function(data) {
@@ -95,11 +95,11 @@ td{
 				</select>
 			</div>
 			<div class="inputArea">
- <label for="gdsImg">이미지</label>
- <input type="file" id="gdsImg" name="file" />
+ <label for="Img">이미지</label>
+ <input type="file" id="image" name="file" />
  <div class="select_img">
   <img src="resources/images/poster/${cb.image}.jpg" width="150px" height="150px">
-  <input type="hidden" name="gdsImg" value="${cb.image}" />
+  <input type="hidden" name="image" value="${cb.image}" />
   
  </div>
  

@@ -41,13 +41,14 @@ td{
 				<form action="adminLastUpdateVideo.category" method="post" enctype="multipart/form-data">
 					<fieldset>
 			<div class="form-group">
-				<input type="text" name="vnum" value="${cb.num }">
+				<input type="text" name="vnum" value="${cb.num }"  readonly>
 			<label for="title" class="form-label mt-4">제목</label>
 				<input type="text" class="form-control" name="title" value="${cb.title }" readonly>
+				
 			</div>
 		<div class="form-group">
 				<label for="content" class="form-label mt-4">줄거리</label>
-				<textarea rows="10" cols="50" name="content" >${db."content" }</textarea>
+				<textarea rows="10" cols="50" name="content" >${db.content }</textarea>
 			</div>
 			<div class="form-group">
 				<label for="runningT" class="form-label mt-4">러닝타임</label>
