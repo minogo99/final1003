@@ -62,10 +62,10 @@
 	</insert>
 	
 	
-	<insert id="updateVideo">
+	<update id="updateVideo">
 		update video set 
 		title=#{title},category=#{category},grade=#{grade},image=#{image} where num=#{num}
-	</insert>
+	</update>
 	
 	<delete id="detailVideoDelete">
 		delete from video where num=#{num}

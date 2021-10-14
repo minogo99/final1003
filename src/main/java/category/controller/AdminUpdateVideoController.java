@@ -46,35 +46,40 @@ public class AdminUpdateVideoController {
 		return mav;
 	}
 	@RequestMapping(value=command,method = RequestMethod.POST)
-	public ModelAndView doAction(@RequestParam("file") MultipartFile file,CategoryBean cb,HttpServletRequest request,
-			@Valid DetailBean db) {
-		
+	public ModelAndView doAction(@RequestParam("file") MultipartFile file,CategoryBean cb,HttpServletRequest request) {
+		System.out.println("오니오니");
 		ModelAndView mav=new ModelAndView();
 		
-		String category=cb.getCategory();
 		
 		String root_path = request.getSession().getServletContext().getRealPath("/");  
 	    String attach_path = "resources/images/poster/";
 	    String filename = file.getOriginalFilename();
 	    
-		if(file.getOriginalFilename() != null && file.getOriginalFilename() != "") {
+		if(filename != null && !filename.equals("")) {
+			System.out.println("사진 바꿈");
 			new File(root_path + attach_path + filename).delete();	
 			
 			new File(root_path + attach_path + filename);
 		}else {
-			 
-			cb.setImage(filename);		 			  
+			cb.setImage(request.getParameter("image"));		 			  
+			System.out.println("사진 안바꿈");
 		 }	    
 	    System.out.println(filename);
 	    int cnt = cdao.UpdateVideo(cb);
-	    DetailBean dcb= ddao.selectNum(cb.getNum()); 
-	    
+	    System.out.println("업데이트");
+	    CategoryBean ncb= cdao.selectNum(cb.getNum());  
 	    if(cnt>0) {
-	    	System.out.println(dcb.getNum());
-	    	mav.addObject("cb",cb);
-	    	mav.addObject("db",dcb);
+	    	System.out.println("업데이트성공");
+	    	System.out.println(ncb.getNum());
+	    	DetailBean db = ddao.selectNum(ncb.getNum()); 	  
+	    	System.out.println(cb.getGrade());
+			System.out.println(cb.getCategory());
+			System.out.println(cb.getTitle());
+	    	mav.addObject("cb",ncb);
+	    	mav.addObject("db",db);	    	
 	    	mav.setViewName(gotoPage);
 	    }else {
+	    	System.out.println("실패");
 	    	mav.setViewName(getPage);
 	    }
 	    
@@ -82,21 +87,13 @@ public class AdminUpdateVideoController {
 	}
 	
 	  @RequestMapping(value="/adminLastUpdateVideo.category",method=RequestMethod.POST)
-	  public ModelAndView goPage(DetailBean db ,BindingResult result) {
-		 System.out.println("ss");
-		  ModelAndView mav=new ModelAndView();
+	  public ModelAndView goPage(DetailBean db,CategoryBean cb, BindingResult result) {
 		  
-		  if(result.hasErrors()) {
-			  System.out.println("에러");
-			  mav.setViewName(gotoPage); 
-			  
-		  }
-		  else { 
-			  int cnt = ddao.UpdateVideo(db);
-	 
-			  mav.setViewName("redirect:/videoList.category");
-		  }
-		  return mav;
+		  ddao.UpdateVideo(db);
+		  System.out.println("성공");
+		  ModelAndView mav=new ModelAndView();
+			mav.setViewName("redirect:/videoList.category");
+			return mav;
 	 }
 	 
 }
