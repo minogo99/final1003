@@ -1,3 +1,4 @@
+<%@page import="category.model.CategoryBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="../admin/display/top.jsp" %>
@@ -31,6 +32,17 @@ td{
 	width: 70%;
 }
 </style>
+ <script>
+  $("#gdsImg").change(function(){
+   if(this.files && this.files[0]) {
+    var reader = new FileReader;
+    reader.onload = function(data) {
+     $(".select_img img").attr("src", data.target.result).width(500);        
+    }
+    reader.readAsDataURL(this.files[0]);
+   }
+  });
+ </script>
 
 <div class="row" id="container">
 	<div class="col-lg-2">
@@ -47,7 +59,7 @@ td{
 					<fieldset>
 			<div class="form-group">
 			<label for="title" class="form-label mt-4">제목</label>
-				<input type="text" class="form-control" name="title" value="${db.title}">
+				<input type="text" class="form-control" name="title" value="${cb.title}">
 			</div>
 		<div class="form-group">
 				<label for="category" class="form-label mt-4">카테고리</label>
@@ -82,9 +94,17 @@ td{
 					</c:if>>12</option>
 				</select>
 			</div>
-			<div>
-				<input type="file" name="file">
-			</div>
+			<div class="inputArea">
+ <label for="gdsImg">이미지</label>
+ <input type="file" id="gdsImg" name="file" />
+ <div class="select_img">
+  <img src="resources/images/poster/${cb.image}.jpg" width="150px" height="150px">
+  <input type="hidden" name="gdsImg" value="${cb.image}" />
+  
+ </div>
+ 
+
+</div>
 		</fieldset>
 		<br><br>
 			<div align="center">
