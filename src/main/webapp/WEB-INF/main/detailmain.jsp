@@ -74,6 +74,7 @@
 		<div align="right">
 			<a href="login.member"><button class="btn btn-primary">로그인</button></a>
 		</div>
+		
 		<div>${dmb.genre } ${dmb.runningT }분 ${dmb.grade}세</div>
 		<div>
 			<span id="toggle" onclick="openCloseToc()">더보기</span>
@@ -101,7 +102,7 @@
 						<figure>
 							<c:forEach var="clist" items="${clists }">
 								<c:if test="${glist.vnum eq clist.num}">
-									<img src="resources/images/poster/main/${clist.image}.jpg" class="poster_img"/>
+									<img src="resources/images/poster/${clist.image}.jpg" class="poster_img"/>
 								</c:if>
 							</c:forEach>
 						</figure>
