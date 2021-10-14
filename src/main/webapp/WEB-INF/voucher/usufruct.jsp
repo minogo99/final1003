@@ -31,26 +31,27 @@ usufruct.jsp<br><br>
 
 wavve 이용권
 방송 + LIVE + wavvie영화 + 해외시리즈
-<form action="" method="post">
+<form action="payment.voucher?num=${cb.num }" method="post">
 <div class="dt">
 <table class="tt">
 	<tr bgcolor="gray" >
 		<td >
-			<input type="radio" name="paymemt" value=1
-			 onclick="readyPay(event)">
+		
+			<input type="radio" name="paymemt" value=1 <c:if test="${cb.num eq 1 }">checked</c:if>
+			 onclick="readyPay(event)" >
 			Basic 동시시청 1회선,HD화질,모바일+PC 7900원<BR>
 		</td>
 	</tr>
 	<tr bgcolor="gray">
 		<td>
-			<input type="radio" name="paymemt" value=2
+			<input type="radio" name="paymemt" value=2 <c:if test="${cb.num eq 2 }">checked</c:if>
 			 onclick="readyPay(event)">
 			Standard 동시시청 2회선,FHD화질,전체 디바이스 10900원<BR>
 		</td>
 	</tr>
 	<tr bgcolor="gray">
 		<td>
-			<input type="radio" name="paymemt" value=3
+			<input type="radio" name="paymemt" value=3 <c:if test="${cb.num eq 3 }">checked</c:if>
 			 onclick="readyPay(event)">
 			Premium 동시시청 4회선,최고화질,전체 디바이스 13900원
 		</td>
@@ -62,21 +63,21 @@ wavve 이용권
 <table class="tt">
 	<tr bgcolor="gray">
 		<td>
-			<input type="radio" name="paymemt" value=4 
+			<input type="radio" name="paymemt" value=4  <c:if test="${cb.num eq 4 }">checked</c:if>
 			onclick="readyPay(event)">
 			Basic X FLO 무제한 동시시청 1회선,HD화질,모바일+PC 13750원<BR>
 		</td>
 	</tr>
 	<tr bgcolor="gray">
 		<td>
-			<input type="radio" name="paymemt" value=5 
+			<input type="radio" name="paymemt" value=5 <c:if test="${cb.num eq 5 }">checked</c:if>
 			onclick="readyPay(event)">
 			Standard X Bugs 듣기 동시시청 1회선,HD화질,모바일+PC 13750원<BR>
 		</td>
 	</tr>
 	<tr bgcolor="gray">
 		<td>
-			<input type="radio" name="paymemt" value=6 
+			<input type="radio" name="paymemt" value=6 <c:if test="${cb.num eq 6 }">checked</c:if>
 			onclick="readyPay(event)">
 			Premium X KB 나라사랑카드 동시시청 1회선,HD화질,모바일+PC 7900원
 		</td>
@@ -94,7 +95,7 @@ wavve 이용권
 			 ${cb.price }원
 		</div>
 	</div>
-	<input type="button" value="결제하기" onclick="goPayment()">
+	<input type="submit" value="결제하기" >
 </div>
 </div>
 </form>
