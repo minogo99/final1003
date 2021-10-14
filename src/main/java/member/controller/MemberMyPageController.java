@@ -36,9 +36,9 @@ public class MemberMyPageController {
 		
 		MemberBean member = memberDao.getMember(num);
 		mav.addObject("member", member);
-		System.out.println(member.getId());
+
 		List<CategoryBean> cblists = mjdao.getByMdata(member.getId());
-		System.out.println(cblists.size());
+
 		List<CategoryBean> wblists = mwdao.getByMemdata(member.getId());
 		mav.addObject("cblists", cblists);
 		mav.addObject("wblists", wblists);

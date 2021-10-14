@@ -1,10 +1,13 @@
 package member.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import category.model.CategoryBean;
+import member.model.MemberBean;
 import member.model.MemberJjimBean;
 import member.model.MemberJjimDao;
 
@@ -27,10 +32,19 @@ public class MemberJjimInsertController {
 
 	
 	@RequestMapping(value=command)
-	public String doAction(MemberJjimBean jjim) {
-
+	public ModelAndView doAction(MemberJjimBean jjim,HttpSession session,HttpServletResponse response) throws IOException {
+		
+		PrintWriter pw = response.getWriter();
+		response.setContentType("text/html;charset=UTF-8");
+		
+		ModelAndView mav = new ModelAndView();
+		String msg = "";
+		
+		MemberBean loginInfo = (MemberBean)session.getAttribute("loginInfo");
+		
 		int cnt = mjdao.insertJjim(jjim);
+		mav.setViewName(getpage+"?num="+jjim.getMovie_num());
 
-		return getpage+"?num="+jjim.getMovie_num();
+		return mav;
 }
 }

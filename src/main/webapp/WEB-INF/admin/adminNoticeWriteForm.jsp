@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 
 <style>
+
 #writeForm {
 	width: 600px;
 }
