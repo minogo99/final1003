@@ -14,6 +14,7 @@ import member.model.MemberBean;
 import member.model.MemberDao;
 import member.model.MemberJjimBean;
 import member.model.MemberJjimDao;
+import member.model.MemberWatchDao;
 
 @Controller
 public class MemberMyPageController {
@@ -26,6 +27,9 @@ public class MemberMyPageController {
 	@Autowired
 	MemberJjimDao mjdao;
 	
+	@Autowired
+	MemberWatchDao mwdao;
+	
 	@RequestMapping(value=command)
 	public ModelAndView doAction(@RequestParam("num")int num) {
 		ModelAndView mav= new ModelAndView();
@@ -35,7 +39,9 @@ public class MemberMyPageController {
 		System.out.println(member.getId());
 		List<CategoryBean> cblists = mjdao.getByMdata(member.getId());
 		System.out.println(cblists.size());
+		List<CategoryBean> wblists = mwdao.getByMemdata(member.getId());
 		mav.addObject("cblists", cblists);
+		mav.addObject("wblists", wblists);
 		mav.setViewName(getPage);
 		return mav;
 	}

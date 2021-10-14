@@ -69,7 +69,7 @@ detailMovie.jsp<br><br>
 	<div class="infor">
 		<div class="infor_title">
 				${db.title }
-				<button name="view" onclick="">시청하기</button>
+				<a href="insertwatch.member?movie_num=${db.num}&user_id=${loginInfo.id}"><button name="view" class="btn btn-primary">시청하기</button></a>
 		</div>
 		<div align="right">
 			<a href="login.member"><button class="btn btn-primary">로그인</button></a>

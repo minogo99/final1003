@@ -29,9 +29,15 @@ table {
 <div align="center" class="my">
 	<div align="left">
 		<h5>시청 내역</h5>
-		<c:if test="${empty lists }">
+		<c:if test="${empty wblists }">
 			<div align="center">시청내역이 없습니다.</div>
 		</c:if>
+		<c:forEach var="watch" items="${wblists}">
+					<td><img src="resources/images/poster/${watch.image}.jpg"
+						width="200" height="200"></td>
+				</c:forEach>
+				<br>
+		<a href="deletewatch.member"><button align="right" class="btn btn-primary">시청기록 지우기</button></a>		
 		<br>
 		<hr>
 		<br>
