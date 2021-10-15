@@ -7,7 +7,8 @@ public class MemberJjimBean {
 	private String user_id;
 	
 	private String image;
-
+	private String category;
+	
 	public int getNum() {
 		return num;
 	}
@@ -38,6 +39,13 @@ public class MemberJjimBean {
 
 	public void setImage(String image) {
 		this.image = image;
+	}
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
 	public MemberJjimBean(int num, String movie_num, String user_id, String image) {

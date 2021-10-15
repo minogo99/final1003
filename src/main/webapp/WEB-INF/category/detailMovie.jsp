@@ -76,9 +76,8 @@
 		<div class="infor">
 			<div class="infor_title">${db.title }</div>
 			<div>
-				<a
-					href="insertwatch.member?movie_num=${db.num}&user_id=${loginInfo.id}"><button
-						name="view" class="btn btn-primary">시청하기</button></a>
+				<a href="insertwatch.member?movie_num=${db.num}&user_id=${loginInfo.id}"><button
+						name="view" class="btn btn-primary">시청하기</button></a>&nbsp;&nbsp;&nbsp;
 				<c:set var="flag" value="false" />
 				<c:forEach var="jjim" items="${mjlists }">
 					<c:if test="${jjim.movie_num == db.num }">

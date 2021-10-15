@@ -3,6 +3,7 @@ package member.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import member.model.MemberWatchDao;
 
@@ -10,15 +11,15 @@ import member.model.MemberWatchDao;
 public class MemberWatchDeleteController {
 
 	private final String command = "deletewatch.member";
-	private final String getPage = "redirect:/main.wa";
+	private final String getPage = "redirect:/mypage.member";
 	
 	@Autowired
 	MemberWatchDao mwdao;
 	
 	@RequestMapping(value=command)
-	public String doAction() {
+	public String doAction(@RequestParam("num") int num) {
 		mwdao.deleteWatch();
 		
-		return getPage;
+		return getPage+"?num="+num;
 	}
 }

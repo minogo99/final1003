@@ -123,7 +123,7 @@ create table watch(
 num number not null,
 movie_num number not null,
 user_id varchar2(30) not null,
-reg_date date
+watch_date date
 );
 
 drop sequence jjim_seq;
@@ -168,9 +168,9 @@ increment by 1
 
 drop table orders;
 create table orders(
-	onum number primary key, -- 상품번호
-	mnum number references members(num) on delete set null, -- 멤버 외래키
-	orderdate date default sysdate -- 오늘 날자
+	onum number primary key, -- �긽�뭹踰덊샇
+	mnum number references members(num) on delete set null, -- 硫ㅻ쾭 �쇅�옒�궎
+	orderdate date default sysdate -- �삤�뒛 �궇�옄
 );
 select * from orders;
 
@@ -186,154 +186,154 @@ select * from orderdetails;
 drop table orderdetails;
 create table orderdetails(
   odid number primary key, 
-  oid number references orders(onum) on delete cascade, -- 상품번호
+  oid number references orders(onum) on delete cascade, -- �긽�뭹踰덊샇
   pnum number references commodity(num) on delete set null
   
   -------------------------------------------------------------------------------------
   
- insert into members values(members_seq.nextval,'kim','1234','김철수',sysdate,'010','4927','1799');
+ insert into members values(members_seq.nextval,'kim','1234','源�泥좎닔',sysdate,'010','4927','1799');
 
-  insert into faq values(fqa_seq.nextval,'admin','구매한 쿠폰의 현금영수증을 받고싶어요','이용권/결제',sysdate,'웨이브 이용권 쿠폰을 구매 후 등록하신 경우 현금영수증을 발급받을 수 있습니다.<br>
-아래 정보와 함께 [1:1문의]를 통해 요청해주시면 발급을 도와드리겠습니다.<br>
-대상 이용권 : 이용권쿠폰, 장기 이용권쿠폰, 기프티콘 등<br>
+  insert into faq values(fqa_seq.nextval,'admin','援щℓ�븳 荑좏룿�쓽 �쁽湲덉쁺�닔利앹쓣 諛쏄퀬�떢�뼱�슂','�씠�슜沅�/寃곗젣',sysdate,'�썾�씠釉� �씠�슜沅� 荑좏룿�쓣 援щℓ �썑 �벑濡앺븯�떊 寃쎌슦 �쁽湲덉쁺�닔利앹쓣 諛쒓툒諛쏆쓣 �닔 �엳�뒿�땲�떎.<br>
+�븘�옒 �젙蹂댁� �븿猿� [1:1臾몄쓽]瑜� �넻�빐 �슂泥��빐二쇱떆硫� 諛쒓툒�쓣 �룄���뱶由ш쿋�뒿�땲�떎.<br>
+���긽 �씠�슜沅� : �씠�슜沅뚯퓼�룿, �옣湲� �씠�슜沅뚯퓼�룿, 湲고봽�떚肄� �벑<br>
 
-- 이름 :<br>
-- 웨이브 ID :<br>
-- 이메일 주소 :<br>
-- 연락 가능 번호 :<br>
-- 현금영수증 발행 식별번호 :<br>
-(또는 사업자 등록번호)<br>
+- �씠由� :<br>
+- �썾�씠釉� ID :<br>
+- �씠硫붿씪 二쇱냼 :<br>
+- �뿰�씫 媛��뒫 踰덊샇 :<br>
+- �쁽湲덉쁺�닔利� 諛쒗뻾 �떇蹂꾨쾲�샇 :<br>
+(�삉�뒗 �궗�뾽�옄 �벑濡앸쾲�샇)<br>
 
-※ 사업자 지출 증빙의 경우 사업자 등록번호가 필요합니다.');
+�� �궗�뾽�옄 吏�異� 利앸튃�쓽 寃쎌슦 �궗�뾽�옄 �벑濡앸쾲�샇媛� �븘�슂�빀�땲�떎.');
 
-insert into notice values(notice_seq.nextval,'admin','[점검안내] 9월 30일 MBC 정주행 채널 점검','서비스공지',sysdate,'안녕하세요. wavve(웨이브) 입니다.<br>
-라이브 채널 점검으로 인하여 아래와 같이 서비스가 일시적으로 중지됩니다.<br>
+insert into notice values(notice_seq.nextval,'admin','[�젏寃��븞�궡] 9�썡 30�씪 MBC �젙二쇳뻾 梨꾨꼸 �젏寃�','�꽌鍮꾩뒪怨듭�',sysdate,'�븞�뀞�븯�꽭�슂. wavve(�썾�씠釉�) �엯�땲�떎.<br>
+�씪�씠釉� 梨꾨꼸 �젏寃��쑝濡� �씤�븯�뿬 �븘�옒�� 媛숈씠 �꽌鍮꾩뒪媛� �씪�떆�쟻�쑝濡� 以묒��맗�땲�떎.<br>
 
-1. 일시: 9월 30일 목요일 17:00 ~ 18:00 (1시간)<br>
-2. 작업내역: 시스템 점검<br>
-3. 대상채널: MBC 무한도전, MBC 나 혼자 산다, MBC 라디오스타, MBC 서프라이즈, MBC 하이킥, MBC 드라마정주행, MBC 예능정주행<br>
-4. 영향도: 작업 간 시청 불가<br>
+1. �씪�떆: 9�썡 30�씪 紐⑹슂�씪 17:00 ~ 18:00 (1�떆媛�)<br>
+2. �옉�뾽�궡�뿭: �떆�뒪�뀥 �젏寃�<br>
+3. ���긽梨꾨꼸: MBC 臾댄븳�룄�쟾, MBC �굹 �샎�옄 �궛�떎, MBC �씪�뵒�삤�뒪��, MBC �꽌�봽�씪�씠利�, MBC �븯�씠�궏, MBC �뱶�씪留덉젙二쇳뻾, MBC �삁�뒫�젙二쇳뻾<br>
+4. �쁺�뼢�룄: �옉�뾽 媛� �떆泥� 遺덇�<br>
 
-이용에 참고해 주시기 바랍니다.<br>
-감사합니다.');
+�씠�슜�뿉 李멸퀬�빐 二쇱떆湲� 諛붾엻�땲�떎.<br>
+媛먯궗�빀�땲�떎.');
 
 insert into coupon values(coupon_seq.nextval,'','a','1234',0.4,'','2022-10-20','',default);
-//쿠폰등록 케이스
+//荑좏룿�벑濡� 耳��씠�뒪
 insert into coupon values(coupon_seq.nextval,'','a','1234567',0.4,'','2020-9-27','',default);
-//기간만료 케이스
+//湲곌컙留뚮즺 耳��씠�뒪
 
 insert into board
-values(board_seq.nextval,'a1','a1','2015-1-1',0,1,0,0,'내용1');
+values(board_seq.nextval,'a1','a1','2015-1-1',0,1,0,0,'�궡�슜1');
 
 insert into board
-values(board_seq.nextval,'a2','a2','2015-1-1',0,2,0,0,'내용2');
+values(board_seq.nextval,'a2','a2','2015-1-1',0,2,0,0,'�궡�슜2');
 
 insert into board
-values(board_seq.nextval,'a21','a21','2015-1-1',0,2,4,1,'내용21');
+values(board_seq.nextval,'a21','a21','2015-1-1',0,2,4,1,'�궡�슜21');
 
 insert into board
-values(board_seq.nextval,'a22','a22','2015-1-1',0,2,1,1,'내용22');
+values(board_seq.nextval,'a22','a22','2015-1-1',0,2,1,1,'�궡�슜22');
 
 insert into board
-values(board_seq.nextval,'a221','a221','2015-1-1',0,2,3,2,'내용221');
+values(board_seq.nextval,'a221','a221','2015-1-1',0,2,3,2,'�궡�슜221');
 
 insert into board
-values(board_seq.nextval,'a222','a222','2015-1-1',0,2,2,2,'내용222');
+values(board_seq.nextval,'a222','a222','2015-1-1',0,2,2,2,'�궡�슜222');
 
 insert into board
-values(board_seq.nextval,'a3','a3','2015-1-1',0,7,0,0,'내용3');
+values(board_seq.nextval,'a3','a3','2015-1-1',0,7,0,0,'�궡�슜3');
 
 insert into board
-values(board_seq.nextval,'a31','a31','2015-1-1',0,7,6,1,'내용31');
+values(board_seq.nextval,'a31','a31','2015-1-1',0,7,6,1,'�궡�슜31');
 
 insert into board
-values(board_seq.nextval,'a311','a311','2015-1-1',0,7,7,2,'내용311');
+values(board_seq.nextval,'a311','a311','2015-1-1',0,7,7,2,'�궡�슜311');
 
 insert into board
-values(board_seq.nextval,'a32','a32','2015-1-1',0,7,2,1,'내용32');
+values(board_seq.nextval,'a32','a32','2015-1-1',0,7,2,1,'�궡�슜32');
 
 insert into board
-values(board_seq.nextval,'a321','a321','2015-1-1',0,7,5,2,'내용321');
+values(board_seq.nextval,'a321','a321','2015-1-1',0,7,5,2,'�궡�슜321');
 
 insert into board
-values(board_seq.nextval,'a322','a322','2015-1-1',0,7,3,2,'내용322');
+values(board_seq.nextval,'a322','a322','2015-1-1',0,7,3,2,'�궡�슜322');
 
 insert into board
-values(board_seq.nextval,'a3221','a3221','2015-1-1',0,7,4,3,'내용3221');
+values(board_seq.nextval,'a3221','a3221','2015-1-1',0,7,4,3,'�궡�슜3221');
 
 insert into board
-values(board_seq.nextval,'a33','a33','2015-1-1',0,7,1,1,'내용33');
+values(board_seq.nextval,'a33','a33','2015-1-1',0,7,1,1,'�궡�슜33');
 
-insert into admin values('admin','1234','관리자',sysdate);
+insert into admin values('admin','1234','愿�由ъ옄',sysdate);
 
 insert into commodity values(commodity_seq.nextval,'Basic',
-'동시시청 1회선,HD화질,모바일+PC',7900);
+'�룞�떆�떆泥� 1�쉶�꽑,HD�솕吏�,紐⑤컮�씪+PC',7900);
 
 insert into commodity values(commodity_seq.nextval,'Standard',
-'동시시청 2회선,FHD화질,전체 디바이스',10900);
+'�룞�떆�떆泥� 2�쉶�꽑,FHD�솕吏�,�쟾泥� �뵒諛붿씠�뒪',10900);
 
 insert into commodity values(commodity_seq.nextval,'Premium',
-'동시시청 4회선,최고화질,전체 디바이스',13900);
+'�룞�떆�떆泥� 4�쉶�꽑,理쒓퀬�솕吏�,�쟾泥� �뵒諛붿씠�뒪',13900);
 
-insert into commodity values(commodity_seq.nextval,'Basic X FLO 무제한',
-'동시시청 1회선,HD화질,모바일+PC',13750);
+insert into commodity values(commodity_seq.nextval,'Basic X FLO 臾댁젣�븳',
+'�룞�떆�떆泥� 1�쉶�꽑,HD�솕吏�,紐⑤컮�씪+PC',13750);
 
-insert into commodity values(commodity_seq.nextval,'Standard X Bugs 듣기',
-'동시시청 1회선,HD화질,모바일+PC',13750);
+insert into commodity values(commodity_seq.nextval,'Standard X Bugs �뱽湲�',
+'�룞�떆�떆泥� 1�쉶�꽑,HD�솕吏�,紐⑤컮�씪+PC',13750);
 
-insert into commodity values(commodity_seq.nextval,'Premium X KB 나라사랑카드',
-'동시시청 1회선,HD화질,모바일+PC',7900);
+insert into commodity values(commodity_seq.nextval,'Premium X KB �굹�씪�궗�옉移대뱶',
+'�룞�떆�떆泥� 1�쉶�꽑,HD�솕吏�,紐⑤컮�씪+PC',7900);
 
- insert into video values(video_seq.nextval,'감기','movie','18','flu.jpg');
-insert into video values(video_seq.nextval,'기생충','movie','15','parasite.jpg');
-insert into video values(video_seq.nextval,'검은태양','drama','18','blacksun.jpg');
-insert into video values(video_seq.nextval,'홍천기','drama','15','hongchungi.jpg');
-insert into video values(video_seq.nextval,'감자탕','drama','12','potato.jpg'); 
-insert into video values(video_seq.nextval,'빨강구두','drama','all','redshoes.jpg');
-insert into video values(video_seq.nextval,'원더우먼','drama','18','wonderwoman.jpg');
-insert into video values(video_seq.nextval,'1박2일','enter','18','1night2days.jpg');
-insert into video values(video_seq.nextval,'무엇이든 물어보살','enter','18','anyask.jpg');
-insert into video values(video_seq.nextval,'세상에 나쁜 개는 없다','enter','18','gooddog.jpg');
-insert into video values(video_seq.nextval,'미운 우리새끼','enter','18','hatebaby.jpg');
-insert into video values(video_seq.nextval,'안싸우면 다행이야','enter','18','nottofight.jpg'); 
-insert into video values(video_seq.nextval,'런닝맨','enter','18','runningman.jpg');
-insert into video values(video_seq.nextval,'나 혼자 산다','enter','18','solohome.jpg');
-insert into video values(video_seq.nextval,'동상이몽','enter','18','sunshine.jpg');
-insert into video values(video_seq.nextval,'놀면 뭐하니','enter','18','whatplay.jpg');
-insert into video values(video_seq.nextval,'블라인드 사이드','main','15','main1.jpg');
- insert into video values(video_seq.nextval,'크루즈 패밀리','main','15','main2.jpg');
- insert into video values(video_seq.nextval,'노팅힐','main','15','main3.jpg');
-insert into video values(video_seq.nextval,'터미네이터','main','15','main4.jpg');
- insert into video values(video_seq.nextval,'우리집','main','15','main5.jpg');
-insert into video values(video_seq.nextval,'틴 스피릿','main','15','main6.jpg');
+ insert into video values(video_seq.nextval,'媛먭린','movie','18','flu.jpg');
+insert into video values(video_seq.nextval,'湲곗깮異�','movie','15','parasite.jpg');
+insert into video values(video_seq.nextval,'寃����깭�뼇','drama','18','blacksun.jpg');
+insert into video values(video_seq.nextval,'�솉泥쒓린','drama','15','hongchungi.jpg');
+insert into video values(video_seq.nextval,'媛먯옄�깢','drama','12','potato.jpg'); 
+insert into video values(video_seq.nextval,'鍮④컯援щ몢','drama','all','redshoes.jpg');
+insert into video values(video_seq.nextval,'�썝�뜑�슦癒�','drama','18','wonderwoman.jpg');
+insert into video values(video_seq.nextval,'1諛�2�씪','enter','18','1night2days.jpg');
+insert into video values(video_seq.nextval,'臾댁뾿�씠�뱺 臾쇱뼱蹂댁궡','enter','18','anyask.jpg');
+insert into video values(video_seq.nextval,'�꽭�긽�뿉 �굹�걶 媛쒕뒗 �뾾�떎','enter','18','gooddog.jpg');
+insert into video values(video_seq.nextval,'誘몄슫 �슦由ъ깉�겮','enter','18','hatebaby.jpg');
+insert into video values(video_seq.nextval,'�븞�떥�슦硫� �떎�뻾�씠�빞','enter','18','nottofight.jpg'); 
+insert into video values(video_seq.nextval,'�윴�떇留�','enter','18','runningman.jpg');
+insert into video values(video_seq.nextval,'�굹 �샎�옄 �궛�떎','enter','18','solohome.jpg');
+insert into video values(video_seq.nextval,'�룞�긽�씠紐�','enter','18','sunshine.jpg');
+insert into video values(video_seq.nextval,'��硫� 萸먰븯�땲','enter','18','whatplay.jpg');
+insert into video values(video_seq.nextval,'釉붾씪�씤�뱶 �궗�씠�뱶','main','15','main1.jpg');
+ insert into video values(video_seq.nextval,'�겕猷⑥쫰 �뙣諛�由�','main','15','main2.jpg');
+ insert into video values(video_seq.nextval,'�끂�똿�옄','main','15','main3.jpg');
+insert into video values(video_seq.nextval,'�꽣誘몃꽕�씠�꽣','main','15','main4.jpg');
+ insert into video values(video_seq.nextval,'�슦由ъ쭛','main','15','main5.jpg');
+insert into video values(video_seq.nextval,'�떞 �뒪�뵾由�','main','15','main6.jpg');
  insert into video values(video_seq.nextval,'1917','main','15','main7.jpg');
-insert into video values(video_seq.nextval,'미나리','main','15','minari.jpg');
- insert into video values(video_seq.nextval,'존윅','main','15','john.jpg');
+insert into video values(video_seq.nextval,'誘몃굹由�','main','15','minari.jpg');
+ insert into video values(video_seq.nextval,'議댁쐟','main','15','john.jpg');
  
- insert into video_c values(video_c_seq.nextval,1,'감기','아에이오우',120,'액션','해외','박만석','18','2021-11-10',0);
-insert into video_c values(video_c_seq.nextval,2,'기생충','아에이오우',120,'액션','해외','박만석','15','2021-11-10',0);
-insert into video_c values(video_c_seq.nextval,3,'검은태양','아에이오우',120,'액션','해외','박만석','18','2021-11-10',0);
-insert into video_c values(video_c_seq.nextval,4,'홍천기','아에이오우',120,'액션','해외','박만석','15','2021-11-10',0);
-insert into video_c values(video_c_seq.nextval,5,'감자탕','아에이오우',120,'액션','해외','박만석','12','2021-11-10',0);
-insert into video_c values(video_c_seq.nextval,6,'빨강구두','아에이오우',120,'액션','해외','박만석','all','2021-11-10',0);
-insert into video_c values(video_c_seq.nextval,7,'원더우먼','아에이오우',120,'액션','해외','박만석','18','2021-11-10',0);
-insert into video_c values(video_c_seq.nextval,8,'1박2일','아에이오우',120,'액션','해외','박만석','18','2021-11-10',0);
-insert into video_c values(video_c_seq.nextval,9,'무엇이든 물어보살','아에이오우',120,'액션','해외','박만석','18','2021-11-10',0);
-insert into video_c values(video_c_seq.nextval,10,'세상에 나쁜개는 없다','아에이오우',120,'액션','해외','박만석','18','2021-11-10',0);
-insert into video_c values(video_c_seq.nextval,11,'미운 우리새끼','아에이오우',120,'액션','해외','박만석','18','2021-11-10',0);
-insert into video_c values(video_c_seq.nextval,12,'안싸우면 다행이야','아에이오우',120,'액션','해외','박만석','18','2021-11-10',0);
-insert into video_c values(video_c_seq.nextval,13,'런닝맨','아에이오우',120,'액션','해외','박만석','18','2021-11-10',0);
-insert into video_c values(video_c_seq.nextval,14,'나 혼자 산다','아에이오우',120,'액션','해외','박만석','18','2021-11-10',0);
-insert into video_c values(video_c_seq.nextval,15,'동상이몽','아에이오우',120,'액션','해외','박만석','18','2021-11-10',0);
-insert into video_c values(video_c_seq.nextval,16,'놀면 뭐하니','아에이오우',120,'액션','해외','박만석','18','2021-11-10',0);
- insert into video_c values(video_c_seq.nextval,17,'블라인드 사이드','영화보다 더 영화 같은 실화, 전미국을 울린 행복한 만남',128,'드라마','해외','산드라 블록','12','2010-04-15',0);
- insert into video_c values(video_c_seq.nextval,18,'크루즈 패밀리','이런 날벼락이 있나!우리 집이 무너졌어요?',98,'가족','해외','니콜라스케이지','12','2013-05-16',0);
- insert into video_c values(video_c_seq.nextval,19,'노팅힐','세계적인 스타이자 지구상에서 가장 아름다운 여자 애나 스콧.',124,'멜로','해외','줄리아 로버츠','12','1999-07-03',0);
- insert into video_c values(video_c_seq.nextval,20,'터미네이터 제네시스','"난 기계도, 인간도 아니야. 그 이상이지"',125,'SF','해외','아놀드 슈왈제네거','15','2015-07-02',0);
- insert into video_c values(video_c_seq.nextval,21,'우리집','"우리집은 진짜 왜 이럴까?"',15,'드라마','국내','김나연','12','2019-08-22',0);
- insert into video_c values(video_c_seq.nextval,22,'틴 스피릿','더 이상 망설일 수 없어 진짜 나 보여줄게!',93,'드라마','해외','옐르 패닝','12','2019-09-04',0);
-insert into video_c values(video_c_seq.nextval,23,'1917','제1차 세계대전이 한창인 1917년.',119,'전쟁','해외','조지 맥케이','15','2020-02-19',0);
-insert into video_c values(video_c_seq.nextval,24,'미나리','어느 한국 가족의 원더풀한 이야기. "미나리는 어디서든 잘 자라".',115,'드라마','해외','스티븐 연, 윤여정','12','2021-03-03',0);
-insert into video_c values(video_c_seq.nextval,25,'존윅','그를 건드리지 말았어야 했다. 상대를 잘못 고른 적들을 향한 통쾌한 복수!',101,'액션','해외','키아누리브스','19','2015-01-21',0);
+ insert into video_c values(video_c_seq.nextval,1,'媛먭린','�븘�뿉�씠�삤�슦',120,'�븸�뀡','�빐�쇅','諛뺣쭔�꽍','18','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,2,'湲곗깮異�','�븘�뿉�씠�삤�슦',120,'�븸�뀡','�빐�쇅','諛뺣쭔�꽍','15','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,3,'寃����깭�뼇','�븘�뿉�씠�삤�슦',120,'�븸�뀡','�빐�쇅','諛뺣쭔�꽍','18','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,4,'�솉泥쒓린','�븘�뿉�씠�삤�슦',120,'�븸�뀡','�빐�쇅','諛뺣쭔�꽍','15','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,5,'媛먯옄�깢','�븘�뿉�씠�삤�슦',120,'�븸�뀡','�빐�쇅','諛뺣쭔�꽍','12','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,6,'鍮④컯援щ몢','�븘�뿉�씠�삤�슦',120,'�븸�뀡','�빐�쇅','諛뺣쭔�꽍','all','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,7,'�썝�뜑�슦癒�','�븘�뿉�씠�삤�슦',120,'�븸�뀡','�빐�쇅','諛뺣쭔�꽍','18','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,8,'1諛�2�씪','�븘�뿉�씠�삤�슦',120,'�븸�뀡','�빐�쇅','諛뺣쭔�꽍','18','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,9,'臾댁뾿�씠�뱺 臾쇱뼱蹂댁궡','�븘�뿉�씠�삤�슦',120,'�븸�뀡','�빐�쇅','諛뺣쭔�꽍','18','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,10,'�꽭�긽�뿉 �굹�걶媛쒕뒗 �뾾�떎','�븘�뿉�씠�삤�슦',120,'�븸�뀡','�빐�쇅','諛뺣쭔�꽍','18','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,11,'誘몄슫 �슦由ъ깉�겮','�븘�뿉�씠�삤�슦',120,'�븸�뀡','�빐�쇅','諛뺣쭔�꽍','18','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,12,'�븞�떥�슦硫� �떎�뻾�씠�빞','�븘�뿉�씠�삤�슦',120,'�븸�뀡','�빐�쇅','諛뺣쭔�꽍','18','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,13,'�윴�떇留�','�븘�뿉�씠�삤�슦',120,'�븸�뀡','�빐�쇅','諛뺣쭔�꽍','18','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,14,'�굹 �샎�옄 �궛�떎','�븘�뿉�씠�삤�슦',120,'�븸�뀡','�빐�쇅','諛뺣쭔�꽍','18','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,15,'�룞�긽�씠紐�','�븘�뿉�씠�삤�슦',120,'�븸�뀡','�빐�쇅','諛뺣쭔�꽍','18','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,16,'��硫� 萸먰븯�땲','�븘�뿉�씠�삤�슦',120,'�븸�뀡','�빐�쇅','諛뺣쭔�꽍','18','2021-11-10',0);
+ insert into video_c values(video_c_seq.nextval,17,'釉붾씪�씤�뱶 �궗�씠�뱶','�쁺�솕蹂대떎 �뜑 �쁺�솕 媛숈� �떎�솕, �쟾誘멸뎅�쓣 �슱由� �뻾蹂듯븳 留뚮궓',128,'�뱶�씪留�','�빐�쇅','�궛�뱶�씪 釉붾줉','12','2010-04-15',0);
+ insert into video_c values(video_c_seq.nextval,18,'�겕猷⑥쫰 �뙣諛�由�','�씠�윴 �궇踰쇰씫�씠 �엳�굹!�슦由� 吏묒씠 臾대꼫議뚯뼱�슂?',98,'媛�議�','�빐�쇅','�땲肄쒕씪�뒪耳��씠吏�','12','2013-05-16',0);
+ insert into video_c values(video_c_seq.nextval,19,'�끂�똿�옄','�꽭怨꾩쟻�씤 �뒪���씠�옄 吏�援ъ긽�뿉�꽌 媛��옣 �븘由꾨떎�슫 �뿬�옄 �븷�굹 �뒪肄�.',124,'硫쒕줈','�빐�쇅','以꾨━�븘 濡쒕쾭痢�','12','1999-07-03',0);
+ insert into video_c values(video_c_seq.nextval,20,'�꽣誘몃꽕�씠�꽣 �젣�꽕�떆�뒪','"�궃 湲곌퀎�룄, �씤媛꾨룄 �븘�땲�빞. 洹� �씠�긽�씠吏�"',125,'SF','�빐�쇅','�븘���뱶 �뒋�솃�젣�꽕嫄�','15','2015-07-02',0);
+ insert into video_c values(video_c_seq.nextval,21,'�슦由ъ쭛','"�슦由ъ쭛�� 吏꾩쭨 �솢 �씠�윺源�?"',15,'�뱶�씪留�','援��궡','源��굹�뿰','12','2019-08-22',0);
+ insert into video_c values(video_c_seq.nextval,22,'�떞 �뒪�뵾由�','�뜑 �씠�긽 留앹꽕�씪 �닔 �뾾�뼱 吏꾩쭨 �굹 蹂댁뿬以꾧쾶!',93,'�뱶�씪留�','�빐�쇅','�삉瑜� �뙣�떇','12','2019-09-04',0);
+insert into video_c values(video_c_seq.nextval,23,'1917','�젣1李� �꽭怨꾨��쟾�씠 �븳李쎌씤 1917�뀈.',119,'�쟾�웳','�빐�쇅','議곗� 留μ��씠','15','2020-02-19',0);
+insert into video_c values(video_c_seq.nextval,24,'誘몃굹由�','�뼱�뒓 �븳援� 媛�議깆쓽 �썝�뜑���븳 �씠�빞湲�. "誘몃굹由щ뒗 �뼱�뵒�꽌�뱺 �옒 �옄�씪".',115,'�뱶�씪留�','�빐�쇅','�뒪�떚釉� �뿰, �쑄�뿬�젙','12','2021-03-03',0);
+insert into video_c values(video_c_seq.nextval,25,'議댁쐟','洹몃�� 嫄대뱶由ъ� 留먯븯�뼱�빞 �뻽�떎. �긽��瑜� �옒紐� 怨좊Ⅸ �쟻�뱾�쓣 �뼢�븳 �넻苡뚰븳 蹂듭닔!',101,'�븸�뀡','�빐�쇅','�궎�븘�늻由щ툕�뒪','19','2015-01-21',0);
 commit; 
   

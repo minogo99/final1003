@@ -7,13 +7,12 @@
 }
 table{
 	height: 20%;
-	width: 100%;
 	font-style: white;
 }
 </style>
 <%@ include file="../common/common.jsp"%>
 <%@include file="../display/top.jsp"%>
-<div align="center" id="my">
+<div id="my">
 	<table class="table table-hover">
 		<tr>
 			<td>${loginInfo.name }님</td>
@@ -31,14 +30,14 @@ table{
 						</td>
 				</c:if>
 					<c:forEach var="watch" items="${wblists}">
-						<td><img src="resources/images/poster/${watch.image}"
-							width="200" height="200"></td>
+						<td><a href="detail${fn:toUpperCase(fn:substring(watch.category, 0, 1))}${fn:toLowerCase(fn:substring(watch.category, 1,fn:length(watch.category)))}.category?num=${watch.movie_num}"><img src="resources/images/poster/${watch.image}"
+							width="200" height="200"></a></td>
 					</c:forEach>
 				</tr>
 				<tr>
 					<td>
 					<br>
-					<a href="deletewatch.member"><button class="btn btn-primary">시청기록 지우기</button></a>
+					<a href="deletewatch.member?num=${loginInfo.num }"><button class="btn btn-primary">시청기록 지우기</button></a>
 								</td>
 				</tr>
 			</table>
@@ -50,10 +49,10 @@ table{
 		<table>
 			<tr>
 				<c:if test="${empty cblists}">
-					<td align="center">찜한 컨텐츠가 없습니다.</td>
+					<td>찜한 컨텐츠가 없습니다.</td>
 				</c:if>
 				<c:forEach var="jjim" items="${cblists}">
-					<td><a href=""><img src="resources/images/poster/${jjim.image}"
+					<td><a href="detail${fn:toUpperCase(fn:substring(jjim.category, 0, 1))}${fn:toLowerCase(fn:substring(jjim.category, 1,fn:length(jjim.category)))}.category?num=${jjim.movie_num}"><img src="resources/images/poster/${jjim.image}"
 						width="200" height="200"></a></td>
 				</c:forEach>
 			</tr>

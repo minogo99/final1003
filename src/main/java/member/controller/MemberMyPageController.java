@@ -40,6 +40,7 @@ public class MemberMyPageController {
 
 		List<MemberJjimBean> cblists = mjdao.getByMydata(member.getId());
 		List<MemberWatchBean> wblists = mwdao.getByMydata(member.getId());
+		
 		mav.addObject("cblists", cblists);
 		mav.addObject("wblists", wblists);
 		mav.setViewName(getPage);

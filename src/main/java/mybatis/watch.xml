@@ -10,8 +10,7 @@
 	</insert>
 
 	<select id="getByMydata" resultType="MyWatch">
-		select image,watch_date from (select v.image,w.watch_date from watch w inner join video v on w.movie_num =
-		v.num where w.user_id = #{user_id} order by w.watch_date desc) where rownum between 1 and 5
+	select image,watch_date,category,movie_num from (select v.image,w.watch_date,v.category,w.movie_num from watch w inner join video v on w.movie_num = v.num where w.user_id = #{user_id} order by w.watch_date desc) where rownum between 1 and 5
 	</select>
 
 	<delete id="deleteWatch">
