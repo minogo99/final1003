@@ -14,6 +14,16 @@ public class DetailBean {
 	private String day;
 	private int series;
 	private String video;
+	
+	private String image;
+	
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
+	
 	public int getNum() {
 		return num;
 	}
