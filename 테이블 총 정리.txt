@@ -100,7 +100,7 @@ create sequence video_c_seq
   maxvalue 10000
   nocache;
 
-drop table video_c;
+drop table video_c cascade constraints;
 create table video_c(
 	num number primary key,
 	vnum number not null,
@@ -123,7 +123,7 @@ create sequence video_seq
   maxvalue 10000
   nocache;
   
-drop table video;
+drop table video cascade constraints;
 create table video(
 	num number primary key,
 	title varchar2(50) not null,

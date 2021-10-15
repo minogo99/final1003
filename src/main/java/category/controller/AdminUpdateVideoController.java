@@ -54,18 +54,27 @@ public class AdminUpdateVideoController {
 		String root_path = request.getSession().getServletContext().getRealPath("/");  
 	    String attach_path = "resources/images/poster/";
 	    String filename = file.getOriginalFilename();
-	    
+	    int cnt = 0;
 		if(filename != null && !filename.equals("")) {
 			System.out.println("사진 바꿈");
-			new File(root_path + attach_path + filename).delete();	
-			
-			new File(root_path + attach_path + filename);
+			new File(root_path + attach_path + filename).delete();				
+			File f = new File(root_path + attach_path + filename);
+			try {
+			     file.transferTo(f);
+			    } catch (Exception e) {
+			     System.out.println(e.getMessage());
+			    }  
+			cb.setImage(filename);	
+			cnt = cdao.UpdateVideo(cb);
 		}else {
-			cb.setImage(request.getParameter("image"));		 			  
+			
+			cb.setImage(filename);		 			  
 			System.out.println("사진 안바꿈");
-		 }	    
+			cnt = cdao.UpdateNoVideo(cb);
+		 }	
+	
 	    System.out.println(filename);
-	    int cnt = cdao.UpdateVideo(cb);
+	    
 	    System.out.println("업데이트");
 	    CategoryBean ncb= cdao.selectNum(cb.getNum());  
 	    if(cnt>0) {

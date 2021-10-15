@@ -91,19 +91,7 @@ create sequence admin_seq
   minvalue 1
   maxvalue 10000
   nocache;
-  
-drop table video;
-create table video(
-   num number not null primary key,
-   title varchar2(20) not null,
-   nation varchar2(25) not null,
-   category varchar2(25) not null,
-   genre varchar2(60),
-   grade varchar2(5),
-   actor varchar2(50),
-   image varchar2(50)
-   );
-   
+
    drop sequence video_seq;
 create sequence video_seq
   increment by 1
