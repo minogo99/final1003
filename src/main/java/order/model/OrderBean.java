@@ -4,6 +4,7 @@ public class OrderBean {
 	private int num;
 	private int mnum;
 	private String orderdate;
+	private int cnum;
 	public int getNum() {
 		return num;
 	}
@@ -22,6 +23,14 @@ public class OrderBean {
 	public void setOrderdate(String orderdate) {
 		this.orderdate = orderdate;
 	}
+	public int getCnum() {
+		return cnum;
+	}
+	public void setCnum(int cnum) {
+		this.cnum = cnum;
+	}
+	
+	
 	
 	
 }

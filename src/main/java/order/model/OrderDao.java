@@ -3,8 +3,10 @@ package order.model;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 @Component
+@Repository
 public class OrderDao {
 	
 	private String namespace="order.model.OrderBean";
@@ -12,17 +14,9 @@ public class OrderDao {
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
 	
-	public int setInsert(int mnum) {
-		int cnt=sqlSessionTemplate.insert(namespace+".insertOne",mnum);
-		return cnt;
-	}
-	public OrderBean selectOne(int mnum) {
-		OrderBean ob=sqlSessionTemplate.selectOne(namespace+".selectOne",mnum);
-		return ob;
-	}
-	
-	public int setInsertDetail(OrderDetailBean odb) {
-		int cnt=sqlSessionTemplate.insert(namespace+".setInsertDetail",odb);
+	public int setInsertOrder(OrderBean ob) {
+		System.out.println("1234567");
+		int cnt=sqlSessionTemplate.insert(namespace+".insertOrder", ob);
 		return cnt;
 	}
 }

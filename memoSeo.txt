@@ -337,21 +337,9 @@ create table orders(
 	onum number primary key, -- 상품번호
 	mnum number references members(num) on delete set null, -- 멤버 외래키
 	orderdate date default sysdate -- 오늘 날자
+	cnum number references commodity(num) on delete set null
 );
+
+
 select * from orders;
 
-drop sequence orderdetails_seq;
-create sequence orderdetails_seq
-increment by 1
-  start with 1
-  minvalue 1
-  maxvalue 10000
-  nocache;
-select * from orderdetails;
-
-drop table orderdetails;
-create table orderdetails(
-  odid number primary key, 
-  oid number references orders(onum) on delete cascade, -- 상품번호
-  pnum number references commodity(num) on delete set null
-); 
