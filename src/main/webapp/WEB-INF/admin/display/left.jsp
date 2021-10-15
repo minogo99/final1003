@@ -13,6 +13,9 @@
   <li class="nav-item">
     <a class="nav-link" href="videoList.category">게시물관리</a>
   </li>
+  <li class="nav-item">
+    <a class="nav-link" href="couponList.admin">쿠폰관리</a>
+  </li>
      <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
            게시판관리

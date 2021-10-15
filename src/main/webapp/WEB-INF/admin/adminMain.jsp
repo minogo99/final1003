@@ -52,6 +52,9 @@
 			<c:if test="${pageType == 'faqDetailView' }">
 				<%@include file="adminFaqDetailView.jsp"%>
 			</c:if>
+			<c:if test="${pageType == 'couponList' }">
+				<%@include file="adminCouponList.jsp"%>
+			</c:if>
 			<c:if test="${pageType == 'main' }">
 			<img src="resources/images/logo.png" width="500" height="300">
 			</c:if>
