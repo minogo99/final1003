@@ -1,0 +1,380 @@
+drop table members;
+create table members(
+num number primary key,
+id varchar2(50) not null unique,
+password varchar2(50) not null,
+name varchar2(50) not null,
+regdate date default sysdate,
+tel1 varchar2(20) not null,
+tel2 varchar2(20) not null,
+tel3 varchar2(20) not null
+);
+
+drop sequence members_seq;
+create sequence members_seq
+  increment by 1
+  start with 1
+  minvalue 1
+  maxvalue 10000
+  nocache;
+  
+drop table faq;
+create table faq(
+   num number not null primary key,
+   writer varchar2(20) not null,
+   subject varchar2(100) not null,
+   division varchar2(30) not null,
+   reg_date date default sysdate not null,
+   content varchar2(1000) not null
+);
+drop sequence faq_seq;
+create sequence faq_seq
+  increment by 1
+  start with 1
+  minvalue 1
+  maxvalue 10000
+  nocache;
+
+  drop table notice;
+create table notice( 
+   num number not null primary key,
+   writer varchar2(20) not null,
+   subject varchar2(100) not null,
+   division varchar2(30) not null,
+   reg_date date not null,
+   content varchar2(1000) not null
+);
+drop sequence notice_seq;
+create sequence notice_seq
+  increment by 1
+  start with 1
+  minvalue 1
+  maxvalue 10000
+  nocache;
+  
+
+drop table board;
+create table board( 
+   num number not null primary key,
+   writer varchar2(10) not null,
+   subject varchar2(20) not null,
+   reg_date date not null,
+   readcount int default 0,
+   ref number not null,
+   re_step number not null,
+   re_level number not null,
+   content varchar2(1000) not null
+);
+drop sequence board_seq;
+create sequence board_seq
+  increment by 1
+  start with 1
+  minvalue 1
+  maxvalue 10000
+  nocache;
+  
+drop table admin cascade constraints;
+create table admin(
+num number primary key,
+admin_id varchar2(20) not null,
+admin_pass varchar2(20) not null,
+admin_name varchar2(20) not null,
+reg_date date default sysdate
+);
+
+insert into admin values('admin','1234','관리자',sysdate);
+
+drop sequence admin_seq;
+create sequence admin_seq
+  increment by 1
+  start with 1
+  minvalue 1
+  maxvalue 10000
+  nocache;
+  
+drop table video;
+create table video(
+   num number not null primary key,
+   title varchar2(20) not null,
+   nation varchar2(25) not null,
+   category varchar2(25) not null,
+   genre varchar2(60),
+   grade varchar2(5),
+   actor varchar2(50),
+   image varchar2(50)
+   );
+   
+   drop sequence video_seq;
+create sequence video_seq
+  increment by 1
+  start with 1
+  minvalue 1
+  maxvalue 10000
+  nocache;
+
+drop table reply;
+create table reply(
+rnum int primary key,
+bnum int not null,
+writer varchar2(10),
+content varchar2(1000),
+reg_date date default sysdate
+);
+
+drop sequence reply_seq;
+create sequence reply_seq
+  increment by 1
+  start with 1
+  minvalue 1
+  maxvalue 10000
+  nocache;
+
+
+  drop sequence coupon_seq;
+create sequence coupon_seq
+  increment by 1
+  start with 1
+  minvalue 1
+  maxvalue 10000
+  nocache;
+
+drop table coupon;
+create table coupon(
+cp_num int primary key,
+cp_id varchar2(20),
+cp_name varchar2(50), 
+cp_number varchar2(50) unique, 
+cp_discount float,  
+cp_regdate date,  
+cp_duedate date,
+cp_usedate date, 
+cp_check varchar2(10) default 'false' 
+);
+
+drop sequence watch_seq;
+create sequence watch_seq
+  increment by 1
+  start with 1
+  minvalue 1
+  maxvalue 10000
+  nocache;
+  
+
+  
+drop table watch;
+create table watch(
+num number not null,
+movie_num number not null,
+user_id varchar2(30) not null
+);
+
+drop sequence jjim_seq;
+create sequence jjim_seq
+  increment by 1
+  start with 1
+  minvalue 1
+  maxvalue 10000
+  nocache;
+
+drop table jjim;
+create table jjim(
+num number not null,
+movie_num number not null,
+user_id varchar2(30) not null
+);
+
+drop sequence commodity_seq;
+create sequence commodity_seq
+increment by 1
+  start with 1
+  minvalue 1
+  maxvalue 10000
+  nocache;
+
+
+drop table commodity;
+create table commodity(
+num number primary key,
+name varchar2(50) not null,
+content varchar2(100) not null,
+price number not null
+);
+
+drop sequence orders_seq;
+create sequence orders_seq
+increment by 1
+  start with 1
+  minvalue 1
+  maxvalue 10000
+  nocache;
+
+drop table orders;
+create table orders(
+	onum number primary key, -- 상품번호
+	mnum number references members(num) on delete set null, -- 멤버 외래키
+	orderdate date default sysdate -- 오늘 날자
+);
+select * from orders;
+
+drop sequence orderdetails_seq;
+create sequence orderdetails_seq
+increment by 1
+  start with 1
+  minvalue 1
+  maxvalue 10000
+  nocache;
+select * from orderdetails;
+
+drop table orderdetails;
+create table orderdetails(
+  odid number primary key, 
+  oid number references orders(onum) on delete cascade, -- 상품번호
+  pnum number references commodity(num) on delete set null
+); 
+------------------------------------------------------------------------------------------
+
+insert into members values(members_seq.nextval,'kim','1234','김철수',sysdate,'010','4927','1799');
+
+  insert into faq values(fqa_seq.nextval,'admin','구매한 쿠폰의 현금영수증을 받고싶어요','이용권/결제',sysdate,'웨이브 이용권 쿠폰을 구매 후 등록하신 경우 현금영수증을 발급받을 수 있습니다.<br>
+아래 정보와 함께 [1:1문의]를 통해 요청해주시면 발급을 도와드리겠습니다.<br>
+대상 이용권 : 이용권쿠폰, 장기 이용권쿠폰, 기프티콘 등<br>
+
+- 이름 :<br>
+- 웨이브 ID :<br>
+- 이메일 주소 :<br>
+- 연락 가능 번호 :<br>
+- 현금영수증 발행 식별번호 :<br>
+(또는 사업자 등록번호)<br>
+
+※ 사업자 지출 증빙의 경우 사업자 등록번호가 필요합니다.');
+
+insert into notice values(notice_seq.nextval,'admin','[점검안내] 9월 30일 MBC 정주행 채널 점검','서비스공지',sysdate,'안녕하세요. wavve(웨이브) 입니다.<br>
+라이브 채널 점검으로 인하여 아래와 같이 서비스가 일시적으로 중지됩니다.<br>
+
+1. 일시: 9월 30일 목요일 17:00 ~ 18:00 (1시간)<br>
+2. 작업내역: 시스템 점검<br>
+3. 대상채널: MBC 무한도전, MBC 나 혼자 산다, MBC 라디오스타, MBC 서프라이즈, MBC 하이킥, MBC 드라마정주행, MBC 예능정주행<br>
+4. 영향도: 작업 간 시청 불가<br>
+
+이용에 참고해 주시기 바랍니다.<br>
+감사합니다.');
+
+insert into coupon values(coupon_seq.nextval,'','a','1234',0.4,'','2022-10-20','',default);
+//쿠폰등록 케이스
+insert into coupon values(coupon_seq.nextval,'','a','1234567',0.4,'','2020-9-27','',default);
+//기간만료 케이스
+
+insert into board
+values(board_seq.nextval,'a1','a1','2015-1-1',0,1,0,0,'내용1');
+
+insert into board
+values(board_seq.nextval,'a2','a2','2015-1-1',0,2,0,0,'내용2');
+
+insert into board
+values(board_seq.nextval,'a21','a21','2015-1-1',0,2,4,1,'내용21');
+
+insert into board
+values(board_seq.nextval,'a22','a22','2015-1-1',0,2,1,1,'내용22');
+
+insert into board
+values(board_seq.nextval,'a221','a221','2015-1-1',0,2,3,2,'내용221');
+
+insert into board
+values(board_seq.nextval,'a222','a222','2015-1-1',0,2,2,2,'내용222');
+
+insert into board
+values(board_seq.nextval,'a3','a3','2015-1-1',0,7,0,0,'내용3');
+
+insert into board
+values(board_seq.nextval,'a31','a31','2015-1-1',0,7,6,1,'내용31');
+
+insert into board
+values(board_seq.nextval,'a311','a311','2015-1-1',0,7,7,2,'내용311');
+
+insert into board
+values(board_seq.nextval,'a32','a32','2015-1-1',0,7,2,1,'내용32');
+
+insert into board
+values(board_seq.nextval,'a321','a321','2015-1-1',0,7,5,2,'내용321');
+
+insert into board
+values(board_seq.nextval,'a322','a322','2015-1-1',0,7,3,2,'내용322');
+
+insert into board
+values(board_seq.nextval,'a3221','a3221','2015-1-1',0,7,4,3,'내용3221');
+
+insert into board
+values(board_seq.nextval,'a33','a33','2015-1-1',0,7,1,1,'내용33');
+
+insert into admin values('admin','1234','관리자',sysdate);
+
+insert into commodity values(commodity_seq.nextval,'Basic',
+'동시시청 1회선,HD화질,모바일+PC',7900);
+
+insert into commodity values(commodity_seq.nextval,'Standard',
+'동시시청 2회선,FHD화질,전체 디바이스',10900);
+
+insert into commodity values(commodity_seq.nextval,'Premium',
+'동시시청 4회선,최고화질,전체 디바이스',13900);
+
+insert into commodity values(commodity_seq.nextval,'Basic X FLO 무제한',
+'동시시청 1회선,HD화질,모바일+PC',13750);
+
+insert into commodity values(commodity_seq.nextval,'Standard X Bugs 듣기',
+'동시시청 1회선,HD화질,모바일+PC',13750);
+
+insert into commodity values(commodity_seq.nextval,'Premium X KB 나라사랑카드',
+'동시시청 1회선,HD화질,모바일+PC',7900);
+
+insert into video values(video_seq.nextval,'감기','movie','18','flu');
+insert into video values(video_seq.nextval,'기생충','movie','15','parasite');
+insert into video values(video_seq.nextval,'검은태양','drama','18','blacksun');
+insert into video values(video_seq.nextval,'홍천기','drama','15','hongchungi');
+insert into video values(video_seq.nextval,'감자탕','drama','12','potato'); 
+insert into video values(video_seq.nextval,'빨강구두','drama','all','redshoes');
+insert into video values(video_seq.nextval,'원더우먼','drama','18','wonderwoman');
+insert into video values(video_seq.nextval,'1박2일','enter','18','1night2days');
+insert into video values(video_seq.nextval,'무엇이든 물어보살','enter','18','anyask');
+insert into video values(video_seq.nextval,'세상에 나쁜 개는 없다','enter','18','gooddog');
+insert into video values(video_seq.nextval,'미운 우리새끼','enter','18','hatebaby');
+insert into video values(video_seq.nextval,'안싸우면 다행이야','enter','18','nottofight'); 
+insert into video values(video_seq.nextval,'런닝맨','enter','18','runningman');
+insert into video values(video_seq.nextval,'나 혼자 산다','enter','18','solohome');
+insert into video values(video_seq.nextval,'동상이몽','enter','18','sunshine');
+insert into video values(video_seq.nextval,'놀면 뭐하니','enter','18','whatplay');
+insert into video values(video_seq.nextval,'블라인드 사이드','main','15','main1');
+ insert into video values(video_seq.nextval,'크루즈 패밀리','main','15','main2');
+ insert into video values(video_seq.nextval,'노팅힐','main','15','main3');
+insert into video values(video_seq.nextval,'터미네이터','main','15','main4');
+ insert into video values(video_seq.nextval,'우리집','main','15','main5');
+insert into video values(video_seq.nextval,'틴 스피릿','main','15','main6');
+ insert into video values(video_seq.nextval,'1917','main','15','main7');
+insert into video values(video_seq.nextval,'미나리','main','15','minari');
+ insert into video values(video_seq.nextval,'존윅','main','15','john');
+ 
+ insert into video_c values(video_c_seq.nextval,1,'감기','아에이오우',120,'액션','해외','박만석','18','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,2,'기생충','아에이오우',120,'액션','해외','박만석','15','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,3,'검은태양','아에이오우',120,'액션','해외','박만석','18','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,4,'홍천기','아에이오우',120,'액션','해외','박만석','15','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,5,'감자탕','아에이오우',120,'액션','해외','박만석','12','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,6,'빨강구두','아에이오우',120,'액션','해외','박만석','all','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,7,'원더우먼','아에이오우',120,'액션','해외','박만석','18','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,8,'1박2일','아에이오우',120,'액션','해외','박만석','18','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,9,'무엇이든 물어보살','아에이오우',120,'액션','해외','박만석','18','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,10,'세상에 나쁜개는 없다','아에이오우',120,'액션','해외','박만석','18','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,11,'미운 우리새끼','아에이오우',120,'액션','해외','박만석','18','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,12,'안싸우면 다행이야','아에이오우',120,'액션','해외','박만석','18','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,13,'런닝맨','아에이오우',120,'액션','해외','박만석','18','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,14,'나 혼자 산다','아에이오우',120,'액션','해외','박만석','18','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,15,'동상이몽','아에이오우',120,'액션','해외','박만석','18','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,16,'놀면 뭐하니','아에이오우',120,'액션','해외','박만석','18','2021-11-10',0);
+ insert into video_c values(video_c_seq.nextval,17,'블라인드 사이드','영화보다 더 영화 같은 실화, 전미국을 울린 행복한 만남',128,'드라마','해외','산드라 블록','12','2010-04-15',0);
+ insert into video_c values(video_c_seq.nextval,18,'크루즈 패밀리','이런 날벼락이 있나!우리 집이 무너졌어요?',98,'가족','해외','니콜라스케이지','12','2013-05-16',0);
+ insert into video_c values(video_c_seq.nextval,19,'노팅힐','세계적인 스타이자 지구상에서 가장 아름다운 여자 애나 스콧.',124,'멜로','해외','줄리아 로버츠','12','1999-07-03',0);
+ insert into video_c values(video_c_seq.nextval,20,'터미네이터 제네시스','"난 기계도, 인간도 아니야. 그 이상이지"',125,'SF','해외','아놀드 슈왈제네거','15','2015-07-02',0);
+ insert into video_c values(video_c_seq.nextval,21,'우리집','"우리집은 진짜 왜 이럴까?"',15,'드라마','국내','김나연','12','2019-08-22',0);
+ insert into video_c values(video_c_seq.nextval,22,'틴 스피릿','더 이상 망설일 수 없어 진짜 나 보여줄게!',93,'드라마','해외','옐르 패닝','12','2019-09-04',0);
+insert into video_c values(video_c_seq.nextval,23,'1917','제1차 세계대전이 한창인 1917년.',119,'전쟁','해외','조지 맥케이','15','2020-02-19',0);
+insert into video_c values(video_c_seq.nextval,24,'미나리','어느 한국 가족의 원더풀한 이야기. "미나리는 어디서든 잘 자라".',115,'드라마','해외','스티븐 연, 윤여정','12','2021-03-03',0);
+insert into video_c values(video_c_seq.nextval,25,'존윅','그를 건드리지 말았어야 했다. 상대를 잘못 고른 적들을 향한 통쾌한 복수!',101,'액션','해외','키아누리브스','19','2015-01-21',0);
+commit;
