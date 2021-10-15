@@ -67,6 +67,11 @@
 		title=#{title},category=#{category},grade=#{grade},image=#{image} where num=#{num}
 	</update>
 	
+	<update id="updateNoVideo">
+		update video set 
+		title=#{title},category=#{category},grade=#{grade} where num=#{num}
+	</update>
+	
 	<delete id="detailVideoDelete">
 		delete from video where num=#{num}
 	</delete>

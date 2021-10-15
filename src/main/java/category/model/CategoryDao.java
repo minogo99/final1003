@@ -99,5 +99,10 @@ public class CategoryDao {
 		CategoryBean cb =sqlSessionTemplate.selectOne(namespace+".selectNum",num);
 		return cb;
 	}
+
+	public int UpdateNoVideo(CategoryBean cb) {
+		int cnt=sqlSessionTemplate.update(namespace+".updateNoVideo",cb);
+		return cnt;
+	}
 	
 }

@@ -59,7 +59,7 @@ td{
 					<fieldset>
 			<div class="form-group">
 			<label for="title" class="form-label mt-4">제목</label>
-				<input type="text" class="form-control" name="title" value="${cb.title}">
+				<input type="text" name="title" value="${cb.title}">
 			</div>
 		<div class="form-group">
 				<label for="category" class="form-label mt-4">카테고리</label>

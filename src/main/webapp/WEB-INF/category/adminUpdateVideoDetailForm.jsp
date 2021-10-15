@@ -41,9 +41,9 @@ td{
 				<form action="adminLastUpdateVideo.category" method="post" enctype="multipart/form-data">
 					<fieldset>
 			<div class="form-group">
-				<input type="text" name="vnum" value="${cb.num }"  readonly>
+			<input type="hidden" name="vnum" value="${cb.num }"  readonly>
 			<label for="title" class="form-label mt-4">제목</label>
-				<input type="text" class="form-control" name="title" value="${cb.title }" readonly>
+			<input type="text" name="title" value="${cb.title }" readonly>
 				
 			</div>
 		<div class="form-group">
