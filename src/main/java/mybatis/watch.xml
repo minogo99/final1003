@@ -2,19 +2,20 @@
 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-	
-	<mapper namespace="member.model.MemberWatchBean">
-	
+
+<mapper namespace="member.model.MemberWatchBean">
+
 	<insert id="insertWatch">
-	insert into watch values(watch_seq.nextval,#{movie_num},#{user_id})
+		insert into watch values(watch_seq.nextval,#{movie_num},#{user_id},sysdate)
 	</insert>
-	
-	<select id="getByMemdata" resultType="MyCategory">
-	select v.image from watch w inner join video v on w.movie_num = v.num where w.user_id = #{user_id}
+
+	<select id="getByMydata" resultType="MyWatch">
+		select image,watch_date from (select v.image,w.watch_date from watch w inner join video v on w.movie_num =
+		v.num where w.user_id = #{user_id} order by w.watch_date desc) where rownum between 1 and 5
 	</select>
-	
+
 	<delete id="deleteWatch">
 		delete from watch
 	</delete>
-	
-	</mapper>
+
+</mapper>

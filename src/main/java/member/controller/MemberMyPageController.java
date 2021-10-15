@@ -14,6 +14,7 @@ import member.model.MemberBean;
 import member.model.MemberDao;
 import member.model.MemberJjimBean;
 import member.model.MemberJjimDao;
+import member.model.MemberWatchBean;
 import member.model.MemberWatchDao;
 
 @Controller
@@ -37,9 +38,10 @@ public class MemberMyPageController {
 		MemberBean member = memberDao.getMember(num);
 		mav.addObject("member", member);
 
-		List<CategoryBean> cblists = mjdao.getByMdata(member.getId());
-
-		List<CategoryBean> wblists = mwdao.getByMemdata(member.getId());
+		List<MemberJjimBean> cblists = mjdao.getByMydata(member.getId());
+		List<MemberWatchBean> wblists = mwdao.getByMydata(member.getId());
+		System.out.println("ddddd"+wblists.get(0).getWatch_date());
+		System.out.println("dddds"+wblists.get(0).getImage());
 		mav.addObject("cblists", cblists);
 		mav.addObject("wblists", wblists);
 		mav.setViewName(getPage);

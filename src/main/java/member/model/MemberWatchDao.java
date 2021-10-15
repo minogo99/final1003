@@ -21,8 +21,8 @@ public class MemberWatchDao {
 		return cnt;
 	}
 
-	public List<CategoryBean> getByMemdata(String id) {
-		List<CategoryBean> wblists = sqlSessionTemplate.selectList(namespace+".getByMemdata",id);
+	public List<MemberWatchBean> getByMydata(String id) {
+		List<MemberWatchBean> wblists = sqlSessionTemplate.selectList(namespace+".getByMydata",id);
 		return wblists;
 	}
 

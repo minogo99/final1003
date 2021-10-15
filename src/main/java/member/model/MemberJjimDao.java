@@ -29,8 +29,8 @@ public class MemberJjimDao {
 		List<MemberJjimBean> mjlists = sqlSessionTemplate.selectList(namespace+".getByData",id);
 		return mjlists;
 	}
-	public List<CategoryBean> getByMdata(String id){
-		List<CategoryBean> cblists = sqlSessionTemplate.selectList(namespace+".getByMdata",id);
+	public List<MemberJjimBean> getByMydata(String id){
+		List<MemberJjimBean> cblists = sqlSessionTemplate.selectList(namespace+".getByMydata",id);
 		return cblists;
 	}
 }
