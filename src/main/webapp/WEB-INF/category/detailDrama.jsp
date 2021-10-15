@@ -63,7 +63,7 @@ detailMovie.jsp<br><br>
 	</div>
 	<div class="poster">
 		<figure>
-			<img src="resources/images/poster/${cb.image}.jpg" class="poster_img"/>
+			<img src="resources/images/poster/${cb.image}" class="poster_img"/>
 		</figure>
 	</div>
 	<div class="infor">
@@ -132,12 +132,12 @@ detailMovie.jsp<br><br>
 				<figure>
 					<c:forEach var="clist" items="${clists }">
 						<c:if test="${glist.vnum eq clist.num}">
-							<img src="resources/images/poster/${clist.image}.jpg"
+							<img src="resources/images/poster/${clist.image}"
 								class="poster_img" />
 						</c:if>
 					</c:forEach>
 				</figure>
-				<h3>
+				<h4>
 					<span class="icon all ir_pm"> <c:if
 							test="${glist.grade eq '18' }">
 							<img src="resources/images/icon/18.svg" class="icon_img">
@@ -149,7 +149,7 @@ detailMovie.jsp<br><br>
 							<img src="resources/images/icon/all.svg" class="icon_img">
 						</c:if>
 					</span> <strong>${glist.title }</strong>
-				</h3>
+				</h4>
 			</div>
 		</div>
 	</c:forEach>

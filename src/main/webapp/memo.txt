@@ -225,13 +225,12 @@ create sequence watch_seq
   maxvalue 10000
   nocache;
   
-
-  
 drop table watch;
 create table watch(
 num number not null,
 movie_num number not null,
-user_id varchar2(30) not null
+user_id varchar2(30) not null,
+watch_date date
 );
 
 drop sequence jjim_seq;
