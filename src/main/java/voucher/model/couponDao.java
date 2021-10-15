@@ -35,7 +35,11 @@ public class couponDao {
 	}
 	public List<couponBean> getAllData(Paging pageInfo,Map<String,String> map){
 		RowBounds rowBounds = new RowBounds(pageInfo.getOffset(), pageInfo.getLimit());
-		List<couponBean> lists = sqlSessionTemplate.selectList(namespace + ".getMemberList", map, rowBounds);
+		List<couponBean> lists = sqlSessionTemplate.selectList(namespace + ".getAllData", map, rowBounds);
 		return lists;
+	}
+	public int insertData(couponBean cb) {
+		int cnt = sqlSessionTemplate.insert(namespace+".insertData",cb);
+		return cnt;
 	}
 }

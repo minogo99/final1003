@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import cs.model.CsNoticeBean;
 import utility.Paging;
 import voucher.model.couponBean;
 import voucher.model.couponDao;
@@ -51,6 +50,7 @@ public class adminCouponList {
 		String pageType = "couponList";
 		mav.addObject("pageType", pageType);
 		
+		mav.setViewName(getPage);
 		return mav;
 	}
 }

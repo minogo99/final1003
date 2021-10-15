@@ -17,7 +17,7 @@ table {
 			<th scope="col">쿠폰이름</th>
 			<th scope="col">쿠폰번호</th>
 			<th scope="col">할인율</th>
-			<th scope="col">사용회원</th>
+			<th scope="col">등록회원</th>
 			<th scope="col">사용여부</th>
 		</tr>
 	</thead>
@@ -27,7 +27,9 @@ table {
 				<td>${cb.cp_num}</td>
 				<td>${cb.cp_name}</td>
 				<td>${cb.cp_number}</td>
-				<td>${cb.cp_discount * 100 }%</td>
+				<td>
+				<fmt:formatNumber value="${cb.cp_discount}" type="percent"/>
+				</td>
 				<td>${cb.cp_id}</td>
 				<td>${cb.cp_check}</td>
 			</tr>
@@ -39,19 +41,19 @@ table {
 		onclick="location.href='couponGeneration.admin'">
 </div>
 
-<form action="faqList.admin" method="get">
+<form action="couponList.admin" method="get">
 	<div class="row justify-content-center">
 		<div class="col-sm-2">
 			<select name="whatColumn" class="form-select">
 				<option value="all">전체 검색</option>
-				<option value="division"
-					<c:if test="${pageInfo.whatColumn == 'division'}">
+				<option value="cp_name"
+					<c:if test="${pageInfo.whatColumn == 'cp_name'}">
 		selected
-		</c:if>>구분</option>
-				<option value="subject"
-					<c:if test="${pageInfo.whatColumn == 'subject'}">
+		</c:if>>쿠폰이름</option>
+				<option value="cp_number"
+					<c:if test="${pageInfo.whatColumn == 'cp_number'}">
 		selected
-		</c:if>>제목</option>
+		</c:if>>쿠폰번호</option>
 			</select>
 		</div>
 		<c:if test="${pageInfo.keyword == 'null'}">

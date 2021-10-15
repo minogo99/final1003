@@ -55,6 +55,9 @@
 			<c:if test="${pageType == 'couponList' }">
 				<%@include file="adminCouponList.jsp"%>
 			</c:if>
+			<c:if test="${pageType == 'couponGeneration' }">
+				<%@include file="adminCouponGeneration.jsp"%>
+			</c:if>
 			<c:if test="${pageType == 'main' }">
 			<img src="resources/images/logo.png" width="500" height="300">
 			</c:if>

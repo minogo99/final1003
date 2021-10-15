@@ -12,4 +12,32 @@ update coupon set cp_id = #{cp_id},cp_regdate=sysdate where cp_number = #{cp_num
 <select id="getOneData" resultType="MyCoupon">
 select * from coupon where cp_number = #{cp_number}
 </select>
+
+<select id="getAllData" resultType="MyCoupon"
+		parameterType="hashmap">
+		select * from coupon
+		<if test="whatColumn=='cp_name'">
+			where cp_name like #{keyword}
+		</if>
+		<if test="whatColumn=='cp_number'">
+			where cp_number like #{keyword}
+		</if>
+		order by cp_num desc
+	</select>
+
+	<select id="getTotalCount" resultType="int"
+		parameterType="hashmap">
+		select count(*) from coupon
+		<if test="whatColumn=='cp_name'">
+			where cp_name like #{keyword}
+		</if>
+		<if test="whatColumn=='cp_number'">
+			where cp_number like #{keyword}
+		</if>
+		order by cp_num desc
+	</select>
+	
+	<insert id="insertData">
+	insert into coupon values(coupon_seq.nextval,'',#{cp_name},#{cp_number},#{cp_discount},'',#{cp_duedate},'','false')
+	</insert>
 </mapper>
