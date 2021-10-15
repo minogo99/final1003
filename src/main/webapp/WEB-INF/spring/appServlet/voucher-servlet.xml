@@ -16,5 +16,6 @@
 	
 	<context:component-scan base-package="voucher" />
 	<context:component-scan base-package="commodity" />
+	<context:component-scan base-package="order" />
 
 </beans>
