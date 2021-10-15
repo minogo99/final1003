@@ -55,6 +55,7 @@
 		<if test="whatColumn=='title'">
 			where name like #{keyword}
 		</if>
+		ORDER BY num ASC
 	</select>
 	<insert id="insertVideo">
 		insert into video 

@@ -94,7 +94,6 @@ function openPop(){
     <a href="mypage.member?num=${loginInfo.num}&movie_title=${db.title}">마이페이지</a>
      
     <a href="userupdate.member?num=${loginInfo.num}">회원 정보 수정</a>
-    <a href="#">시청기록</a>
     </c:if>
     <a href="#none" target="_blank" onclick="openPop()">알림함</a>
     <a href="logout.member">로그아웃</a>
