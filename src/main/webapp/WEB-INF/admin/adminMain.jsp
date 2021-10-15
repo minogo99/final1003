@@ -6,6 +6,7 @@
 #adminMain {
 	text-align: center;
 	height: 100%;
+	height: 100%;
 	padding: 100px;
 }
 </style>
@@ -52,7 +53,7 @@
 				<%@include file="adminFaqDetailView.jsp"%>
 			</c:if>
 			<c:if test="${pageType == 'main' }">
-			첫 화면
+			<img src="resources/images/logo.png" width="500" height="300">
 			</c:if>
 		</div>
 	</div>

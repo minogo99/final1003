@@ -2,33 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@include file="../admin/display/top.jsp" %>
 <%@include file="./../common/common.jsp"%>
-<script type="text/javascript">
-	function goInsert(){
-		location.href="insert.member" ;
-	}
-	
-	function videoInsert(){
-		location.href="insert.video" ;
-	}
-	
-	function goUpdate(num,pn){
-		location.href="update.member?num="+num+"&pageNumber="+pn;
-	}
-	function goDelete(num,pn){
-		 var result = confirm("삭제하시겠습니까 ?");
-	        
-	        if(result)
-	        {
-	        	location.href="delete.member?num="+num+"&pageNumber="+pn;
-	        alert("삭제되었습니다")
-	        }
-	        else
-	        {
-	        	alert("삭제 취소")
-	        }
-		
-	}
-</script>
+
 <style>
 #container{
 height: 600px;

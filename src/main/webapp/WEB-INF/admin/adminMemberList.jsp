@@ -27,6 +27,7 @@
 table {
 	margin: auto;
 	text-align: center;
+	
 }
 </style>
 <h2 style="color: #0080FF; font-weight: bold;">회원 리스트</h2>

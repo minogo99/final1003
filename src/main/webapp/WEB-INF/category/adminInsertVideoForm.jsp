@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@include file="../admin/display/top.jsp" %>
 <%@include file="./../common/common.jsp"%>
-videolist.jsp<br><br>
+
 
 <script type="text/javascript">
 	
