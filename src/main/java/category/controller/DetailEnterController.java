@@ -53,9 +53,11 @@ public class DetailEnterController {
 		List<MemberJjimBean> mjlists = mjdao.getByData(loginInfo.getId());
 		
 		mav.addObject("db",db);
+		
 		mav.addObject("dlists",dlists);
 		mav.addObject("clists",clists);
 		mav.addObject("mjlists", mjlists);
+		
 		mav.setViewName(getPage);
 		return mav;
 		

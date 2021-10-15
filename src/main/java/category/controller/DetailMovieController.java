@@ -37,7 +37,6 @@ public class DetailMovieController {
 	@RequestMapping(value=command,method=RequestMethod.GET)
 	public ModelAndView doAction(@RequestParam("num") int num,HttpSession session) {
 		
-		System.out.println("sadsssssssssnum"+num);
 		ModelAndView mav=new ModelAndView();
 		
 		MemberBean loginInfo = (MemberBean) session.getAttribute("loginInfo");
