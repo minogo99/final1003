@@ -98,7 +98,7 @@ td{
  <label for="Img">이미지</label>
  <input type="file" id="image" name="file" />
  <div class="select_img">
-  <img src="resources/images/poster/${cb.image}.jpg" width="150px" height="150px">
+  <img src="resources/images/poster/${cb.image}" width="150px" height="150px">
   <input type="hidden" name="image" value="${cb.image}" />
   
  </div>
