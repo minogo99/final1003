@@ -133,7 +133,7 @@ detailMovie.jsp<br><br>
 						</c:if>
 					</c:forEach>
 				</figure>
-				<h3>
+				<h4>
 					<span class="icon all ir_pm"> <c:if
 							test="${glist.grade eq '18' }">
 							<img src="resources/images/icon/18.svg" class="icon_img">
@@ -145,7 +145,7 @@ detailMovie.jsp<br><br>
 							<img src="resources/images/icon/all.svg" class="icon_img">
 						</c:if>
 					</span> <strong>${glist.title }</strong>
-				</h3>
+				</h4>
 			</div>
 		</div>
 	</c:forEach>
