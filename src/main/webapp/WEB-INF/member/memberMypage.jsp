@@ -33,7 +33,7 @@ table {
 			<div align="center">시청내역이 없습니다.</div>
 		</c:if>
 		<c:forEach var="watch" items="${wblists}">
-					<td><img src="resources/images/poster/${watch.image}"
+					<td><img src="resources/images/poster/${watch.image}.jpg"
 						width="200" height="200"></td>
 				</c:forEach>
 				<br>
@@ -50,7 +50,7 @@ table {
 					<td>찜한 컨텐츠가 없습니다.</td>
 			</c:if>
 				<c:forEach var="jjim" items="${cblists}">
-					<td><img src="resources/images/poster/${jjim.image}"
+					<td><img src="resources/images/poster/${jjim.image}.jpg"
 						width="200" height="200"></td>
 				</c:forEach>
 			</tr>

@@ -36,8 +36,7 @@ public class DetailDramaCotroller {
 	
 	@RequestMapping(value=command,method=RequestMethod.GET)
 	public ModelAndView doAction(@RequestParam("num") int num,HttpSession session) {
-		System.out.println("1");
-		
+		System.out.println("sadsssssssssnum"+num);
 		ModelAndView mav=new ModelAndView();
 		
 		MemberBean loginInfo = (MemberBean) session.getAttribute("loginInfo");
@@ -57,6 +56,7 @@ public class DetailDramaCotroller {
 		mav.addObject("dlists",dlists);
 		mav.addObject("clists",clists);
 		mav.addObject("mjlists", mjlists);
+		
 		mav.setViewName(getPage);
 		return mav;
 	}

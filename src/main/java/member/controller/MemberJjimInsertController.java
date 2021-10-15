@@ -41,10 +41,16 @@ public class MemberJjimInsertController {
 		String msg = "";
 		
 		MemberBean loginInfo = (MemberBean)session.getAttribute("loginInfo");
-		
+		List<MemberJjimBean> mjlists = mjdao.getByData(loginInfo.getId());
+		if(mjlists.size() > 4) {
+		msg = "찜은 5개가 최대입니다";
+		mav.addObject("msg", msg);
+		mav.addObject("num", jjim.getMovie_num());
+		mav.setViewName("alert");
+		}else {
 		int cnt = mjdao.insertJjim(jjim);
 		mav.setViewName(getpage+"?num="+jjim.getMovie_num());
-
+		}
 		return mav;
 }
 }

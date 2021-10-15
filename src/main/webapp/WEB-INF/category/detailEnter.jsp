@@ -63,7 +63,7 @@ detailMovie.jsp<br><br>
 	</div>
 	<div class="poster">
 		<figure>
-			<img src="resources/images/poster/${cb.image}" class="poster_img"/>
+			<img src="resources/images/poster/${cb.image}.jpg" class="poster_img"/>
 		</figure>
 	</div>
 	<div class="infor">
@@ -81,7 +81,7 @@ detailMovie.jsp<br><br>
 			</c:if>
 			</c:forEach>
 			<c:if test="${flag == 'true' }">
-			<a href="deletejjim.member?movie_num=${db.num}&user_id=${loginInfo.id}"><button class="btn btn-outline-danger">
+			<a href="deletejjim.member?movie_num=${db.num}&user_id=${loginInfo.id}"><button class="btn btn-outline-danger active">
 						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
 							fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
   <path
@@ -126,7 +126,7 @@ detailMovie.jsp<br><br>
 				<div style="display: inline-block;">
 					<div class="else" >
 						<figure>
-							<img src="resources/images/poster/${glist.image}" class="poster_img"/>
+							<img src="resources/images/poster/${glist.image}.jpg" class="poster_img"/>
 						</figure>
 						<h3><span class="icon all ir_pm">
 						<c:if test="${glist.grade eq 18 }">
