@@ -128,7 +128,7 @@ detailMovie.jsp<br><br>
 				<figure>
 					<c:forEach var="clist" items="${clists }">
 						<c:if test="${glist.vnum eq clist.num}">
-							<img src="resources/images/poster/${clist.image}.jpg"
+							<img src="resources/images/poster/${clist.image}"
 								class="poster_img" />
 						</c:if>
 					</c:forEach>
