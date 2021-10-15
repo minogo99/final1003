@@ -73,7 +73,7 @@
 	</div>
 	<div class="poster">
 		<figure>
-			<img src="resources/images/poster/${db.video}.jpg" class="poster_img" />
+			<img src="resources/images/poster/${db.video}" class="poster_img" />
 		</figure>
 	</div>
 	<div class="infor">
@@ -138,7 +138,7 @@
 				<figure>
 					<c:forEach var="clist" items="${clists }">
 						<c:if test="${glist.vnum eq clist.num}">
-							<img src="resources/images/poster/${clist.image}.jpg"
+							<img src="resources/images/poster/${clist.image}"
 								class="poster_img" />
 						</c:if>
 					</c:forEach>

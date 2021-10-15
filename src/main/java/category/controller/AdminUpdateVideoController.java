@@ -47,10 +47,9 @@ public class AdminUpdateVideoController {
 	}
 	@RequestMapping(value=command,method = RequestMethod.POST)
 	public ModelAndView doAction(@RequestParam("file") MultipartFile file,CategoryBean cb,HttpServletRequest request) {
-		System.out.println("오니오니");
+		
 		ModelAndView mav=new ModelAndView();
-		
-		
+				
 		String root_path = request.getSession().getServletContext().getRealPath("/");  
 	    String attach_path = "resources/images/poster/";
 	    String filename = file.getOriginalFilename();
@@ -68,8 +67,8 @@ public class AdminUpdateVideoController {
 			cnt = cdao.UpdateVideo(cb);
 		}else {
 			
-			cb.setImage(filename);		 			  
 			System.out.println("사진 안바꿈");
+			cb.setImage(filename);		 			  
 			cnt = cdao.UpdateNoVideo(cb);
 		 }	
 	
