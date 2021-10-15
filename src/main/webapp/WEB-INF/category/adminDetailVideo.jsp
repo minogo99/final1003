@@ -2,35 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@include file="../admin/display/top.jsp" %>
 <%@include file="./../common/common.jsp"%>
-videolist.jsp<br><br>
 
-<script type="text/javascript">
-	function goInsert(){
-		location.href="insert.member" ;
-	}
-	
-	function videoInsert(){
-		location.href="insert.video" ;
-	}
-	
-	function goUpdate(num,pn){
-		location.href="update.member?num="+num+"&pageNumber="+pn;
-	}
-	function goDelete(num,pn){
-		 var result = confirm("삭제하시겠습니까 ?");
-	        
-	        if(result)
-	        {
-	        	location.href="delete.member?num="+num+"&pageNumber="+pn;
-	        alert("삭제되었습니다")
-	        }
-	        else
-	        {
-	        	alert("삭제 취소")
-	        }
-		
-	}
-</script>
+
 <style>
 #container{
 height: 600px;
@@ -52,10 +25,12 @@ text-align: center;
 	</div>
 <div id="videoList" class="col-lg-10" align="center">
 	<h2 style="color:#0080FF; font-weight: bold;">상세보기</h2>
-<table border="1" align="center" width="600">
+<table border="1" align="center" width="600" class="table">
+	<thead class="table-light">
+	<tbody>
 	<tr>
 		<th>영상 이미지</th>
-		<td><img src="resources/images/poster/${cb.image }" width="300" height="300"> </td>
+		<td><img src="resources/images/poster/${cb.image }" width="130" height="130"> </td>
 	</tr>
 	<tr>
 		<th>제목</th>
@@ -89,7 +64,8 @@ text-align: center;
 		<th>내용</th>
 		<td>${db.content } </td>
 	</tr>
-	
+	</tbody>
+	</thead>
 </table>
 ${pageInfo.pagingHtml }
 </div>

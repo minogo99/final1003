@@ -1,48 +1,51 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-detailMovie.jsp<br><br>
 <style type="text/css">
-	.poster{
-   		
-	   	width:150px;
-	   	height: 300px;
-	  	border:1px solid #c4c4c4;
-   	
+#detailVideoWrapper{
+ display: flex;
+}
+#detailVideo{
+	margin: 0 auto;
+	text-align: center;
+	width:400px;
+}
+.poster {
+	width: 100%;
+	height: 300px;
+}
+.poster_img {
+	width: 200px;
+	height: 300px;
+	margin: auto;
+}
+.infor {
+	background: #fff;
+	padding: 17px;
+	border: 1px solid #c4c4c4;
+	width:100%;
+}
 
-   }
-   
-   .poster_img{
-   		position:relative;
-   		width:150px;
-		height: 300px;
-   }
-   .infor {
-   		
-   		background: #fff;
-   		padding:17px; 
-   		border: 1px solid #c4c4c4; 
-   		width:392px; 
-   }
-   
-   .infor > h3{
-   		color: #333; font-size:30px; font-weight: 700;margin-bottom: 20px;
-   }
- 
-   .infor > h3 > span{
-   		width: 29px;height: 29px;display: inline-block; margin-top: 9px; 
-   		
-   }
-  .poster_img{
-   	width: 150px;
-   	height: 300px;
-   }
-   .icon_img{
-   	width: 50px;
-   	height: 50px;
-   }
-#tContent{
-   	display:none;
-   }
+.infor>h3 {
+	color: #333;
+	font-size: 30px;
+	font-weight: 700;
+	margin-bottom: 20px;
+}
+
+.infor>h3>span {
+	width: 29px;
+	height: 29px;
+	display: inline-block;
+	margin-top: 9px;
+}
+.icon_img {
+	width: 50px;
+	height: 50px;
+}
+
+#tContent {
+	display: none;
+}
 </style>
 <script type="text/javascript">
 	function openCloseToc() {
@@ -57,13 +60,11 @@ detailMovie.jsp<br><br>
 </script>
 <%@ include file="../common/common.jsp" %>
 <%@include file="../display/top.jsp" %>
-<div align="center">
-	<div>
-		<h2>상세보기 페이지 입니다</h2>
-	</div>
+<div id="detailVideoWrapper">
+	<div id="detailVideo">
 	<div class="poster">
 		<figure>
-			<img src="resources/images/poster/${cb.image}" class="poster_img"/>
+			<img src="resources/images/poster/${db.image}" class="poster_img"/>
 		</figure>
 	</div>
 	<div class="infor">
@@ -73,7 +74,7 @@ detailMovie.jsp<br><br>
 		<div>
 					<a
 				href="insertwatch.member?movie_num=${db.num}&user_id=${loginInfo.id}"><button
-					name="view" class="btn btn-primary">시청하기</button></a>
+					name="view" class="btn btn-primary">시청하기</button></a> &nbsp;&nbsp;&nbsp;
 					
 			<c:set var="flag" value="false"/>
 			<c:forEach var="jjim" items="${mjlists }">
@@ -119,6 +120,7 @@ detailMovie.jsp<br><br>
 			</div>
 		</div>
 	</div>
+</div>
 </div>
 <hr>
 

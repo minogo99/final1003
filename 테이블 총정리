@@ -52,7 +52,6 @@ create sequence notice_seq
   maxvalue 10000
   nocache;
   
-
 drop table board;
 create table board( 
    num number not null primary key,
@@ -73,80 +72,6 @@ create sequence board_seq
   maxvalue 10000
   nocache;
   
-drop table admin cascade constraints;
-create table admin(
-num number primary key,
-admin_id varchar2(20) not null,
-admin_pass varchar2(20) not null,
-admin_name varchar2(20) not null,
-reg_date date default sysdate
-);
-
-insert into admin values('admin','1234','愿�由ъ옄',sysdate);
-
-drop sequence admin_seq;
-create sequence admin_seq
-  increment by 1
-  start with 1
-  minvalue 1
-  maxvalue 10000
-  nocache;
-  
-drop sequence video_c_seq;
-create sequence video_c_seq
-  increment by 1
-  start with 1
-  minvalue 1
-  maxvalue 10000
-  nocache;
-
-drop table video_c cascade constraints;
-create table video_c(
-	num number primary key,
-	vnum number not null,
-  	title varchar2(50) not null,
-	content varchar2(100) not null,
-	runningT number not null,
-	genre varchar2(80) not null,
-	nation varchar2(20) not null,
-	actor varchar2(50) not null,
-  	grade varchar2(10) not null,
-	day varchar2(50) not null,
-  series varchar2(10)
-);
-
-drop sequence video_seq;
-create sequence video_seq
-  increment by 1
-  start with 1
-  minvalue 1
-  maxvalue 10000
-  nocache;
-  
-drop table video cascade constraints;
-create table video(
-	num number primary key,
-	title varchar2(50) not null,
-	category varchar2(50) not null,
-	grade varchar2(10) not null,
-	image varchar2(50) not null
-	);
-
- 
- alter table video_c add(
- 	constraint FK_video_c
- 	foreign key (vnum)
- 		references video(num)
- );
-
-drop sequence reply_seq;
-create sequence reply_seq
-  increment by 1
-  start with 1
-  minvalue 1
-  maxvalue 10000
-  nocache;
-
 drop table reply;
 create table reply(
 rnum int primary key,
@@ -156,7 +81,15 @@ content varchar2(1000),
 reg_date date default sysdate
 );
 
-  drop sequence coupon_seq;
+drop sequence reply_seq;
+create sequence reply_seq
+  increment by 1
+  start with 1
+  minvalue 1
+  maxvalue 10000
+  nocache;
+  
+   drop sequence coupon_seq;
 create sequence coupon_seq
   increment by 1
   start with 1
@@ -190,7 +123,7 @@ create table watch(
 num number not null,
 movie_num number not null,
 user_id varchar2(30) not null,
-reg_date date
+watch_date date
 );
 
 drop sequence jjim_seq;
@@ -255,11 +188,10 @@ create table orderdetails(
   odid number primary key, 
   oid number references orders(onum) on delete cascade, -- �긽�뭹踰덊샇
   pnum number references commodity(num) on delete set null
-); 
-------------------------------------------------------------------------------------------
-
-insert into members values(members_seq.nextval,'kim','1234','源�泥좎닔',sysdate,'010','4927','1799');
-insert into members values(members_seq.nextval,'admin','1234','愿�由ъ옄',sysdate,'010','4927','1799');
+  
+  -------------------------------------------------------------------------------------
+  
+ insert into members values(members_seq.nextval,'kim','1234','源�泥좎닔',sysdate,'010','4927','1799');
 
   insert into faq values(fqa_seq.nextval,'admin','援щℓ�븳 荑좏룿�쓽 �쁽湲덉쁺�닔利앹쓣 諛쏄퀬�떢�뼱�슂','�씠�슜沅�/寃곗젣',sysdate,'�썾�씠釉� �씠�슜沅� 荑좏룿�쓣 援щℓ �썑 �벑濡앺븯�떊 寃쎌슦 �쁽湲덉쁺�닔利앹쓣 諛쒓툒諛쏆쓣 �닔 �엳�뒿�땲�떎.<br>
 �븘�옒 �젙蹂댁� �븿猿� [1:1臾몄쓽]瑜� �넻�빐 �슂泥��빐二쇱떆硫� 諛쒓툒�쓣 �룄���뱶由ш쿋�뒿�땲�떎.<br>
@@ -332,7 +264,7 @@ values(board_seq.nextval,'a3221','a3221','2015-1-1',0,7,4,3,'�궡�슜3221');
 insert into board
 values(board_seq.nextval,'a33','a33','2015-1-1',0,7,1,1,'�궡�슜33');
 
-
+insert into admin values('admin','1234','愿�由ъ옄',sysdate);
 
 insert into commodity values(commodity_seq.nextval,'Basic',
 '�룞�떆�떆泥� 1�쉶�꽑,HD�솕吏�,紐⑤컮�씪+PC',7900);
@@ -403,4 +335,5 @@ insert into video_c values(video_c_seq.nextval,16,'��硫� 萸먰븯�땲'
 insert into video_c values(video_c_seq.nextval,23,'1917','�젣1李� �꽭怨꾨��쟾�씠 �븳李쎌씤 1917�뀈.',119,'�쟾�웳','�빐�쇅','議곗� 留μ��씠','15','2020-02-19',0);
 insert into video_c values(video_c_seq.nextval,24,'誘몃굹由�','�뼱�뒓 �븳援� 媛�議깆쓽 �썝�뜑���븳 �씠�빞湲�. "誘몃굹由щ뒗 �뼱�뵒�꽌�뱺 �옒 �옄�씪".',115,'�뱶�씪留�','�빐�쇅','�뒪�떚釉� �뿰, �쑄�뿬�젙','12','2021-03-03',0);
 insert into video_c values(video_c_seq.nextval,25,'議댁쐟','洹몃�� 嫄대뱶由ъ� 留먯븯�뼱�빞 �뻽�떎. �긽��瑜� �옒紐� 怨좊Ⅸ �쟻�뱾�쓣 �뼢�븳 �넻苡뚰븳 蹂듭닔!',101,'�븸�뀡','�빐�쇅','�궎�븘�늻由щ툕�뒪','19','2015-01-21',0);
-commit;
+commit; 
+  

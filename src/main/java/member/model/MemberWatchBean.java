@@ -8,6 +8,7 @@ public class MemberWatchBean {
 	private String watch_date;
 	
 	private String image;
+	private String category;
 	
 	public int getNum() {
 		return num;
@@ -38,6 +39,12 @@ public class MemberWatchBean {
 	}
 	public void setImage(String image) {
 		this.image = image;
+	}
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
 	}
 	public MemberWatchBean(int num, String movie_num, String user_id, String watch_date, String image) {
 		super();

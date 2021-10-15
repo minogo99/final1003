@@ -5,7 +5,7 @@
 <mapper namespace="category.detail.DetailBean">
 	
 	<select id="detailVideoView" resultType="MyC_Detail">
-		select * from video_c where vnum = #{vnum}
+		select * from video_c vc inner join video v on vc.num = v.num where vnum = #{vnum}
 	</select>
 	
 	<select id="detailVideoGenre" resultType="MyC_Detail">

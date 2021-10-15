@@ -54,7 +54,7 @@ public class DetailMovieController {
 		mav.addObject("dlists",dlists);
 		mav.addObject("clists",clists);
 		mav.addObject("mjlists", mjlists);
-		
+
 		mav.setViewName(getPage);
 		return mav;
 		
