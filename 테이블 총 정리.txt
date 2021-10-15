@@ -82,7 +82,7 @@ admin_name varchar2(20) not null,
 reg_date date default sysdate
 );
 
-insert into admin values('admin','1234','ê´€ë¦¬ì',sysdate);
+insert into admin values('admin','1234','°ü¸®ÀÚ',sysdate);
 
 drop sequence admin_seq;
 create sequence admin_seq
@@ -92,25 +92,52 @@ create sequence admin_seq
   maxvalue 10000
   nocache;
   
-drop table video;
-create table video(
-   num number not null primary key,
-   title varchar2(20) not null,
-   nation varchar2(25) not null,
-   category varchar2(25) not null,
-   genre varchar2(60),
-   grade varchar2(5),
-   actor varchar2(50),
-   image varchar2(50)
-   );
-   
-   drop sequence video_seq;
+drop sequence video_c_seq;
+create sequence video_c_seq
+  increment by 1
+  start with 1
+  minvalue 1
+  maxvalue 10000
+  nocache;
+
+drop table video_c;
+create table video_c(
+	num number primary key,
+	vnum number not null,
+  	title varchar2(50) not null,
+	content varchar2(100) not null,
+	runningT number not null,
+	genre varchar2(80) not null,
+	nation varchar2(20) not null,
+	actor varchar2(50) not null,
+  	grade varchar2(10) not null,
+	day varchar2(50) not null,
+  series varchar2(10)
+);
+
+drop sequence video_seq;
 create sequence video_seq
   increment by 1
   start with 1
   minvalue 1
   maxvalue 10000
   nocache;
+  
+drop table video;
+create table video(
+	num number primary key,
+	title varchar2(50) not null,
+	category varchar2(50) not null,
+	grade varchar2(10) not null,
+	image varchar2(50) not null
+	);
+
+ 
+ alter table video_c add(
+ 	constraint FK_video_c
+ 	foreign key (vnum)
+ 		references video(num)
+ );
 
 drop table reply;
 create table reply(
@@ -210,9 +237,9 @@ increment by 1
 
 drop table orders;
 create table orders(
-	onum number primary key, -- ìƒí’ˆë²ˆí˜¸
-	mnum number references members(num) on delete set null, -- ë©¤ë²„ ì™¸ë˜í‚¤
-	orderdate date default sysdate -- ì˜¤ëŠ˜ ë‚ ì
+	onum number primary key, -- »óÇ°¹øÈ£
+	mnum number references members(num) on delete set null, -- ¸â¹ö ¿Ü·¡Å°
+	orderdate date default sysdate -- ¿À´Ã ³¯ÀÚ
 );
 select * from orders;
 
@@ -228,153 +255,153 @@ select * from orderdetails;
 drop table orderdetails;
 create table orderdetails(
   odid number primary key, 
-  oid number references orders(onum) on delete cascade, -- ìƒí’ˆë²ˆí˜¸
+  oid number references orders(onum) on delete cascade, -- »óÇ°¹øÈ£
   pnum number references commodity(num) on delete set null
 ); 
 ------------------------------------------------------------------------------------------
 
-insert into members values(members_seq.nextval,'kim','1234','ê¹€ì² ìˆ˜',sysdate,'010','4927','1799');
+insert into members values(members_seq.nextval,'kim','1234','±èÃ¶¼ö',sysdate,'010','4927','1799');
 
-  insert into faq values(fqa_seq.nextval,'admin','êµ¬ë§¤í•œ ì¿ í°ì˜ í˜„ê¸ˆì˜ìˆ˜ì¦ì„ ë°›ê³ ì‹¶ì–´ìš”','ì´ìš©ê¶Œ/ê²°ì œ',sysdate,'ì›¨ì´ë¸Œ ì´ìš©ê¶Œ ì¿ í°ì„ êµ¬ë§¤ í›„ ë“±ë¡í•˜ì‹  ê²½ìš° í˜„ê¸ˆì˜ìˆ˜ì¦ì„ ë°œê¸‰ë°›ì„ ìˆ˜ ìˆìŠµë‹ˆë‹¤.<br>
-ì•„ë˜ ì •ë³´ì™€ í•¨ê»˜ [1:1ë¬¸ì˜]ë¥¼ í†µí•´ ìš”ì²­í•´ì£¼ì‹œë©´ ë°œê¸‰ì„ ë„ì™€ë“œë¦¬ê² ìŠµë‹ˆë‹¤.<br>
-ëŒ€ìƒ ì´ìš©ê¶Œ : ì´ìš©ê¶Œì¿ í°, ì¥ê¸° ì´ìš©ê¶Œì¿ í°, ê¸°í”„í‹°ì½˜ ë“±<br>
+  insert into faq values(fqa_seq.nextval,'admin','±¸¸ÅÇÑ ÄíÆùÀÇ Çö±İ¿µ¼öÁõÀ» ¹Ş°í½Í¾î¿ä','ÀÌ¿ë±Ç/°áÁ¦',sysdate,'¿şÀÌºê ÀÌ¿ë±Ç ÄíÆùÀ» ±¸¸Å ÈÄ µî·ÏÇÏ½Å °æ¿ì Çö±İ¿µ¼öÁõÀ» ¹ß±Ş¹ŞÀ» ¼ö ÀÖ½À´Ï´Ù.<br>
+¾Æ·¡ Á¤º¸¿Í ÇÔ²² [1:1¹®ÀÇ]¸¦ ÅëÇØ ¿äÃ»ÇØÁÖ½Ã¸é ¹ß±ŞÀ» µµ¿Íµå¸®°Ú½À´Ï´Ù.<br>
+´ë»ó ÀÌ¿ë±Ç : ÀÌ¿ë±ÇÄíÆù, Àå±â ÀÌ¿ë±ÇÄíÆù, ±âÇÁÆ¼ÄÜ µî<br>
 
-- ì´ë¦„ :<br>
-- ì›¨ì´ë¸Œ ID :<br>
-- ì´ë©”ì¼ ì£¼ì†Œ :<br>
-- ì—°ë½ ê°€ëŠ¥ ë²ˆí˜¸ :<br>
-- í˜„ê¸ˆì˜ìˆ˜ì¦ ë°œí–‰ ì‹ë³„ë²ˆí˜¸ :<br>
-(ë˜ëŠ” ì‚¬ì—…ì ë“±ë¡ë²ˆí˜¸)<br>
+- ÀÌ¸§ :<br>
+- ¿şÀÌºê ID :<br>
+- ÀÌ¸ŞÀÏ ÁÖ¼Ò :<br>
+- ¿¬¶ô °¡´É ¹øÈ£ :<br>
+- Çö±İ¿µ¼öÁõ ¹ßÇà ½Äº°¹øÈ£ :<br>
+(¶Ç´Â »ç¾÷ÀÚ µî·Ï¹øÈ£)<br>
 
-â€» ì‚¬ì—…ì ì§€ì¶œ ì¦ë¹™ì˜ ê²½ìš° ì‚¬ì—…ì ë“±ë¡ë²ˆí˜¸ê°€ í•„ìš”í•©ë‹ˆë‹¤.');
+¡Ø »ç¾÷ÀÚ ÁöÃâ ÁõºùÀÇ °æ¿ì »ç¾÷ÀÚ µî·Ï¹øÈ£°¡ ÇÊ¿äÇÕ´Ï´Ù.');
 
-insert into notice values(notice_seq.nextval,'admin','[ì ê²€ì•ˆë‚´] 9ì›” 30ì¼ MBC ì •ì£¼í–‰ ì±„ë„ ì ê²€','ì„œë¹„ìŠ¤ê³µì§€',sysdate,'ì•ˆë…•í•˜ì„¸ìš”. wavve(ì›¨ì´ë¸Œ) ì…ë‹ˆë‹¤.<br>
-ë¼ì´ë¸Œ ì±„ë„ ì ê²€ìœ¼ë¡œ ì¸í•˜ì—¬ ì•„ë˜ì™€ ê°™ì´ ì„œë¹„ìŠ¤ê°€ ì¼ì‹œì ìœ¼ë¡œ ì¤‘ì§€ë©ë‹ˆë‹¤.<br>
+insert into notice values(notice_seq.nextval,'admin','[Á¡°Ë¾È³»] 9¿ù 30ÀÏ MBC Á¤ÁÖÇà Ã¤³Î Á¡°Ë','¼­ºñ½º°øÁö',sysdate,'¾È³çÇÏ¼¼¿ä. wavve(¿şÀÌºê) ÀÔ´Ï´Ù.<br>
+¶óÀÌºê Ã¤³Î Á¡°ËÀ¸·Î ÀÎÇÏ¿© ¾Æ·¡¿Í °°ÀÌ ¼­ºñ½º°¡ ÀÏ½ÃÀûÀ¸·Î ÁßÁöµË´Ï´Ù.<br>
 
-1. ì¼ì‹œ: 9ì›” 30ì¼ ëª©ìš”ì¼ 17:00 ~ 18:00 (1ì‹œê°„)<br>
-2. ì‘ì—…ë‚´ì—­: ì‹œìŠ¤í…œ ì ê²€<br>
-3. ëŒ€ìƒì±„ë„: MBC ë¬´í•œë„ì „, MBC ë‚˜ í˜¼ì ì‚°ë‹¤, MBC ë¼ë””ì˜¤ìŠ¤íƒ€, MBC ì„œí”„ë¼ì´ì¦ˆ, MBC í•˜ì´í‚¥, MBC ë“œë¼ë§ˆì •ì£¼í–‰, MBC ì˜ˆëŠ¥ì •ì£¼í–‰<br>
-4. ì˜í–¥ë„: ì‘ì—… ê°„ ì‹œì²­ ë¶ˆê°€<br>
+1. ÀÏ½Ã: 9¿ù 30ÀÏ ¸ñ¿äÀÏ 17:00 ~ 18:00 (1½Ã°£)<br>
+2. ÀÛ¾÷³»¿ª: ½Ã½ºÅÛ Á¡°Ë<br>
+3. ´ë»óÃ¤³Î: MBC ¹«ÇÑµµÀü, MBC ³ª È¥ÀÚ »ê´Ù, MBC ¶óµğ¿À½ºÅ¸, MBC ¼­ÇÁ¶óÀÌÁî, MBC ÇÏÀÌÅ±, MBC µå¶ó¸¶Á¤ÁÖÇà, MBC ¿¹´ÉÁ¤ÁÖÇà<br>
+4. ¿µÇâµµ: ÀÛ¾÷ °£ ½ÃÃ» ºÒ°¡<br>
 
-ì´ìš©ì— ì°¸ê³ í•´ ì£¼ì‹œê¸° ë°”ëë‹ˆë‹¤.<br>
-ê°ì‚¬í•©ë‹ˆë‹¤.');
+ÀÌ¿ë¿¡ Âü°íÇØ ÁÖ½Ã±â ¹Ù¶ø´Ï´Ù.<br>
+°¨»çÇÕ´Ï´Ù.');
 
 insert into coupon values(coupon_seq.nextval,'','a','1234',0.4,'','2022-10-20','',default);
-//ì¿ í°ë“±ë¡ ì¼€ì´ìŠ¤
+//ÄíÆùµî·Ï ÄÉÀÌ½º
 insert into coupon values(coupon_seq.nextval,'','a','1234567',0.4,'','2020-9-27','',default);
-//ê¸°ê°„ë§Œë£Œ ì¼€ì´ìŠ¤
+//±â°£¸¸·á ÄÉÀÌ½º
 
 insert into board
-values(board_seq.nextval,'a1','a1','2015-1-1',0,1,0,0,'ë‚´ìš©1');
+values(board_seq.nextval,'a1','a1','2015-1-1',0,1,0,0,'³»¿ë1');
 
 insert into board
-values(board_seq.nextval,'a2','a2','2015-1-1',0,2,0,0,'ë‚´ìš©2');
+values(board_seq.nextval,'a2','a2','2015-1-1',0,2,0,0,'³»¿ë2');
 
 insert into board
-values(board_seq.nextval,'a21','a21','2015-1-1',0,2,4,1,'ë‚´ìš©21');
+values(board_seq.nextval,'a21','a21','2015-1-1',0,2,4,1,'³»¿ë21');
 
 insert into board
-values(board_seq.nextval,'a22','a22','2015-1-1',0,2,1,1,'ë‚´ìš©22');
+values(board_seq.nextval,'a22','a22','2015-1-1',0,2,1,1,'³»¿ë22');
 
 insert into board
-values(board_seq.nextval,'a221','a221','2015-1-1',0,2,3,2,'ë‚´ìš©221');
+values(board_seq.nextval,'a221','a221','2015-1-1',0,2,3,2,'³»¿ë221');
 
 insert into board
-values(board_seq.nextval,'a222','a222','2015-1-1',0,2,2,2,'ë‚´ìš©222');
+values(board_seq.nextval,'a222','a222','2015-1-1',0,2,2,2,'³»¿ë222');
 
 insert into board
-values(board_seq.nextval,'a3','a3','2015-1-1',0,7,0,0,'ë‚´ìš©3');
+values(board_seq.nextval,'a3','a3','2015-1-1',0,7,0,0,'³»¿ë3');
 
 insert into board
-values(board_seq.nextval,'a31','a31','2015-1-1',0,7,6,1,'ë‚´ìš©31');
+values(board_seq.nextval,'a31','a31','2015-1-1',0,7,6,1,'³»¿ë31');
 
 insert into board
-values(board_seq.nextval,'a311','a311','2015-1-1',0,7,7,2,'ë‚´ìš©311');
+values(board_seq.nextval,'a311','a311','2015-1-1',0,7,7,2,'³»¿ë311');
 
 insert into board
-values(board_seq.nextval,'a32','a32','2015-1-1',0,7,2,1,'ë‚´ìš©32');
+values(board_seq.nextval,'a32','a32','2015-1-1',0,7,2,1,'³»¿ë32');
 
 insert into board
-values(board_seq.nextval,'a321','a321','2015-1-1',0,7,5,2,'ë‚´ìš©321');
+values(board_seq.nextval,'a321','a321','2015-1-1',0,7,5,2,'³»¿ë321');
 
 insert into board
-values(board_seq.nextval,'a322','a322','2015-1-1',0,7,3,2,'ë‚´ìš©322');
+values(board_seq.nextval,'a322','a322','2015-1-1',0,7,3,2,'³»¿ë322');
 
 insert into board
-values(board_seq.nextval,'a3221','a3221','2015-1-1',0,7,4,3,'ë‚´ìš©3221');
+values(board_seq.nextval,'a3221','a3221','2015-1-1',0,7,4,3,'³»¿ë3221');
 
 insert into board
-values(board_seq.nextval,'a33','a33','2015-1-1',0,7,1,1,'ë‚´ìš©33');
+values(board_seq.nextval,'a33','a33','2015-1-1',0,7,1,1,'³»¿ë33');
 
-insert into admin values('admin','1234','ê´€ë¦¬ì',sysdate);
+insert into admin values('admin','1234','°ü¸®ÀÚ',sysdate);
 
 insert into commodity values(commodity_seq.nextval,'Basic',
-'ë™ì‹œì‹œì²­ 1íšŒì„ ,HDí™”ì§ˆ,ëª¨ë°”ì¼+PC',7900);
+'µ¿½Ã½ÃÃ» 1È¸¼±,HDÈ­Áú,¸ğ¹ÙÀÏ+PC',7900);
 
 insert into commodity values(commodity_seq.nextval,'Standard',
-'ë™ì‹œì‹œì²­ 2íšŒì„ ,FHDí™”ì§ˆ,ì „ì²´ ë””ë°”ì´ìŠ¤',10900);
+'µ¿½Ã½ÃÃ» 2È¸¼±,FHDÈ­Áú,ÀüÃ¼ µğ¹ÙÀÌ½º',10900);
 
 insert into commodity values(commodity_seq.nextval,'Premium',
-'ë™ì‹œì‹œì²­ 4íšŒì„ ,ìµœê³ í™”ì§ˆ,ì „ì²´ ë””ë°”ì´ìŠ¤',13900);
+'µ¿½Ã½ÃÃ» 4È¸¼±,ÃÖ°íÈ­Áú,ÀüÃ¼ µğ¹ÙÀÌ½º',13900);
 
-insert into commodity values(commodity_seq.nextval,'Basic X FLO ë¬´ì œí•œ',
-'ë™ì‹œì‹œì²­ 1íšŒì„ ,HDí™”ì§ˆ,ëª¨ë°”ì¼+PC',13750);
+insert into commodity values(commodity_seq.nextval,'Basic X FLO ¹«Á¦ÇÑ',
+'µ¿½Ã½ÃÃ» 1È¸¼±,HDÈ­Áú,¸ğ¹ÙÀÏ+PC',13750);
 
-insert into commodity values(commodity_seq.nextval,'Standard X Bugs ë“£ê¸°',
-'ë™ì‹œì‹œì²­ 1íšŒì„ ,HDí™”ì§ˆ,ëª¨ë°”ì¼+PC',13750);
+insert into commodity values(commodity_seq.nextval,'Standard X Bugs µè±â',
+'µ¿½Ã½ÃÃ» 1È¸¼±,HDÈ­Áú,¸ğ¹ÙÀÏ+PC',13750);
 
-insert into commodity values(commodity_seq.nextval,'Premium X KB ë‚˜ë¼ì‚¬ë‘ì¹´ë“œ',
-'ë™ì‹œì‹œì²­ 1íšŒì„ ,HDí™”ì§ˆ,ëª¨ë°”ì¼+PC',7900);
+insert into commodity values(commodity_seq.nextval,'Premium X KB ³ª¶ó»ç¶ûÄ«µå',
+'µ¿½Ã½ÃÃ» 1È¸¼±,HDÈ­Áú,¸ğ¹ÙÀÏ+PC',7900);
 
-insert into video values(video_seq.nextval,'ê°ê¸°','movie','18','flu');
-insert into video values(video_seq.nextval,'ê¸°ìƒì¶©','movie','15','parasite');
-insert into video values(video_seq.nextval,'ê²€ì€íƒœì–‘','drama','18','blacksun');
-insert into video values(video_seq.nextval,'í™ì²œê¸°','drama','15','hongchungi');
-insert into video values(video_seq.nextval,'ê°ìíƒ•','drama','12','potato'); 
-insert into video values(video_seq.nextval,'ë¹¨ê°•êµ¬ë‘','drama','all','redshoes');
-insert into video values(video_seq.nextval,'ì›ë”ìš°ë¨¼','drama','18','wonderwoman');
-insert into video values(video_seq.nextval,'1ë°•2ì¼','enter','18','1night2days');
-insert into video values(video_seq.nextval,'ë¬´ì—‡ì´ë“  ë¬¼ì–´ë³´ì‚´','enter','18','anyask');
-insert into video values(video_seq.nextval,'ì„¸ìƒì— ë‚˜ìœ ê°œëŠ” ì—†ë‹¤','enter','18','gooddog');
-insert into video values(video_seq.nextval,'ë¯¸ìš´ ìš°ë¦¬ìƒˆë¼','enter','18','hatebaby');
-insert into video values(video_seq.nextval,'ì•ˆì‹¸ìš°ë©´ ë‹¤í–‰ì´ì•¼','enter','18','nottofight'); 
-insert into video values(video_seq.nextval,'ëŸ°ë‹ë§¨','enter','18','runningman');
-insert into video values(video_seq.nextval,'ë‚˜ í˜¼ì ì‚°ë‹¤','enter','18','solohome');
-insert into video values(video_seq.nextval,'ë™ìƒì´ëª½','enter','18','sunshine');
-insert into video values(video_seq.nextval,'ë†€ë©´ ë­í•˜ë‹ˆ','enter','18','whatplay');
-insert into video values(video_seq.nextval,'ë¸”ë¼ì¸ë“œ ì‚¬ì´ë“œ','main','15','main1');
- insert into video values(video_seq.nextval,'í¬ë£¨ì¦ˆ íŒ¨ë°€ë¦¬','main','15','main2');
- insert into video values(video_seq.nextval,'ë…¸íŒ…í','main','15','main3');
-insert into video values(video_seq.nextval,'í„°ë¯¸ë„¤ì´í„°','main','15','main4');
- insert into video values(video_seq.nextval,'ìš°ë¦¬ì§‘','main','15','main5');
-insert into video values(video_seq.nextval,'í‹´ ìŠ¤í”¼ë¦¿','main','15','main6');
- insert into video values(video_seq.nextval,'1917','main','15','main7');
-insert into video values(video_seq.nextval,'ë¯¸ë‚˜ë¦¬','main','15','minari');
- insert into video values(video_seq.nextval,'ì¡´ìœ…','main','15','john');
+ insert into video values(video_seq.nextval,'°¨±â','movie','18','flu.jpg');
+insert into video values(video_seq.nextval,'±â»ıÃæ','movie','15','parasite.jpg');
+insert into video values(video_seq.nextval,'°ËÀºÅÂ¾ç','drama','18','blacksun.jpg');
+insert into video values(video_seq.nextval,'È«Ãµ±â','drama','15','hongchungi.jpg');
+insert into video values(video_seq.nextval,'°¨ÀÚÅÁ','drama','12','potato.jpg'); 
+insert into video values(video_seq.nextval,'»¡°­±¸µÎ','drama','all','redshoes.jpg');
+insert into video values(video_seq.nextval,'¿ø´õ¿ì¸Õ','drama','18','wonderwoman.jpg');
+insert into video values(video_seq.nextval,'1¹Ú2ÀÏ','enter','18','1night2days.jpg');
+insert into video values(video_seq.nextval,'¹«¾ùÀÌµç ¹°¾îº¸»ì','enter','18','anyask.jpg');
+insert into video values(video_seq.nextval,'¼¼»ó¿¡ ³ª»Û °³´Â ¾ø´Ù','enter','18','gooddog.jpg');
+insert into video values(video_seq.nextval,'¹Ì¿î ¿ì¸®»õ³¢','enter','18','hatebaby.jpg');
+insert into video values(video_seq.nextval,'¾È½Î¿ì¸é ´ÙÇàÀÌ¾ß','enter','18','nottofight.jpg'); 
+insert into video values(video_seq.nextval,'·±´×¸Ç','enter','18','runningman.jpg');
+insert into video values(video_seq.nextval,'³ª È¥ÀÚ »ê´Ù','enter','18','solohome.jpg');
+insert into video values(video_seq.nextval,'µ¿»óÀÌ¸ù','enter','18','sunshine.jpg');
+insert into video values(video_seq.nextval,'³î¸é ¹¹ÇÏ´Ï','enter','18','whatplay.jpg');
+insert into video values(video_seq.nextval,'ºí¶óÀÎµå »çÀÌµå','main','15','main1.jpg');
+ insert into video values(video_seq.nextval,'Å©·çÁî ÆĞ¹Ğ¸®','main','15','main2.jpg');
+ insert into video values(video_seq.nextval,'³ëÆÃÈú','main','15','main3.jpg');
+insert into video values(video_seq.nextval,'ÅÍ¹Ì³×ÀÌÅÍ','main','15','main4.jpg');
+ insert into video values(video_seq.nextval,'¿ì¸®Áı','main','15','main5.jpg');
+insert into video values(video_seq.nextval,'Æ¾ ½ºÇÇ¸´','main','15','main6.jpg');
+ insert into video values(video_seq.nextval,'1917','main','15','main7.jpg');
+insert into video values(video_seq.nextval,'¹Ì³ª¸®','main','15','minari.jpg');
+ insert into video values(video_seq.nextval,'Á¸À¨','main','15','john.jpg');
  
- insert into video_c values(video_c_seq.nextval,1,'ê°ê¸°','ì•„ì—ì´ì˜¤ìš°',120,'ì•¡ì…˜','í•´ì™¸','ë°•ë§Œì„','18','2021-11-10',0);
-insert into video_c values(video_c_seq.nextval,2,'ê¸°ìƒì¶©','ì•„ì—ì´ì˜¤ìš°',120,'ì•¡ì…˜','í•´ì™¸','ë°•ë§Œì„','15','2021-11-10',0);
-insert into video_c values(video_c_seq.nextval,3,'ê²€ì€íƒœì–‘','ì•„ì—ì´ì˜¤ìš°',120,'ì•¡ì…˜','í•´ì™¸','ë°•ë§Œì„','18','2021-11-10',0);
-insert into video_c values(video_c_seq.nextval,4,'í™ì²œê¸°','ì•„ì—ì´ì˜¤ìš°',120,'ì•¡ì…˜','í•´ì™¸','ë°•ë§Œì„','15','2021-11-10',0);
-insert into video_c values(video_c_seq.nextval,5,'ê°ìíƒ•','ì•„ì—ì´ì˜¤ìš°',120,'ì•¡ì…˜','í•´ì™¸','ë°•ë§Œì„','12','2021-11-10',0);
-insert into video_c values(video_c_seq.nextval,6,'ë¹¨ê°•êµ¬ë‘','ì•„ì—ì´ì˜¤ìš°',120,'ì•¡ì…˜','í•´ì™¸','ë°•ë§Œì„','all','2021-11-10',0);
-insert into video_c values(video_c_seq.nextval,7,'ì›ë”ìš°ë¨¼','ì•„ì—ì´ì˜¤ìš°',120,'ì•¡ì…˜','í•´ì™¸','ë°•ë§Œì„','18','2021-11-10',0);
-insert into video_c values(video_c_seq.nextval,8,'1ë°•2ì¼','ì•„ì—ì´ì˜¤ìš°',120,'ì•¡ì…˜','í•´ì™¸','ë°•ë§Œì„','18','2021-11-10',0);
-insert into video_c values(video_c_seq.nextval,9,'ë¬´ì—‡ì´ë“  ë¬¼ì–´ë³´ì‚´','ì•„ì—ì´ì˜¤ìš°',120,'ì•¡ì…˜','í•´ì™¸','ë°•ë§Œì„','18','2021-11-10',0);
-insert into video_c values(video_c_seq.nextval,10,'ì„¸ìƒì— ë‚˜ìœê°œëŠ” ì—†ë‹¤','ì•„ì—ì´ì˜¤ìš°',120,'ì•¡ì…˜','í•´ì™¸','ë°•ë§Œì„','18','2021-11-10',0);
-insert into video_c values(video_c_seq.nextval,11,'ë¯¸ìš´ ìš°ë¦¬ìƒˆë¼','ì•„ì—ì´ì˜¤ìš°',120,'ì•¡ì…˜','í•´ì™¸','ë°•ë§Œì„','18','2021-11-10',0);
-insert into video_c values(video_c_seq.nextval,12,'ì•ˆì‹¸ìš°ë©´ ë‹¤í–‰ì´ì•¼','ì•„ì—ì´ì˜¤ìš°',120,'ì•¡ì…˜','í•´ì™¸','ë°•ë§Œì„','18','2021-11-10',0);
-insert into video_c values(video_c_seq.nextval,13,'ëŸ°ë‹ë§¨','ì•„ì—ì´ì˜¤ìš°',120,'ì•¡ì…˜','í•´ì™¸','ë°•ë§Œì„','18','2021-11-10',0);
-insert into video_c values(video_c_seq.nextval,14,'ë‚˜ í˜¼ì ì‚°ë‹¤','ì•„ì—ì´ì˜¤ìš°',120,'ì•¡ì…˜','í•´ì™¸','ë°•ë§Œì„','18','2021-11-10',0);
-insert into video_c values(video_c_seq.nextval,15,'ë™ìƒì´ëª½','ì•„ì—ì´ì˜¤ìš°',120,'ì•¡ì…˜','í•´ì™¸','ë°•ë§Œì„','18','2021-11-10',0);
-insert into video_c values(video_c_seq.nextval,16,'ë†€ë©´ ë­í•˜ë‹ˆ','ì•„ì—ì´ì˜¤ìš°',120,'ì•¡ì…˜','í•´ì™¸','ë°•ë§Œì„','18','2021-11-10',0);
- insert into video_c values(video_c_seq.nextval,17,'ë¸”ë¼ì¸ë“œ ì‚¬ì´ë“œ','ì˜í™”ë³´ë‹¤ ë” ì˜í™” ê°™ì€ ì‹¤í™”, ì „ë¯¸êµ­ì„ ìš¸ë¦° í–‰ë³µí•œ ë§Œë‚¨',128,'ë“œë¼ë§ˆ','í•´ì™¸','ì‚°ë“œë¼ ë¸”ë¡','12','2010-04-15',0);
- insert into video_c values(video_c_seq.nextval,18,'í¬ë£¨ì¦ˆ íŒ¨ë°€ë¦¬','ì´ëŸ° ë‚ ë²¼ë½ì´ ìˆë‚˜!ìš°ë¦¬ ì§‘ì´ ë¬´ë„ˆì¡Œì–´ìš”?',98,'ê°€ì¡±','í•´ì™¸','ë‹ˆì½œë¼ìŠ¤ì¼€ì´ì§€','12','2013-05-16',0);
- insert into video_c values(video_c_seq.nextval,19,'ë…¸íŒ…í','ì„¸ê³„ì ì¸ ìŠ¤íƒ€ì´ì ì§€êµ¬ìƒì—ì„œ ê°€ì¥ ì•„ë¦„ë‹¤ìš´ ì—¬ì ì• ë‚˜ ìŠ¤ì½§.',124,'ë©œë¡œ','í•´ì™¸','ì¤„ë¦¬ì•„ ë¡œë²„ì¸ ','12','1999-07-03',0);
- insert into video_c values(video_c_seq.nextval,20,'í„°ë¯¸ë„¤ì´í„° ì œë„¤ì‹œìŠ¤','"ë‚œ ê¸°ê³„ë„, ì¸ê°„ë„ ì•„ë‹ˆì•¼. ê·¸ ì´ìƒì´ì§€"',125,'SF','í•´ì™¸','ì•„ë†€ë“œ ìŠˆì™ˆì œë„¤ê±°','15','2015-07-02',0);
- insert into video_c values(video_c_seq.nextval,21,'ìš°ë¦¬ì§‘','"ìš°ë¦¬ì§‘ì€ ì§„ì§œ ì™œ ì´ëŸ´ê¹Œ?"',15,'ë“œë¼ë§ˆ','êµ­ë‚´','ê¹€ë‚˜ì—°','12','2019-08-22',0);
- insert into video_c values(video_c_seq.nextval,22,'í‹´ ìŠ¤í”¼ë¦¿','ë” ì´ìƒ ë§ì„¤ì¼ ìˆ˜ ì—†ì–´ ì§„ì§œ ë‚˜ ë³´ì—¬ì¤„ê²Œ!',93,'ë“œë¼ë§ˆ','í•´ì™¸','ì˜ë¥´ íŒ¨ë‹','12','2019-09-04',0);
-insert into video_c values(video_c_seq.nextval,23,'1917','ì œ1ì°¨ ì„¸ê³„ëŒ€ì „ì´ í•œì°½ì¸ 1917ë…„.',119,'ì „ìŸ','í•´ì™¸','ì¡°ì§€ ë§¥ì¼€ì´','15','2020-02-19',0);
-insert into video_c values(video_c_seq.nextval,24,'ë¯¸ë‚˜ë¦¬','ì–´ëŠ í•œêµ­ ê°€ì¡±ì˜ ì›ë”í’€í•œ ì´ì•¼ê¸°. "ë¯¸ë‚˜ë¦¬ëŠ” ì–´ë””ì„œë“  ì˜ ìë¼".',115,'ë“œë¼ë§ˆ','í•´ì™¸','ìŠ¤í‹°ë¸ ì—°, ìœ¤ì—¬ì •','12','2021-03-03',0);
-insert into video_c values(video_c_seq.nextval,25,'ì¡´ìœ…','ê·¸ë¥¼ ê±´ë“œë¦¬ì§€ ë§ì•˜ì–´ì•¼ í–ˆë‹¤. ìƒëŒ€ë¥¼ ì˜ëª» ê³ ë¥¸ ì ë“¤ì„ í–¥í•œ í†µì¾Œí•œ ë³µìˆ˜!',101,'ì•¡ì…˜','í•´ì™¸','í‚¤ì•„ëˆ„ë¦¬ë¸ŒìŠ¤','19','2015-01-21',0);
+ insert into video_c values(video_c_seq.nextval,1,'°¨±â','¾Æ¿¡ÀÌ¿À¿ì',120,'¾×¼Ç','ÇØ¿Ü','¹Ú¸¸¼®','18','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,2,'±â»ıÃæ','¾Æ¿¡ÀÌ¿À¿ì',120,'¾×¼Ç','ÇØ¿Ü','¹Ú¸¸¼®','15','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,3,'°ËÀºÅÂ¾ç','¾Æ¿¡ÀÌ¿À¿ì',120,'¾×¼Ç','ÇØ¿Ü','¹Ú¸¸¼®','18','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,4,'È«Ãµ±â','¾Æ¿¡ÀÌ¿À¿ì',120,'¾×¼Ç','ÇØ¿Ü','¹Ú¸¸¼®','15','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,5,'°¨ÀÚÅÁ','¾Æ¿¡ÀÌ¿À¿ì',120,'¾×¼Ç','ÇØ¿Ü','¹Ú¸¸¼®','12','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,6,'»¡°­±¸µÎ','¾Æ¿¡ÀÌ¿À¿ì',120,'¾×¼Ç','ÇØ¿Ü','¹Ú¸¸¼®','all','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,7,'¿ø´õ¿ì¸Õ','¾Æ¿¡ÀÌ¿À¿ì',120,'¾×¼Ç','ÇØ¿Ü','¹Ú¸¸¼®','18','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,8,'1¹Ú2ÀÏ','¾Æ¿¡ÀÌ¿À¿ì',120,'¾×¼Ç','ÇØ¿Ü','¹Ú¸¸¼®','18','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,9,'¹«¾ùÀÌµç ¹°¾îº¸»ì','¾Æ¿¡ÀÌ¿À¿ì',120,'¾×¼Ç','ÇØ¿Ü','¹Ú¸¸¼®','18','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,10,'¼¼»ó¿¡ ³ª»Û°³´Â ¾ø´Ù','¾Æ¿¡ÀÌ¿À¿ì',120,'¾×¼Ç','ÇØ¿Ü','¹Ú¸¸¼®','18','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,11,'¹Ì¿î ¿ì¸®»õ³¢','¾Æ¿¡ÀÌ¿À¿ì',120,'¾×¼Ç','ÇØ¿Ü','¹Ú¸¸¼®','18','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,12,'¾È½Î¿ì¸é ´ÙÇàÀÌ¾ß','¾Æ¿¡ÀÌ¿À¿ì',120,'¾×¼Ç','ÇØ¿Ü','¹Ú¸¸¼®','18','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,13,'·±´×¸Ç','¾Æ¿¡ÀÌ¿À¿ì',120,'¾×¼Ç','ÇØ¿Ü','¹Ú¸¸¼®','18','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,14,'³ª È¥ÀÚ »ê´Ù','¾Æ¿¡ÀÌ¿À¿ì',120,'¾×¼Ç','ÇØ¿Ü','¹Ú¸¸¼®','18','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,15,'µ¿»óÀÌ¸ù','¾Æ¿¡ÀÌ¿À¿ì',120,'¾×¼Ç','ÇØ¿Ü','¹Ú¸¸¼®','18','2021-11-10',0);
+insert into video_c values(video_c_seq.nextval,16,'³î¸é ¹¹ÇÏ´Ï','¾Æ¿¡ÀÌ¿À¿ì',120,'¾×¼Ç','ÇØ¿Ü','¹Ú¸¸¼®','18','2021-11-10',0);
+ insert into video_c values(video_c_seq.nextval,17,'ºí¶óÀÎµå »çÀÌµå','¿µÈ­º¸´Ù ´õ ¿µÈ­ °°Àº ½ÇÈ­, Àü¹Ì±¹À» ¿ï¸° Çàº¹ÇÑ ¸¸³²',128,'µå¶ó¸¶','ÇØ¿Ü','»êµå¶ó ºí·Ï','12','2010-04-15',0);
+ insert into video_c values(video_c_seq.nextval,18,'Å©·çÁî ÆĞ¹Ğ¸®','ÀÌ·± ³¯º­¶ôÀÌ ÀÖ³ª!¿ì¸® ÁıÀÌ ¹«³ÊÁ³¾î¿ä?',98,'°¡Á·','ÇØ¿Ü','´ÏÄİ¶ó½ºÄÉÀÌÁö','12','2013-05-16',0);
+ insert into video_c values(video_c_seq.nextval,19,'³ëÆÃÈú','¼¼°èÀûÀÎ ½ºÅ¸ÀÌÀÚ Áö±¸»ó¿¡¼­ °¡Àå ¾Æ¸§´Ù¿î ¿©ÀÚ ¾Ö³ª ½ºÄà.',124,'¸á·Î','ÇØ¿Ü','ÁÙ¸®¾Æ ·Î¹öÃ÷','12','1999-07-03',0);
+ insert into video_c values(video_c_seq.nextval,20,'ÅÍ¹Ì³×ÀÌÅÍ Á¦³×½Ã½º','"³­ ±â°èµµ, ÀÎ°£µµ ¾Æ´Ï¾ß. ±× ÀÌ»óÀÌÁö"',125,'SF','ÇØ¿Ü','¾Æ³îµå ½´¿ĞÁ¦³×°Å','15','2015-07-02',0);
+ insert into video_c values(video_c_seq.nextval,21,'¿ì¸®Áı','"¿ì¸®ÁıÀº ÁøÂ¥ ¿Ö ÀÌ·²±î?"',15,'µå¶ó¸¶','±¹³»','±è³ª¿¬','12','2019-08-22',0);
+ insert into video_c values(video_c_seq.nextval,22,'Æ¾ ½ºÇÇ¸´','´õ ÀÌ»ó ¸Á¼³ÀÏ ¼ö ¾ø¾î ÁøÂ¥ ³ª º¸¿©ÁÙ°Ô!',93,'µå¶ó¸¶','ÇØ¿Ü','¿»¸£ ÆĞ´×','12','2019-09-04',0);
+insert into video_c values(video_c_seq.nextval,23,'1917','Á¦1Â÷ ¼¼°è´ëÀüÀÌ ÇÑÃ¢ÀÎ 1917³â.',119,'ÀüÀï','ÇØ¿Ü','Á¶Áö ¸ÆÄÉÀÌ','15','2020-02-19',0);
+insert into video_c values(video_c_seq.nextval,24,'¹Ì³ª¸®','¾î´À ÇÑ±¹ °¡Á·ÀÇ ¿ø´õÇ®ÇÑ ÀÌ¾ß±â. "¹Ì³ª¸®´Â ¾îµğ¼­µç Àß ÀÚ¶ó".',115,'µå¶ó¸¶','ÇØ¿Ü','½ºÆ¼ºì ¿¬, À±¿©Á¤','12','2021-03-03',0);
+insert into video_c values(video_c_seq.nextval,25,'Á¸À¨','±×¸¦ °Çµå¸®Áö ¸»¾Ò¾î¾ß Çß´Ù. »ó´ë¸¦ Àß¸ø °í¸¥ ÀûµéÀ» ÇâÇÑ ÅëÄèÇÑ º¹¼ö!',101,'¾×¼Ç','ÇØ¿Ü','Å°¾Æ´©¸®ºê½º','19','2015-01-21',0);
 commit;
