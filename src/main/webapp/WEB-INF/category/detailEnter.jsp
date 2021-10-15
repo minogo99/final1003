@@ -122,29 +122,33 @@ detailMovie.jsp<br><br>
 	<div class="usaGenre">
 		비슷한 영화
 	</div>
-	<c:forEach var="glist" items="${lists }" >
-				<div style="display: inline-block;">
-					<div class="else" >
-						<figure>
-							<img src="resources/images/poster/${glist.image}.jpg" class="poster_img"/>
-						</figure>
-						<h3><span class="icon all ir_pm">
-						<c:if test="${glist.grade eq 18 }">
-						<img src="resources/images/icon/18.svg" class="icon_img">
+		<c:forEach var="glist" items="${dlists }">
+		<div style="display: inline-block;">
+			<div class="else">
+				<figure>
+					<c:forEach var="clist" items="${clists }">
+						<c:if test="${glist.vnum eq clist.num}">
+							<img src="resources/images/poster/${clist.image}.jpg"
+								class="poster_img" />
 						</c:if>
-						<c:if test="${glist.grade eq 15 }">
-						<img src="resources/images/icon/15.svg" class="icon_img">
+					</c:forEach>
+				</figure>
+				<h3>
+					<span class="icon all ir_pm"> <c:if
+							test="${glist.grade eq '18' }">
+							<img src="resources/images/icon/18.svg" class="icon_img">
+						</c:if> <c:if test="${glist.grade eq '15' }">
+							<img src="resources/images/icon/15.svg" class="icon_img">
+						</c:if> <c:if test="${glist.grade eq '12' }">
+							<img src="resources/images/icon/12.svg" class="icon_img">
+						</c:if> <c:if test="${glist.grade eq 'all' }">
+							<img src="resources/images/icon/all.svg" class="icon_img">
 						</c:if>
-						<c:if test="${glist.grade eq 12 }">
-						<img src="resources/images/foster/12.svg" class="icon_img">
-						</c:if>
-						<c:if test="${glist.grade eq all }">
-						<img src="resources/images/foster/all.svg" class="icon_img">
-						</c:if>
-						</span> <strong>${glist.title }</strong></h3>
-					</div>
-				</div>
-				</c:forEach>
+					</span> <strong>${glist.title }</strong>
+				</h3>
+			</div>
+		</div>
+	</c:forEach>
 </div>
 
 <%@include file="../display/bottom.jsp" %>
