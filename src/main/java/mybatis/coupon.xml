@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="voucher.model.couponBean">
+
+<update id="couponRegister">
+update coupon set cp_id = #{cp_id},cp_regdate=sysdate where cp_number = #{cp_number}
+</update>
+
+<select id="getOneData" resultType="MyCoupon">
+select * from coupon where cp_number = #{cp_number}
+</select>
+</mapper>
