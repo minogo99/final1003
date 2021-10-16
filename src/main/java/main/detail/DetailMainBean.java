@@ -14,7 +14,6 @@ public class DetailMainBean {
 	private int series;
 	private String video;
 	private String grade;
-	
 	public int getNum() {
 		return num;
 	}

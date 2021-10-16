@@ -28,6 +28,7 @@ public class MovieListController {
 		
 		ModelAndView mav=new ModelAndView();
 		mav.addObject("lists",lists);
+		System.out.println("asdasd"+lists.size());
 		mav.setViewName(getPage);
 		return mav;
 	}

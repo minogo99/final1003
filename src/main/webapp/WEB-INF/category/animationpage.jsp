@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+amorpati.jpg<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="../display/top.jsp" %>
 <link
@@ -13,6 +13,16 @@
         position: relative;
         height: 80%;
       }
+
+      body {
+        background: black;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #000;
+        margin: 0;
+        padding: 0;
+      }
+
       .swiper {
         width: 70%;
         height: 100%;
@@ -50,9 +60,9 @@
     <!-- Swiper -->
     <div class="swiper mySwiper">
       <div class="swiper-wrapper">
-        <c:forEach var="mlist" items="${lists}">
-       	 	<div class="swiper-slide"><a href="detailmain.wa?num=${mlist.num}">
-       	 	<img src="resources/images/poster/main/${mlist.image}.jpg"></a></div>
+        <c:forEach var="vlist" items="${lists }" >
+       	 	<div class="swiper-slide"><a href="detailAni.category?num=${vlist.num }">
+       	 	<img src="resources/images/poster/drama/${vlist.image }.jpg"></a></div>
         </c:forEach>
       </div>
       <div class="swiper-button-next"></div>
@@ -82,5 +92,4 @@
       });
     </script>
   </body>
-
 <%@include file="../display/bottom.jsp" %>

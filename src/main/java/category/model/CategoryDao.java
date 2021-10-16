@@ -84,25 +84,5 @@ public class CategoryDao {
 		int cnt=sqlSessionTemplate.delete(namespace+".detailVideoDelete",num);
 		return cnt;
 	}
-
-	public CategoryBean getCategory(int num) {
-		CategoryBean cb =sqlSessionTemplate.selectOne(namespace+".selectNum",num);
-		return cb;
-	}
-
-	public int UpdateVideo(CategoryBean cb) {
-		int cnt=sqlSessionTemplate.update(namespace+".updateVideo",cb);
-		return cnt;
-	}
-
-	public CategoryBean selectNum(int num) {
-		CategoryBean cb =sqlSessionTemplate.selectOne(namespace+".selectNum",num);
-		return cb;
-	}
-
-	public int UpdateNoVideo(CategoryBean cb) {
-		int cnt=sqlSessionTemplate.update(namespace+".updateNoVideo",cb);
-		return cnt;
-	}
 	
 }
