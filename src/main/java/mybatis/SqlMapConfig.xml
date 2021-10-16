@@ -16,11 +16,7 @@
 		<typeAlias type="category.detail.DetailBean" alias="MyC_Detail"/>
 		<typeAlias type="main.model.MainBean" alias="MyMain"/>
 		<typeAlias type="main.detail.DetailMainBean" alias="MyDetailMain"/>
-		<typeAlias type="voucher.model.couponBean" alias="MyCoupon"/>
-		<typeAlias type="commodity.model.CommodityBean" alias="MyCommodity"/>
-		<typeAlias type="member.model.MemberJjimBean" alias="MyJjim"/>
-		<typeAlias type="member.model.MemberWatchBean" alias="MyWatch"/>
-		<typeAlias type="order.model.OrderBean" alias="MyOrder"/>
+		<typeAlias type="voucher.model.VoucherBean" alias="MyVoucher"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="mybatis/member.xml"/>
@@ -33,10 +29,6 @@
 		<mapper resource="mybatis/detail.xml" />
 		<mapper resource="mybatis/main.xml" />
 		<mapper resource="mybatis/maindetail.xml" />
-		<mapper resource="mybatis/coupon.xml" />
-		<mapper resource="mybatis/commodity.xml" />
-		<mapper resource="mybatis/jjim.xml" />
-		<mapper resource="mybatis/watch.xml" />
-		<mapper resource="mybatis/order.xml" />
+		<mapper resource="mybatis/voucher.xml" />
 	</mappers>
 </configuration>

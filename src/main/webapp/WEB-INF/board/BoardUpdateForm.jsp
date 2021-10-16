@@ -18,7 +18,7 @@
 <td><textarea rows="15" cols="50" name="content">${bb.content }</textarea></td>
 </tr>
 <tr>
-<td colspan="2" align="right"><input type="submit" class="btn btn-primary" value="수정"></td>
+<td colspan="2" align="right"><input type="submit" value="수정"></td>
 </tr>
 </table>
     </form>

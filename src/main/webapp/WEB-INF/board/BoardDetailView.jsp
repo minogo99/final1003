@@ -37,7 +37,7 @@ width:600px;
     </table>
     <br>
     <div align="right">
-    <input type="button" value="글목록" class="btn btn-primary" onclick="location.href='list.board'">
+    <input type="button" value="글목록" onclick="location.href='list.board'">
     </div>
     <br><br>
     </div>
@@ -47,10 +47,10 @@ width:600px;
     	<form method="post" action="replyWrite.board">
 	<input type="hidden" name="bnum" value="${bb.num}">
 			<p>
-			<textarea rows="3" cols="70" name="content" class="form-control col-sm-5"></textarea>
+			<textarea rows="3" cols="70" name="content"></textarea>
 			</p>
 			<p align="right">
-			<input type="submit" class="btn btn-primary" value="댓글입력">
+			<input type="submit" value="댓글입력">
 			</p>
 	</form>
 	</c:if>
@@ -59,10 +59,10 @@ width:600px;
 	<input type="hidden" name="bnum" value="${bb.num}">
 	<input type="hidden" name="rnum" value="${rb.rnum}">
 			<p>
-			<textarea rows="3" cols="70" name="content" class="form-control col-sm-5">${rb.content }</textarea>
+			<textarea rows="3" cols="70" name="content">${rb.content }</textarea>
 			</p>
 			<p align="right">
-			<input type="submit" class="btn btn-primary" value="댓글수정">
+			<input type="submit" value="댓글수정">
 			</p>
 	</form>
 	</c:if>

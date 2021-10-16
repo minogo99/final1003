@@ -18,6 +18,7 @@ public class DetailDao {
 	SqlSessionTemplate sqlSessionTemplate;
 	
 	public DetailBean detailVideoView(int vnum) {
+		
 		DetailBean db =sqlSessionTemplate.selectOne(namespace+".detailVideoView",vnum);
 		return db;
 	}
@@ -34,16 +35,6 @@ public class DetailDao {
 	public int detailVideoDelete(int num) {
 		int cnt=sqlSessionTemplate.delete(namespace+".detailVideoDelete",num);
 		return cnt;
-	}
-
-	public int UpdateVideo(DetailBean db) {
-		int cnt = sqlSessionTemplate.update(namespace+".updateVideo",db);
-		return cnt;
-	}
-
-	public DetailBean selectNum(int num) {
-		DetailBean db = sqlSessionTemplate.selectOne(namespace+".selectNum",num);
-		return db;
 	}
 	
 }

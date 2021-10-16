@@ -1,74 +1,27 @@
-<%@page import="java.util.Calendar"%>
-<%@page import="java.text.SimpleDateFormat"%>
-<%@page import="java.util.Date"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+payment.jsp<br><br>
 
-<script type="text/javascript">
-	function selectCard(){
-		alert("!");
-		document.getElementById("img").src="resources/images/icon/card.jpg"
-	}
+<div id="form">
+	<div id="title">
+		<h2>»óÇ° ±¸¸Å</h2>
+	</div>
+	<div id="subtitle">
+		<div >
+			<h3>°áÁ¦ ³»¿ë</h3>
+		</div>
+		<div id="name">
+			${vb.name }
+		</div>
+		<div id="content">
+			${vb.content }
+		</div>
+		<div id="day">
+			
+		</div>
+		<div id="price">
+			±İ¾× (¸Å¿ù) ${vb.price }¿ø
+		</div>
+	</div>
 	
-	function selectCash(){
-		alert("~");
-		document.getElementById("img").src="resources/images/icon/cash.jpg"
-	}
-</script>
-<style>
-	#img {
-		width: 150px;
-		height: 150px;
-		
-	}
-	div{
-		text-align: center;
-		background-color: #ddd;
-	}
-</style>
-payment.jsp<br><Br>
-<%
-	Calendar cal = Calendar.getInstance();
-	cal.add(Calendar.MONTH, 1);
-	Date nowTime = new Date();
-	Date nextTiem = new Date();
-	
-	SimpleDateFormat sf = new SimpleDateFormat("yyyyë…„ MMì›” ddì¼");
-%>
-
-<div>
-	<form action="order.voucher?cnum=${cb.num }&mnum=${loginInfo.num}" method="post">
-		<div id="top">
-			<h2>MoviePark ì´ìš©ê¶Œêµ¬ë§¤</h2>
-		</div>
-		<div id="bottom">
-			<div id="b_title">
-				ê²°ì œ ë‚´ìš©
-			</div>
-			<div id="b_name">
-				${cb.name }
-			</div>
-			<div id="b_content">
-				${cb.content }
-			</div>
-			<div id="b_date">
-				ì´ìš©ê¸°ê°„ : <%=sf.format(nowTime) %>~<%=sf.format(cal.getTime())%>
-			</div>
-			<div id="b_price">
-				ê¸ˆì•¡(ë§¤ì›”) : ${cb.price }
-			</div>
-		</div>
-		<div id="payment">
-			ê²°ì œìˆ˜ë‹¨ ì„ íƒ : 
-			<input type="radio" name="payment" value="card" onclick="selectCard()" checked="checked">ì¹´ë“œ
-			<input type="radio" name="payment" value="cash" onclick="selectCash()">í˜„ê¸ˆ
-		</div>
-		<div id="paymentimg">
-			<img id="img" src="resources/images/icon/card.jpg" >
-		</div>
-		<div>
-			<input type="submit" value="ê²°ì œ">
-			<input type="reset" value="ì·¨ì†Œ">
-		</div>
-	</form>
 </div>

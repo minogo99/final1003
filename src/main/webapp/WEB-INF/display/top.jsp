@@ -2,9 +2,7 @@
     pageEncoding="UTF-8"%>
 <link href="resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <script src="resources/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.0/font/bootstrap-icons.css">
 <style type="text/css">
-
 a{ 
 text-decoration:none;
 color: white;
@@ -75,7 +73,6 @@ function openPop(){
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div id="top">
 <div id="member">
-
 <%if(session.getAttribute("loginInfo") == null){ %>
 <a href="login.member">로그인</a>
  / <a href="sign.member">회원가입</a>
@@ -89,9 +86,10 @@ function openPop(){
     	<a href="adminMain.admin">관리자 페이지</a>
     </c:if> 
       <c:if test="${loginInfo.name ne '관리자'}" >
-    <a href="mypage.member?num=${loginInfo.num}&movie_title=${db.title}">마이페이지</a>
+    <a href="mypage.member?num=${loginInfo.num}">마이페이지</a>
      
     <a href="userupdate.member?num=${loginInfo.num}">회원 정보 수정</a>
+    <a href="#">시청기록</a>
     </c:if>
     <a href="#none" target="_blank" onclick="openPop()">알림함</a>
     <a href="logout.member">로그아웃</a>
@@ -102,7 +100,7 @@ function openPop(){
  / <a href="pay.voucher">이용권</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</div>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="main.wa"><img src="resources/images/logo.png" width="160" height="85" /></a>
+    <a class="navbar-brand" href="main.wa"><img src="resources/images/logo3.jpg" width="80" height="80" /></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -119,6 +117,7 @@ function openPop(){
           <div class="dropdown-menu">
             <a class="dropdown-item" href="movie.category">영화</a>
             <a class="dropdown-item" href="drama.category">드라마</a>
+            <a class="dropdown-item" href="animation.category">애니메이션</a>
             <a class="dropdown-item" href="entertain.category">예능</a>
           </div>
         </li>
@@ -148,5 +147,4 @@ function openPop(){
   </div>
 </nav>
 </div>
-
 <div id="middlePage">

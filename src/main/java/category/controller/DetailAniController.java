@@ -15,10 +15,9 @@ import category.model.CategoryBean;
 import category.model.CategoryDao;
 
 @Controller
-public class DetailEnterController {
-	
-	private final String command="/detailEnter.category";
-	private final String getPage="detailEnter";
+public class DetailAniController {
+	private final String command="/detailAni.category";
+	private final String getPage="detailAni";
 	
 	@Autowired
 	CategoryDao cdao;
@@ -40,6 +39,5 @@ public class DetailEnterController {
 		mav.addObject("clists",clists);
 		mav.setViewName(getPage);
 		return mav;
-		
 	}
 }

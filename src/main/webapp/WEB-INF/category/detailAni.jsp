@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-detailMovie.jsp<br><br>
+detailAni.jsp<br>
+
 <style type="text/css">
 	.poster{
    		
@@ -68,24 +69,20 @@ detailMovie.jsp<br><br>
 	</div>
 	<div class="infor">
 		<div class="infor_title">
-				${db.title }
+				${cb.title }
 				<button name="view" onclick="">시청하기</button>
 		</div>
 		<div align="right">
 			<a href="login.member"><button class="btn btn-primary">로그인</button></a>
 		</div>
-		<div>${db.genre } ${db.runningT }분 ${db.grade }세 </div>
+		<div>${cb.genre } ${cb.runningT }분 ${cb.grade }세 </div>
 		<div>
-			<hr>
 			<span id="toggle" onclick="openCloseToc()">더보기</span>
 			<div id="tContent">
 				<div class="infor_sub" >
-				<br>
-					장르 : ${db.genre }
+					장르 : ${cb.genre }
 					<br><br>
-					출연배우 : ${db.actor }
-					<br><br>
-					줄거리 : ${db.content } 
+					줄거리 : ${cb.content } 
 					
 				</div>
 			</div>

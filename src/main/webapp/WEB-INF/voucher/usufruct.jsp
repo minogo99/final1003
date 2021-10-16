@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ include file="../common/common.jsp" %>
 usufruct.jsp<br><br>
 <style type="text/css">
 	.tt{
@@ -13,15 +14,9 @@ usufruct.jsp<br><br>
 	}
 </style>
 <script type="text/javascript">
-	function readyPay(paymemt) {
-		
-		 location.href="payment.voucher?num="+paymemt;
-		 
-		 /* document.getElementById('result').innerText = 
-			    event.target.value; */
-	}
-	function paymentSet(){
-		
+	var num=$('input[name="num"]').val;
+	function readyPay(event) {
+		location.href="readyPaymemt.voucher?num="+event.target.value;
 	}
 	
 </script>
@@ -35,28 +30,27 @@ usufruct.jsp<br><br>
 
 wavve 이용권
 방송 + LIVE + wavvie영화 + 해외시리즈
-
+<form action="readyPaymemt.voucher?num=${vb.num }" method="post">
 <div class="dt">
 <table class="tt">
 	<tr bgcolor="gray" >
 		<td >
-		
-			<input type="radio" name="paymemt" value=1 <c:if test="${cb.num eq 1 }">checked</c:if>
-			 onclick="readyPay(this.value)" >
+			<input type="radio" name="num" value=1 <c:if test="${vb.num eq 1 }"> checked</c:if>
+			 onclick="readyPay(event)" >
 			Basic 동시시청 1회선,HD화질,모바일+PC 7900원<BR>
 		</td>
 	</tr>
 	<tr bgcolor="gray">
 		<td>
-			<input type="radio" name="paymemt" value=2 <c:if test="${cb.num eq 2 }">checked</c:if>
-			 onclick="readyPay(this.value)">
+			<input type="radio" name="num" value=2 <c:if test="${vb.num eq 2 }"> checked</c:if>
+			 onclick="readyPay(event)">
 			Standard 동시시청 2회선,FHD화질,전체 디바이스 10900원<BR>
 		</td>
 	</tr>
 	<tr bgcolor="gray">
 		<td>
-			<input type="radio" name="paymemt" value=3 <c:if test="${cb.num eq 3 }">checked</c:if>
-			 onclick="readyPay(this.value)">
+			<input type="radio" name="num" value="3" <c:if test="${vb.num eq 3 }"> checked</c:if>
+			onclick="readyPay(event)">
 			Premium 동시시청 4회선,최고화질,전체 디바이스 13900원
 		</td>
 	</tr>
@@ -67,44 +61,44 @@ wavve 이용권
 <table class="tt">
 	<tr bgcolor="gray">
 		<td>
-			<input type="radio" name="paymemt" value=4  <c:if test="${cb.num eq 4 }">checked</c:if>
-			onclick="readyPay(this.value)">
+			<input type="radio" name="num" value="4" <c:if test="${vb.num eq 4 }"> checked</c:if>
+			onclick="readyPay(event)">
 			Basic X FLO 무제한 동시시청 1회선,HD화질,모바일+PC 13750원<BR>
 		</td>
 	</tr>
 	<tr bgcolor="gray">
 		<td>
-			<input type="radio" name="paymemt" value=5 <c:if test="${cb.num eq 5 }">checked</c:if>
-			onclick="readyPay(this.value)">
+			<input type="radio" name="num" value="5" <c:if test="${vb.num eq 5 }"> checked</c:if>
+			onclick="readyPay(event)">
 			Standard X Bugs 듣기 동시시청 1회선,HD화질,모바일+PC 13750원<BR>
 		</td>
 	</tr>
 	<tr bgcolor="gray">
 		<td>
-			<input type="radio" name="paymemt" value=6 <c:if test="${cb.num eq 6 }">checked</c:if>
-			onclick="readyPay(this.value)">
+			<input type="radio" name="num" value="6" <c:if test="${vb.num eq 6 }"> checked</c:if>
+			onclick="readyPay(event)">
 			Premium X KB 나라사랑카드 동시시청 1회선,HD화질,모바일+PC 7900원
 		</td>
 	</tr>
 </table>
 <div> 
-	<div>
-		<div id="name">
-			${cb.name }
+	
+		<div id='readyPay'>
+			<div id="readyPayName">
+				${vb.name }
+			</div>
+			<div id="readyPayContent">
+				${vb.content }
+			</div>
+			<div id="readyPayPrice">
+				${vb.price } 원
+			</div>
 		</div>
-		<div id="content">
-			${cb.content }
-		</div>
-		<div id="price">
-			 ${cb.price }원
-		</div>
-	</div>
-	<div>
-		<input type="button" value="결제하기" onclick="location.href='paymentSet.voucher?cnum='+${cb.num}+'&mnum='+${loginInfo.num}">
-	</div>
+		<input type="submit" value="결제하기">
+	
 </div>
 </div>
-
+</form>
 <br><Br>
 
 서비스 이용 주의사항 <br>
