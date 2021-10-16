@@ -8,18 +8,55 @@
 	color: red;
 	font-weight: bold;
 }
-#updatePage{
+
+#signPage {
+	
+}
+
+#sign {
 	width: 450px;
 	height: 400px;
 	margin: 30px auto;
 }
 </style>
+<script src="resources/js/jquery.js"></script>
+<script type="text/javascript">
+	$(document).ready(
+			function() {
+				$('#idcheck').click(
+						function() {
+
+							$.ajax({
+								url : "idCheck.member",
+								type : "POST",
+								data : {
+									"userId" : $('input[name="id"]').val()
+								},
+								success : function(data) {
+									if (data == 0
+											&& $.trim($('input[name="id"]')
+													.val()) != '') {
+										alert("사용가능한 아이디 입니다.");
+
+									} else {
+										alert("사용불가능한 아이디 입니다.");
+
+									}
+								},
+								error : function() {
+									alert("에러");
+								}
+							});
+						});
+			});
+</script>
 <br>
 <%
 String[] tel1 = { "02", "064", "010" };
 request.setAttribute("tel1", tel1);
 %>
-<div id="updatePage">
+<div id="signPage">
+	<div id="sign">
 		<h3 align="center">회원정보 수정</h3>
 		<form:form commandName="memberBean" name="updateform"
 			action="userupdate.member" method="post">
@@ -76,4 +113,5 @@ request.setAttribute("tel1", tel1);
 			</div>
 		</form:form>
 	</div>
+</div>
 <%@include file="../display/bottom.jsp"%>

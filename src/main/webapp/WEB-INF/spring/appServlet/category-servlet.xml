@@ -15,6 +15,5 @@
 	</bean>
 	
 	<context:component-scan base-package="category" />
-	<context:component-scan base-package="member" />
 
 </beans>

@@ -108,7 +108,7 @@
       <div class="swiper-wrapper">
         <c:forEach var="vlist" items="${lists }" >
        	 	<div class="swiper-slide"><a href="detailDrama.category?num=${vlist.num }">
-       	 	<img src="resources/images/poster/${vlist.image }"></a></div>
+       	 	<img src="resources/images/poster/drama/${vlist.image }.jpg"></a></div>
         </c:forEach>
       </div>
       <div class="swiper-button-next"></div>

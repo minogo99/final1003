@@ -34,9 +34,9 @@ public class LoginController {
 		
 		MemberBean loginInfo = mdao.getData(bean.getId()); 
 
+		
 		PrintWriter pw = response.getWriter();
 		response.setContentType("text/html;charset=UTF-8");
-		
 		if(loginInfo == null) {
 			System.out.println("존재하지 않는 회원");
 			pw.println("<script>alert('해당 아이디가 없습니다');</script>");
